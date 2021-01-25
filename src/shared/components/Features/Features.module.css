@@ -1,0 +1,47 @@
+.wrapper {
+    padding: 0;
+
+    li {
+        list-style: none;
+        padding: 4px 0;
+
+        &:before {
+            content: '✅';
+            display: inline-block;
+            min-width: 28px;
+            text-align: center;
+        }
+
+        &.hot:before {
+            content: '🔥';
+        }
+
+        &.react:before {
+            content: '⚛';
+        }
+
+        &.webpack:before {
+            content: '📦';
+        }
+
+        &.i18n:before {
+            content: '💬';
+        }
+
+        &.rtl:before {
+            content: '🐐';
+        }
+
+        &.linter:before {
+            content: '📋';
+        }
+
+        &.jest:before {
+            content: '🃏';
+        }
+
+        &.racecar:before {
+            content: '🏎';
+        }
+    }
+}
