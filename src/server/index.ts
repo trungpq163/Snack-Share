@@ -16,6 +16,7 @@ import { i18nextXhr, refreshTranslations } from './middleware/i18n';
 
 import categoryRoute from './routes/category';
 import courseRoute from './routes/course';
+import enrollmentRoute from './routes/enrollment';
 import keys from './config/key';
 
 require('dotenv').config();
@@ -42,6 +43,7 @@ app.get('/locales/:locale/:ns.json', i18nextXhr);
 // Mount routes
 app.use('/api/', categoryRoute);
 app.use('/api/', courseRoute);
+app.use('/api/', enrollmentRoute);
 
 app.use(addStore);
 
