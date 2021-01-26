@@ -19,6 +19,8 @@ import courseRoute from './routes/course';
 import enrollmentRoute from './routes/enrollment';
 import lectureRoute from './routes/lecture';
 import profileRoute from './routes/profile';
+import roleRoute from './routes/role';
+import usersRoute from './routes/users';
 import keys from './config/key';
 
 require('dotenv').config();
@@ -48,6 +50,8 @@ app.use('/api/', courseRoute);
 app.use('/api/', enrollmentRoute);
 app.use('/api/', lectureRoute);
 app.use('/api/profile/', profileRoute);
+app.use('/api/', roleRoute);
+app.use('/api/', usersRoute);
 
 app.use(addStore);
 
