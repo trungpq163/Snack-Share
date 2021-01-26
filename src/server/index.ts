@@ -15,6 +15,7 @@ import webhookVerification from './middleware/webhookVerification';
 import { i18nextXhr, refreshTranslations } from './middleware/i18n';
 
 import categoryRoute from './routes/category';
+import courseRoute from './routes/course';
 import keys from './config/key';
 
 require('dotenv').config();
@@ -39,7 +40,8 @@ app.get('/locales/refresh', webhookVerification, refreshTranslations);
 app.get('/locales/:locale/:ns.json', i18nextXhr);
 
 // Mount routes
-app.use('/', categoryRoute);
+app.use('/api/', categoryRoute);
+app.use('/api/', courseRoute);
 
 app.use(addStore);
 
