@@ -6,7 +6,7 @@ import jwt from 'jsonwebtoken';
 import validateRegisterInput from '../validation/register';
 import validateLoginInput from '../validation/login';
 
-import User from '../models/User';
+import userModel from '../models/User';
 
 import {
     findUserByEmailService,
@@ -27,11 +27,12 @@ export const registerUsersCtrl = (req: Request, res: Response) => {
         return res.status(400).json(errors);
     }
 
-    findUserByEmailService(User, req.body.email).then((user) => {
+    findUserByEmailService(userModel, req.body.email).then((user) => {
         if (user) {
             errors.email = 'Email already exists';
             return res.status(400).json(errors);
         }
+
         // @ts-ignore
         const avatar = gravatar.url(req.body.email, {
             s: '200', // Size
@@ -39,7 +40,7 @@ export const registerUsersCtrl = (req: Request, res: Response) => {
             d: 'mm', // Default
         });
 
-        const newUser = new User({
+        const newUser = new userModel({
             first_name: req.body.first_name,
             last_name: req.body.last_name,
             email: req.body.email,
@@ -73,7 +74,7 @@ export const loginUsersCtrl = (req: Request, res: Response) => {
     const password = req.body.password;
 
     // Find user by email
-    findUserByEmailService(User, email).then((user) => {
+    findUserByEmailService(userModel, email).then((user) => {
         if (!user) {
             errors.email = 'User not found';
             return res.status(404).json(errors);
@@ -120,7 +121,7 @@ export const returnCurrentUserFromTokenCtrl = (req: Request, res: Response) => {
 };
 
 export const getUsersCtrl = (_req: Request, res: Response) => {
-    findAllUsersService(User)
+    findAllUsersService(userModel)
         .then((doc) => {
             res.setHeader('Content-Range', 'users 0-5/5');
             res.json(doc);
@@ -135,7 +136,7 @@ export const postUserCtrl = (req: Request, res: Response) => {
         return res.status(400).send('Request body is missing');
     }
 
-    const model = new User(req.body);
+    const model = new userModel(req.body);
     saveUserService(model)
         .then((doc) => {
             if (!doc || doc.length === 0) {
@@ -149,7 +150,7 @@ export const postUserCtrl = (req: Request, res: Response) => {
 };
 
 export const getUserCtrl = (req: Request, res: Response) => {
-    findUserByQueryIdService(User, req.query.id)
+    findUserByQueryIdService(userModel, req.query.id)
         .then((doc) => {
             res.json(doc);
         })
@@ -159,7 +160,7 @@ export const getUserCtrl = (req: Request, res: Response) => {
 };
 
 export const updateUserByIdCtrl = (req: Request, res: Response) => {
-    findUserAndUpdateByIdService(User, req.query.id, req.body, { new: true })
+    findUserAndUpdateByIdService(userModel, req.query.id, req.body, { new: true })
         .then((doc) => {
             res.json(doc);
         })
@@ -169,7 +170,7 @@ export const updateUserByIdCtrl = (req: Request, res: Response) => {
 };
 
 export const deleteUserByIdCtrl = (req: Request, res: Response) => {
-    findAndRemoveUserById(User, req.query.id)
+    findAndRemoveUserById(userModel, req.query.id)
         .then((doc) => {
             res.json(doc);
         })

@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import Role from '../models/Role';
+import roleModel from '../models/Role';
 
 import { addRoleService, showRolesService } from '../services/role';
 
@@ -8,7 +8,7 @@ export const addRoleCtrl = (req: Request, res: Response) => {
         return res.status(400).send('Request body is missing');
     }
 
-    const model = new Role(req.body);
+    const model = new roleModel(req.body);
     addRoleService(model)
         .then((doc) => {
             if (!doc || doc.length === 0) {
@@ -22,7 +22,7 @@ export const addRoleCtrl = (req: Request, res: Response) => {
 };
 
 export const showRolesCtrl = (_req: Request, res: Response) => {
-    showRolesService(Role)
+    showRolesService(roleModel)
         .then((doc) => {
             res.setHeader('Content-Range', 'users 0-5/5');
             res.json(doc);

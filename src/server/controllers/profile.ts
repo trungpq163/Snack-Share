@@ -4,8 +4,8 @@ import validateProfileInput from '../validation/profile';
 import validateExperienceInput from '../validation/experience';
 import validateEducationInput from '../validation/education';
 
-import Profile from '../models/Profile';
-import User from '../models/User';
+import profileModel from '../models/Profile';
+import userModel from '../models/User';
 
 import {
     getCurrentUserProfileService,
@@ -29,8 +29,8 @@ export const testProfileCtrl = (_req: Request, res: Response) => res.json({ msg:
 
 export const getCurrentUserProfileCtrl = (req: Request, res: Response) => {
     const errors: Errors = {};
-    //@ts-ignore
-    getCurrentUserProfileService(Profile, req.user.id)
+    // @ts-ignore
+    getCurrentUserProfileService(profileModel, req.user.id)
         .then((profile) => {
             if (!profile) {
                 errors.noprofile = 'There is no profile for this user';
@@ -44,7 +44,7 @@ export const getCurrentUserProfileCtrl = (req: Request, res: Response) => {
 export const getAllProfilesCtrl = (_req: Request, res: Response) => {
     const errors: Errors = {};
 
-    getAllProfilesService(Profile)
+    getAllProfilesService(profileModel)
         .then((profiles) => {
             if (!profiles) {
                 errors.noprofile = 'There are no profiles';
@@ -62,7 +62,7 @@ export const getAllProfilesCtrl = (_req: Request, res: Response) => {
 
 export const getProfileByHandleCtrl = (req: Request, res: Response) => {
     const errors: Errors = {};
-    getProfileByHandleService(Profile, req.params.handle)
+    getProfileByHandleService(profileModel, req.params.handle)
         .then((profile) => {
             if (!profile) {
                 errors.noprofile = 'There is no profile for this user';
@@ -76,7 +76,7 @@ export const getProfileByHandleCtrl = (req: Request, res: Response) => {
 export const getProfileByUserIdCtrl = (req: Request, res: Response) => {
     const errors: Errors = {};
 
-    getProfileByUserIdService(Profile, req.params.user_id)
+    getProfileByUserIdService(profileModel, req.params.user_id)
         .then((profile) => {
             if (!profile) {
                 errors.noprofile = 'There is no profile for this user';
@@ -102,7 +102,7 @@ export const createOrEditUserProfileCtrl = (req: Request, res: Response) => {
 
     // Get fields
     const profileFields: any = {};
-    //@ts-ignore
+    // @ts-ignore
     profileFields.user = req.user.id;
     if (req.body.handle) {
         profileFields.handle = req.body.handle;
@@ -160,22 +160,24 @@ export const createOrEditUserProfileCtrl = (req: Request, res: Response) => {
     }
 
     // @ts-ignore
-    findProfileByUserIdService(Profile, req.user.id).then((profile) => {
+    findProfileByUserIdService(profileModel, req.user.id).then((profile) => {
         if (profile) {
             // @ts-ignore
-            updateProfileByUserIdService(Profile, req.user.id, profileFields).then((profile) =>
+            updateProfileByUserIdService(profileModel, req.user.id, profileFields).then((profile) =>
                 res.json(profile)
             );
         } else {
             // Create and Check if handle exists
-            checkIfHandleExistsService(Profile, profileFields.handle).then((profile) => {
+            checkIfHandleExistsService(profileModel, profileFields.handle).then((profile) => {
                 if (profile) {
                     errors.handle = 'That handle already exists';
                     res.status(400).json(errors);
                 }
 
                 // Save Profile
-                saveProfileService(new Profile(profileFields)).then((profile) => res.json(profile));
+                saveProfileService(new profileModel(profileFields)).then((profile) =>
+                    res.json(profile)
+                );
             });
         }
     });
@@ -191,7 +193,7 @@ export const addExperienceToProfileCtrl = (req: Request, res: Response) => {
     }
 
     // @ts-ignore
-    findProfileByReqUserIdService(Profile, req.user.id).then((profile) => {
+    findProfileByReqUserIdService(profileModel, req.user.id).then((profile) => {
         const newExp = {
             title: req.body.title,
             company: req.body.company,
@@ -219,7 +221,7 @@ export const addEducationToProfileCtrl = (req: Request, res: Response) => {
     }
 
     // @ts-ignore
-    findProfileByReqUserIdService(Profile, req.user.id).then((profile) => {
+    findProfileByReqUserIdService(profileModel, req.user.id).then((profile) => {
         const newEdu = {
             school: req.body.school,
             degree: req.body.degree,
@@ -238,7 +240,7 @@ export const addEducationToProfileCtrl = (req: Request, res: Response) => {
 
 export const deleteExperienceFromProfileCtrl = (req: Request, res: Response) => {
     // @ts-ignore
-    findProfileByReqUserIdService(Profile, req.user.id)
+    findProfileByReqUserIdService(profileModel, req.user.id)
         .then((profile) => {
             // Get remove index
             const removeIndex = profile.experience
@@ -256,7 +258,7 @@ export const deleteExperienceFromProfileCtrl = (req: Request, res: Response) => 
 
 export const deleteEducationFromProfileCtrl = (req: Request, res: Response) => {
     // @ts-ignore
-    findProfileByReqUserIdService(Profile, req.user.id)
+    findProfileByReqUserIdService(profileModel, req.user.id)
         .then((profile) => {
             // Get remove index
             const removeIndex = profile.education
@@ -274,9 +276,9 @@ export const deleteEducationFromProfileCtrl = (req: Request, res: Response) => {
 
 export const deleteUserFromUserIdCtrl = (req: Request, res: Response) => {
     // @ts-ignore
-    findOneAndRemoveProfileService(Profile, req.user.id).then(() => {
+    findOneAndRemoveProfileService(profileModel, req.user.id).then(() => {
         // @ts-ignore
-        findOneAndRemoveUserService(User, req.user.id).then(() => {
+        findOneAndRemoveUserService(userModel, req.user.id).then(() => {
             res.json({ success: true });
         });
     });
