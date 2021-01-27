@@ -12,14 +12,6 @@ export default (passport: any) => {
     passport.use(
         // eslint-disable-next-line camelcase
         new Strategy(opts, (jwt_payload: any, done: any) => {
-            // User.findById(jwt_payload.id)
-            //     .then((user: any) => {
-            //         if (user) {
-            //             return done(null, user);
-            //         }
-            //         return done(null, false);
-            //     })
-            //     .catch((err: any) => console.log(err));
             findUserByIdService(userModel, jwt_payload.id)
                 .then((user) => {
                     if (user) {

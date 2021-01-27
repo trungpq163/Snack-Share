@@ -1,4 +1,5 @@
 import express, { Router } from 'express';
+import passport from 'passport';
 
 import {
     addEducationToProfileCtrl,
@@ -13,8 +14,6 @@ import {
     getProfileByUserIdCtrl,
     testProfileCtrl,
 } from '../controllers/profile';
-
-import { hasAuthorization } from '../middleware/checkAuth';
 
 const router: Router = express.Router();
 
@@ -45,9 +44,9 @@ router.route('/test').get(testProfileCtrl);
 
 router
     .route('/')
-    .get(hasAuthorization, getCurrentUserProfileCtrl)
-    .post(hasAuthorization, createOrEditUserProfileCtrl)
-    .delete(hasAuthorization, deleteUserFromUserIdCtrl);
+    .get(passport.authenticate('jwt', { session: false }), getCurrentUserProfileCtrl)
+    .post(passport.authenticate('jwt', { session: false }), createOrEditUserProfileCtrl)
+    .delete(passport.authenticate('jwt', { session: false }), deleteUserFromUserIdCtrl);
 
 /**
  * @route GET api/profile/all
@@ -75,27 +74,35 @@ router.route('/user/:user_id').get(getProfileByUserIdCtrl);
  * @desc Add experience to profile
  * @access Private
  */
-router.route('/experience').post(hasAuthorization, addExperienceToProfileCtrl);
+router
+    .route('/experience')
+    .post(passport.authenticate('jwt', { session: false }), addExperienceToProfileCtrl);
 
 /**
  * @route POST api/profile/education
  * @desc Add education to profile
  * @access Private
  */
-router.route('/education').post(hasAuthorization, addEducationToProfileCtrl);
+router
+    .route('/education')
+    .post(passport.authenticate('jwt', { session: false }), addEducationToProfileCtrl);
 
 /**
  * @route DELETE api/profile/experience/:exp_id
  * @desc Delete experience from profile
  * @access Private
  */
-router.route('/experience/:exp_id').delete(hasAuthorization, deleteExperienceFromProfileCtrl);
+router
+    .route('/experience/:exp_id')
+    .delete(passport.authenticate('jwt', { session: false }), deleteExperienceFromProfileCtrl);
 
 /**
  * @route DELETE api/profile/education/:edu_id
  * @desc Delete education from profile
  * @access Private
  */
-router.route('/education/:edu_id').delete(hasAuthorization, deleteEducationFromProfileCtrl);
+router
+    .route('/education/:edu_id')
+    .delete(passport.authenticate('jwt', { session: false }), deleteEducationFromProfileCtrl);
 
 export default router;

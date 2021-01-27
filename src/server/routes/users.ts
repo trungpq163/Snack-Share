@@ -1,4 +1,5 @@
 import express, { Router } from 'express';
+import passport from 'passport';
 
 import {
     deleteUserByIdCtrl,
@@ -10,8 +11,6 @@ import {
     returnCurrentUserFromTokenCtrl,
     updateUserByIdCtrl,
 } from '../controllers/users';
-
-import { hasAuthorization } from '../middleware/checkAuth';
 
 const router: Router = express.Router();
 
@@ -34,7 +33,9 @@ router.route('/users/login').post(loginUsersCtrl);
  * @desc Return/Retrieve the current user from the token
  * @access Private
  */
-router.route('/current').get(hasAuthorization, returnCurrentUserFromTokenCtrl);
+router
+    .route('/current')
+    .get(passport.authenticate('jwt', { session: false }), returnCurrentUserFromTokenCtrl);
 
 /**
  * @route GET api/users

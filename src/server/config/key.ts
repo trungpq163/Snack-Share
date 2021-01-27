@@ -1,3 +1,4 @@
+// snackdev
 export default {
     MONGODB_URI:
         process.env.MONGODB_URI ||
@@ -6,6 +7,6 @@ export default {
             (process.env.IP || 'localhost') +
             ':' +
             (process.env.MONGO_PORT || '27017') +
-            '/snackdev',
+            '/quoctrung163',
     SECRET_ORKEY: 'secret',
 };
