@@ -2,42 +2,42 @@
 
 ### Creates a new build, optimized for production
 ``` 
-    -> yarn build
+yarn build
 ```
 
 ### Run all tests using jest
 ```
-    -> yarn test 
+yarn test 
 ```
 
 ### Update all Jest snapshots (if there are any)
 ```
-    -> yarn test:update
+yarn test:update
 ```
 
 ### Run ESLint for all JavaScript and TypeScript files
 ```
-    -> yarn lint:js
+yarn lint:js
 ```
 
 ### Run Stylelint for all CSS files
 ```
-    -> yarn lint:css
+yarn lint:css
 ```
 
 ### Run lint:js and lint:css in parallel
 ```
-    -> yarn analyze
+yarn analyze
 ```
 
 ### Creates an image of your dependency graph. Requires GraphVIZ to be in your system's PATH
 ```
-    -> yarn depgraph
+yarn depgraph
 ```
 
 ### Run plop to create new React components or Redux reducers via CLI
 ```
-    -> yarn plop
+yarn plop
 ```
 
 ### Environment Variables
