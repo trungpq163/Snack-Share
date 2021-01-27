@@ -6,6 +6,7 @@ import chalk from 'chalk';
 import manifestHelpers from 'express-manifest-helpers';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
+import fileUpload from 'express-fileupload';
 import paths from '../../config/paths';
 // import { configureStore } from '../shared/store';
 import errorHandler from './middleware/errorHandler';
@@ -33,6 +34,8 @@ const app = express();
 // if (process.env.NODE_ENV === 'development') {
 app.use(paths.publicPath, express.static(path.join(paths.clientBuild, paths.publicPath)));
 // }
+
+app.use(fileUpload());
 
 app.use(cors());
 app.options('*', cors());
