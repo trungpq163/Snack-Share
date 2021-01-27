@@ -37,13 +37,16 @@ app.use(paths.publicPath, express.static(path.join(paths.clientBuild, paths.publ
 app.use(cors());
 app.options('*', cors());
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// BodyParser
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true, parameterLimit: 1000000 }));
 
 app.get('/locales/refresh', webhookVerification, refreshTranslations);
 
 // It's probably a good idea to serve these static assets with Nginx or Apache as well:
 app.get('/locales/:locale/:ns.json', i18nextXhr);
+
+app.get('/', (_req, res) => res.send('Hello World'));
 
 // Mount routes
 app.use(categoryRoute);
