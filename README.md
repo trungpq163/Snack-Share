@@ -1,30 +1,46 @@
-# Snack DEV
+## Snack DEV
 
-## Creates a new build, optimized for production
--> yarn build
+### Creates a new build, optimized for production
+``` 
+    -> yarn build
+```
 
-## Run all tests using jest
--> yarn test 
+### Run all tests using jest
+```
+    -> yarn test 
+```
 
-## Update all Jest snapshots (if there are any)
--> yarn test:update
+### Update all Jest snapshots (if there are any)
+```
+    -> yarn test:update
+```
 
-## Run ESLint for all JavaScript and TypeScript files
--> yarn lint:js
+### Run ESLint for all JavaScript and TypeScript files
+```
+    -> yarn lint:js
+```
 
-## Run Stylelint for all CSS files
--> yarn lint:css
+### Run Stylelint for all CSS files
+```
+    -> yarn lint:css
+```
 
-## Run lint:js and lint:css in parallel
--> yarn analyze
+### Run lint:js and lint:css in parallel
+```
+    -> yarn analyze
+```
 
-## Creates an image of your dependency graph. Requires GraphVIZ to be in your system's PATH
--> yarn depgraph
+### Creates an image of your dependency graph. Requires GraphVIZ to be in your system's PATH
+```
+    -> yarn depgraph
+```
 
-## Run plop to create new React components or Redux reducers via CLI
--> yarn plop
+### Run plop to create new React components or Redux reducers via CLI
+```
+    -> yarn plop
+```
 
-## Environment Variables
+### Environment Variables
 
 There are a few environment variables you can set to adjust the setup to your needs
 
