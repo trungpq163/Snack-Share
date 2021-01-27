@@ -1,8 +1,7 @@
 import { Strategy, ExtractJwt } from 'passport-jwt';
-import * as mongoose from 'mongoose';
+import userModel from '../models/User';
+import { findUserByIdService } from '../services/passport';
 import keys from './key';
-
-const User = mongoose.model('users');
 
 const opts: any = {};
 
@@ -13,14 +12,22 @@ export default (passport: any) => {
     passport.use(
         // eslint-disable-next-line camelcase
         new Strategy(opts, (jwt_payload: any, done: any) => {
-            User.findById(jwt_payload.id)
-                .then((user: any) => {
+            // User.findById(jwt_payload.id)
+            //     .then((user: any) => {
+            //         if (user) {
+            //             return done(null, user);
+            //         }
+            //         return done(null, false);
+            //     })
+            //     .catch((err: any) => console.log(err));
+            findUserByIdService(userModel, jwt_payload.id)
+                .then((user) => {
                     if (user) {
                         return done(null, user);
                     }
                     return done(null, false);
                 })
-                .catch((err: any) => console.log(err));
+                .catch((err) => console.log(err));
         })
     );
 };

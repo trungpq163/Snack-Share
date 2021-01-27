@@ -7,6 +7,7 @@ import manifestHelpers from 'express-manifest-helpers';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import fileUpload from 'express-fileupload';
+import passport from 'passport';
 import paths from '../../config/paths';
 // import { configureStore } from '../shared/store';
 import errorHandler from './middleware/errorHandler';
@@ -14,6 +15,7 @@ import serverRenderer from './middleware/serverRenderer';
 import addStore from './middleware/addStore';
 import webhookVerification from './middleware/webhookVerification';
 import { i18nextXhr, refreshTranslations } from './middleware/i18n';
+import passportConfig from './config/passport';
 
 import categoryRoute from './routes/category';
 import courseRoute from './routes/course';
@@ -27,6 +29,14 @@ import keys from './config/key';
 require('dotenv').config();
 
 const app = express();
+
+// Passport middleware
+// @ts-ignore
+passport.use(passport.initialize());
+
+// Passport config will in
+passportConfig(passport);
+
 // const app = express.default();
 
 // Use Nginx or Apache to serve static assets in production or remove the if() around the following
