@@ -35,6 +35,7 @@ app.use(paths.publicPath, express.static(path.join(paths.clientBuild, paths.publ
 // }
 
 app.use(cors());
+app.options('*', cors());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -45,13 +46,13 @@ app.get('/locales/refresh', webhookVerification, refreshTranslations);
 app.get('/locales/:locale/:ns.json', i18nextXhr);
 
 // Mount routes
-app.use('/api/', categoryRoute);
-app.use('/api/', courseRoute);
-app.use('/api/', enrollmentRoute);
-app.use('/api/', lectureRoute);
+app.use(categoryRoute);
+app.use(courseRoute);
+app.use(enrollmentRoute);
+app.use(lectureRoute);
 app.use('/api/profile/', profileRoute);
-app.use('/api/', roleRoute);
-app.use('/api/', usersRoute);
+app.use(roleRoute);
+app.use(usersRoute);
 
 app.use(addStore);
 
