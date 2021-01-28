@@ -8,8 +8,10 @@ import { ReactComponent as ReactLogo } from './assets/react.svg';
 import Home from './pages/Home';
 import Page1 from './pages/Page-1';
 import Page2 from './pages/Page-2';
+import Header from './components/Header/Header';
 import routes from './routes';
 import css from './App.module.css';
+import './styles/sass/main.scss';
 
 // Does not yet work with server side rendering:
 // const Home = React.lazy(() => import('./pages/Home'));
@@ -26,10 +28,7 @@ const App: React.FC<any> = () => {
                 titleTemplate="%s – React SSR Starter – TypeScript Edition"
                 link={[{ rel: 'icon', type: 'image/png', href: favicon }]}
             />
-            <h1>
-                <ReactLogo className={css.reactLogo} /> React + Express – SSR Starter – TypeScript
-                Edition
-            </h1>
+            <Header />
             <Switch>
                 <Route exact path={routes.home} component={Home} />
                 <Route exact path={routes.page1} component={Page1} />

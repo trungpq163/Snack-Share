@@ -59,7 +59,7 @@ app.get('/locales/refresh', webhookVerification, refreshTranslations);
 // It's probably a good idea to serve these static assets with Nginx or Apache as well:
 app.get('/locales/:locale/:ns.json', i18nextXhr);
 
-app.get('/', (_req, res) => res.send('Hello World'));
+app.get('/helloworld', (_req, res) => res.send('Hello World'));
 
 // Mount routes
 app.use(categoryRoute);
