@@ -1,17 +1,17 @@
 import * as React from 'react';
-import './Login.Styles.css';
+import '../../styles/Form.Styles.css';
 
 const Login = () => {
     return (
-        <div className="signup">
-            <img src="https://imgur.com/aILP3CD.png" alt="login" className="signup-image" />
-            <div className="signup-container">
+        <div className="signup-signin">
+            <img src="https://imgur.com/aILP3CD.png" alt="login" className="signup-signin-image" />
+            <div className="signup-signin-container">
                 <div className="tab">
                     <div className="tab-item">Sign up</div>
                     <div className="tab-item is-active">Sign in</div>
                 </div>
-                <h1 className="signup-heading">Sign in</h1>
-                <form action="" className="signup-form" autoComplete="off">
+                <h1 className="signup-signin-heading">Sign in</h1>
+                <form action="" className="signup-signin-form" autoComplete="off">
                     <div className="form-group">
                         <label htmlFor="name" className="form-label">
                             Full name
@@ -64,9 +64,9 @@ const Login = () => {
                             name="re-password"
                         />
                     </div>
-                    <div className="form-group signup-term">
+                    <div className="form-group signup-signin-term">
                         By clicking you agree with our{' '}
-                        <a href="#" className="signup-term-link">
+                        <a href="#" className="signup-signin-term-link">
                             Term of use.
                         </a>
                     </div>
