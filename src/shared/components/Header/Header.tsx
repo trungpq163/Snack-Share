@@ -52,7 +52,7 @@ const Header = () => {
                     <Link to="/">
                         <span className="filter-item active">Home</span>
                     </Link>
-                    <Link to="/student/login">
+                    <Link to="/login/users">
                         <span className="filter-item">Login</span>
                     </Link>
                     <span className="filter-item">Teach On SnackDev</span>
