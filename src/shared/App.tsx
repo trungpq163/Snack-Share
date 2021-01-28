@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import Page1 from './pages/Page-1';
 import Page2 from './pages/Page-2';
 import Login from './pages/Login/Login';
+import Register from './pages/Register/Register';
 import Header from './components/Header/Header';
 import routes from './routes';
 import css from './App.module.css';
@@ -34,6 +35,7 @@ const App: React.FC<any> = () => {
                 <Route exact path={routes.page1} component={Page1} />
                 <Route exact path={routes.page2} component={Page2} />
                 <Route exact path={routes.login} component={Login} />
+                <Route exact path={routes.register} component={Register} />
                 <Route render={() => '404!'} />
             </Switch>
             <h2>{t('router-headline')}</h2>

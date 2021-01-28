@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import '../../styles/Form.Styles.css';
 
 const Login = () => {
@@ -12,19 +13,6 @@ const Login = () => {
                 </div>
                 <h1 className="signup-signin-heading">Sign in</h1>
                 <form action="" className="signup-signin-form" autoComplete="off">
-                    <div className="form-group">
-                        <label htmlFor="name" className="form-label">
-                            Full name
-                        </label>
-                        <input
-                            type="text"
-                            id="name"
-                            className="form-input"
-                            placeholder="Ex: John Doe"
-                            required
-                            name="name"
-                        />
-                    </div>
                     <div className="form-group">
                         <label htmlFor="email" className="form-label">
                             Email
@@ -51,24 +39,11 @@ const Login = () => {
                             name="password"
                         />
                     </div>
-                    <div className="form-group">
-                        <label htmlFor="re-password" className="form-label">
-                            Repeat password
-                        </label>
-                        <input
-                            type="password"
-                            id="re-password"
-                            className="form-input"
-                            placeholder="************"
-                            required
-                            name="re-password"
-                        />
-                    </div>
                     <div className="form-group signup-signin-term">
-                        By clicking you agree with our{' '}
-                        <a href="#" className="signup-signin-term-link">
-                            Term of use.
-                        </a>
+                        Don’t have an account?{' '}
+                        <Link className="signup-signin-term-link" to="/register/users">
+                            Sign up
+                        </Link>
                     </div>
                     <button type="submit" className="btn btn--gradient">
                         Sign in
