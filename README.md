@@ -20,7 +20,7 @@ yarn test:update
 yarn lint:js
 ```
 
-### Run Stylelint for all CSS files
+### Run Style lint for all CSS files
 ```
 yarn lint:css
 ```
