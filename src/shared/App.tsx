@@ -4,7 +4,6 @@ import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { Link, Route, Switch } from 'react-router-dom';
 import favicon from '../shared/assets/favicon.png';
-import { ReactComponent as ReactLogo } from './assets/react.svg';
 import Home from './pages/Home';
 import Page1 from './pages/Page-1';
 import Page2 from './pages/Page-2';
