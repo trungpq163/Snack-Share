@@ -7,7 +7,8 @@ export const registerUser = (
     role: string,
     doneCb: Function,
     errorCb: Function,
-    clearInput: Function
+    clearInput: Function,
+    redirectWhenSuccess: Function
 ) => {
     return function (_dispatch: Dispatch<Action>) {
         // eslint-disable-next-line prefer-const
@@ -24,6 +25,7 @@ export const registerUser = (
             .then(() => {
                 clearInput();
                 doneCb('Register successfully! Thank You <3');
+                redirectWhenSuccess();
             })
             .catch((err) => {
                 clearInput();
