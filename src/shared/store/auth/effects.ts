@@ -1,8 +1,9 @@
 import { Dispatch } from 'redux';
 import axios, { AxiosRequestConfig } from 'axios';
+import jwtDecode from 'jwt-decode';
 import setAuthToken from 'utils/setAuthToken';
 import { setCurrentUser } from '../auth/action';
-import { Action } from './types';
+import { Action, Auth } from './types';
 
 export const dispatchSetCurrentUser = (data: any) => (dispatch: Dispatch<Action>) => {
     dispatch(setCurrentUser(data));
@@ -44,6 +45,41 @@ export const registerUser = (
                 );
             });
     };
+};
+
+export const loginUser = (
+    data: any,
+    role: string,
+    errorCb: Function,
+    clearInput: Function,
+    redirectWhenSuccess: Function
+) => (dispatch: Dispatch<Action>) => {
+    // eslint-disable-next-line prefer-const
+    let config: AxiosRequestConfig = {
+        method: 'post',
+        url: `/${role}/login`,
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        data: data,
+    };
+
+    axios(config)
+        .then((res) => {
+            const { token } = res.data;
+            localStorage.setItem('jwtToken', token);
+            setAuthToken(token);
+            // Decode token to get user data
+            const decoded = jwtDecode(token);
+            // Set current user
+            dispatch(setCurrentUser(decoded as Auth));
+            clearInput();
+            redirectWhenSuccess();
+        })
+        .catch((err) => {
+            clearInput();
+            errorCb(err.response.data.email || err.response.data.password);
+        });
 };
 
 export const logoutUser = () => (dispatch: Dispatch<Action>) => {
