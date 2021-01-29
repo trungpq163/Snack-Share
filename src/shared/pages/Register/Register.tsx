@@ -56,7 +56,15 @@ const Register = ({ match }: any) => {
                 JSON.stringify(user),
                 roleParams,
                 (message: string) => toast(message),
-                (err: any) => toast(err)
+                (err: any) => toast(err),
+                () =>
+                    setValues({
+                        first_name: '',
+                        last_name: '',
+                        email: '',
+                        password: '',
+                        password2: '',
+                    })
             )
         );
     };
