@@ -1,9 +1,8 @@
 import { Dispatch } from 'redux';
 import axios, { AxiosRequestConfig } from 'axios';
-// import { getErrors } from '../errors/action';
 import { Action } from './types';
 
-export const registerUser = (data: any, role: string, cb: Function) => {
+export const registerUser = (data: any, role: string, doneCb: Function, errorCb: Function) => {
     return function (_dispatch: Dispatch<Action>) {
         // eslint-disable-next-line prefer-const
         let config: AxiosRequestConfig = {
@@ -15,13 +14,8 @@ export const registerUser = (data: any, role: string, cb: Function) => {
             data: data,
         };
 
-        axios(config).catch((err) => {
-            // dispatch(
-            //     getErrors({
-            //         errors: err.response.data.email,
-            //     })
-            // );
-            cb(err.response.data.email);
-        });
+        axios(config)
+            .then(() => doneCb('Register successfully! Thank You <3'))
+            .catch((err) => errorCb(err.response.data.email));
     };
 };

@@ -1,11 +1,10 @@
-import React, { FormEvent, useEffect, useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { ToastContainer, toast } from 'react-toastify';
 
 import { registerUser } from '../../store/auth/effects';
-// import { getErrors } from '../../store/errors/selectors';
 
 import '../../styles/Form.Styles.css';
 import 'react-toastify/dist/ReactToastify.css';
@@ -24,7 +23,6 @@ interface User {
 const Register = ({ match }: any) => {
     const dispatch = useDispatch();
     const roleParams = match.params.role;
-    // const errors: any = useSelector(getErrors);
 
     const [values, setValues] = useState({
         first_name: '',
@@ -33,8 +31,6 @@ const Register = ({ match }: any) => {
         password: '',
         password2: '',
     });
-
-    // const [err, setErr] = useState('');
 
     const handleChange = (name: any) => (event: any) => {
         setValues({
@@ -56,29 +52,14 @@ const Register = ({ match }: any) => {
         };
 
         dispatch(
-            registerUser(JSON.stringify(user), roleParams, (err: any) => {
-                console.log(err);
-                if (err === '' || err === undefined || err === null) {
-                    return toast('Register successfully! Thank you <3');
-                }
-                return toast(err);
-            })
+            registerUser(
+                JSON.stringify(user),
+                roleParams,
+                (message: string) => toast(message),
+                (err: any) => toast(err)
+            )
         );
     };
-
-    // useEffect(() => {
-    //     if (JSON.stringify(errors) !== JSON.stringify({})) {
-    //         setErr(errors);
-    //     }
-    // }, [errors]);
-
-    // const notify = () => {
-    //     if (err !== '') {
-    //         return toast(err);
-    //     }
-
-    //     return toast('Register successfully! Thank you');
-    // };
 
     return (
         <div className="signup-signin">
