@@ -1,8 +1,85 @@
-import * as React from 'react';
+import React, { FormEvent, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../../styles/Form.Styles.css';
+import { useDispatch, useSelector } from 'react-redux';
 
-const Register = () => {
+import { ToastContainer, toast } from 'react-toastify';
+
+import { registerUser } from '../../store/auth/effects';
+// import { getErrors } from '../../store/errors/selectors';
+
+import '../../styles/Form.Styles.css';
+import 'react-toastify/dist/ReactToastify.css';
+
+interface User {
+    // eslint-disable-next-line camelcase
+    first_name: string;
+    // eslint-disable-next-line camelcase
+    last_name: string;
+    email: string;
+    password: string;
+    password2: string;
+    role?: string;
+}
+
+const Register = ({ match }: any) => {
+    const dispatch = useDispatch();
+    const roleParams = match.params.role;
+    // const errors: any = useSelector(getErrors);
+
+    const [values, setValues] = useState({
+        first_name: '',
+        last_name: '',
+        email: '',
+        password: '',
+        password2: '',
+    });
+
+    // const [err, setErr] = useState('');
+
+    const handleChange = (name: any) => (event: any) => {
+        setValues({
+            ...values,
+            [name]: event.target.value,
+        });
+    };
+
+    const clickSubmit = (e: FormEvent) => {
+        e.preventDefault();
+
+        const user: User = {
+            first_name: values.first_name || '',
+            last_name: values.last_name || '',
+            email: values.email || '',
+            password: values.password || '',
+            password2: values.password2 || '',
+            role: roleParams || '',
+        };
+
+        dispatch(
+            registerUser(JSON.stringify(user), roleParams, (err: any) => {
+                console.log(err);
+                if (err === '' || err === undefined || err === null) {
+                    return toast('Register successfully! Thank you <3');
+                }
+                return toast(err);
+            })
+        );
+    };
+
+    // useEffect(() => {
+    //     if (JSON.stringify(errors) !== JSON.stringify({})) {
+    //         setErr(errors);
+    //     }
+    // }, [errors]);
+
+    // const notify = () => {
+    //     if (err !== '') {
+    //         return toast(err);
+    //     }
+
+    //     return toast('Register successfully! Thank you');
+    // };
+
     return (
         <div className="signup-signin">
             <img src="https://imgur.com/aILP3CD.png" alt="login" className="signup-signin-image" />
@@ -12,18 +89,40 @@ const Register = () => {
                     <div className="tab-item">Sign in</div>
                 </div>
                 <h1 className="signup-signin-heading">Sign up</h1>
-                <form action="" className="signup-signin-form" autoComplete="off">
+                <form
+                    action="post"
+                    className="signup-signin-form"
+                    autoComplete="off"
+                    onSubmit={clickSubmit}
+                >
                     <div className="form-group">
-                        <label htmlFor="name" className="form-label">
-                            Full name
+                        <label htmlFor="firstName" className="form-label">
+                            First name
                         </label>
                         <input
                             type="text"
-                            id="name"
+                            id="firstName"
                             className="form-input"
-                            placeholder="Ex: John Doe"
+                            placeholder="Ex: Trung"
+                            value={values.first_name}
+                            onChange={handleChange('first_name')}
                             required
-                            name="name"
+                            name="firstName"
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="lastName" className="form-label">
+                            Last name
+                        </label>
+                        <input
+                            type="text"
+                            id="lastName"
+                            className="form-input"
+                            placeholder="Ex: Phan"
+                            value={values.last_name}
+                            onChange={handleChange('last_name')}
+                            required
+                            name="lastName"
                         />
                     </div>
                     <div className="form-group">
@@ -34,7 +133,9 @@ const Register = () => {
                             type="email"
                             id="email"
                             className="form-input"
-                            placeholder="Ex: johndoe@email.com"
+                            placeholder="Ex: trungphan@email.com"
+                            value={values.email}
+                            onChange={handleChange('email')}
                             required
                             name="email"
                         />
@@ -48,6 +149,8 @@ const Register = () => {
                             id="password"
                             className="form-input"
                             placeholder="************"
+                            value={values.password}
+                            onChange={handleChange('password')}
                             required
                             name="password"
                         />
@@ -61,6 +164,8 @@ const Register = () => {
                             id="re-password"
                             className="form-input"
                             placeholder="************"
+                            value={values.password2}
+                            onChange={handleChange('password2')}
                             required
                             name="re-password"
                         />
@@ -75,6 +180,7 @@ const Register = () => {
                         Sign up
                     </button>
                 </form>
+                <ToastContainer />
             </div>
         </div>
     );

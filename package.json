@@ -59,6 +59,7 @@
         "react-redux": "^7.2.0",
         "react-router": "^5.2.0",
         "react-router-dom": "^5.2.0",
+        "react-toastify": "^7.0.2",
         "redux": "^4.0.5",
         "redux-thunk": "^2.3.0",
         "reselect": "^4.0.0",
@@ -206,5 +207,6 @@
     },
     "resolutions": {
         "caniuse-lite": "^1.0.30001055"
-    }
+    },
+    "proxy": "http://localhost:8500"
 }

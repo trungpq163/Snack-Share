@@ -4,7 +4,7 @@ const routes = {
     page1: '/page-1',
     page2: '/page-2',
     login: '/login/users',
-    register: '/register/users',
+    register: '/register/:role',
 };
 
 export const getRoute = (
