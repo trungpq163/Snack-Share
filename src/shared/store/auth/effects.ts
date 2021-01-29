@@ -1,6 +1,12 @@
 import { Dispatch } from 'redux';
 import axios, { AxiosRequestConfig } from 'axios';
+import setAuthToken from 'utils/setAuthToken';
+import { setCurrentUser } from '../auth/action';
 import { Action } from './types';
+
+export const dispatchSetCurrentUser = (data: any) => (dispatch: Dispatch<Action>) => {
+    dispatch(setCurrentUser(data));
+};
 
 export const registerUser = (
     data: any,
@@ -38,4 +44,13 @@ export const registerUser = (
                 );
             });
     };
+};
+
+export const logoutUser = () => (dispatch: Dispatch<Action>) => {
+    // Remove token from localStorage
+    localStorage.removeItem('jwtToken');
+    // Remove auth header from future requests
+    setAuthToken(false);
+    // Set current user to {} which will
+    dispatch(setCurrentUser({} as any));
 };

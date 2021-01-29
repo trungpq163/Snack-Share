@@ -47,6 +47,7 @@
         "i18next": "^19.5.5",
         "i18next-xhr-backend": "^3.2.2",
         "immer": "^7.0.5",
+        "jwt-decode": "^3.1.2",
         "mkdirp": "^1.0.4",
         "mongoose": "^5.11.13",
         "multer": "^1.4.2",
