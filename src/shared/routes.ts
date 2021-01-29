@@ -3,7 +3,7 @@ const routes = {
     home: '/',
     page1: '/page-1',
     page2: '/page-2',
-    login: '/login/users',
+    login: '/login/:role',
     register: '/register/:role',
 };
 

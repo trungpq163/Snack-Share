@@ -1,15 +1,24 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+
+import { LinkCustom, LinkCustomActive } from '../../styles/LinkCustom.Styles';
+
 import '../../styles/Form.Styles.css';
 
-const Login = () => {
+const Login = ({ match }: any) => {
+    const roleParams = match.params.role;
+
     return (
         <div className="signup-signin">
             <img src="https://imgur.com/aILP3CD.png" alt="login" className="signup-signin-image" />
             <div className="signup-signin-container">
                 <div className="tab">
-                    <div className="tab-item">Sign up</div>
-                    <div className="tab-item is-active">Sign in</div>
+                    <div className="tab-item">
+                        <LinkCustom to={`/register/${roleParams}`}>Sign up</LinkCustom>
+                    </div>
+                    <div className="tab-item is-active">
+                        <LinkCustomActive to={`/login/${roleParams}`}>Sign in</LinkCustomActive>
+                    </div>
                 </div>
                 <h1 className="signup-signin-heading">Sign in</h1>
                 <form action="" className="signup-signin-form" autoComplete="off">

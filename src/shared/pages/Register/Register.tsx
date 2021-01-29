@@ -1,10 +1,12 @@
 import React, { FormEvent, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { ToastContainer, toast } from 'react-toastify';
 
 import { registerUser } from '../../store/auth/effects';
+
+import { LinkCustom, LinkCustomActive } from '../../styles/LinkCustom.Styles';
 
 import '../../styles/Form.Styles.css';
 import 'react-toastify/dist/ReactToastify.css';
@@ -76,8 +78,12 @@ const Register = ({ match }: any) => {
             <img src="https://imgur.com/aILP3CD.png" alt="login" className="signup-signin-image" />
             <div className="signup-signin-container">
                 <div className="tab">
-                    <div className="tab-item is-active">Sign up</div>
-                    <div className="tab-item">Sign in</div>
+                    <div className="tab-item is-active">
+                        <LinkCustomActive to={`/register/${roleParams}`}>Sign up</LinkCustomActive>
+                    </div>
+                    <div className="tab-item">
+                        <LinkCustom to={`/login/${roleParams}`}>Sign in</LinkCustom>
+                    </div>
                 </div>
                 <h1 className="signup-signin-heading">Sign up</h1>
                 <form
