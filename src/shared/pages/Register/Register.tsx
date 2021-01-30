@@ -57,7 +57,6 @@ const Register = ({ match }: any) => {
         dispatch(
             registerUser(
                 JSON.stringify(user),
-                roleParams,
                 (message: string) => toast(message),
                 (err: any) => toast(err),
                 () =>
@@ -169,7 +168,7 @@ const Register = ({ match }: any) => {
                     </div>
                     <div className="form-group signup-signin-term">
                         Already have an account?{' '}
-                        <Link className="signup-signin-term-link" to="/login/users">
+                        <Link className="signup-signin-term-link" to={`/login/${roleParams}`}>
                             Log in
                         </Link>
                     </div>

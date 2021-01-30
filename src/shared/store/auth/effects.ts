@@ -11,7 +11,6 @@ export const dispatchSetCurrentUser = (data: any) => (dispatch: Dispatch<Action>
 
 export const registerUser = (
     data: any,
-    role: string,
     doneCb: Function,
     errorCb: Function,
     clearInput: Function,
@@ -21,7 +20,7 @@ export const registerUser = (
         // eslint-disable-next-line prefer-const
         let config: AxiosRequestConfig = {
             method: 'post',
-            url: `/${role}/register`,
+            url: '/users/register',
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -49,7 +48,6 @@ export const registerUser = (
 
 export const loginUser = (
     data: any,
-    role: string,
     errorCb: Function,
     clearInput: Function,
     redirectWhenSuccess: Function
@@ -57,7 +55,7 @@ export const loginUser = (
     // eslint-disable-next-line prefer-const
     let config: AxiosRequestConfig = {
         method: 'post',
-        url: `/${role}/login`,
+        url: '/users/login',
         headers: {
             'Content-Type': 'application/json',
         },
@@ -65,8 +63,9 @@ export const loginUser = (
     };
 
     axios(config)
-        .then((res) => {
-            const { token } = res.data;
+        .then((res) => res.data)
+        .then((data) => {
+            const { token } = data;
             localStorage.setItem('jwtToken', token);
             setAuthToken(token);
             // Decode token to get user data

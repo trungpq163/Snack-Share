@@ -1,9 +1,11 @@
 import React, { FormEvent, useState } from 'react';
 import { useHistory, Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { ToastContainer, toast } from 'react-toastify';
 import { loginUser } from '../../store/auth/effects';
+
+import { getAuth } from '../../store/auth/selectors';
 
 import { LinkCustom, LinkCustomActive } from '../../styles/LinkCustom.Styles';
 
@@ -18,8 +20,9 @@ interface User {
 
 const Login = ({ match }: any) => {
     const dispatch = useDispatch();
-    const roleParams = match.params.role;
     const history = useHistory();
+    const auth = useSelector(getAuth);
+    const roleParams = match.params.role;
 
     const [values, setValues] = useState({
         email: '',
@@ -43,15 +46,18 @@ const Login = ({ match }: any) => {
 
         dispatch(
             loginUser(
-                JSON.stringify(user),
-                roleParams,
+                user,
                 (err: any) => toast(err),
                 () =>
                     setValues({
                         email: '',
                         password: '',
                     }),
-                () => history.push('/')
+                () => {
+                    if (auth.isAuthenticated) {
+                        history.push('/');
+                    }
+                }
             )
         );
     };
@@ -107,7 +113,7 @@ const Login = ({ match }: any) => {
                     </div>
                     <div className="form-group signup-signin-term">
                         Don’t have an account?{' '}
-                        <Link className="signup-signin-term-link" to="/register/users">
+                        <Link className="signup-signin-term-link" to={`/register/${roleParams}`}>
                             Sign up
                         </Link>
                     </div>
