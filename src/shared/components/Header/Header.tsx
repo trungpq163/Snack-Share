@@ -1,17 +1,27 @@
-import * as React from 'react';
+import React, { FormEvent } from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { getAuth } from '../../store/auth/selectors';
+
+import { logoutUser } from '../../store/auth/effects';
 
 import { FilterStyles } from '../../styles/Filter.Styles';
 import { HeaderStyles } from './Header.Styles';
 
 const Header = () => {
     const auth = useSelector(getAuth);
+    const dispatch = useDispatch();
+
     if (typeof window !== 'undefined') {
         localStorage.setItem('userid', JSON.stringify(auth.users.id));
         localStorage.setItem('userRole', JSON.stringify(auth.users.role));
     }
+
+    const logoutClick = (e: FormEvent) => {
+        e.preventDefault();
+        dispatch(logoutUser());
+    };
+
     return (
         <>
             <HeaderStyles>
@@ -42,7 +52,7 @@ const Header = () => {
                     <Link to="/EnrollmentList">
                         <span className="filter-item">Enrolled Users</span>
                     </Link>
-                    <Link to="">
+                    <Link to="" onClick={logoutClick}>
                         <span className="filter-item">Logout</span>
                     </Link>
                 </FilterStyles>
@@ -69,7 +79,9 @@ const Header = () => {
                     <Link to="/finalprofiles">
                         <span className="filter-item">All Profiles</span>
                     </Link>
-                    <span className="filter-item">Logout</span>
+                    <Link to="" onClick={logoutClick}>
+                        <span className="filter-item">Logout</span>
+                    </Link>
                 </FilterStyles>
             ) : auth.users.role === 'student' ? (
                 <FilterStyles>
@@ -82,7 +94,7 @@ const Header = () => {
                     <Link to="/services">
                         <span className="filter-item">All Courses</span>
                     </Link>
-                    <Link to="">
+                    <Link to="" onClick={logoutClick}>
                         <span className="filter-item">Logout</span>
                     </Link>
                 </FilterStyles>

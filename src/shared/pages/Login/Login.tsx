@@ -1,11 +1,9 @@
 import React, { FormEvent, useState } from 'react';
 import { useHistory, Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { ToastContainer, toast } from 'react-toastify';
 import { loginUser } from '../../store/auth/effects';
-
-import { getAuth } from '../../store/auth/selectors';
 
 import { LinkCustom, LinkCustomActive } from '../../styles/LinkCustom.Styles';
 
@@ -21,7 +19,7 @@ interface User {
 const Login = ({ match }: any) => {
     const dispatch = useDispatch();
     const history = useHistory();
-    const auth = useSelector(getAuth);
+
     const roleParams = match.params.role;
 
     const [values, setValues] = useState({
@@ -53,11 +51,7 @@ const Login = ({ match }: any) => {
                         email: '',
                         password: '',
                     }),
-                () => {
-                    if (auth.isAuthenticated) {
-                        history.push('/');
-                    }
-                }
+                () => history.push('/')
             )
         );
     };
