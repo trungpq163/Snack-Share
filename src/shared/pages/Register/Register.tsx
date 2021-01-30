@@ -72,6 +72,10 @@ const Register = ({ match }: any) => {
         );
     };
 
+    const capitalizeFirstLetter = (str: string): string => {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    };
+
     return (
         <div className="signup-signin">
             <img src="https://imgur.com/aILP3CD.png" alt="login" className="signup-signin-image" />
@@ -84,7 +88,9 @@ const Register = ({ match }: any) => {
                         <LinkCustom to={`/login/${roleParams}`}>Sign in</LinkCustom>
                     </div>
                 </div>
-                <h1 className="signup-signin-heading">Sign up</h1>
+                <h1 className="signup-signin-heading">
+                    Sign up {`(for ${roleParams ? `${capitalizeFirstLetter(roleParams)}` : ''})`}
+                </h1>
                 <form
                     action="post"
                     className="signup-signin-form"

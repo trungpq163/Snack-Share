@@ -1,5 +1,5 @@
 import React, { FormEvent } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAuth } from '../../store/auth/selectors';
 
@@ -11,6 +11,40 @@ import { HeaderStyles } from './Header.Styles';
 const Header = () => {
     const auth = useSelector(getAuth);
     const dispatch = useDispatch();
+    const location = useLocation();
+    const history = useHistory();
+
+    const checkHomeRoute = location?.pathname === '/';
+    const checkLoginRoute = location?.pathname?.includes('login');
+    const checkInstructorRoute = location?.pathname === '/register/instructor';
+    const checkDashboardRoute = location?.pathname === '/dashboard';
+    const checkUsersRoute = location?.pathname === '/allusers';
+    const checkCourseRoute = location?.pathname === '/ShowCourseList';
+    const checkCategoryRoute = location?.pathname === '/ShowCategoryList';
+    const checkEnrollRoute = location?.pathname === '/EnrollmentList';
+    const checkMyCoursesRoute =
+        location?.pathname?.includes(`/services/${auth.users.id}`) ||
+        location?.pathname?.includes('/servicesforstudent/');
+    const CheckAddcourseRoute = location?.pathname?.includes('addcourse');
+    const checkAddLectureRoute = location?.pathname?.includes('add-lecture');
+    const checkAllCoursesRoute = location?.pathname === '/services';
+    const checkProfileRoute = location?.pathname === '/finaldashboard';
+    const checkAllProfileRoute = location?.pathname === '/finalprofiles';
+
+    const classNameHome = `filter-item ${checkHomeRoute ? 'active' : ''}`;
+    const classNameInstructor = `filter-item ${checkInstructorRoute ? 'active' : ''}`;
+    const classNameLogin = `filter-item ${checkLoginRoute ? 'active' : ''}`;
+    const classNameDashboard = `filter-item ${checkDashboardRoute ? 'active' : ''}`;
+    const classNameUsers = `filter-item ${checkUsersRoute ? 'active' : ''}`;
+    const classNameCourse = `filter-item ${checkCourseRoute ? 'active' : ''}`;
+    const classNameCategory = `filter-item ${checkCategoryRoute ? 'active' : ''}`;
+    const classNameEnroll = `filter-item ${checkEnrollRoute ? 'active' : ''}`;
+    const classMyCourses = `filter-item ${checkMyCoursesRoute ? 'active' : ''}`;
+    const classAddCourse = `filter-item ${CheckAddcourseRoute ? 'active' : ''}`;
+    const classAddLecture = `filter-item ${checkAddLectureRoute ? 'active' : ''}`;
+    const classAllCourses = `filter-item ${checkAllCoursesRoute ? 'active' : ''}`;
+    const classProfile = `filter-item ${checkProfileRoute ? 'active' : ''}`;
+    const classAllProfile = `filter-item ${checkAllProfileRoute ? 'active' : ''}`;
 
     if (typeof window !== 'undefined') {
         localStorage.setItem('userid', JSON.stringify(auth.users.id));
@@ -19,7 +53,7 @@ const Header = () => {
 
     const logoutClick = (e: FormEvent) => {
         e.preventDefault();
-        dispatch(logoutUser());
+        dispatch(logoutUser(() => history?.push('/')));
     };
 
     return (
@@ -35,22 +69,22 @@ const Header = () => {
             {auth?.users?.role === 'admin' ? (
                 <FilterStyles>
                     <Link to="/">
-                        <span className="filter-item active">Home</span>
+                        <span className={classNameHome}>Home</span>
                     </Link>
                     <Link to="/dashboard">
-                        <span className="filter-item">DashBoard</span>
+                        <span className={classNameDashboard}>DashBoard</span>
                     </Link>
                     <Link to="/allusers">
-                        <span className="filter-item">Users</span>
+                        <span className={classNameUsers}>Users</span>
                     </Link>
                     <Link to="/ShowCourseList">
-                        <span className="filter-item">Courses</span>
+                        <span className={classNameCourse}>Courses</span>
                     </Link>
                     <Link to="/ShowCategoryList">
-                        <span className="filter-item">Categories</span>
+                        <span className={classNameCategory}>Categories</span>
                     </Link>
                     <Link to="/EnrollmentList">
-                        <span className="filter-item">Enrolled Users</span>
+                        <span className={classNameEnroll}>Enrolled Users</span>
                     </Link>
                     <Link to="" onClick={logoutClick}>
                         <span className="filter-item">Logout</span>
@@ -59,25 +93,25 @@ const Header = () => {
             ) : auth.users.role === 'instructor' ? (
                 <FilterStyles>
                     <Link to="/">
-                        <span className="filter-item active">Home</span>
+                        <span className={classNameHome}>Home</span>
                     </Link>
                     <Link to={`/services/${auth.users.id}`}>
-                        <span className="filter-item">My Courses</span>
+                        <span className={classMyCourses}>My Courses</span>
                     </Link>
                     <Link to={`/addcourse/${auth.users.id}`}>
-                        <span className="filter-item">Add Courses</span>
+                        <span className={classAddCourse}>Add Courses</span>
                     </Link>
                     <Link to={`/add-lecture/${auth.users.id}`}>
-                        <span className="filter-item">Add Lecture</span>
+                        <span className={classAddLecture}>Add Lecture</span>
                     </Link>
                     <Link to="/services">
-                        <span className="filter-item">All Courses</span>
+                        <span className={classAllCourses}>All Courses</span>
                     </Link>
                     <Link to="/finaldashboard">
-                        <span className="filter-item">Profile</span>
+                        <span className={classProfile}>Profile</span>
                     </Link>
                     <Link to="/finalprofiles">
-                        <span className="filter-item">All Profiles</span>
+                        <span className={classAllProfile}>All Profiles</span>
                     </Link>
                     <Link to="" onClick={logoutClick}>
                         <span className="filter-item">Logout</span>
@@ -86,13 +120,13 @@ const Header = () => {
             ) : auth.users.role === 'student' ? (
                 <FilterStyles>
                     <Link to="/">
-                        <span className="filter-item active">Home</span>
+                        <span className={classNameHome}>Home</span>
                     </Link>
                     <Link to={`/servicesforstudent/${auth.users.id}`}>
-                        <span className="filter-item">My Courses</span>
+                        <span className={classMyCourses}>My Courses</span>
                     </Link>
                     <Link to="/services">
-                        <span className="filter-item">All Courses</span>
+                        <span className={classAllCourses}>All Courses</span>
                     </Link>
                     <Link to="" onClick={logoutClick}>
                         <span className="filter-item">Logout</span>
@@ -101,13 +135,13 @@ const Header = () => {
             ) : (
                 <FilterStyles>
                     <Link to="/">
-                        <span className="filter-item active">Home</span>
+                        <span className={classNameHome}>Home</span>
                     </Link>
                     <Link to="/login/student">
-                        <span className="filter-item">Login</span>
+                        <span className={classNameLogin}>Login</span>
                     </Link>
-                    <Link to="/login/instructor">
-                        <span className="filter-item">Teach On SnackDev</span>
+                    <Link to="/register/instructor">
+                        <span className={classNameInstructor}>Teach On SnackDev</span>
                     </Link>
                 </FilterStyles>
             )}

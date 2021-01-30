@@ -107,8 +107,12 @@ const Login = ({ match }: any) => {
                     </div>
                     <div className="form-group signup-signin-term">
                         Don’t have an account?{' '}
-                        <Link className="signup-signin-term-link" to={`/register/${roleParams}`}>
-                            Sign up
+                        <Link className="signup-signin-term-link" to="/register/student">
+                            Sign up (student)
+                        </Link>
+                        {' / '}
+                        <Link className="signup-signin-term-link" to="/register/instructor">
+                            Sign up (instructor)
                         </Link>
                     </div>
                     <button type="submit" className="btn btn--gradient">

@@ -81,11 +81,12 @@ export const loginUser = (
         });
 };
 
-export const logoutUser = () => (dispatch: Dispatch<Action>) => {
+export const logoutUser = (redirectWhenSuccess: Function) => (dispatch: Dispatch<Action>) => {
     // Remove token from localStorage
     localStorage.removeItem('jwtToken');
     // Remove auth header from future requests
     setAuthToken(false);
     // Set current user to {} which will
     dispatch(setCurrentUser({} as any));
+    redirectWhenSuccess();
 };
