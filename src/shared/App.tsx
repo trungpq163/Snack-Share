@@ -13,6 +13,8 @@ import Register from './pages/Register/Register';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 
+import { GlobalStyle } from './styles/GlobalStyles';
+
 import routes from './routes';
 
 import css from './App.module.css';
@@ -50,6 +52,7 @@ const App: React.FC<any> = () => {
     return (
         // <Suspense fallback={<div>Loading</div>}>
         <div className={css.wrapper}>
+            <GlobalStyle />
             <Helmet
                 defaultTitle="React SSR Starter – TypeScript Edition"
                 titleTemplate="%s – React SSR Starter – TypeScript Edition"

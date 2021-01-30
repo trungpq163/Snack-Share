@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const FooterStyles = styled.footer`
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
     font-family: 'Poppins', sans-serif;
     padding: 2rem 0;
     text-align: center;

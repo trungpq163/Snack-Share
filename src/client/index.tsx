@@ -4,10 +4,13 @@ import { Provider } from 'react-redux';
 import { Router } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 
+import { ThemeProvider } from 'styled-components';
 import { configureStore } from '../shared/store';
 import App from '../shared/App';
 import IntlProvider from '../shared/i18n/IntlProvider';
 import createHistory from '../shared/store/history';
+
+import { theme } from '../shared/styles/Theme';
 
 const history = createHistory();
 
@@ -24,7 +27,9 @@ hydrate(
         <Router history={history}>
             <IntlProvider>
                 <HelmetProvider>
-                    <App />
+                    <ThemeProvider theme={theme}>
+                        <App />
+                    </ThemeProvider>
                 </HelmetProvider>
             </IntlProvider>
         </Router>

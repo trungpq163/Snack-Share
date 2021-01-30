@@ -71,6 +71,7 @@ export const HeaderStyles = styled.header`
         font-size: 40px;
         color: #5e6b79;
         letter-spacing: 2.5px;
+        font-family: 'Poppins', sans-serif;
     }
     .heading strong {
         font-weight: 800;
@@ -80,6 +81,7 @@ export const HeaderStyles = styled.header`
         background-image: linear-gradient(to right, #1abcf4, #5defb8);
     }
     .slogan {
+        font-family: 'Poppins', sans-serif;
         font-size: 14px;
         line-height: 1.6;
         max-width: 40rem;
