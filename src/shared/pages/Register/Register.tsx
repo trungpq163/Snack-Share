@@ -8,8 +8,8 @@ import { registerUser } from '../../store/auth/effects';
 
 import { LinkCustom, LinkCustomActive } from '../../styles/LinkCustom.Styles';
 
-import '../../styles/Form.Styles.css';
 import 'react-toastify/dist/ReactToastify.css';
+import '../../styles/Form.Styles.css';
 
 interface User {
     // eslint-disable-next-line camelcase

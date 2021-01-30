@@ -1,12 +1,60 @@
-import * as React from 'react';
-import { Link } from 'react-router-dom';
+import React, { FormEvent, useState } from 'react';
+import { useHistory, Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+import { ToastContainer, toast } from 'react-toastify';
+import { loginUser } from '../../store/auth/effects';
 
 import { LinkCustom, LinkCustomActive } from '../../styles/LinkCustom.Styles';
 
+import 'react-toastify/dist/ReactToastify.css';
 import '../../styles/Form.Styles.css';
 
+interface User {
+    email: string;
+    password: string;
+    role?: string;
+}
+
 const Login = ({ match }: any) => {
+    const dispatch = useDispatch();
     const roleParams = match.params.role;
+    const history = useHistory();
+
+    const [values, setValues] = useState({
+        email: '',
+        password: '',
+    });
+
+    const handleChange = (name: any) => (event: any) => {
+        setValues({
+            ...values,
+            [name]: event.target.value,
+        });
+    };
+
+    const clickSubmit = (e: FormEvent) => {
+        e.preventDefault();
+
+        const user: User = {
+            email: values.email,
+            password: values.password,
+        };
+
+        dispatch(
+            loginUser(
+                JSON.stringify(user),
+                roleParams,
+                (err: any) => toast(err),
+                () =>
+                    setValues({
+                        email: '',
+                        password: '',
+                    }),
+                () => history.push('/')
+            )
+        );
+    };
 
     return (
         <div className="signup-signin">
@@ -21,7 +69,12 @@ const Login = ({ match }: any) => {
                     </div>
                 </div>
                 <h1 className="signup-signin-heading">Sign in</h1>
-                <form action="" className="signup-signin-form" autoComplete="off">
+                <form
+                    action="post"
+                    className="signup-signin-form"
+                    autoComplete="off"
+                    onSubmit={clickSubmit}
+                >
                     <div className="form-group">
                         <label htmlFor="email" className="form-label">
                             Email
@@ -31,6 +84,8 @@ const Login = ({ match }: any) => {
                             id="email"
                             className="form-input"
                             placeholder="Ex: johndoe@email.com"
+                            value={values.email}
+                            onChange={handleChange('email')}
                             required
                             name="email"
                         />
@@ -44,6 +99,8 @@ const Login = ({ match }: any) => {
                             id="password"
                             className="form-input"
                             placeholder="************"
+                            value={values.password}
+                            onChange={handleChange('password')}
                             required
                             name="password"
                         />
@@ -58,6 +115,7 @@ const Login = ({ match }: any) => {
                         Sign in
                     </button>
                 </form>
+                <ToastContainer />
             </div>
         </div>
     );
