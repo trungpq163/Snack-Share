@@ -11,6 +11,8 @@ import Home from './pages/Home';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+
 import routes from './routes';
 
 import css from './App.module.css';
@@ -60,6 +62,7 @@ const App: React.FC<any> = () => {
                 <Route exact path={routes.register} component={Register} />
                 <Route render={() => '404!'} />
             </Switch>
+            <Footer />
         </div>
         // </Suspense>
     );

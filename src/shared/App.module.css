@@ -1,10 +1,10 @@
 @import '@csstools/normalize.css';
 @import './variables.css';
-@import url('https://fonts.googleapis.com/css?family=Lora:400,700|Titillium+Web:400,700');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&display=swap');
 /* @import-normalize; */
 
 :global(body) {
-    font-family: 'Titillium Web', Arial, Sans-Serif;
+    font-family: 'Raleway', sans-serif;
     font-size: var(--font-size-base);
 }
 
@@ -22,4 +22,33 @@
     height: 48px;
     vertical-align: middle;
     width: 48px;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1920px;
+    padding: 0 2rem;
+}
+
+.point-none {
+    pointer-events: none;
+    user-select: none;
+}
+
+.flex {
+    display: flex;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
