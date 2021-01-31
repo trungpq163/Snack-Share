@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useHistory } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
 import { useDispatch } from 'react-redux';
 import favicon from '../shared/assets/favicon.png';
@@ -27,6 +27,7 @@ import './styles/sass/main.scss';
 
 const App: React.FC<any> = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
 
     React.useEffect(() => {
         if (localStorage.jwtToken) {
@@ -41,13 +42,10 @@ const App: React.FC<any> = () => {
             const currentTime = Date.now() / 1000;
             if ((decoded as any).exp < currentTime) {
                 // Logout user
-                dispatch(logoutUser());
-
-                // Redirect to login
-                window.location.href = '/';
+                dispatch(logoutUser(() => history?.push('/')));
             }
         }
-    }, [dispatch]);
+    }, [dispatch, history]);
 
     return (
         // <Suspense fallback={<div>Loading</div>}>

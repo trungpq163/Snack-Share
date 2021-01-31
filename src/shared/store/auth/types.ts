@@ -1,6 +1,6 @@
 export type Auth = {
-    isAuthenticated: boolean;
-    users: any;
+    isAuthenticated?: boolean;
+    users?: any;
 };
 
 export type AuthState = Readonly<{
