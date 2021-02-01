@@ -28,7 +28,7 @@ export const getCurrentUserProfileCtrl = (req: Request, res: Response) => {
     getCurrentUserProfileService(profileModel, req.user.id)
         .then((profile) => {
             if (!profile) {
-                return res.status(204).json({
+                return res.status(200).json({
                     res: 'There is no profile for this user',
                 });
             }
@@ -41,7 +41,7 @@ export const getAllProfilesCtrl = (_req: Request, res: Response) => {
     getAllProfilesService(profileModel)
         .then((profiles) => {
             if (!profiles) {
-                return res.status(204).json({
+                return res.status(200).json({
                     res: 'There is no profile for this user',
                 });
             }
@@ -59,7 +59,7 @@ export const getProfileByHandleCtrl = (req: Request, res: Response) => {
     getProfileByHandleService(profileModel, req.params.handle)
         .then((profile) => {
             if (!profile) {
-                return res.status(204).json({
+                return res.status(200).json({
                     res: 'There is no profile for this user',
                 });
             }
@@ -72,7 +72,7 @@ export const getProfileByUserIdCtrl = (req: Request, res: Response) => {
     getProfileByUserIdService(profileModel, req.params.user_id)
         .then((profile) => {
             if (!profile) {
-                return res.status(204).json({
+                return res.status(200).json({
                     res: 'There is no profile for this user',
                 });
             }
