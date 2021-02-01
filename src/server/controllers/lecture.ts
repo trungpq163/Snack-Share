@@ -29,6 +29,7 @@ export const postVideosCtrl = (req: Request, res: Response) => {
             // @ts-ignore
             imageFile.mv(`Client/public/assets/${req.files.file.name}`);
             if (imageFile) {
+                // @ts-ignore
                 req.body.videoLink = `/assets/${imageFile.name}`;
             }
         } else {

@@ -21,20 +21,16 @@ import {
     findOneAndRemoveUserService,
 } from '../services/profile';
 
-interface Errors {
-    noprofile?: string;
-}
-
 export const testProfileCtrl = (_req: Request, res: Response) => res.json({ msg: 'Profile Works' });
 
 export const getCurrentUserProfileCtrl = (req: Request, res: Response) => {
-    const errors: Errors = {};
     // @ts-ignore
     getCurrentUserProfileService(profileModel, req.user.id)
         .then((profile) => {
             if (!profile) {
-                errors.noprofile = 'There is no profile for this user';
-                return res.status(404).json(errors);
+                return res.status(204).json({
+                    res: 'There is no profile for this user',
+                });
             }
             res.json(profile);
         })
@@ -42,13 +38,12 @@ export const getCurrentUserProfileCtrl = (req: Request, res: Response) => {
 };
 
 export const getAllProfilesCtrl = (_req: Request, res: Response) => {
-    const errors: Errors = {};
-
     getAllProfilesService(profileModel)
         .then((profiles) => {
             if (!profiles) {
-                errors.noprofile = 'There are no profiles';
-                return res.status(404).json(errors);
+                return res.status(204).json({
+                    res: 'There is no profile for this user',
+                });
             }
 
             res.json(profiles);
@@ -61,12 +56,12 @@ export const getAllProfilesCtrl = (_req: Request, res: Response) => {
 };
 
 export const getProfileByHandleCtrl = (req: Request, res: Response) => {
-    const errors: Errors = {};
     getProfileByHandleService(profileModel, req.params.handle)
         .then((profile) => {
             if (!profile) {
-                errors.noprofile = 'There is no profile for this user';
-                res.status(404).json(errors);
+                return res.status(204).json({
+                    res: 'There is no profile for this user',
+                });
             }
             res.json(profile);
         })
@@ -74,13 +69,12 @@ export const getProfileByHandleCtrl = (req: Request, res: Response) => {
 };
 
 export const getProfileByUserIdCtrl = (req: Request, res: Response) => {
-    const errors: Errors = {};
-
     getProfileByUserIdService(profileModel, req.params.user_id)
         .then((profile) => {
             if (!profile) {
-                errors.noprofile = 'There is no profile for this user';
-                res.status(404).json(errors);
+                return res.status(204).json({
+                    res: 'There is no profile for this user',
+                });
             }
             res.json(profile);
         })
