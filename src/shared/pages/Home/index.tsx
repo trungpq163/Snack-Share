@@ -5,7 +5,7 @@ import { setLocale } from 'store/app/actions';
 import { Locale } from 'store/app/types';
 
 import Introduction from '../../components/Introduction/Introduction';
-
+import Partners from '../../components/Partners/Partners';
 import CourseOne from '../../components/CourseOne/CourseOne';
 
 const App: React.FC<any> = () => {
@@ -22,6 +22,7 @@ const App: React.FC<any> = () => {
         <React.Fragment>
             <Introduction />
             <CourseOne />
+            <Partners />
             {/* <h2>{t('i18n-example')}</h2>
             <p>
                 <button value="de_DE" onClick={handleLocaleChange}>

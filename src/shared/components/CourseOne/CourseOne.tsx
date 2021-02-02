@@ -50,17 +50,19 @@ const CourseOne = () => {
         },
     };
     return (
-        <div>
-            <section className="course-one__top-title home-one">
-                <div className="container">
-                    <div className="block-title mb-0">
-                        <h2 className="block-title__title">
-                            Explore our <br />
-                            popular courses
-                        </h2>
-                    </div>
-                </div>
-            </section>
+        <div
+            style={{
+                fontFamily: 'Poppins, sans-serif',
+                marginTop: '6%',
+                borderBottom: '1px solid #eee',
+            }}
+        >
+            <div className="block-title">
+                <h2 className="block-title__title">
+                    Explore our <br />
+                    popular courses
+                </h2>
+            </div>
             <section className="course-one course-one__teacher-details home-one">
                 <div className="container">
                     <div className="course-one__carousel">
