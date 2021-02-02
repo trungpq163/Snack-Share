@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { FormEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { LinkCustom, LinkCustomActive } from '../../styles/LinkCustom.Styles';
 
+import { User } from '../../types';
+
 import 'react-toastify/dist/ReactToastify.css';
 import '../../styles/Form.Styles.css';
 
-const Login = ({ roleParams, clickSubmit, handleChange, values }: any) => {
+interface Props {
+    roleParams: string;
+    clickSubmit: (e: FormEvent) => void;
+    handleChange: (name: any) => (event: any) => void;
+    values: User;
+}
+
+const Login = ({ roleParams, clickSubmit, handleChange, values }: Props) => {
     return (
         <div className="signup-signin">
             <img src="https://imgur.com/aILP3CD.png" alt="login" className="signup-signin-image" />

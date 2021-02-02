@@ -7,11 +7,7 @@ import { loginUser } from '../../store/auth/effects';
 
 import LoginDumb from '../../components/Login/Login';
 
-interface User {
-    email: string;
-    password: string;
-    role?: string;
-}
+import { User } from '../../types';
 
 const Login = ({ match }: any) => {
     const dispatch = useDispatch();
