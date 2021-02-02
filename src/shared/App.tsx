@@ -11,7 +11,7 @@ import setData from './utils/setData';
 import Home from './pages/Home';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
-import Header from './components/Header/Header';
+import Header from './containers/HeaderContainer/HeaderContainer';
 import Footer from './components/Footer/Footer';
 
 import { GlobalStyle } from './styles/GlobalStyles';

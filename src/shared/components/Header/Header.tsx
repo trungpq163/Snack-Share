@@ -1,61 +1,26 @@
-import React, { FormEvent } from 'react';
-import { Link, useHistory, useLocation } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { getAuth } from '../../store/auth/selectors';
-
-import { logoutUser } from '../../store/auth/effects';
-
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { FilterStyles } from '../../styles/Filter.Styles';
 import { HeaderStyles } from './Header.Styles';
 
-const Header = () => {
-    const auth = useSelector(getAuth);
-    const dispatch = useDispatch();
-    const location = useLocation();
-    const history = useHistory();
-
-    const checkHomeRoute = location?.pathname === '/';
-    const checkLoginRoute = location?.pathname?.includes('login');
-    const checkInstructorRoute = location?.pathname === '/register/instructor';
-    const checkDashboardRoute = location?.pathname === '/dashboard';
-    const checkUsersRoute = location?.pathname === '/allusers';
-    const checkCourseRoute = location?.pathname === '/ShowCourseList';
-    const checkCategoryRoute = location?.pathname === '/ShowCategoryList';
-    const checkEnrollRoute = location?.pathname === '/EnrollmentList';
-    const checkMyCoursesRoute =
-        location?.pathname?.includes(`/services/${auth.users.id}`) ||
-        location?.pathname?.includes('/servicesforstudent/');
-    const CheckAddcourseRoute = location?.pathname?.includes('addcourse');
-    const checkAddLectureRoute = location?.pathname?.includes('add-lecture');
-    const checkAllCoursesRoute = location?.pathname === '/services';
-    const checkProfileRoute = location?.pathname === '/finaldashboard';
-    const checkAllProfileRoute = location?.pathname === '/finalprofiles';
-
-    const classNameHome = `filter-item ${checkHomeRoute ? 'active' : ''}`;
-    const classNameInstructor = `filter-item ${checkInstructorRoute ? 'active' : ''}`;
-    const classNameLogin = `filter-item ${checkLoginRoute ? 'active' : ''}`;
-    const classNameDashboard = `filter-item ${checkDashboardRoute ? 'active' : ''}`;
-    const classNameUsers = `filter-item ${checkUsersRoute ? 'active' : ''}`;
-    const classNameCourse = `filter-item ${checkCourseRoute ? 'active' : ''}`;
-    const classNameCategory = `filter-item ${checkCategoryRoute ? 'active' : ''}`;
-    const classNameEnroll = `filter-item ${checkEnrollRoute ? 'active' : ''}`;
-    const classMyCourses = `filter-item ${checkMyCoursesRoute ? 'active' : ''}`;
-    const classAddCourse = `filter-item ${CheckAddcourseRoute ? 'active' : ''}`;
-    const classAddLecture = `filter-item ${checkAddLectureRoute ? 'active' : ''}`;
-    const classAllCourses = `filter-item ${checkAllCoursesRoute ? 'active' : ''}`;
-    const classProfile = `filter-item ${checkProfileRoute ? 'active' : ''}`;
-    const classAllProfile = `filter-item ${checkAllProfileRoute ? 'active' : ''}`;
-
-    if (typeof window !== 'undefined') {
-        localStorage.setItem('userid', JSON.stringify(auth.users.id));
-        localStorage.setItem('userRole', JSON.stringify(auth.users.role));
-    }
-
-    const logoutClick = (e: FormEvent) => {
-        e.preventDefault();
-        dispatch(logoutUser(() => history?.push('/')));
-    };
-
+const Header = ({
+    logout,
+    auth,
+    classNameHome,
+    classNameDashboard,
+    classNameUsers,
+    classNameCourse,
+    classNameCategory,
+    classNameEnroll,
+    classMyCourses,
+    classAddCourse,
+    classAddLecture,
+    classAllCourses,
+    classProfile,
+    classAllProfile,
+    classNameLogin,
+    classNameInstructor,
+}: any) => {
     return (
         <>
             <HeaderStyles>
@@ -86,7 +51,7 @@ const Header = () => {
                     <Link to="/EnrollmentList">
                         <span className={classNameEnroll}>Enrolled Users</span>
                     </Link>
-                    <Link to="" onClick={logoutClick}>
+                    <Link to="" onClick={logout}>
                         <span className="filter-item">Logout</span>
                     </Link>
                 </FilterStyles>
@@ -113,7 +78,7 @@ const Header = () => {
                     <Link to="/finalprofiles">
                         <span className={classAllProfile}>All Profiles</span>
                     </Link>
-                    <Link to="" onClick={logoutClick}>
+                    <Link to="" onClick={logout}>
                         <span className="filter-item">Logout</span>
                     </Link>
                 </FilterStyles>
@@ -128,7 +93,7 @@ const Header = () => {
                     <Link to="/services">
                         <span className={classAllCourses}>All Courses</span>
                     </Link>
-                    <Link to="" onClick={logoutClick}>
+                    <Link to="" onClick={logout}>
                         <span className="filter-item">Logout</span>
                     </Link>
                 </FilterStyles>
