@@ -1,6 +1,7 @@
 .about-two {
     font-family: 'Poppins', sans-serif;
     padding: 120px 0;
+    border-bottom: 1px solid #eee;
 }
 
 .about-two .block-title {

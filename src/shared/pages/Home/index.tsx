@@ -6,6 +6,8 @@ import { Locale } from 'store/app/types';
 
 import Introduction from '../../components/Introduction/Introduction';
 
+import CourseOne from '../../components/CourseOne/CourseOne';
+
 const App: React.FC<any> = () => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
@@ -19,6 +21,7 @@ const App: React.FC<any> = () => {
     return (
         <React.Fragment>
             <Introduction />
+            <CourseOne />
             {/* <h2>{t('i18n-example')}</h2>
             <p>
                 <button value="de_DE" onClick={handleLocaleChange}>

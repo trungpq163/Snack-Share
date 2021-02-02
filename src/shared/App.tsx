@@ -19,7 +19,6 @@ import { GlobalStyle } from './styles/GlobalStyles';
 import routes from './routes';
 
 import css from './App.module.css';
-import './styles/sass/main.scss';
 
 // Does not yet work with server side rendering:
 // const Home = React.lazy(() => import('./pages/Home'));

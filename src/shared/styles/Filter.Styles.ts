@@ -12,7 +12,7 @@ export const FilterStyles = styled.div`
         width: 0;
     }
     @media screen and (max-width: 767px) {
-        justify-content: flex-start;
+        justify-content: left;
     }
     .filter-item {
         display: inline-block;
