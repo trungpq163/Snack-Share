@@ -3,7 +3,9 @@ import axios, { AxiosRequestConfig } from 'axios';
 import jwtDecode from 'jwt-decode';
 import setAuthToken from 'utils/setAuthToken';
 import { setCurrentUser } from '../auth/action';
-import { Action, Auth } from './types';
+import setData from '../../utils/setData';
+import clearData from '../../utils/clearData';
+import { Action } from './types';
 
 export const dispatchSetCurrentUser = (data: any) => (dispatch: Dispatch<Action>) => {
     dispatch(setCurrentUser(data));
@@ -71,7 +73,7 @@ export const loginUser = (
             // Decode token to get user data
             const decoded = jwtDecode(token);
             // Set current user
-            dispatch(setCurrentUser(decoded as Auth));
+            setData(dispatch, decoded);
             clearInput();
             redirectWhenSuccess();
         })
@@ -87,6 +89,6 @@ export const logoutUser = (redirectWhenSuccess: Function) => (dispatch: Dispatch
     // Remove auth header from future requests
     setAuthToken(false);
     // Set current user to {} which will
-    dispatch(setCurrentUser({} as any));
+    clearData(dispatch, {});
     redirectWhenSuccess();
 };
