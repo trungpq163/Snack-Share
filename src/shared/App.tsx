@@ -2,12 +2,11 @@ import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import favicon from '../shared/assets/favicon.png';
 import setAuthToken from './utils/setAuthToken';
-import { dispatchSetCurrentUser, logoutUser } from './store/auth/effects';
-import { getCurrentProfile } from './store/profile/effects';
-import { getProfile } from './store/profile/selectors';
+import { logoutUser } from './store/auth/effects';
+import setData from './utils/setData';
 
 import Home from './pages/Home';
 import Login from './pages/Login/Login';
@@ -30,7 +29,6 @@ import './styles/sass/main.scss';
 const App: React.FC<any> = () => {
     const dispatch = useDispatch();
     const history = useHistory();
-    const profile = useSelector(getProfile);
 
     React.useEffect(() => {
         if (localStorage.jwtToken) {
@@ -39,9 +37,7 @@ const App: React.FC<any> = () => {
             // Decode token and get user info and export default
             const decoded = jwtDecode(localStorage.jwtToken);
             // Set user and isAuthenticated by call any action using bellow method
-            dispatch(dispatchSetCurrentUser(decoded as any));
-            dispatch(getCurrentProfile());
-
+            setData(dispatch, decoded);
             // Check for expired token
             const currentTime = Date.now() / 1000;
             if ((decoded as any).exp < currentTime) {
@@ -50,10 +46,6 @@ const App: React.FC<any> = () => {
             }
         }
     }, [dispatch, history]);
-
-    console.log('profile', profile.profile);
-    console.log('profiles', profile.profiles);
-    console.log('loading', profile.loading);
 
     return (
         // <Suspense fallback={<div>Loading</div>}>
