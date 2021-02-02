@@ -38,6 +38,7 @@
         "cors": "^2.8.5",
         "decompress": "^4.2.1",
         "dotenv": "^8.2.0",
+        "enzyme": "^3.11.0",
         "express": "^4.16.4",
         "express-fileupload": "^1.2.1",
         "express-manifest-helpers": "^0.6.0",
@@ -183,6 +184,7 @@
         "promise": "^8.1.0",
         "puppeteer": "^4.0.1",
         "react-dev-utils": "^10.2.1",
+        "react-id-swiper": "^3.0.0",
         "react-refresh": "^0.8.2",
         "redux-mock-store": "^1.5.4",
         "regenerator-runtime": "^0.13.5",
@@ -192,6 +194,7 @@
         "stylelint-config-prettier": "^8.0.1",
         "stylelint-order": "^4.0.0",
         "stylelint-prettier": "^1.1.2",
+        "swiper": "^5.3.6",
         "terser-webpack-plugin": "^3.0.1",
         "ts-node": "^8.10.1",
         "typed-css-modules-webpack-plugin": "^0.2.0",
@@ -206,9 +209,7 @@
         "webpack-manifest-plugin": "^2.2.0",
         "webpack-node-externals": "^1.7.2",
         "write-file-webpack-plugin": "^4.5.1",
-        "yarn-or-npm": "^3.0.1",
-        "react-id-swiper": "^3.0.0",
-        "swiper": "^5.3.6"
+        "yarn-or-npm": "^3.0.1"
     },
     "resolutions": {
         "caniuse-lite": "^1.0.30001055"
