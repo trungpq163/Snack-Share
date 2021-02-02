@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import { loginUser } from '../../store/auth/effects';
 
 import LoginDumb from '../../components/Login/Login';
+import { CenterComponent } from '../../styles/CenterComponent';
 
 import { User } from '../../types';
 
@@ -50,12 +51,14 @@ const Login = ({ match }: any) => {
     };
 
     return (
-        <LoginDumb
-            roleParams={roleParams}
-            clickSubmit={clickSubmit}
-            handleChange={handleChange}
-            values={values}
-        />
+        <CenterComponent>
+            <LoginDumb
+                roleParams={roleParams}
+                clickSubmit={clickSubmit}
+                handleChange={handleChange}
+                values={values}
+            />
+        </CenterComponent>
     );
 };
 

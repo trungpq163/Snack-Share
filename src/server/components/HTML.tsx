@@ -22,6 +22,10 @@ const HTML = ({
             {helmet.base.toComponent()}
             {helmet.title.toComponent()}
             {helmet.meta.toComponent()}
+            <link
+                rel="stylesheet"
+                href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+            />
             {helmet.link.toComponent()}
             {helmet.script.toComponent()}
             {css.filter(Boolean).map((href) => (
@@ -39,6 +43,7 @@ const HTML = ({
         <body>
             {/* eslint-disable-next-line react/no-danger */}
             <div id="app" dangerouslySetInnerHTML={{ __html: children }} />
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" />
             {scripts.filter(Boolean).map((src) => (
                 <script key={src} src={src} />
             ))}

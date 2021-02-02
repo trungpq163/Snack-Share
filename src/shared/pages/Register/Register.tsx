@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 import { registerUser } from '../../store/auth/effects';
 
 import RegisterDumb from '../../components/Register/Register';
+import { CenterComponent } from '../../styles/CenterComponent';
 
 import { User } from '../../types';
 
@@ -65,13 +66,15 @@ const Register = ({ match }: any) => {
     };
 
     return (
-        <RegisterDumb
-            roleParams={roleParams}
-            capitalizeFirstLetter={capitalizeFirstLetter}
-            clickSubmit={clickSubmit}
-            handleChange={handleChange}
-            values={values}
-        />
+        <CenterComponent>
+            <RegisterDumb
+                roleParams={roleParams}
+                capitalizeFirstLetter={capitalizeFirstLetter}
+                clickSubmit={clickSubmit}
+                handleChange={handleChange}
+                values={values}
+            />
+        </CenterComponent>
     );
 };
 
