@@ -1,0 +1,28 @@
+.circle-loading2 {
+    align-items: center;
+    animation: loading2 1s infinite;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.circle-loading2 div {
+    border: 2px solid #bd93f9;
+    border-radius: 50%;
+    height: 30px;
+    margin: 0 5px;
+    width: 30px;
+}
+
+@keyframes loading2 {
+    50% {
+        transform: rotate(200deg);
+    }
+
+    75% {
+        transform: rotate(160deg);
+    }
+
+    100% {
+        transform: rotate(180deg);
+    }
+}

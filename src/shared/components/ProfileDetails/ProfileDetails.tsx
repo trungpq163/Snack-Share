@@ -1,20 +1,28 @@
 import * as React from 'react';
-
-import './ProfileDetails.Styles.css';
-
 import { Link } from 'react-router-dom';
 import certificate1 from '../../assets/images/certificate-1-1.png';
 import certificate2 from '../../assets/images/certificate-1-2.png';
 import teamd1 from '../../assets/images/avt.jpg';
 
-const ProfileDetails = () => {
+import { Auth } from '../../store/auth/types';
+import { Profile } from '../../store/profile/types';
+
+import './ProfileDetails.Styles.css';
+
+interface Props {
+    auth?: Auth;
+    profile?: Profile;
+    name?: string;
+}
+
+const ProfileDetails = ({ auth, profile, name }: Props) => {
     return (
         <section className="team-details">
             <div className="container">
                 <div className="row justify-content-between">
                     <div className="col-lg-5">
                         <div className="team-details__content">
-                            <h2 className="team-details__title">Adelaide Hunter</h2>
+                            <h2 className="team-details__title">{name}</h2>
                             <Link to="#dosomething" className="team-details__link">
                                 Edit Profile
                             </Link>
@@ -95,7 +103,7 @@ const ProfileDetails = () => {
                             </div>
                             <div className="team-one__content">
                                 <h2 className="team-one__name">
-                                    <a href="/team-details">Adelaide Hunter</a>
+                                    <a href="/team-details">{name}</a>
                                 </h2>
                                 <p className="team-one__designation">Teacher</p>
                             </div>
