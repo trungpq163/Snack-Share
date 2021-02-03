@@ -27,7 +27,8 @@
         "test": "cross-env TS_NODE_PROJECT=tsconfig.tooling.json ts-node scripts/test --env=jsdom",
         "test:update": "yarn-or-npm test --updateSnapshot",
         "transpile": "yarn-or-npm babel -d build/transpiled ./src --extensions .es6,.js,.es,.jsx,.mjs,.ts,.tsx --ignore **/*.d.ts",
-        "tsc": "tsc --noEmit"
+        "tsc": "tsc --noEmit",
+        "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false yarn install"
     },
     "dependencies": {
         "axios": "^0.19.2",
@@ -214,5 +215,5 @@
     "resolutions": {
         "caniuse-lite": "^1.0.30001055"
     },
-    "proxy": "http://localhost:8500"
+    "proxy": "https://aqueous-ravine-22925.herokuapp.com/"
 }
