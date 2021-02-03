@@ -1,0 +1,33 @@
+declare const styles: {
+  readonly "active": string;
+  readonly "container": string;
+  readonly "progress-one__bar": string;
+  readonly "progress-one__percent": string;
+  readonly "progress-one__single": string;
+  readonly "progress-one__title": string;
+  readonly "progress-one__top": string;
+  readonly "team-details": string;
+  readonly "team-details__certificate-list": string;
+  readonly "team-details__subtitle": string;
+  readonly "team-details__text": string;
+  readonly "team-details__title": string;
+  readonly "team-one": string;
+  readonly "team-one__content": string;
+  readonly "team-one__designation": string;
+  readonly "team-one__image": string;
+  readonly "team-one__name": string;
+  readonly "team-one__single": string;
+  readonly "team-one__social": string;
+  readonly "team-one__text": string;
+  readonly "team-tab": string;
+  readonly "team-tab__btn": string;
+  readonly "team-tab__content": string;
+  readonly "team-tab__designation": string;
+  readonly "team-tab__social": string;
+  readonly "team-tab__tab-navs": string;
+  readonly "team-tab__text": string;
+  readonly "team-tab__title": string;
+  readonly "team-tab__top": string;
+};
+export = styles;
+

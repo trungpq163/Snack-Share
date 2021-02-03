@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { setLocale } from 'store/app/actions';
 import { Locale } from 'store/app/types';
-
 import Introduction from '../../components/Introduction/Introduction';
 import Partners from '../../components/Partners/Partners';
 import CourseOne from '../../components/CourseOne/CourseOne';
