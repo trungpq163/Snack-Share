@@ -6,6 +6,7 @@ type Props = {
     helmetContext: any;
     scripts: string[];
     state: string;
+    styledComponents?: any;
 };
 
 const HTML = ({
@@ -14,6 +15,7 @@ const HTML = ({
     scripts = [],
     state = '{}',
     helmetContext: { helmet },
+    styledComponents,
 }: Props) => (
     <html lang="">
         <head>
@@ -31,6 +33,7 @@ const HTML = ({
             {css.filter(Boolean).map((href) => (
                 <link key={href} rel="stylesheet" href={href} />
             ))}
+            <style>{styledComponents}</style>
             <script
                 // eslint-disable-next-line react/no-danger
                 dangerouslySetInnerHTML={{
