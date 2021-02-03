@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import './ProfileDetails.Styles.css';
 
+import { Link } from 'react-router-dom';
 import certificate1 from '../../assets/images/certificate-1-1.png';
 import certificate2 from '../../assets/images/certificate-1-2.png';
 import teamd1 from '../../assets/images/avt.jpg';
@@ -13,8 +14,19 @@ const ProfileDetails = () => {
                 <div className="row justify-content-between">
                     <div className="col-lg-5">
                         <div className="team-details__content">
-                            <h2 className="team-details__title">Read my story</h2>
-                            <p className="team-details__text">
+                            <h2 className="team-details__title">Adelaide Hunter</h2>
+                            <Link to="#dosomething" className="team-details__link">
+                                Edit Profile
+                            </Link>
+                            {' / '}
+                            <Link to="#dosomething" className="team-details__link">
+                                Add Experience
+                            </Link>
+                            {' / '}
+                            <Link to="#dosomething" className="team-details__link">
+                                Add Education
+                            </Link>
+                            <p className="team-details__text mt-3">
                                 Lorem Ipsum is simply dummy text of the printing and type industry.
                                 Lorem Ipsum has been the standard dummy text ever since the when an
                                 unknown was popularised. It has survived not only five centuries,

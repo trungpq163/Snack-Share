@@ -8,6 +8,7 @@ declare const styles: {
   readonly "progress-one__top": string;
   readonly "team-details": string;
   readonly "team-details__certificate-list": string;
+  readonly "team-details__link": string;
   readonly "team-details__subtitle": string;
   readonly "team-details__text": string;
   readonly "team-details__title": string;
