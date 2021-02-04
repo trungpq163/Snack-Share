@@ -1,7 +1,7 @@
 import * as React from 'react';
-import './InputField.Styles.css';
+import '../InputField/InputField.Styles.css';
 
-const InputField = ({ name, text, onChange, value, placeholder }: any) => {
+const TextAreaField = ({ name, text, placeholder, onChange, value }: any) => {
     return (
         <>
             <p
@@ -15,16 +15,15 @@ const InputField = ({ name, text, onChange, value, placeholder }: any) => {
             >
                 {text}
             </p>
-            <input
-                type="text"
+            <textarea
+                className="input-focus"
+                placeholder={placeholder}
                 name={name}
                 onChange={onChange}
                 value={value}
-                className="input-focus"
-                placeholder={placeholder}
             />
         </>
     );
 };
 
-export default InputField;
+export default TextAreaField;

@@ -1,13 +1,13 @@
 import * as React from 'react';
 
 import PageHeader from 'components/PageHeader/PageHeader';
-import InputField from '../../components/InputField/InputField';
+import FormCreateProfile from '../../components/FormCreateProfile/FormCreateProfile';
 
 const CreateProfile = () => {
     return (
         <div>
             <PageHeader title="Edit Profile" />
-            <InputField name="Name" />
+            <FormCreateProfile />
         </div>
     );
 };
