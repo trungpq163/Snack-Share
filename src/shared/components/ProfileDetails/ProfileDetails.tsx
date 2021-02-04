@@ -7,6 +7,8 @@ import teamd1 from '../../assets/images/avt.jpg';
 import { Auth } from '../../store/auth/types';
 import { Profile } from '../../store/profile/types';
 
+import routes from '../../routes';
+
 import './ProfileDetails.Styles.css';
 
 interface Props {
@@ -101,7 +103,7 @@ const ProfileDetails = ({ auth, profile, name }: Props) => {
                             ) : (
                                 <div>
                                     No profile here,{' '}
-                                    <Link to="#dosomething" className="team-details__link">
+                                    <Link to={routes.createprofile} className="team-details__link">
                                         create now!
                                     </Link>
                                 </div>

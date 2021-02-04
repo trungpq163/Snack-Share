@@ -4,6 +4,7 @@ const routes = {
     login: '/login/:role',
     register: '/register/:role',
     profile: '/finaldashboard',
+    createprofile: '/create-profile',
 };
 
 export const getRoute = (
