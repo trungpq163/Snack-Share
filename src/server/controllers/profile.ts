@@ -158,7 +158,7 @@ export const createOrEditUserProfileCtrl = (req: Request, res: Response) => {
         if (profile) {
             // @ts-ignore
             updateProfileByUserIdService(profileModel, req.user.id, profileFields).then((profile) =>
-                res.json(profile)
+                res.status(200).json(profile)
             );
         } else {
             // Create and Check if handle exists
@@ -170,7 +170,7 @@ export const createOrEditUserProfileCtrl = (req: Request, res: Response) => {
 
                 // Save Profile
                 saveProfileService(new profileModel(profileFields)).then((profile) =>
-                    res.json(profile)
+                    res.status(200).json(profile)
                 );
             });
         }

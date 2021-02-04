@@ -36,6 +36,7 @@ export const createProfile = (
     errorCb: Function,
     doneCb: Function,
     clearInput: Function,
+    setData: any,
     redirectWhenSuccess: Function
 ) => (_dispatch: Dispatch<Action>) => {
     const config: AxiosRequestConfig = {
@@ -47,6 +48,7 @@ export const createProfile = (
     axios(config)
         .then((_res) => {
             clearInput();
+            setData();
             doneCb('Create profile successfully! <3');
             redirectWhenSuccess();
         })
