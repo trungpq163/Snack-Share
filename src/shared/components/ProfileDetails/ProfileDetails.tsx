@@ -23,77 +23,89 @@ const ProfileDetails = ({ auth, profile, name }: Props) => {
                     <div className="col-lg-5">
                         <div className="team-details__content">
                             <h2 className="team-details__title">{name}</h2>
-                            <Link to="#dosomething" className="team-details__link">
-                                Edit Profile
-                            </Link>
-                            {' / '}
-                            <Link to="#dosomething" className="team-details__link">
-                                Add Experience
-                            </Link>
-                            {' / '}
-                            <Link to="#dosomething" className="team-details__link">
-                                Add Education
-                            </Link>
-                            <p className="team-details__text mt-3">
-                                Lorem Ipsum is simply dummy text of the printing and type industry.
-                                Lorem Ipsum has been the standard dummy text ever since the when an
-                                unknown was popularised. It has survived not only five centuries,
-                                but also the leap into electronic typesetting remaining unchanged.
-                            </p>
-                            <h3 className="team-details__subtitle">Certificate</h3>
-                            <ul className="list-unstyled team-details__certificate-list">
-                                <li>
-                                    <img src={certificate1} alt="" />
-                                </li>
-                                <li>
-                                    <img src={certificate2} alt="" />
-                                </li>
-                            </ul>
+                            {profile?.profile === null ? (
+                                <div>
+                                    <Link to="#dosomething" className="team-details__link">
+                                        Edit Profile
+                                    </Link>
+                                    {' / '}
+                                    <Link to="#dosomething" className="team-details__link">
+                                        Add Experience
+                                    </Link>
+                                    {' / '}
+                                    <Link to="#dosomething" className="team-details__link">
+                                        Add Education
+                                    </Link>
+                                    <p className="team-details__text mt-3">
+                                        Lorem Ipsum is simply dummy text of the printing and type
+                                        industry. Lorem Ipsum has been the standard dummy text ever
+                                        since the when an unknown was popularised. It has survived
+                                        not only five centuries, but also the leap into electronic
+                                        typesetting remaining unchanged.
+                                    </p>
+                                    <h3 className="team-details__subtitle">Certificate</h3>
+                                    <ul className="list-unstyled team-details__certificate-list">
+                                        <li>
+                                            <img src={certificate1} alt="" />
+                                        </li>
+                                        <li>
+                                            <img src={certificate2} alt="" />
+                                        </li>
+                                    </ul>
 
-                            <div className="progress-one__wrap">
-                                <div className="progress-one__single">
-                                    <div className="progress-one__top">
-                                        <h3 className="progress-one__title">English</h3>
-                                        <h3 className="progress-one__percent">
-                                            <span className="counter">98</span>%
-                                        </h3>
-                                    </div>
-                                    <div className="progress-one__bar">
-                                        <span
-                                            style={{ width: '98%' }}
-                                            className="wow slideInLeft"
-                                        />
+                                    <div className="progress-one__wrap">
+                                        <div className="progress-one__single">
+                                            <div className="progress-one__top">
+                                                <h3 className="progress-one__title">English</h3>
+                                                <h3 className="progress-one__percent">
+                                                    <span className="counter">98</span>%
+                                                </h3>
+                                            </div>
+                                            <div className="progress-one__bar">
+                                                <span
+                                                    style={{ width: '98%' }}
+                                                    className="wow slideInLeft"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="progress-one__single">
+                                            <div className="progress-one__top">
+                                                <h3 className="progress-one__title">French</h3>
+                                                <h3 className="progress-one__percent">
+                                                    <span className="counter">64</span>%
+                                                </h3>
+                                            </div>
+                                            <div className="progress-one__bar">
+                                                <span
+                                                    style={{ width: '64%' }}
+                                                    className="wow slideInLeft"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="progress-one__single">
+                                            <div className="progress-one__top">
+                                                <h3 className="progress-one__title">Spanish</h3>
+                                                <h3 className="progress-one__percent">
+                                                    <span className="counter">34</span>%
+                                                </h3>
+                                            </div>
+                                            <div className="progress-one__bar">
+                                                <span
+                                                    style={{ width: '34%' }}
+                                                    className="wow slideInLeft"
+                                                />
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div className="progress-one__single">
-                                    <div className="progress-one__top">
-                                        <h3 className="progress-one__title">French</h3>
-                                        <h3 className="progress-one__percent">
-                                            <span className="counter">64</span>%
-                                        </h3>
-                                    </div>
-                                    <div className="progress-one__bar">
-                                        <span
-                                            style={{ width: '64%' }}
-                                            className="wow slideInLeft"
-                                        />
-                                    </div>
+                            ) : (
+                                <div>
+                                    No profile here,{' '}
+                                    <Link to="#dosomething" className="team-details__link">
+                                        create now!
+                                    </Link>
                                 </div>
-                                <div className="progress-one__single">
-                                    <div className="progress-one__top">
-                                        <h3 className="progress-one__title">Spanish</h3>
-                                        <h3 className="progress-one__percent">
-                                            <span className="counter">34</span>%
-                                        </h3>
-                                    </div>
-                                    <div className="progress-one__bar">
-                                        <span
-                                            style={{ width: '34%' }}
-                                            className="wow slideInLeft"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
+                            )}
                         </div>
                     </div>
                     <div className="col-lg-6">
