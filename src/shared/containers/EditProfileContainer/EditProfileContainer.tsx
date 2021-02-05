@@ -15,7 +15,7 @@ import FormEditProfile from '../../components/FormEditProfile/FormEditProfile';
 const EditProfileContainer = ({ profile, loading }: any) => {
     const dispatch = useDispatch();
     const history = useHistory();
-    const decoded = jwtDecode(localStorage.getItem('jwtToken') as string);
+    const [decoded, setDecoded] = React.useState(undefined);
 
     const [values, setValues] = React.useState({
         handle: '',
@@ -32,6 +32,10 @@ const EditProfileContainer = ({ profile, loading }: any) => {
         youtube: '',
         instagram: '',
     });
+
+    React.useEffect(() => {
+        setDecoded(jwtDecode(localStorage.getItem('jwtToken') as string));
+    }, []);
 
     React.useEffect(() => {
         // Bring skills array back to CSV

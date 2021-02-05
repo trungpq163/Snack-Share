@@ -16,7 +16,6 @@ interface Props {
 }
 
 const ProfileDetails = ({ auth, profile, name }: Props) => {
-    console.log(profile);
     return (
         <section className="team-details">
             <div className="container">
@@ -39,18 +38,35 @@ const ProfileDetails = ({ auth, profile, name }: Props) => {
                                         Edit Profile
                                     </Link>
                                     {' / '}
-                                    <Link to="#dosomething" className="team-details__link">
+                                    <Link to={routes.addexperience} className="team-details__link">
                                         Add Experience
                                     </Link>
                                     {' / '}
                                     <Link to="#dosomething" className="team-details__link">
                                         Add Education
                                     </Link>
-                                    <p className="team-details__text mt-3">
+                                    <p className="team-details__text mt-2">
                                         {profile?.profile?.bio}
                                     </p>
-                                    <h1 className="team-details__subtitle">Education</h1>
-                                    <h1 className="team-details__subtitle">Experience</h1>
+                                    <h1
+                                        className="team-details__subtitle"
+                                        style={{ marginBottom: '0.5rem' }}
+                                    >
+                                        Education
+                                    </h1>
+                                    <h1
+                                        className="team-details__subtitle"
+                                        style={{ marginBottom: '0.5rem' }}
+                                    >
+                                        Experience
+                                    </h1>
+                                    Company: {profile?.profile?.experience[0].company} <br />
+                                    Job: {profile?.profile?.experience[0].title} <br />
+                                    Status:
+                                    {profile?.profile?.experience[0].current ? 'Working' : ''}{' '}
+                                    <br />
+                                    From: {profile?.profile?.experience[0].from} <br />
+                                    Location: {profile?.profile?.experience[0].location} <br />
                                     <h1 className="team-details__subtitle">Skills</h1>
                                     <div className="progress-one__wrap">
                                         {profile?.profile?.skills?.map((skill: any, index: any) => (

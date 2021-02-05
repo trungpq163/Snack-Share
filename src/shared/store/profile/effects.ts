@@ -15,6 +15,9 @@ export const errorResponse = (errData: any): string | undefined => {
         errData?.facebook ||
         errData?.linkedin ||
         errData?.instagram ||
+        errData?.title ||
+        errData?.company ||
+        errData?.from ||
         '';
     return errRes;
 };
@@ -63,6 +66,7 @@ export const addExperience = (
     errorCb: Function,
     doneCb: Function,
     clearInput: Function,
+    setData: any,
     redirectWhenSuccess: Function
 ) => (_dispatch: Dispatch<Action>) => {
     const config: AxiosRequestConfig = {
@@ -74,6 +78,7 @@ export const addExperience = (
     axios(config)
         .then((_res) => {
             clearInput();
+            setData();
             doneCb('Add Experience Successfully! <3');
             redirectWhenSuccess();
         })

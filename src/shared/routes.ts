@@ -6,6 +6,7 @@ const routes = {
     profile: '/finaldashboard',
     createprofile: '/create-profile',
     editprofile: '/edit-profile',
+    addexperience: '/add-experience',
 };
 
 export const getRoute = (
