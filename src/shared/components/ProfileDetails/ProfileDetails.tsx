@@ -47,11 +47,7 @@ const ProfileDetails = ({ auth, profile, name }: Props) => {
                                         Add Education
                                     </Link>
                                     <p className="team-details__text mt-3">
-                                        Lorem Ipsum is simply dummy text of the printing and type
-                                        industry. Lorem Ipsum has been the standard dummy text ever
-                                        since the when an unknown was popularised. It has survived
-                                        not only five centuries, but also the leap into electronic
-                                        typesetting remaining unchanged.
+                                        {profile?.profile?.bio}
                                     </p>
                                     <h1 className="team-details__subtitle">Education</h1>
                                     <h1 className="team-details__subtitle">Experience</h1>
@@ -92,18 +88,21 @@ const ProfileDetails = ({ auth, profile, name }: Props) => {
                                 </p>
                             </div>
                             <div className="team-one__social">
-                                <a href="#none">
-                                    <i className="fab fa-twitter" />
-                                </a>
-                                <a href="#none">
-                                    <i className="fab fa-facebook-square" />
-                                </a>
-                                <a href="#none">
-                                    <i className="fab fa-pinterest-p" />
-                                </a>
-                                <a href="#none">
-                                    <i className="fab fa-instagram" />
-                                </a>
+                                {Object.values(profile?.profile?.social || {}).map(
+                                    (item: any, index) => {
+                                        const domain = new URL(item);
+                                        const domainName = domain.hostname
+                                            .split('.com')
+                                            .join('')
+                                            .split('www.')
+                                            .join('');
+                                        return (
+                                            <a href={item} key={index}>
+                                                <i className={`fab fa-${domainName}`} />
+                                            </a>
+                                        );
+                                    }
+                                )}
                             </div>
                         </div>
                     </div>
