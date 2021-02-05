@@ -5,6 +5,7 @@ const routes = {
     register: '/register/:role',
     profile: '/finaldashboard',
     createprofile: '/create-profile',
+    editprofile: '/edit-profile',
 };
 
 export const getRoute = (

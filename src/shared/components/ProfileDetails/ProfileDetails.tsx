@@ -35,7 +35,7 @@ const ProfileDetails = ({ auth, profile, name }: Props) => {
                                 </div>
                             ) : (
                                 <div>
-                                    <Link to="#dosomething" className="team-details__link">
+                                    <Link to={routes.editprofile} className="team-details__link">
                                         Edit Profile
                                     </Link>
                                     {' / '}

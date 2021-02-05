@@ -90,6 +90,7 @@ mongoose.connect(keys.MONGODB_URI, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
+    useFindAndModify: false,
 });
 
 mongoose.connection.on('error', () => {

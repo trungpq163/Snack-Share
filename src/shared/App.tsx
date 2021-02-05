@@ -14,6 +14,7 @@ import Register from './pages/Register/Register';
 import Header from './containers/HeaderContainer/HeaderContainer';
 import Profile from './pages/Profile/Profile';
 import CreateProfile from './pages/CreateProfile/CreateProfile';
+import EditProfile from './pages/EditProfile/EditProfile';
 import Footer from './components/Footer/Footer';
 
 import { GlobalStyle } from './styles/GlobalStyles';
@@ -64,6 +65,7 @@ const App: React.FC<any> = () => {
                 <Route exact path={routes.register} component={Register} />
                 <Route exact path={routes.profile} component={Profile} />
                 <Route exact path={routes.createprofile} component={CreateProfile} />
+                <Route exact path={routes.editprofile} component={EditProfile} />
                 <Route render={() => '404!'} />
             </Switch>
             <Footer />

@@ -6,7 +6,7 @@ import CreateProfileContainer from '../../containers/CreateProfileContainer/Crea
 const CreateProfile = () => {
     return (
         <div>
-            <PageHeader title="Edit Profile" />
+            <PageHeader title="Create Profile" />
             <CreateProfileContainer />
         </div>
     );
