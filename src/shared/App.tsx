@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
 import { useDispatch } from 'react-redux';
+import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
 import favicon from '../shared/assets/favicon.png';
 import setAuthToken from './utils/setAuthToken';
 import { logoutUser } from './store/auth/effects';
@@ -65,11 +66,11 @@ const App: React.FC<any> = () => {
                 <Route exact path={routes.home} component={Home} />
                 <Route exact path={routes.login} component={Login} />
                 <Route exact path={routes.register} component={Register} />
-                <Route exact path={routes.profile} component={Profile} />
-                <Route exact path={routes.createprofile} component={CreateProfile} />
-                <Route exact path={routes.editprofile} component={EditProfile} />
-                <Route exact path={routes.addexperience} component={AddExperience} />
-                <Route exact path={routes.addeducation} component={AddEducation} />
+                <PrivateRoute exact path={routes.profile} component={Profile} />
+                <PrivateRoute exact path={routes.createprofile} component={CreateProfile} />
+                <PrivateRoute exact path={routes.editprofile} component={EditProfile} />
+                <PrivateRoute exact path={routes.addexperience} component={AddExperience} />
+                <PrivateRoute exact path={routes.addeducation} component={AddEducation} />
                 <Route render={() => '404!'} />
             </Switch>
             <Footer />
