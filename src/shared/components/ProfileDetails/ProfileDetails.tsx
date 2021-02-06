@@ -66,13 +66,13 @@ const ProfileDetails = ({ auth, profile, name }: Props) => {
                                     >
                                         Experience
                                     </h1>
-                                    Company: {profile?.profile?.experience[0].company} <br />
-                                    Job: {profile?.profile?.experience[0].title} <br />
+                                    Company: {profile?.profile?.experience[0]?.company} <br />
+                                    Job: {profile?.profile?.experience[0]?.title} <br />
                                     Status:
-                                    {profile?.profile?.experience[0].current ? 'Working' : ''}{' '}
+                                    {profile?.profile?.experience[0]?.current ? 'Working' : ''}{' '}
                                     <br />
-                                    From: {profile?.profile?.experience[0].from} <br />
-                                    Location: {profile?.profile?.experience[0].location} <br />
+                                    From: {profile?.profile?.experience[0]?.from} <br />
+                                    Location: {profile?.profile?.experience[0]?.location} <br />
                                     <h1 className="team-details__subtitle">Skills</h1>
                                     <div className="progress-one__wrap">
                                         {profile?.profile?.skills?.map((skill: any, index: any) => (
