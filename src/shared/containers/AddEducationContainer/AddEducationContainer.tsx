@@ -7,23 +7,24 @@ import { toast } from 'react-toastify';
 
 import setData from 'utils/setData';
 import CircleLoader from 'components/CircleLoader/CircleLoader';
-import FormAddExperience from 'components/FormAddExperience/FormAddExperience';
-import { addExperience } from '../../store/profile/effects';
+
+import FormAddEducation from 'components/FormAddEducation/FormAddEducation';
+import { addEducation } from '../../store/profile/effects';
 
 interface Props {
     profile: any;
     loading: any;
 }
 
-const AddExperienceContainer = ({ profile, loading }: Props) => {
+const AddEducationContainer = ({ profile, loading }: Props) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const [decoded, setDecoded] = React.useState(undefined);
 
     const [values, setValues] = React.useState({
-        company: '',
-        title: '',
-        location: '',
+        school: '',
+        degree: '',
+        fieldofstudy: '',
         from: '',
         to: '',
         current: false,
@@ -38,14 +39,14 @@ const AddExperienceContainer = ({ profile, loading }: Props) => {
     React.useEffect(() => {
         setValues({
             ...values,
-            company: profile?.experience[0]?.company || '',
-            title: profile?.experience[0]?.title || '',
-            location: profile?.experience[0]?.location || '',
-            from: profile?.experience[0]?.from || '',
-            to: profile?.experience[0]?.to || '',
-            current: profile?.experience[0]?.current || '',
-            description: profile?.experience[0]?.description || '',
-            disabled: profile?.experience[0]?.disabled || '',
+            school: profile?.education[0]?.school || '',
+            degree: profile?.education[0]?.degree || '',
+            fieldofstudy: profile?.education[0]?.fieldofstudy || '',
+            from: profile?.education[0]?.from || '',
+            to: profile?.education[0]?.to || '',
+            current: profile?.education[0]?.current || '',
+            description: profile?.education[0]?.description || '',
+            disabled: profile?.education[0]?.disabled || '',
         });
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [profile]);
@@ -68,10 +69,10 @@ const AddExperienceContainer = ({ profile, loading }: Props) => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        const expData = {
-            company: values.company,
-            title: values.title,
-            location: values.location,
+        const eduData = {
+            school: values.school,
+            degree: values.degree,
+            fieldofstudy: values.fieldofstudy,
             from: values.from,
             to: values.to,
             current: values.current,
@@ -79,15 +80,15 @@ const AddExperienceContainer = ({ profile, loading }: Props) => {
         };
 
         dispatch(
-            addExperience(
-                expData,
+            addEducation(
+                eduData,
                 (err: any) => toast(err),
                 (mess: string) => toast(mess),
                 () =>
                     setValues({
-                        company: '',
-                        title: '',
-                        location: '',
+                        school: '',
+                        degree: '',
+                        fieldofstudy: '',
                         from: '',
                         to: '',
                         current: false,
@@ -100,12 +101,14 @@ const AddExperienceContainer = ({ profile, loading }: Props) => {
         );
     };
 
+    console.log('add education', values);
+
     return (
         <>
             {loading ? (
                 <CircleLoader />
             ) : (
-                <FormAddExperience
+                <FormAddEducation
                     handleSubmit={handleSubmit}
                     values={values}
                     handleChange={handleChange}
@@ -116,4 +119,4 @@ const AddExperienceContainer = ({ profile, loading }: Props) => {
     );
 };
 
-export default AddExperienceContainer;
+export default AddEducationContainer;

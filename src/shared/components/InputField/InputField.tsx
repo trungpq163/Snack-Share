@@ -1,7 +1,16 @@
 import * as React from 'react';
 import './InputField.Styles.css';
 
-const InputField = ({ name, text, onChange, value, placeholder, type, disabled }: any) => {
+const InputField = ({
+    name,
+    text,
+    onChange,
+    value,
+    placeholder,
+    type,
+    disabled,
+    required,
+}: any) => {
     return (
         <>
             <p
@@ -23,6 +32,7 @@ const InputField = ({ name, text, onChange, value, placeholder, type, disabled }
                 className="input-focus"
                 placeholder={placeholder}
                 disabled={disabled}
+                required={required || false}
             />
         </>
     );

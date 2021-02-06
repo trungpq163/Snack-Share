@@ -42,18 +42,24 @@ const ProfileDetails = ({ auth, profile, name }: Props) => {
                                         Add Experience
                                     </Link>
                                     {' / '}
-                                    <Link to="#dosomething" className="team-details__link">
+                                    <Link to={routes.addeducation} className="team-details__link">
                                         Add Education
                                     </Link>
-                                    <p className="team-details__text mt-2">
-                                        {profile?.profile?.bio}
-                                    </p>
+                                    <p className="mt-2">{profile?.profile?.bio}</p>
                                     <h1
                                         className="team-details__subtitle"
                                         style={{ marginBottom: '0.5rem' }}
                                     >
                                         Education
                                     </h1>
+                                    School: {profile?.profile?.education[0]?.school} <br />
+                                    Degree: {profile?.profile?.education[0]?.degree} <br />
+                                    Field of Study: {
+                                        profile?.profile?.education[0]?.fieldofstudy
+                                    }{' '}
+                                    <br />
+                                    Status: {profile?.profile?.education[0]?.current} <br />
+                                    From: {profile?.profile?.education[0]?.from} <br />
                                     <h1
                                         className="team-details__subtitle"
                                         style={{ marginBottom: '0.5rem' }}

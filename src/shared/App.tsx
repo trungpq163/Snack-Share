@@ -16,6 +16,7 @@ import Profile from './pages/Profile/Profile';
 import CreateProfile from './pages/CreateProfile/CreateProfile';
 import EditProfile from './pages/EditProfile/EditProfile';
 import AddExperience from './pages/AddExperience/AddExperience';
+import AddEducation from './pages/AddEducation/AddEducation';
 import Footer from './components/Footer/Footer';
 
 import { GlobalStyle } from './styles/GlobalStyles';
@@ -68,6 +69,7 @@ const App: React.FC<any> = () => {
                 <Route exact path={routes.createprofile} component={CreateProfile} />
                 <Route exact path={routes.editprofile} component={EditProfile} />
                 <Route exact path={routes.addexperience} component={AddExperience} />
+                <Route exact path={routes.addeducation} component={AddEducation} />
                 <Route render={() => '404!'} />
             </Switch>
             <Footer />

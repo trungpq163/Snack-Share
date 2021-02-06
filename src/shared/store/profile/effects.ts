@@ -93,6 +93,7 @@ export const addEducation = (
     errorCb: Function,
     doneCb: Function,
     clearInput: Function,
+    setData: any,
     redirectWhenSuccess: Function
 ) => (_dispatch: Dispatch<Action>) => {
     const config: AxiosRequestConfig = {
@@ -104,6 +105,7 @@ export const addEducation = (
     axios(config)
         .then((_res) => {
             clearInput();
+            setData();
             doneCb('Add Education Successfully! <3');
             redirectWhenSuccess();
         })
