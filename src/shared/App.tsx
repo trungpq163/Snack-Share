@@ -4,6 +4,8 @@ import { Route, Switch, useHistory } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
 import { useDispatch } from 'react-redux';
 import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
+// import InstructorPrivateRoute from 'components/InstructorPrivateRoute/InstructorPrivateRoute';
+import AdminPrivateRoute from 'components/AdminPrivateRoute/AdminPrivateRoute';
 import favicon from '../shared/assets/favicon.png';
 import setAuthToken from './utils/setAuthToken';
 import { logoutUser } from './store/auth/effects';
@@ -18,6 +20,7 @@ import CreateProfile from './pages/CreateProfile/CreateProfile';
 import EditProfile from './pages/EditProfile/EditProfile';
 import AddExperience from './pages/AddExperience/AddExperience';
 import AddEducation from './pages/AddEducation/AddEducation';
+import ShowCategoryList from './pages/ShowCategoryList/ShowCategoryList';
 import Footer from './components/Footer/Footer';
 
 import { GlobalStyle } from './styles/GlobalStyles';
@@ -71,6 +74,7 @@ const App: React.FC<any> = () => {
                 <PrivateRoute exact path={routes.editprofile} component={EditProfile} />
                 <PrivateRoute exact path={routes.addexperience} component={AddExperience} />
                 <PrivateRoute exact path={routes.addeducation} component={AddEducation} />
+                <AdminPrivateRoute exact path={routes.showcategory} component={ShowCategoryList} />
                 <Route render={() => '404!'} />
             </Switch>
             <Footer />

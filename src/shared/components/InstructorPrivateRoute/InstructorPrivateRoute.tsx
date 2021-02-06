@@ -5,7 +5,7 @@ import jwtDecode from 'jwt-decode';
 import CircleLoader from 'components/CircleLoader/CircleLoader';
 import { getAuth } from '../../store/auth/selectors';
 
-const PrivateRoute = ({ component: Component, ...rest }: any) => {
+const InstructorPrivateRoute = ({ component: Component, ...rest }: any) => {
     const auth = useSelector(getAuth);
 
     const [decoded, setDecoded] = React.useState({
@@ -35,10 +35,7 @@ const PrivateRoute = ({ component: Component, ...rest }: any) => {
         <Route
             {...rest}
             render={(props) =>
-                auth.isAuthenticated === true &&
-                (decoded?.role === 'instructor' ||
-                    decoded?.role === 'admin' ||
-                    decoded?.role === 'student') ? (
+                auth.isAuthenticated === true && decoded?.role === 'instructor' ? (
                     <Component {...props} />
                 ) : (
                     <Redirect to="/login/student" />
@@ -48,4 +45,4 @@ const PrivateRoute = ({ component: Component, ...rest }: any) => {
     );
 };
 
-export default PrivateRoute;
+export default InstructorPrivateRoute;

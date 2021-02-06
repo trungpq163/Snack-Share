@@ -8,6 +8,7 @@ const routes = {
     editprofile: '/edit-profile',
     addexperience: '/add-experience',
     addeducation: '/add-education',
+    showcategory: '/ShowCategoryList',
 };
 
 export const getRoute = (
