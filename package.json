@@ -215,5 +215,5 @@
     "resolutions": {
         "caniuse-lite": "^1.0.30001055"
     },
-    "proxy": "https://aqueous-ravine-22925.herokuapp.com/"
+    "proxy": "https://snack-dev.herokuapp.com/"
 }
