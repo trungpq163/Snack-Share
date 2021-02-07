@@ -20,7 +20,9 @@ const AdminPrivateRoute = ({ component: Component, ...rest }: any) => {
     const [loading, setLoading] = React.useState(true);
 
     React.useEffect(() => {
-        setDecoded(jwtDecode(localStorage.getItem('jwtToken') as string));
+        if (localStorage.jwtToken) {
+            setDecoded(jwtDecode(localStorage.getItem('jwtToken') as string));
+        }
     }, []);
 
     React.useEffect(() => {

@@ -4,7 +4,6 @@ import routes from 'routes';
 import './ShowCategory.Styles.css';
 
 const ShowCategory = ({ category }: any) => {
-    console.log('category', category);
     return (
         <div
             style={{
