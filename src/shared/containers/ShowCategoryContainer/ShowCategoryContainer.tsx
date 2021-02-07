@@ -1,7 +1,5 @@
 import * as React from 'react';
 
-// import { toast } from 'react-toastify';
-
 import CircleLoader from 'components/CircleLoader/CircleLoader';
 
 import ShowCategory from 'components/ShowCategory/ShowCategory';

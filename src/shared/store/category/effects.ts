@@ -48,3 +48,29 @@ export const addCategory = (
             errorCb(errorResponse(err.response.data));
         });
 };
+
+export const updateCategory = (
+    data: any,
+    id: string,
+    errorCb: Function,
+    doneCb: Function,
+    setData: any
+) => (_dispatch: Dispatch<Action>) => {
+    const config: AxiosRequestConfig = {
+        method: 'put',
+        url: `/category/?id=${id}`,
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        data: data,
+    };
+
+    axios(config)
+        .then((_res) => {
+            doneCb('Update category successfully! <3');
+            setData();
+        })
+        .catch((err) => {
+            errorCb(errorResponse(err.response.data));
+        });
+};

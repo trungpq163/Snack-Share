@@ -10,6 +10,7 @@ const routes = {
     addeducation: '/add-education',
     showcategory: '/ShowCategoryList',
     createCategoryAdmin: '/CreateCategoryAdmin',
+    editCategoryAdmin: '/ShowCategoryList/edit/:id',
 };
 
 export const getRoute = (

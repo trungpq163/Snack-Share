@@ -22,6 +22,7 @@ import AddExperience from './pages/AddExperience/AddExperience';
 import AddEducation from './pages/AddEducation/AddEducation';
 import ShowCategoryList from './pages/ShowCategoryList/ShowCategoryList';
 import CreateCategoryAdmin from './pages/CreateCategoryAdmin/CreateCategoryAdmin';
+import EditCategoryList from './pages/EditCategoryList/EditCategoryList';
 import Footer from './components/Footer/Footer';
 
 import { GlobalStyle } from './styles/GlobalStyles';
@@ -80,6 +81,11 @@ const App: React.FC<any> = () => {
                     exact
                     path={routes.createCategoryAdmin}
                     component={CreateCategoryAdmin}
+                />
+                <AdminPrivateRoute
+                    exact
+                    path={routes.editCategoryAdmin}
+                    component={EditCategoryList}
                 />
                 <Route render={() => '404!'} />
             </Switch>
