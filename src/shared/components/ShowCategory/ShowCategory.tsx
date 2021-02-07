@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
+import routes from 'routes';
 import './ShowCategory.Styles.css';
 
 const ShowCategory = ({ category }: any) => {
@@ -15,12 +17,13 @@ const ShowCategory = ({ category }: any) => {
             }}
         >
             <div className="block-title" style={{ textAlign: 'center' }}>
-                <a
+                <Link
                     className="link-action__category"
                     style={{ fontSize: '1.66rem', cursor: 'pointer' }}
+                    to={routes.createCategoryAdmin}
                 >
                     Add Category
-                </a>
+                </Link>
             </div>
             <table className="table" style={{ width: '70%' }}>
                 <thead>

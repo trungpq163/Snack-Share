@@ -19,7 +19,8 @@ const HeaderContainer = () => {
     const checkDashboardRoute = location?.pathname === '/dashboard';
     const checkUsersRoute = location?.pathname === '/allusers';
     const checkCourseRoute = location?.pathname === '/ShowCourseList';
-    const checkCategoryRoute = location?.pathname === '/ShowCategoryList';
+    const checkCategoryRoute =
+        location?.pathname?.includes('Category') || location?.pathname?.includes('category');
     const checkEnrollRoute = location?.pathname === '/EnrollmentList';
     const checkMyCoursesRoute =
         location?.pathname?.includes(`/services/${auth.users.id}`) ||

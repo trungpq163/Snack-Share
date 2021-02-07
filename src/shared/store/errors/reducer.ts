@@ -7,7 +7,7 @@ export const initialState = Object.freeze<ErrorsState>({
 });
 
 export default (state: ErrorsState = initialState, action: Action): ErrorsState =>
-    produce(state, (draft) => {
+    produce(state, (_draft) => {
         switch (action.type) {
             case ErrorsTypes.GET_ERRORS:
                 return action.payload;

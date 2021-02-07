@@ -21,6 +21,7 @@ import EditProfile from './pages/EditProfile/EditProfile';
 import AddExperience from './pages/AddExperience/AddExperience';
 import AddEducation from './pages/AddEducation/AddEducation';
 import ShowCategoryList from './pages/ShowCategoryList/ShowCategoryList';
+import CreateCategoryAdmin from './pages/CreateCategoryAdmin/CreateCategoryAdmin';
 import Footer from './components/Footer/Footer';
 
 import { GlobalStyle } from './styles/GlobalStyles';
@@ -75,6 +76,11 @@ const App: React.FC<any> = () => {
                 <PrivateRoute exact path={routes.addexperience} component={AddExperience} />
                 <PrivateRoute exact path={routes.addeducation} component={AddEducation} />
                 <AdminPrivateRoute exact path={routes.showcategory} component={ShowCategoryList} />
+                <AdminPrivateRoute
+                    exact
+                    path={routes.createCategoryAdmin}
+                    component={CreateCategoryAdmin}
+                />
                 <Route render={() => '404!'} />
             </Switch>
             <Footer />

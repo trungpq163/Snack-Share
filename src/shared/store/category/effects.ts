@@ -20,3 +20,31 @@ export const getCategory = () => (dispatch: Dispatch<Action>) => {
         .then((res) => dispatch(getCate(res.data)))
         .catch((_err) => dispatch(getCate([] as Category)));
 };
+
+export const addCategory = (
+    data: any,
+    errorCb: Function,
+    doneCb: Function,
+    clearInput: Function,
+    setData: any
+) => (_dispatch: Dispatch<Action>) => {
+    const config: AxiosRequestConfig = {
+        method: 'post',
+        url: '/category/add',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        data: data,
+    };
+
+    axios(config)
+        .then((_res) => {
+            clearInput();
+            setData();
+            doneCb('Create category successfully! <3');
+        })
+        .catch((err) => {
+            clearInput();
+            errorCb(errorResponse(err.response.data));
+        });
+};
