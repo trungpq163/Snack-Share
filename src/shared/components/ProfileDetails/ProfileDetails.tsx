@@ -52,27 +52,26 @@ const ProfileDetails = ({ auth, profile, name }: Props) => {
                                     >
                                         Education
                                     </h1>
-                                    School: {profile?.profile?.education[0]?.school} <br />
-                                    Degree: {profile?.profile?.education[0]?.degree} <br />
-                                    Field of Study: {
-                                        profile?.profile?.education[0]?.fieldofstudy
-                                    }{' '}
-                                    <br />
-                                    Status: {profile?.profile?.education[0]?.current} <br />
-                                    From: {profile?.profile?.education[0]?.from} <br />
+                                    School: {profile?.profile?.education[0]?.school || ''} <br />
+                                    Degree: {profile?.profile?.education[0]?.degree || ''} <br />
+                                    Field of Study:{' '}
+                                    {profile?.profile?.education[0]?.fieldofstudy || ''} <br />
+                                    Status: {profile?.profile?.education[0]?.current || ''} <br />
+                                    From: {profile?.profile?.education[0]?.from || ''} <br />
                                     <h1
                                         className="team-details__subtitle"
                                         style={{ marginBottom: '0.5rem' }}
                                     >
                                         Experience
                                     </h1>
-                                    Company: {profile?.profile?.experience[0]?.company} <br />
-                                    Job: {profile?.profile?.experience[0]?.title} <br />
+                                    Company: {profile?.profile?.experience[0]?.company || ''} <br />
+                                    Job: {profile?.profile?.experience[0]?.title || ''} <br />
                                     Status:
                                     {profile?.profile?.experience[0]?.current ? 'Working' : ''}{' '}
                                     <br />
-                                    From: {profile?.profile?.experience[0]?.from} <br />
-                                    Location: {profile?.profile?.experience[0]?.location} <br />
+                                    From: {profile?.profile?.experience[0]?.from || ''} <br />
+                                    Location: {profile?.profile?.experience[0]?.location || ''}{' '}
+                                    <br />
                                     <h1 className="team-details__subtitle">Skills</h1>
                                     <div className="progress-one__wrap">
                                         {profile?.profile?.skills?.map((skill: any, index: any) => (
