@@ -11,6 +11,7 @@ const routes = {
     showcategory: '/ShowCategoryList',
     createCategoryAdmin: '/CreateCategoryAdmin',
     editCategoryAdmin: '/ShowCategoryList/edit/:id',
+    showAllUsers: '/allusers',
 };
 
 export const getRoute = (

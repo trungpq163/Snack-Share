@@ -23,6 +23,7 @@ import AddEducation from './pages/AddEducation/AddEducation';
 import ShowCategoryList from './pages/ShowCategoryList/ShowCategoryList';
 import CreateCategoryAdmin from './pages/CreateCategoryAdmin/CreateCategoryAdmin';
 import EditCategoryList from './pages/EditCategoryList/EditCategoryList';
+import ShowAllUsers from './pages/ShowAllUsers/ShowAllUsers';
 import Footer from './components/Footer/Footer';
 
 import { GlobalStyle } from './styles/GlobalStyles';
@@ -87,6 +88,7 @@ const App: React.FC<any> = () => {
                     path={routes.editCategoryAdmin}
                     component={EditCategoryList}
                 />
+                <AdminPrivateRoute exact path={routes.showAllUsers} component={ShowAllUsers} />
                 <Route render={() => '404!'} />
             </Switch>
             <Footer />
