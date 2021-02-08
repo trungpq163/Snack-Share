@@ -26,12 +26,28 @@ const ShowAllUsersContainer = () => {
         return `${year}/${month}/${dt}`;
     };
 
+    const [values, setValues] = React.useState({
+        inputValue: '',
+    });
+
+    const handleChange = (name: any) => (event: any) => {
+        setValues({
+            ...values,
+            [name]: event.target.value,
+        });
+    };
+
     return (
         <>
             {users.loading ? (
                 <CircleLoader />
             ) : (
-                <ShowAllUsers users={users?.users} handleISODateToString={handleISODateToString} />
+                <ShowAllUsers
+                    users={users?.users}
+                    handleISODateToString={handleISODateToString}
+                    values={values}
+                    handleChange={handleChange}
+                />
             )}
         </>
     );

@@ -4,8 +4,9 @@ import 'components/ShowCategory/ShowCategory.Styles.css';
 
 import SearchInput from 'components/SearchInput/SearchInput';
 
-const ShowAllUsers = ({ users, handleISODateToString }: any) => {
+const ShowAllUsers = ({ users, handleISODateToString, values, handleChange }: any) => {
     console.log('dataUsers', users);
+    console.log('inputSearch', values);
     return (
         <div
             style={{
@@ -17,10 +18,11 @@ const ShowAllUsers = ({ users, handleISODateToString }: any) => {
                 alignItems: 'center',
             }}
         >
-            <div className="block-title" style={{ textAlign: 'center' }}>
-                <h3>List Users</h3>
-            </div>
-            <SearchInput />
+            <SearchInput
+                values={values?.inputValue}
+                onChange={handleChange('inputValue')}
+                name="inputValue"
+            />
             <table className="table">
                 <thead>
                     <tr>
@@ -34,24 +36,28 @@ const ShowAllUsers = ({ users, handleISODateToString }: any) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {users?.map((user: any, index: any) => (
-                        <tr key={index}>
-                            <th scope="row">{index || 0}</th>
-                            <td>{user?.first_name || ''}</td>
-                            <td>{user?.last_name || ''}</td>
-                            <td>{user?.email || ''}</td>
-                            <td>{user?.role || ''}</td>
-                            <td>{handleISODateToString(user?.created_at) || '1/1/2020'}</td>
-                            <td>
-                                <a
-                                    className="link-action__category"
-                                    href={'/ShowCategoryList/edit/'}
-                                >
-                                    Edit
-                                </a>
-                            </td>
-                        </tr>
-                    ))}
+                    {users
+                        ?.filter((x: any) =>
+                            values?.inputValue !== '' ? x.first_name === values?.inputValue : x
+                        )
+                        ?.map((user: any, index: any) => (
+                            <tr key={index}>
+                                <th scope="row">{index || 0}</th>
+                                <td>{user?.first_name || ''}</td>
+                                <td>{user?.last_name || ''}</td>
+                                <td>{user?.email || ''}</td>
+                                <td>{user?.role || ''}</td>
+                                <td>{handleISODateToString(user?.created_at) || '1/1/2020'}</td>
+                                <td>
+                                    <a
+                                        className="link-action__category"
+                                        href={'/ShowCategoryList/edit/'}
+                                    >
+                                        Edit
+                                    </a>
+                                </td>
+                            </tr>
+                        ))}
                 </tbody>
             </table>
         </div>

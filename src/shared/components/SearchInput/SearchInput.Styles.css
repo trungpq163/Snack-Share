@@ -3,7 +3,8 @@
     border: 1px solid #eee;
     border-radius: 4px;
     display: flex;
-    padding: 1.5rem;
+    margin-bottom: 2%;
+    padding: 1rem;
 }
 
 .search-form__icon {
@@ -13,5 +14,5 @@
 
 .search-form__input {
     flex: 1;
-    padding: 0 1.5rem;
+    padding: 0 1rem;
 }
