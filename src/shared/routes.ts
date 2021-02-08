@@ -13,6 +13,7 @@ const routes = {
     editCategoryAdmin: '/ShowCategoryList/edit/:id',
     showAllUsers: '/allusers',
     editUser: '/allusers/edit/:id',
+    addCourse: '/addcourse/:id',
 };
 
 export const getRoute = (

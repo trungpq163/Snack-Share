@@ -7,6 +7,7 @@ import { getLocale } from '../store/app/selectors';
 
 import deDE from './locales/de_DE/translation.json';
 import enUS from './locales/en_US/translation.json';
+import viVN from './locales/vi_VN/translation.json';
 
 if (__BROWSER__) {
     i18next.use(i18nextXHRBackend);
@@ -32,6 +33,7 @@ i18next.init({
     resources: {
         de_DE: { translation: deDE },
         en_US: { translation: enUS },
+        vi_VN: { translation: viVN },
     },
     parseMissingKeyHandler: (missing: any) => {
         if (process.env.NODE_ENV === 'development' && __BROWSER__) {
@@ -41,7 +43,7 @@ i18next.init({
     },
 });
 
-i18next.languages = ['de_DE', 'en_US'];
+i18next.languages = ['de_DE', 'en_US', 'vi_VN'];
 
 const I18N: React.FC<any> = ({ children }) => {
     const locale = useSelector(getLocale);

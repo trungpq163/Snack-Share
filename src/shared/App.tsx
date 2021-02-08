@@ -4,9 +4,10 @@ import { Route, Switch, useHistory } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
 import { useDispatch } from 'react-redux';
 import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
-// import InstructorPrivateRoute from 'components/InstructorPrivateRoute/InstructorPrivateRoute';
+import InstructorPrivateRoute from 'components/InstructorPrivateRoute/InstructorPrivateRoute';
 import AdminPrivateRoute from 'components/AdminPrivateRoute/AdminPrivateRoute';
 import favicon from '../shared/assets/favicon.png';
+
 import setAuthToken from './utils/setAuthToken';
 import { logoutUser } from './store/auth/effects';
 import setData from './utils/setData';
@@ -25,6 +26,7 @@ import CreateCategoryAdmin from './pages/CreateCategoryAdmin/CreateCategoryAdmin
 import EditCategoryList from './pages/EditCategoryList/EditCategoryList';
 import ShowAllUsers from './pages/ShowAllUsers/ShowAllUsers';
 import EditUser from './pages/EditUser/EditUser';
+import AddCourse from './pages/AddCourse/AddCourse';
 import Footer from './components/Footer/Footer';
 
 import { GlobalStyle } from './styles/GlobalStyles';
@@ -92,6 +94,7 @@ const App: React.FC<any> = () => {
                 />
                 <AdminPrivateRoute exact path={routes.showAllUsers} component={ShowAllUsers} />
                 <AdminPrivateRoute exact path={routes.editUser} component={EditUser} />
+                <InstructorPrivateRoute exact path={routes.addCourse} component={AddCourse} />
                 <Route render={() => '404!'} />
             </Switch>
             <Footer />
