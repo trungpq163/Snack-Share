@@ -16,16 +16,7 @@ interface Props {
 const CreateCategory = ({ values, handleChange, handleSubmit }: Props) => {
     console.log('values', values);
     return (
-        <div
-            style={{
-                fontFamily: 'Poppins, sans-serif',
-                marginTop: '6%',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-            }}
-        >
+        <div className="block__header">
             <div className="block-title" style={{ textAlign: 'center' }}>
                 <h3>Create Category</h3>
             </div>

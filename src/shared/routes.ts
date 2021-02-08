@@ -12,6 +12,7 @@ const routes = {
     createCategoryAdmin: '/CreateCategoryAdmin',
     editCategoryAdmin: '/ShowCategoryList/edit/:id',
     showAllUsers: '/allusers',
+    editUser: '/allusers/edit/:id',
 };
 
 export const getRoute = (

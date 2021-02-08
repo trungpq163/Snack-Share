@@ -24,6 +24,7 @@ import ShowCategoryList from './pages/ShowCategoryList/ShowCategoryList';
 import CreateCategoryAdmin from './pages/CreateCategoryAdmin/CreateCategoryAdmin';
 import EditCategoryList from './pages/EditCategoryList/EditCategoryList';
 import ShowAllUsers from './pages/ShowAllUsers/ShowAllUsers';
+import EditUser from './pages/EditUser/EditUser';
 import Footer from './components/Footer/Footer';
 
 import { GlobalStyle } from './styles/GlobalStyles';
@@ -31,6 +32,7 @@ import { GlobalStyle } from './styles/GlobalStyles';
 import routes from './routes';
 
 import css from './App.module.css';
+import 'styles/utils.css';
 
 // Does not yet work with server side rendering:
 // const Home = React.lazy(() => import('./pages/Home'));
@@ -89,6 +91,7 @@ const App: React.FC<any> = () => {
                     component={EditCategoryList}
                 />
                 <AdminPrivateRoute exact path={routes.showAllUsers} component={ShowAllUsers} />
+                <AdminPrivateRoute exact path={routes.editUser} component={EditUser} />
                 <Route render={() => '404!'} />
             </Switch>
             <Footer />

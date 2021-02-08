@@ -5,16 +5,7 @@ import './ShowCategory.Styles.css';
 
 const ShowCategory = ({ category }: any) => {
     return (
-        <div
-            style={{
-                fontFamily: 'Poppins, sans-serif',
-                marginTop: '6%',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-            }}
-        >
+        <div className="block__header">
             <div className="block-title" style={{ textAlign: 'center' }}>
                 <Link
                     className="link-action__category"

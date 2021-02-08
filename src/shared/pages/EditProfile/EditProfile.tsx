@@ -7,8 +7,7 @@ import EditProfileContainer from '../../containers/EditProfileContainer/EditProf
 import { getProfile } from '../../store/profile/selectors';
 
 const EditProfile = () => {
-    // eslint-disable-next-line prefer-const
-    let profile = useSelector(getProfile);
+    const profile = useSelector(getProfile);
     return (
         <>
             <PageHeader title="Edit Profile" />

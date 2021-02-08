@@ -5,19 +5,8 @@ import 'components/ShowCategory/ShowCategory.Styles.css';
 import SearchInput from 'components/SearchInput/SearchInput';
 
 const ShowAllUsers = ({ users, handleISODateToString, values, handleChange }: any) => {
-    console.log('dataUsers', users);
-    console.log('inputSearch', values);
     return (
-        <div
-            style={{
-                fontFamily: 'Poppins, sans-serif',
-                marginTop: '6%',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-            }}
-        >
+        <div className="block__header">
             <SearchInput
                 values={values?.inputValue}
                 onChange={handleChange('inputValue')}
@@ -51,7 +40,7 @@ const ShowAllUsers = ({ users, handleISODateToString, values, handleChange }: an
                                 <td>
                                     <a
                                         className="link-action__category"
-                                        href={'/ShowCategoryList/edit/'}
+                                        href={`/allusers/edit/${user?._id}`}
                                     >
                                         Edit
                                     </a>

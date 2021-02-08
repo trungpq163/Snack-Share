@@ -13,16 +13,7 @@ interface Props {
 
 const FormAddEducation = ({ handleChange, handleCheck, handleSubmit, values }: Props) => {
     return (
-        <div
-            style={{
-                fontFamily: 'Poppins, sans-serif',
-                marginTop: '6%',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-            }}
-        >
+        <div className="block__header">
             <div className="block-title" style={{ textAlign: 'center' }}>
                 <h3>Add any school, bootcamp, etc that you have attended</h3>
             </div>

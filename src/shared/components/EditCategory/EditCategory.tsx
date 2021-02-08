@@ -10,16 +10,7 @@ interface Props {
 
 const EditCategory = ({ handleChange, values, handleSubmit }: Props) => {
     return (
-        <div
-            style={{
-                fontFamily: 'Poppins, sans-serif',
-                marginTop: '6%',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-            }}
-        >
+        <div className="block__header">
             <div className="block-title" style={{ textAlign: 'center' }}>
                 <h3>Edit Category</h3>
             </div>

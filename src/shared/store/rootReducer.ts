@@ -5,6 +5,7 @@ import errorsReducer from './errors/reducer';
 import profileReducer from './profile/reducer';
 import categoryReducer from './category/reducer';
 import usersReducer from './users/reducer';
+import userReducer from './user/reducer';
 
 const createRootReducer = () =>
     combineReducers({
@@ -14,6 +15,7 @@ const createRootReducer = () =>
         profile: profileReducer,
         category: categoryReducer,
         users: usersReducer,
+        user: userReducer,
     });
 
 export default createRootReducer;

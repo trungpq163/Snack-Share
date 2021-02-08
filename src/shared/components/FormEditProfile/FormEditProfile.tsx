@@ -14,16 +14,7 @@ interface Props {
 
 const FormEditProfile = ({ handleSubmit, values, handleChange, options }: Props) => {
     return (
-        <div
-            style={{
-                fontFamily: 'Poppins, sans-serif',
-                marginTop: '6%',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-            }}
-        >
+        <div className="block__header">
             <div className="block-title" style={{ textAlign: 'center' }}>
                 <h3>Lets get some information to make your profile stand out</h3>
             </div>

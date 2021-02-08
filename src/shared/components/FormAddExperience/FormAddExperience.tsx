@@ -13,16 +13,7 @@ interface Props {
 
 const FormAddExperience = ({ handleSubmit, values, handleChange, handleCheck }: Props) => {
     return (
-        <div
-            style={{
-                fontFamily: 'Poppins, sans-serif',
-                marginTop: '6%',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-            }}
-        >
+        <div className="block__header">
             <div className="block-title" style={{ textAlign: 'center' }}>
                 <h3>Add any job or position that you have had in the past or current</h3>
             </div>
