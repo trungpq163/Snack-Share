@@ -14,6 +14,7 @@ const routes = {
     showAllUsers: '/allusers',
     editUser: '/allusers/edit/:id',
     addCourse: '/addcourse/:id',
+    allCourses: '/services',
 };
 
 export const getRoute = (

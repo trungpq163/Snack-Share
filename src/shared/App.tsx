@@ -27,6 +27,7 @@ import EditCategoryList from './pages/EditCategoryList/EditCategoryList';
 import ShowAllUsers from './pages/ShowAllUsers/ShowAllUsers';
 import EditUser from './pages/EditUser/EditUser';
 import AddCourse from './pages/AddCourse/AddCourse';
+import AllCourses from './pages/AllCourses/AllCourses';
 import Footer from './components/Footer/Footer';
 
 import { GlobalStyle } from './styles/GlobalStyles';
@@ -95,6 +96,7 @@ const App: React.FC<any> = () => {
                 <AdminPrivateRoute exact path={routes.showAllUsers} component={ShowAllUsers} />
                 <AdminPrivateRoute exact path={routes.editUser} component={EditUser} />
                 <InstructorPrivateRoute exact path={routes.addCourse} component={AddCourse} />
+                <PrivateRoute exact path={routes.allCourses} component={AllCourses} />
                 <Route render={() => '404!'} />
             </Switch>
             <Footer />
