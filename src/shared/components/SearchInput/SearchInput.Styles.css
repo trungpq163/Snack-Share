@@ -1,0 +1,17 @@
+.search-form {
+    align-items: center;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    display: flex;
+    padding: 1.5rem;
+}
+
+.search-form__icon {
+    color: #999;
+    flex-shrink: 0;
+}
+
+.search-form__input {
+    flex: 1;
+    padding: 0 1.5rem;
+}

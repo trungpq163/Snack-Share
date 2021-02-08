@@ -2,6 +2,8 @@
 import * as React from 'react';
 import 'components/ShowCategory/ShowCategory.Styles.css';
 
+import SearchInput from 'components/SearchInput/SearchInput';
+
 const ShowAllUsers = ({ users, handleISODateToString }: any) => {
     console.log('dataUsers', users);
     return (
@@ -18,6 +20,7 @@ const ShowAllUsers = ({ users, handleISODateToString }: any) => {
             <div className="block-title" style={{ textAlign: 'center' }}>
                 <h3>List Users</h3>
             </div>
+            <SearchInput />
             <table className="table">
                 <thead>
                     <tr>
