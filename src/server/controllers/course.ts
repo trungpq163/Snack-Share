@@ -17,12 +17,7 @@ export const addCourseCtrl = (req: Request, res: Response) => {
         return res.status(400).send('Request body is missing');
     }
 
-    addCourseService(categoryModel, req.body.category, (error: any, cat: any) => {
-        if (!error && cat) {
-            console.log(cat);
-            req.body.category = cat[0]._id;
-        }
-
+    addCourseService(categoryModel, req.body.category, (_error: any, _cat: any) => {
         const model = new courseModel(req.body);
         saveAddCourseService(model)
             .then((doc) => {

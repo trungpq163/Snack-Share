@@ -16,6 +16,10 @@ const CourseSchema: Schema = new Schema(
             type: String,
             required: true,
         },
+        image: {
+            type: String,
+            required: true,
+        },
         courseDescription: {
             type: String,
             required: true,
@@ -23,10 +27,12 @@ const CourseSchema: Schema = new Schema(
         instructor: {
             type: Schema.Types.ObjectId,
             ref: 'user',
+            required: true,
         },
         category: {
             type: Schema.Types.ObjectId,
-            ref: 'Category',
+            ref: 'category',
+            required: true,
         },
     },
     { timestamps: { createdAt: 'created_at' } }
