@@ -3,6 +3,7 @@ import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
 
 import './Introduction.Styles.css';
+import banner from '../../assets/images/dlu_university.jpg';
 
 const Introduction = () => {
     const [startCounter, setStartCounter] = useState(false);
@@ -64,7 +65,7 @@ const Introduction = () => {
                                 style={{
                                     borderRadius: '100% !important',
                                 }}
-                                src="https://picsum.photos/1000/1000"
+                                src={banner}
                                 alt=""
                             />
                             <div className="about-two__count">

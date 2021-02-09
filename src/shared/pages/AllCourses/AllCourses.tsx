@@ -8,11 +8,10 @@ import { getCourses } from 'store/courses/selectors';
 
 const AllCourses = () => {
     const courses = useSelector(getCourses);
-    console.log('courses', courses);
     return (
         <>
             <PageHeader title="Courses" />
-            <AllCoursesContainer />
+            <AllCoursesContainer courses={courses.courses} loading={courses.loading} />
         </>
     );
 };

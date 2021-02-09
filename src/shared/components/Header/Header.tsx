@@ -17,7 +17,6 @@ const Header = ({
     classAddLecture,
     classAllCourses,
     classProfile,
-    classAllProfile,
     classNameLogin,
     classNameInstructor,
 }: any) => {
@@ -74,9 +73,6 @@ const Header = ({
                     </Link>
                     <Link to="/finaldashboard">
                         <span className={classProfile}>Profile</span>
-                    </Link>
-                    <Link to="/finalprofiles">
-                        <span className={classAllProfile}>All Profiles</span>
                     </Link>
                     <Link to="" onClick={logout}>
                         <span className="filter-item">Logout</span>

@@ -29,7 +29,6 @@ const HeaderContainer = () => {
     const checkAddLectureRoute = location?.pathname?.includes('add-lecture');
     const checkAllCoursesRoute = location?.pathname === '/services';
     const checkProfileRoute = location?.pathname === '/finaldashboard';
-    const checkAllProfileRoute = location?.pathname === '/finalprofiles';
 
     const allClass = {
         classNameHome: `filter-item ${checkHomeRoute ? 'active' : ''}`,
@@ -45,7 +44,6 @@ const HeaderContainer = () => {
         classAddLecture: `filter-item ${checkAddLectureRoute ? 'active' : ''}`,
         classAllCourses: `filter-item ${checkAllCoursesRoute ? 'active' : ''}`,
         classProfile: `filter-item ${checkProfileRoute ? 'active' : ''}`,
-        classAllProfile: `filter-item ${checkAllProfileRoute ? 'active' : ''}`,
     };
 
     if (typeof window !== 'undefined') {
