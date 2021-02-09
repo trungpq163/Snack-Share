@@ -1,7 +1,15 @@
 import * as React from 'react';
 
-const AllCourses = (props) => {
-    return <div />;
+import PageHeader from 'components/PageHeader/PageHeader';
+import AllCoursesContainer from 'containers/AllCoursesContainer/AllCoursesContainer';
+
+const AllCourses = () => {
+    return (
+        <>
+            <PageHeader title="Courses" />
+            <AllCoursesContainer />
+        </>
+    );
 };
 
 export default AllCourses;

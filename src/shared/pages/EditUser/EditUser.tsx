@@ -11,14 +11,8 @@ const EditUser = () => {
     const location = useLocation();
     const dispatch = useDispatch();
 
-    const [loading, setLoading] = React.useState(true);
-
     const pathName = location?.pathname || '';
     const pathNameHandle = pathName.split('/allusers/edit/').join('');
-
-    React.useEffect(() => {
-        setLoading(false);
-    }, []);
 
     React.useEffect(() => {
         dispatch(getUserEff(pathNameHandle));
@@ -27,7 +21,7 @@ const EditUser = () => {
     return (
         <>
             <PageHeader title="Edit User" />
-            {loading ? <CircleLoader /> : <EditUserContainer pathName={pathNameHandle} />}
+            <EditUserContainer pathName={pathNameHandle} />
         </>
     );
 };

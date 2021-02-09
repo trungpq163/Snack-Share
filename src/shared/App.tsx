@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
 import InstructorPrivateRoute from 'components/InstructorPrivateRoute/InstructorPrivateRoute';
 import AdminPrivateRoute from 'components/AdminPrivateRoute/AdminPrivateRoute';
+import MainLoader from 'components/MainLoader/MainLoader';
 import favicon from '../shared/assets/favicon.png';
 
 import setAuthToken from './utils/setAuthToken';
@@ -46,6 +47,8 @@ const App: React.FC<any> = () => {
     const dispatch = useDispatch();
     const history = useHistory();
 
+    const [loading, setLoading] = React.useState(true);
+
     React.useEffect(() => {
         if (localStorage.jwtToken) {
             // Set auth token and get user info and export default
@@ -63,44 +66,67 @@ const App: React.FC<any> = () => {
         }
     }, [dispatch, history]);
 
+    React.useEffect(() => {
+        setLoading(false);
+    }, []);
+
     return (
         // <Suspense fallback={<div>Loading</div>}>
-        <div className={css.wrapper}>
-            <GlobalStyle />
-            <Helmet
-                defaultTitle="React SSR Starter – TypeScript Edition"
-                titleTemplate="%s – React SSR Starter – TypeScript Edition"
-                link={[{ rel: 'icon', type: 'image/png', href: favicon }]}
-            />
-            <Header />
-            <Switch>
-                <Route exact path={routes.home} component={Home} />
-                <Route exact path={routes.login} component={Login} />
-                <Route exact path={routes.register} component={Register} />
-                <PrivateRoute exact path={routes.profile} component={Profile} />
-                <PrivateRoute exact path={routes.createprofile} component={CreateProfile} />
-                <PrivateRoute exact path={routes.editprofile} component={EditProfile} />
-                <PrivateRoute exact path={routes.addexperience} component={AddExperience} />
-                <PrivateRoute exact path={routes.addeducation} component={AddEducation} />
-                <AdminPrivateRoute exact path={routes.showcategory} component={ShowCategoryList} />
-                <AdminPrivateRoute
-                    exact
-                    path={routes.createCategoryAdmin}
-                    component={CreateCategoryAdmin}
-                />
-                <AdminPrivateRoute
-                    exact
-                    path={routes.editCategoryAdmin}
-                    component={EditCategoryList}
-                />
-                <AdminPrivateRoute exact path={routes.showAllUsers} component={ShowAllUsers} />
-                <AdminPrivateRoute exact path={routes.editUser} component={EditUser} />
-                <InstructorPrivateRoute exact path={routes.addCourse} component={AddCourse} />
-                <PrivateRoute exact path={routes.allCourses} component={AllCourses} />
-                <Route render={() => '404!'} />
-            </Switch>
-            <Footer />
-        </div>
+        <>
+            {loading ? (
+                <MainLoader />
+            ) : (
+                <div className={css.wrapper}>
+                    <GlobalStyle />
+                    <Helmet
+                        defaultTitle="React SSR Starter – TypeScript Edition"
+                        titleTemplate="%s – React SSR Starter – TypeScript Edition"
+                        link={[{ rel: 'icon', type: 'image/png', href: favicon }]}
+                    />
+                    <Header />
+                    <Switch>
+                        <Route exact path={routes.home} component={Home} />
+                        <Route exact path={routes.login} component={Login} />
+                        <Route exact path={routes.register} component={Register} />
+                        <PrivateRoute exact path={routes.profile} component={Profile} />
+                        <PrivateRoute exact path={routes.createprofile} component={CreateProfile} />
+                        <PrivateRoute exact path={routes.editprofile} component={EditProfile} />
+                        <PrivateRoute exact path={routes.addexperience} component={AddExperience} />
+                        <PrivateRoute exact path={routes.addeducation} component={AddEducation} />
+                        <AdminPrivateRoute
+                            exact
+                            path={routes.showcategory}
+                            component={ShowCategoryList}
+                        />
+                        <AdminPrivateRoute
+                            exact
+                            path={routes.createCategoryAdmin}
+                            component={CreateCategoryAdmin}
+                        />
+                        <AdminPrivateRoute
+                            exact
+                            path={routes.editCategoryAdmin}
+                            component={EditCategoryList}
+                        />
+                        <AdminPrivateRoute
+                            exact
+                            path={routes.showAllUsers}
+                            component={ShowAllUsers}
+                        />
+                        <AdminPrivateRoute exact path={routes.editUser} component={EditUser} />
+                        <InstructorPrivateRoute
+                            exact
+                            path={routes.addCourse}
+                            component={AddCourse}
+                        />
+                        <PrivateRoute exact path={routes.allCourses} component={AllCourses} />
+                        <Route render={() => '404!'} />
+                    </Switch>
+                    <Footer />
+                </div>
+            )}
+        </>
+
         // </Suspense>
     );
 };
