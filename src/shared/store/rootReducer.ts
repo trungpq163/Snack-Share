@@ -6,6 +6,8 @@ import profileReducer from './profile/reducer';
 import categoryReducer from './category/reducer';
 import usersReducer from './users/reducer';
 import userReducer from './user/reducer';
+import courseReducer from './course/reducer';
+import coursesReducer from './courses/reducer';
 
 const createRootReducer = () =>
     combineReducers({
@@ -16,6 +18,8 @@ const createRootReducer = () =>
         category: categoryReducer,
         users: usersReducer,
         user: userReducer,
+        course: courseReducer,
+        courses: coursesReducer,
     });
 
 export default createRootReducer;

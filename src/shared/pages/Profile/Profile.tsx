@@ -11,6 +11,7 @@ import CircleLoader from '../../components/CircleLoader/CircleLoader';
 const Profile = () => {
     const auth = useSelector(getAuth);
     const profile = useSelector(getProfile);
+    console.log('profile', profile);
 
     const firstLetterUppercase = (str: string = ''): string => {
         return str.charAt(0).toUpperCase() + str.slice(1);

@@ -48,7 +48,6 @@ const App: React.FC<any> = () => {
     const history = useHistory();
 
     const [loading, setLoading] = React.useState(true);
-    const [count, setCount] = React.useState(3);
 
     React.useEffect(() => {
         if (localStorage.jwtToken) {
@@ -69,23 +68,25 @@ const App: React.FC<any> = () => {
 
     React.useEffect(() => {
         const interval = setInterval(() => {
-            setCount((currentCount) => --currentCount);
-        }, 1000);
+            setLoading(false);
+        }, 3500);
 
         return () => clearInterval(interval);
-    }, [count]);
-
-    React.useEffect(() => {
-        if (count === 0) {
-            setLoading(false);
-        }
-    }, [count]);
+    }, []);
 
     return (
         // <Suspense fallback={<div>Loading</div>}>
         <>
             {loading ? (
-                <MainLoader />
+                <>
+                    <GlobalStyle />
+                    <Helmet
+                        defaultTitle="React SSR Starter – TypeScript Edition"
+                        titleTemplate="%s – React SSR Starter – TypeScript Edition"
+                        link={[{ rel: 'icon', type: 'image/png', href: favicon }]}
+                    />
+                    <MainLoader />
+                </>
             ) : (
                 <div className={css.wrapper}>
                     <GlobalStyle />
