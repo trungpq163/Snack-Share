@@ -48,6 +48,7 @@ const App: React.FC<any> = () => {
     const history = useHistory();
 
     const [loading, setLoading] = React.useState(true);
+    const [count, setCount] = React.useState(3);
 
     React.useEffect(() => {
         if (localStorage.jwtToken) {
@@ -67,8 +68,18 @@ const App: React.FC<any> = () => {
     }, [dispatch, history]);
 
     React.useEffect(() => {
-        setLoading(false);
-    }, []);
+        const interval = setInterval(() => {
+            setCount((currentCount) => --currentCount);
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, [count]);
+
+    React.useEffect(() => {
+        if (count === 0) {
+            setLoading(false);
+        }
+    }, [count]);
 
     return (
         // <Suspense fallback={<div>Loading</div>}>
