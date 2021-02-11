@@ -71,6 +71,17 @@ export const GlobalStyle = createGlobalStyle`
 		}
 	}
 
+    .language-btn {
+        position: fixed;
+        left: 30px;
+		bottom: 15px;
+		z-index: 10;
+        display:flex;
+		align-items:center;
+		justify-content:center;
+		font-size: 20px;
+    }
+
 	.back-to-top {
 		width: 50px;
 		height: 50px;

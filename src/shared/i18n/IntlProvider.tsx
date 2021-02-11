@@ -5,7 +5,6 @@ import { I18nextProvider } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getLocale } from '../store/app/selectors';
 
-import deDE from './locales/de_DE/translation.json';
 import enUS from './locales/en_US/translation.json';
 import viVN from './locales/vi_VN/translation.json';
 
@@ -31,7 +30,6 @@ i18next.init({
     // i18next-xhr-backend, otherwise no calls will be made if resources are defined.
     partialBundledLanguages: true,
     resources: {
-        de_DE: { translation: deDE },
         en_US: { translation: enUS },
         vi_VN: { translation: viVN },
     },
@@ -43,7 +41,7 @@ i18next.init({
     },
 });
 
-i18next.languages = ['de_DE', 'en_US', 'vi_VN'];
+i18next.languages = ['en_US', 'vi_VN'];
 
 const I18N: React.FC<any> = ({ children }) => {
     const locale = useSelector(getLocale);

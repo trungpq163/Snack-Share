@@ -2,6 +2,14 @@
     "nav": {
         "home": "Home",
         "login": "Login",
-        "teachOnSnackDev": "Teach On SnackDev"
+        "teachOnSnackDev": "Teach On SnackDev",
+        "logout": "Logout",
+        "profile": "Profile"
+    },
+    "login": {
+        "signin": "Signin",
+        "detail": "Don't have an account?",
+        "signupStudent": "Sign up (student)",
+        "signupInstructor": "Sign up (instructors)"
     }
 }

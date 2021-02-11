@@ -3,12 +3,12 @@ import { Helmet } from 'react-helmet-async';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
 import { useDispatch } from 'react-redux';
+import i18n from 'i18next';
 import PrivateRoute from 'components/routing/PrivateRoute/PrivateRoute';
 import InstructorPrivateRoute from 'components/routing/InstructorPrivateRoute/InstructorPrivateRoute';
 import AdminPrivateRoute from 'components/routing/AdminPrivateRoute/AdminPrivateRoute';
 import MainLoader from 'components/loader/MainLoader/MainLoader';
 import favicon from '../shared/assets/favicon.png';
-
 import setAuthToken from './utils/setAuthToken';
 import { logoutUser } from './store/auth/effects';
 import setData from './utils/setData';
@@ -79,7 +79,6 @@ const App: React.FC<any> = () => {
         <>
             {loading ? (
                 <>
-                    <GlobalStyle />
                     <Helmet
                         defaultTitle="React SSR Starter – TypeScript Edition"
                         titleTemplate="%s – React SSR Starter – TypeScript Edition"

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import LanguageButton from 'components/layout/LanguageButton/LanguageButton';
 import ScrollTopArrow from '../ScrollTopArrow/ScrollTopArrow';
 import { FooterStyles } from './Footer.Styles';
 
@@ -20,6 +21,7 @@ const Footer = () => {
                 </div>
             </FooterStyles>
             <ScrollTopArrow />
+            <LanguageButton />
         </>
     );
 };

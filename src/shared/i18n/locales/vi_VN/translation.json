@@ -1,7 +1,24 @@
 {
     "nav": {
-        "home": "Trang chủ",
-        "login": "Đăng nhập",
-        "teachOnSnackDev": "Đăng kí dạy trên SnackDev"
+        "home": "Trang Chủ",
+        "login": "Đăng Nhập",
+        "teachOnSnackDev": "Đăng Kí Dạy Trên SnackDev",
+        "logout": "Đăng Xuất",
+        "profile": "Hồ Sơ",
+        "mycourses": "Khoá Học Của Tôi",
+        "manageMyCourses": "Quản Lý Khoá Học",
+        "addCourses": "Thêm Khoá Học",
+        "addLecture": "Thêm Bài Giảng",
+        "allCourses": "Tất Cả Khoá Học",
+        "dashBoard": "Bảng Điều Khiển",
+        "users": "Người Dùng",
+        "categories": "Thể Loại",
+        "enrolledUsers": "Người Dùng Đã Đăng Kí"
+    },
+    "login": {
+        "signin": "Đăng nhập",
+        "detail": "Chưa có tài khoản?",
+        "signupStudent": "Đăng kí (học sinh)",
+        "signupInstructor": "Đăng kí (người hướng dẫn)"
     }
 }

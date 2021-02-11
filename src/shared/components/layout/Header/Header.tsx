@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { FilterStyles } from '../../../styles/Filter.Styles';
 import { HeaderStyles } from './Header.Styles';
@@ -20,6 +21,7 @@ const Header = ({
     classNameLogin,
     classNameInstructor,
 }: any) => {
+    const { t } = useTranslation();
     return (
         <>
             <HeaderStyles>
@@ -33,7 +35,7 @@ const Header = ({
             {auth?.users?.role === 'admin' ? (
                 <FilterStyles>
                     <Link to="/">
-                        <span className={classNameHome}>Home</span>
+                        <span className={classNameHome}>{t('nav.home')}</span>
                     </Link>
                     <Link to="/dashboard">
                         <span className={classNameDashboard}>DashBoard</span>
@@ -57,7 +59,7 @@ const Header = ({
             ) : auth.users.role === 'instructor' ? (
                 <FilterStyles>
                     <Link to="/">
-                        <span className={classNameHome}>Home</span>
+                        <span className={classNameHome}>{t('nav.home')}</span>
                     </Link>
                     <Link to={`/services/${auth.users.id}`}>
                         <span className={classMyCourses}>My Courses</span>
@@ -81,7 +83,7 @@ const Header = ({
             ) : auth.users.role === 'student' ? (
                 <FilterStyles>
                     <Link to="/">
-                        <span className={classNameHome}>Home</span>
+                        <span className={classNameHome}>{t('nav.home')}</span>
                     </Link>
                     <Link to={`/servicesforstudent/${auth.users.id}`}>
                         <span className={classMyCourses}>My Courses</span>
@@ -90,19 +92,19 @@ const Header = ({
                         <span className={classAllCourses}>All Courses</span>
                     </Link>
                     <Link to="" onClick={logout}>
-                        <span className="filter-item">Logout</span>
+                        <span className="filter-item">{t('nav.logout')}</span>
                     </Link>
                 </FilterStyles>
             ) : (
                 <FilterStyles>
                     <Link to="/">
-                        <span className={classNameHome}>Home</span>
+                        <span className={classNameHome}>{t('nav.home')}</span>
                     </Link>
                     <Link to="/login/student">
-                        <span className={classNameLogin}>Login</span>
+                        <span className={classNameLogin}>{t('nav.login')}</span>
                     </Link>
                     <Link to="/register/instructor">
-                        <span className={classNameInstructor}>Teach On SnackDev</span>
+                        <span className={classNameInstructor}>{t('nav.teachOnSnackDev')}</span>
                     </Link>
                 </FilterStyles>
             )}
