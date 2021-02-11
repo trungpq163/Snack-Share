@@ -1,0 +1,209 @@
+.about-two {
+    font-family: 'Poppins', sans-serif;
+    padding: 120px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.about-two .block-title {
+    margin-bottom: 50px;
+}
+
+.about-two__text {
+    color: #81868a;
+    font-size: 18px;
+    line-height: 36px;
+    margin: 0;
+}
+
+.about-two .thm-btn {
+    padding: 21.5px 68px;
+}
+
+.about-two .thm-btn:hover {
+    background-color: #012237;
+    color: #fff;
+}
+
+.about-two__single {
+    align-items: center;
+    -webkit-box-align: center;
+    -webkit-box-flex: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex: 1 1 50%;
+    flex: 1 1 50%;
+    -ms-flex-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.about-two__single-wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-top: 45px;
+}
+
+.about-two__single-text {
+    color: #012237;
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.about-two__single i {
+    color: #2da397;
+    font-size: 64px;
+    margin-right: 14px;
+}
+
+.about-two__image {
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+}
+
+.about-two__image:before {
+    border: 20px solid #fff;
+    border-radius: 50%;
+    content: '';
+    height: 330px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 330px;
+    z-index: 11;
+}
+
+.about-two__image:after {
+    border: 3px solid #ff5b5b;
+    border-radius: 50%;
+    content: '';
+    height: 100%;
+    left: -20px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.about-two__image > img {
+    border-radius: 50%;
+    position: relative;
+    z-index: 10;
+}
+
+.about-two__image-dots {
+    background-image: url('../../../assets/dot-pattern-1-2.png');
+    background-position: 0 0;
+    height: 268px;
+    left: calc(100% - 60px);
+    position: absolute;
+    top: 0%;
+    width: 197px;
+    z-index: 10;
+}
+
+.about-two__count {
+    align-items: center;
+    background-color: #fff;
+    border-radius: 50%;
+    bottom: 0;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    -webkit-box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.1);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    -ms-flex-pack: center;
+    height: 175px;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    -webkit-transform: translateX(-20%);
+    transform: translateX(-20%);
+    width: 175px;
+    z-index: 12;
+}
+
+.about-two__count:before {
+    border: 1px dashed rgba(1, 34, 55, 0.15);
+    border-radius: 50%;
+    bottom: 15px;
+    content: '';
+    left: 15px;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+
+.about-two__count-text {
+    color: #81868a;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.about-two__count span {
+    color: #ff5b5b;
+    display: block;
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: 0em;
+}
+
+.thm-btn {
+    background-color: #ff5b5b;
+    border: none;
+    color: #fff;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: bold;
+    outline: none;
+    padding: 6.5px 27px;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    vertical-align: middle;
+}
+
+.thm-btn:hover {
+    background-color: #fff;
+    color: #012237;
+}
+
+.block-title {
+    margin-bottom: 60px;
+    text-align: left;
+}
+
+.block-title__title {
+    color: #012237;
+    font-size: 60px;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: -15px;
+    margin-top: -15px;
+}
+
+@media (max-width: 1199px) {
+    .about-two__image {
+        margin-top: 50px;
+    }
+}
+
+@media (max-width: 575px) {
+    .about-two__image img {
+        max-width: 100%;
+    }
+}

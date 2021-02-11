@@ -1,0 +1,37 @@
+.brand-one {
+    padding: 120.5px 0;
+}
+
+.brand-one__home-three {
+    border-top: 2px solid #f1f1f1;
+}
+
+.brand-one__carousel {
+    padding-left: 45px;
+    padding-right: 45px;
+}
+
+.brand-one__carousel img {
+    opacity: 1;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+
+.brand-one__carousel img:hover {
+    opacity: 0.6;
+}
+
+.brand-two {
+    border-bottom: 1px solid #eee;
+    font-family: 'Poppins', sans-serif;
+    /* margin-top: 6%; */
+    margin-bottom: 6%;
+    padding: 6% 0;
+}
+
+.brand-two .block-title__title {
+    color: #012237;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
