@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import { useTranslation } from 'react-i18next';
 import { LinkCustom, LinkCustomActive } from 'styles/LinkCustom.Styles';
 
 import 'react-toastify/dist/ReactToastify.css';
@@ -23,20 +24,32 @@ const Register = ({
     handleChange,
     values,
 }: Props) => {
+    const { t, i18n } = useTranslation();
+    const VNlanguage = i18n.language === 'vi_VN';
+    const text = VNlanguage
+        ? roleParams === 'student'
+            ? '(Học sinh)'
+            : '(Người hướng dẫn)'
+        : roleParams === 'student'
+        ? '(Student)'
+        : '(Instructor)';
+
     return (
         <div className="signup-signin">
             <img src="https://imgur.com/aILP3CD.png" alt="login" className="signup-signin-image" />
             <div className="signup-signin-container">
                 <div className="tab">
                     <div className="tab-item is-active">
-                        <LinkCustomActive to={`/register/${roleParams}`}>Sign up</LinkCustomActive>
+                        <LinkCustomActive to={`/register/${roleParams}`}>
+                            {t('register.signup')}
+                        </LinkCustomActive>
                     </div>
                     <div className="tab-item">
-                        <LinkCustom to={`/login/${roleParams}`}>Sign in</LinkCustom>
+                        <LinkCustom to={'/login'}>{t('register.signin')}</LinkCustom>
                     </div>
                 </div>
                 <h1 className="signup-signin-heading">
-                    Sign up {`(for ${roleParams ? `${capitalizeFirstLetter(roleParams)}` : ''})`}
+                    {t('register.signup')} {capitalizeFirstLetter(text)}
                 </h1>
                 <form
                     action="post"
@@ -46,7 +59,7 @@ const Register = ({
                 >
                     <div className="form-group">
                         <label htmlFor="firstName" className="form-label">
-                            First name
+                            {t('register.firstName')}
                         </label>
                         <input
                             type="text"
@@ -61,7 +74,7 @@ const Register = ({
                     </div>
                     <div className="form-group">
                         <label htmlFor="lastName" className="form-label">
-                            Last name
+                            {t('register.lastName')}
                         </label>
                         <input
                             type="text"
@@ -91,7 +104,7 @@ const Register = ({
                     </div>
                     <div className="form-group">
                         <label htmlFor="password" className="form-label">
-                            Password
+                            {t('register.password')}
                         </label>
                         <input
                             type="password"
@@ -106,7 +119,7 @@ const Register = ({
                     </div>
                     <div className="form-group">
                         <label htmlFor="re-password" className="form-label">
-                            Repeat password
+                            {t('register.repeatPassword')}
                         </label>
                         <input
                             type="password"
@@ -120,13 +133,13 @@ const Register = ({
                         />
                     </div>
                     <div className="form-group signup-signin-term">
-                        Already have an account?{' '}
-                        <Link className="signup-signin-term-link" to={`/login/${roleParams}`}>
-                            Log in
+                        {t('register.alReadyHaveAnAccount')}?{' '}
+                        <Link className="signup-signin-term-link" to={'/login'}>
+                            {t('register.login')}
                         </Link>
                     </div>
                     <button type="submit" className="btn btn--gradient">
-                        Sign up
+                        {t('register.signup')}
                     </button>
                 </form>
                 <ToastContainer />

@@ -10,11 +10,9 @@ import { CenterComponent } from 'styles/CenterComponent';
 
 import { User } from 'types';
 
-const Login = ({ match }: any) => {
+const Login = () => {
     const dispatch = useDispatch();
     const history = useHistory();
-
-    const roleParams = match.params.role;
 
     const [values, setValues] = useState({
         email: '',
@@ -52,12 +50,7 @@ const Login = ({ match }: any) => {
 
     return (
         <CenterComponent>
-            <LoginDumb
-                roleParams={roleParams}
-                clickSubmit={clickSubmit}
-                handleChange={handleChange}
-                values={values}
-            />
+            <LoginDumb clickSubmit={clickSubmit} handleChange={handleChange} values={values} />
         </CenterComponent>
     );
 };

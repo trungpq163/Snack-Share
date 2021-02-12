@@ -1,8 +1,7 @@
 import React from 'react';
 import Swiper from 'react-id-swiper';
 
-import './Partners.Styles.css';
-
+import { useTranslation } from 'react-i18next';
 import img1 from '../../../assets/images/logo-directi.png';
 import img2 from '../../../assets/images/logo-gojek.png';
 import img3 from '../../../assets/images/logo-make-my-trip.png';
@@ -11,7 +10,10 @@ import img5 from '../../../assets/images/logo-paytm.png';
 import img6 from '../../../assets/images/logo-swiggy.png';
 import img7 from '../../../assets/images/logo-zomato.png';
 
+import './Partners.Styles.css';
+
 const Partners = () => {
+    const { t } = useTranslation();
     const params = {
         slidesPerView: 5,
         loop: true,
@@ -43,7 +45,7 @@ const Partners = () => {
         <section className="brand-two">
             <div className="container">
                 <div className="block-title">
-                    <h2 className="block-title__title">Our students work at</h2>
+                    <h2 className="block-title__title">{t('home.ourStudent')}</h2>
                 </div>
                 <div className="brand-one__carousel">
                     <Swiper {...params}>

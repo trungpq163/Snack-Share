@@ -1,7 +1,7 @@
 /* eslint-disable security/detect-object-injection */
 const routes = {
     home: '/',
-    login: '/login/:role',
+    login: '/login',
     register: '/register/:role',
     profile: '/finaldashboard',
     createprofile: '/create-profile',

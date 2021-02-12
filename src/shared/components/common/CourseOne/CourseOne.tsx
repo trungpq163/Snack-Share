@@ -4,6 +4,7 @@ import Swiper from 'react-id-swiper';
 import './CourseOne.Styles.css';
 import 'swiper/css/swiper.css';
 
+import { useTranslation } from 'react-i18next';
 import course1 from '../../../assets/images/course-1-1.jpg';
 import course2 from '../../../assets/images/course-1-2.jpg';
 import course3 from '../../../assets/images/course-1-3.jpg';
@@ -19,6 +20,7 @@ import team5 from '../../../assets/images/team-1-5.jpg';
 import team6 from '../../../assets/images/team-1-6.jpg';
 
 const CourseOne = () => {
+    const { t } = useTranslation();
     const params = {
         slidesPerView: 3,
         loop: true,
@@ -59,8 +61,10 @@ const CourseOne = () => {
         >
             <div className="block-title">
                 <h2 className="block-title__title">
-                    Explore our <br />
-                    popular courses
+                    {/* Explore our <br />
+                    popular courses */}
+                    {t('home.titlePopularCourse')} <br />
+                    {t('home.titlePopularCourse2')}
                 </h2>
             </div>
             <section className="course-one course-one__teacher-details home-one">

@@ -56,7 +56,7 @@ const Register = ({ match }: any) => {
                         password: '',
                         password2: '',
                     }),
-                () => history.push(`/login/${roleParams}`)
+                () => history.push('/login')
             )
         );
     };

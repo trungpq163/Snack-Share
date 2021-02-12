@@ -10,7 +10,6 @@ const Header = ({
     classNameHome,
     classNameDashboard,
     classNameUsers,
-    classNameCourse,
     classNameCategory,
     classNameEnroll,
     classMyCourses,
@@ -38,22 +37,19 @@ const Header = ({
                         <span className={classNameHome}>{t('nav.home')}</span>
                     </Link>
                     <Link to="/dashboard">
-                        <span className={classNameDashboard}>DashBoard</span>
+                        <span className={classNameDashboard}>{t('nav.dashBoard')}</span>
                     </Link>
                     <Link to="/allusers">
-                        <span className={classNameUsers}>Users</span>
-                    </Link>
-                    <Link to="/ShowCourseList">
-                        <span className={classNameCourse}>Courses</span>
+                        <span className={classNameUsers}>{t('nav.users')}</span>
                     </Link>
                     <Link to="/ShowCategoryList">
-                        <span className={classNameCategory}>Categories</span>
+                        <span className={classNameCategory}>{t('nav.categories')}</span>
                     </Link>
                     <Link to="/EnrollmentList">
-                        <span className={classNameEnroll}>Enrolled Users</span>
+                        <span className={classNameEnroll}>{t('nav.enrolledUsers')}</span>
                     </Link>
                     <Link to="" onClick={logout}>
-                        <span className="filter-item">Logout</span>
+                        <span className="filter-item">{t('nav.logout')}</span>
                     </Link>
                 </FilterStyles>
             ) : auth.users.role === 'instructor' ? (
@@ -62,22 +58,22 @@ const Header = ({
                         <span className={classNameHome}>{t('nav.home')}</span>
                     </Link>
                     <Link to={`/services/${auth.users.id}`}>
-                        <span className={classMyCourses}>My Courses</span>
+                        <span className={classMyCourses}>{t('nav.manageMyCourses')}</span>
                     </Link>
                     <Link to={`/addcourse/${auth.users.id}`}>
-                        <span className={classAddCourse}>Add Courses</span>
+                        <span className={classAddCourse}>{t('nav.addCourses')}</span>
                     </Link>
                     <Link to={`/add-lecture/${auth.users.id}`}>
-                        <span className={classAddLecture}>Add Lecture</span>
+                        <span className={classAddLecture}>{t('nav.addLecture')}</span>
                     </Link>
                     <Link to="/services">
-                        <span className={classAllCourses}>All Courses</span>
+                        <span className={classAllCourses}>{t('nav.allCourses')}</span>
                     </Link>
                     <Link to="/finaldashboard">
-                        <span className={classProfile}>Profile</span>
+                        <span className={classProfile}>{t('nav.profile')}</span>
                     </Link>
                     <Link to="" onClick={logout}>
-                        <span className="filter-item">Logout</span>
+                        <span className="filter-item">{t('nav.logout')}</span>
                     </Link>
                 </FilterStyles>
             ) : auth.users.role === 'student' ? (
@@ -86,10 +82,10 @@ const Header = ({
                         <span className={classNameHome}>{t('nav.home')}</span>
                     </Link>
                     <Link to={`/servicesforstudent/${auth.users.id}`}>
-                        <span className={classMyCourses}>My Courses</span>
+                        <span className={classMyCourses}>{t('nav.mycourses')}</span>
                     </Link>
                     <Link to="/services">
-                        <span className={classAllCourses}>All Courses</span>
+                        <span className={classAllCourses}>{t('nav.allCourses')}</span>
                     </Link>
                     <Link to="" onClick={logout}>
                         <span className="filter-item">{t('nav.logout')}</span>
@@ -100,7 +96,7 @@ const Header = ({
                     <Link to="/">
                         <span className={classNameHome}>{t('nav.home')}</span>
                     </Link>
-                    <Link to="/login/student">
+                    <Link to="/login">
                         <span className={classNameLogin}>{t('nav.login')}</span>
                     </Link>
                     <Link to="/register/instructor">

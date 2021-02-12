@@ -2,6 +2,7 @@
     font-family: 'Poppins', sans-serif;
     padding: 120px 0;
     border-bottom: 1px solid #eee;
+    font-weight: 100 !important;
 }
 
 .about-two .block-title {

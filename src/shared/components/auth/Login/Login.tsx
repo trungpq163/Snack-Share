@@ -1,6 +1,7 @@
 import React, { FormEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import { useTranslation } from 'react-i18next';
 import { LinkCustom, LinkCustomActive } from 'styles/LinkCustom.Styles';
 
 import { User } from 'types';
@@ -9,26 +10,30 @@ import 'react-toastify/dist/ReactToastify.css';
 import 'styles/Form.Styles.css';
 
 interface Props {
-    roleParams: string;
     clickSubmit: (e: FormEvent) => void;
     handleChange: (name: any) => (event: any) => void;
     values: User;
 }
 
-const Login = ({ roleParams, clickSubmit, handleChange, values }: Props) => {
+const Login = ({ clickSubmit, handleChange, values }: Props) => {
+    const { t } = useTranslation();
     return (
         <div className="signup-signin">
-            <img src="https://imgur.com/aILP3CD.png" alt="login" className="signup-signin-image" />
+            <img
+                src="https://i.imgur.com/aILP3CD.png"
+                alt="login"
+                className="signup-signin-image"
+            />
             <div className="signup-signin-container">
                 <div className="tab">
                     <div className="tab-item">
-                        <LinkCustom to={`/register/${roleParams}`}>Sign up</LinkCustom>
+                        <LinkCustom to={'/register/student'}>{t('login.signup')}</LinkCustom>
                     </div>
                     <div className="tab-item is-active">
-                        <LinkCustomActive to={`/login/${roleParams}`}>Sign in</LinkCustomActive>
+                        <LinkCustomActive to={'/login/'}>{t('login.signin')}</LinkCustomActive>
                     </div>
                 </div>
-                <h1 className="signup-signin-heading">Sign in</h1>
+                <h1 className="signup-signin-heading">{t('login.signin')}</h1>
                 <form
                     action="post"
                     className="signup-signin-form"
@@ -66,17 +71,17 @@ const Login = ({ roleParams, clickSubmit, handleChange, values }: Props) => {
                         />
                     </div>
                     <div className="form-group signup-signin-term">
-                        Don’t have an account?{' '}
+                        {t('login.detail')}{' '}
                         <Link className="signup-signin-term-link" to="/register/student">
-                            Sign up (student)
+                            {t('login.signupStudent')}
                         </Link>
                         {' / '}
                         <Link className="signup-signin-term-link" to="/register/instructor">
-                            Sign up (instructor)
+                            {t('login.signupInstructor')}
                         </Link>
                     </div>
                     <button type="submit" className="btn btn--gradient">
-                        Sign in
+                        {t('login.signin')}
                     </button>
                 </form>
                 <ToastContainer />

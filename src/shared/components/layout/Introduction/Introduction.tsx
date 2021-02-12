@@ -3,10 +3,12 @@ import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
 
 import './Introduction.Styles.css';
+import { useTranslation } from 'react-i18next';
 import banner from '../../../assets/images/dlu_university.jpg';
 
 const Introduction = () => {
     const [startCounter, setStartCounter] = useState(false);
+    const { t } = useTranslation();
 
     const onVisibilityChange = (isVisible: any) => {
         if (isVisible) {
@@ -22,8 +24,9 @@ const Introduction = () => {
                         <div className="about-two__content">
                             <div className="block-title text-left">
                                 <h2 className="block-title__title">
-                                    Welcome to online <br />
-                                    learning center
+                                    {/* Welcome to online <br />
+                                    learning center */}
+                                    {t('home.titleIntro')}
                                 </h2>
                             </div>
                             <p className="about-two__text">
@@ -38,7 +41,7 @@ const Introduction = () => {
                                     </div>
                                     <div className="about-two__single-content">
                                         <p className="about-two__single-text">
-                                            Start learning from our experts
+                                            {t('home.titleIntro2')}
                                         </p>
                                     </div>
                                 </div>
@@ -48,13 +51,13 @@ const Introduction = () => {
                                     </div>
                                     <div className="about-two__single-content">
                                         <p className="about-two__single-text">
-                                            Enhance your skills with us now
+                                            {t('home.titleIntro3')}
                                         </p>
                                     </div>
                                 </div>
                             </div>
                             <a href="#none" className="thm-btn">
-                                Learn More
+                                {t('home.titleButton')}
                             </a>
                         </div>
                     </div>

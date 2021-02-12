@@ -19,6 +19,28 @@
         "signin": "Đăng nhập",
         "detail": "Chưa có tài khoản?",
         "signupStudent": "Đăng kí (học sinh)",
-        "signupInstructor": "Đăng kí (người hướng dẫn)"
+        "signupInstructor": "Đăng kí (người hướng dẫn)",
+        "signup": "Đăng kí"
+    },
+    "register": {
+        "signup": "Đăng kí",
+        "signin": "Đăng nhập",
+        "firstName": "Họ",
+        "lastName": "Tên",
+        "email": "Email",
+        "password": "Mật khẩu",
+        "repeatPassword": "Nhập lại mật khẩu",
+        "alReadyHaveAnAccount": "Đã có tài khoản",
+        "login": "Đăng nhập"
+    },
+    "home": {
+        "titleIntro": "Chao mung toi lop hoc online",
+        "titleIntro2": "Bắt đầu học ngay!",
+        "titleIntro3": "Nâng cao kĩ năng coding ngay bây giờ :D",
+        "titleButton": "Tìm hiểu thêm",
+        "trustBy": "Duoc tin cay boi",
+        "titlePopularCourse": "Kham pha cac khoa hoc",
+        "titlePopularCourse2": "pho bien cua chung toi",
+        "ourStudent": "Hoc sinh chung toi lam viec tai"
     }
 }
