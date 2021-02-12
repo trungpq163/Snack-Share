@@ -15,6 +15,7 @@ const routes = {
     editUser: '/allusers/edit/:id',
     addCourse: '/addcourse/:id',
     allCourses: '/services',
+    addLecture: '/add-lecture/:id',
 };
 
 export const getRoute = (
