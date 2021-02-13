@@ -2,11 +2,11 @@
     "nav": {
         "home": "Home",
         "login": "Login",
-        "teachOnSnackDev": "Teach On SnackDev",
+        "teachOnSnackDev": "Teach On SnackShare",
         "logout": "Logout",
         "profile": "Profile",
         "mycourses": "My Courses",
-        "manageMyCourses": "Manage My Courses",
+        "manageMyCourses": "Manage Courses",
         "addCourses": "Add Courses",
         "addLecture": "Add Lecture",
         "allCourses": "All Courses",
@@ -34,7 +34,8 @@
         "login": "Login"
     },
     "home": {
-        "titleIntro": "Welcome to online learning center",
+        "titleIntro": "What do you want to learn today?",
+        "contentTitleIntro": "Learn about anything, anytime & anywhere from accredited instructors & courses",
         "titleIntro2": "Start learning from our experts",
         "titleIntro3": "Enhance your skills with us now",
         "titleButton": "Learn more",

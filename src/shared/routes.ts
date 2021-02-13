@@ -16,6 +16,7 @@ const routes = {
     addCourse: '/addcourse/:id',
     allCourses: '/services',
     addLecture: '/add-lecture/:id',
+    manageCourses: '/services/:id',
 };
 
 export const getRoute = (

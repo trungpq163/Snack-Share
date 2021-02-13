@@ -26,7 +26,7 @@ const Header = ({
             <HeaderStyles>
                 <div className="container">
                     <h1 className="heading">
-                        Snack<strong>Dev</strong>
+                        Snack<strong>Share</strong>
                     </h1>
                     <p className="slogan">Share all knowledge we have with 😘</p>
                 </div>
@@ -60,9 +60,6 @@ const Header = ({
                     <Link to={`/services/${auth.users.id}`}>
                         <span className={classMyCourses}>{t('nav.manageMyCourses')}</span>
                     </Link>
-                    <Link to={`/addcourse/${auth.users.id}`}>
-                        <span className={classAddCourse}>{t('nav.addCourses')}</span>
-                    </Link>
                     <Link to={`/add-lecture/${auth.users.id}`}>
                         <span className={classAddLecture}>{t('nav.addLecture')}</span>
                     </Link>
@@ -86,6 +83,9 @@ const Header = ({
                     </Link>
                     <Link to="/services">
                         <span className={classAllCourses}>{t('nav.allCourses')}</span>
+                    </Link>
+                    <Link to="/finaldashboard">
+                        <span className={classProfile}>{t('nav.profile')}</span>
                     </Link>
                     <Link to="" onClick={logout}>
                         <span className="filter-item">{t('nav.logout')}</span>

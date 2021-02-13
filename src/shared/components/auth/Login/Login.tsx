@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { LinkCustom, LinkCustomActive } from 'styles/LinkCustom.Styles';
 
 import { User } from 'types';
+import bg from '../../../assets/images/bg.png';
 
 import 'react-toastify/dist/ReactToastify.css';
 import 'styles/Form.Styles.css';
@@ -19,11 +20,7 @@ const Login = ({ clickSubmit, handleChange, values }: Props) => {
     const { t } = useTranslation();
     return (
         <div className="signup-signin">
-            <img
-                src="https://i.imgur.com/aILP3CD.png"
-                alt="login"
-                className="signup-signin-image"
-            />
+            <img src={bg} alt="login" className="signup-signin-image" />
             <div className="signup-signin-container">
                 <div className="tab">
                     <div className="tab-item">

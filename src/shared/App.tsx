@@ -29,6 +29,7 @@ import ShowAllUsers from './pages/manage/ShowAllUsers/ShowAllUsers';
 import EditUser from './pages/manage/EditUser/EditUser';
 import AddCourse from './pages/course/AddCourse/AddCourse';
 import AllCourses from './pages/course/AllCourses/AllCourses';
+import ManageCourses from './pages/course/ManageCourses/ManageCourses';
 import Footer from './components/layout/Footer/Footer';
 
 import { GlobalStyle } from './styles/GlobalStyles';
@@ -134,6 +135,11 @@ const App: React.FC<any> = () => {
                             exact
                             path={routes.addLecture}
                             component={AddLecture}
+                        />
+                        <InstructorPrivateRoute
+                            exact
+                            path={routes.manageCourses}
+                            component={ManageCourses}
                         />
                         <PrivateRoute exact path={routes.allCourses} component={AllCourses} />
                         <Route render={() => '404!'} />

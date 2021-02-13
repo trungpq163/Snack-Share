@@ -33,6 +33,7 @@ const Introduction = () => {
                                 There are many variations of passages of lorem ipsum available but
                                 the majority have suffered alteration in some form by injected
                                 humour or randomised words which dont look.
+                                {/* {t('home.contentTitleIntro')} */}
                             </p>
                             <div className="about-two__single-wrap">
                                 <div className="about-two__single">

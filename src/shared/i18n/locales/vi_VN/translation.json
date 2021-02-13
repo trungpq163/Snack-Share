@@ -2,7 +2,7 @@
     "nav": {
         "home": "Trang Chủ",
         "login": "Đăng Nhập",
-        "teachOnSnackDev": "Đăng Kí Dạy Trên SnackDev",
+        "teachOnSnackDev": "Đăng Kí Dạy Trên SnackShare",
         "logout": "Đăng Xuất",
         "profile": "Hồ Sơ",
         "mycourses": "Khoá Học Của Tôi",
@@ -35,6 +35,7 @@
     },
     "home": {
         "titleIntro": "Chao mung toi lop hoc online",
+        "contentTitleIntro": "Learn about anything, anytime & anywhere from accredited instructors & courses",
         "titleIntro2": "Bắt đầu học ngay!",
         "titleIntro3": "Nâng cao kĩ năng coding ngay bây giờ :D",
         "titleButton": "Tìm hiểu thêm",

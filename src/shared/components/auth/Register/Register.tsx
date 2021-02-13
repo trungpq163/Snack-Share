@@ -9,6 +9,8 @@ import 'styles/Form.Styles.css';
 
 import { User } from 'types';
 
+import bg from '../../../assets/images/bg.png';
+
 interface Props {
     roleParams: string;
     capitalizeFirstLetter: (str: string) => string;
@@ -36,7 +38,7 @@ const Register = ({
 
     return (
         <div className="signup-signin">
-            <img src="https://imgur.com/aILP3CD.png" alt="login" className="signup-signin-image" />
+            <img src={bg} alt="login" className="signup-signin-image" />
             <div className="signup-signin-container">
                 <div className="tab">
                     <div className="tab-item is-active">
