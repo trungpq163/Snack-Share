@@ -1,4 +1,5 @@
 declare const styles: {
-    readonly 'active-language': string;
+  readonly "active-language": string;
 };
 export = styles;
+
