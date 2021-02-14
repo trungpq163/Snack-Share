@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
+import I18NextXhrBackend from 'i18next-xhr-backend';
 import courseModel from '../models/Course';
 import categoryModel from '../models/Category';
 
@@ -54,13 +55,21 @@ export const getCourseCtrl = (req: Request, res: Response) => {
 };
 
 export const getCourseByInstructorIdCtrl = (req: Request, res: Response) => {
-    getCourseByInstructorIdService(courseModel, req.query.id)
-        .then((doc) => {
-            res.json(doc);
-        })
-        .catch((err) => {
-            res.status(500).json(err);
-        });
+    getCourseByInstructorIdService(courseModel, req.query.id, (err: any, results: any) => {
+        if (err) {
+            return res.status(500).json(err);
+        }
+
+        if (results) {
+            return res.status(200).json(results);
+        }
+    });
+    // .then((doc) => {
+    //     res.json(doc);
+    // })
+    // .catch((err) => {
+    //     res.status(500).json(err);
+    // });
 };
 
 export const updateCourseCtrl = (req: Request, res: Response) => {

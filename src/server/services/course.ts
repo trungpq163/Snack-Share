@@ -25,10 +25,19 @@ export const getCourseService = async (course: any, reqQueryId: string) => {
     });
 };
 
-export const getCourseByInstructorIdService = async (course: any, reqQueryId: string) => {
-    return await course.find({
-        instructor: reqQueryId,
-    });
+export const getCourseByInstructorIdService = async (
+    course: any,
+    reqQueryId: string,
+    cb: Function
+) => {
+    // return await course.find({
+    //     instructor: reqQueryId,
+    // });
+    return await course
+        .find({ instructor: reqQueryId })
+        .populate({ path: 'category', model: 'category' })
+        .populate({ path: 'instructor', model: 'users' })
+        .exec(cb);
 };
 
 export const updateCourseService = async (

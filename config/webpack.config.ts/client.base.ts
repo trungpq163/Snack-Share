@@ -13,8 +13,8 @@ export default {
     entry: {
         bundle: [
             // Experimentally switched to @babel-env's useBuiltIns: 'entry'
-            // require.resolve('core-js/stable'),
-            // require.resolve('regenerator-runtime/runtime'),
+            require.resolve('core-js/stable'),
+            require.resolve('regenerator-runtime/runtime'),
             paths.srcClient,
         ],
     },

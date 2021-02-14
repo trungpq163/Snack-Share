@@ -1,15 +1,14 @@
 import * as React from 'react';
 
-import { useLocation } from 'react-router';
 import ManageCourses from 'components/course/ManageCourses/ManageCourses';
 
-const ManageCoursesContainer = () => {
-    const location = useLocation();
+interface Props {
+    idInstructor: string;
+    courses: any;
+}
 
-    const pathName = location?.pathname || '';
-    const pathNameHandle = pathName.split('/services/').join('');
-
-    return <ManageCourses idInstructor={pathNameHandle} />;
+const ManageCoursesContainer = ({ idInstructor, courses }: Props) => {
+    return <ManageCourses idInstructor={idInstructor} courses={courses} />;
 };
 
 export default ManageCoursesContainer;

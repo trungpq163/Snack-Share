@@ -70,7 +70,7 @@ const App: React.FC<any> = () => {
     React.useEffect(() => {
         const interval = setInterval(() => {
             setLoading(false);
-        }, 3500);
+        }, 3000);
 
         return () => clearInterval(interval);
     }, []);

@@ -23,7 +23,7 @@ const AllCourses = ({ courses }: any) => {
                                 {courses.length > 0
                                     ? courses.map((course: any[], index: number | string) =>
                                           courses.length === 1 ? (
-                                              <Course key={index} col={12} course={course} />
+                                              <Course key={index} col={6} course={course} />
                                           ) : courses.length === 2 ? (
                                               <Course key={index} col={6} course={course} />
                                           ) : (
