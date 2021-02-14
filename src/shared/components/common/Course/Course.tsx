@@ -17,11 +17,16 @@ const Course = ({ col, course }: any) => {
                     </a>
                     <div className="course-one__admin">
                         <img src={team1} alt="" />
-                        by {/* eslint-disable-next-line camelcase */}
-                        <Link to="/teacher-details">{`${course?.instructor?.first_name} ${course?.instructor?.last_name}`}</Link>
+                        by
+                        <Link
+                            to={'/teacher-details'}
+                            /* eslint-disable-next-line camelcase */
+                        >{`${course?.instructor?.first_name} ${course?.instructor?.last_name}`}</Link>
                     </div>
                     <h2 className="course-one__title">
-                        <Link to="/course-details">{course?.courseName || ''}</Link>
+                        <Link to={`/course-details/${course?._id}`}>
+                            {course?.courseName || ''}
+                        </Link>
                     </h2>
                     <div className="course-one__stars">
                         <span className="course-one__stars-wrap">

@@ -30,6 +30,7 @@ import EditUser from './pages/manage/EditUser/EditUser';
 import AddCourse from './pages/course/AddCourse/AddCourse';
 import AllCourses from './pages/course/AllCourses/AllCourses';
 import ManageCourses from './pages/course/ManageCourses/ManageCourses';
+import CourseDetails from './pages/course/CourseDetails/CourseDetails';
 import Footer from './components/layout/Footer/Footer';
 
 import { GlobalStyle } from './styles/GlobalStyles';
@@ -142,6 +143,7 @@ const App: React.FC<any> = () => {
                             component={ManageCourses}
                         />
                         <PrivateRoute exact path={routes.allCourses} component={AllCourses} />
+                        <Route exact path={routes.courseDetails} component={CourseDetails} />
                         <Route render={() => '404!'} />
                     </Switch>
                     <Footer />

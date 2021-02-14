@@ -17,11 +17,12 @@ const ManageCourses = () => {
     const [loading, setLoading] = React.useState(true);
 
     React.useEffect(() => {
-        const interval = setInterval(() => {
-            setLoading(false);
-        }, 500);
+        // const interval = setInterval(() => {
+        //     setLoading(false);
+        // }, 500);
 
-        return () => clearInterval(interval);
+        // return () => clearInterval(interval);
+        setLoading(false);
     }, []);
 
     React.useEffect(() => {
