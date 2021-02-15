@@ -19,17 +19,3 @@ export const getAllCourses = () => (dispatch: Dispatch<Action>) => {
         .then((res) => dispatch(getCourses(res.data)))
         .catch((_err) => dispatch(getCourses({})));
 };
-
-export const getCoursesByInstructor = async (id: string) => {
-    try {
-        const config: AxiosRequestConfig = {
-            method: 'get',
-            url: `/coursebyinstructor?id=${id}`,
-        };
-
-        const res = await axios(config);
-        return await res.data;
-    } catch (err) {
-        console.log(err);
-    }
-};

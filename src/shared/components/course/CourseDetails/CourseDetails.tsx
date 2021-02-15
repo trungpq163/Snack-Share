@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { Link } from 'react-router-dom';
 import lcImage1 from '../../../assets/images/lc-1-1.jpg';
 import lcImage2 from '../../../assets/images/lc-1-2.jpg';
 import lcImage3 from '../../../assets/images/lc-1-3.jpg';
@@ -7,13 +8,15 @@ import team1 from '../../../assets/images/team-1-1.jpg';
 import team2 from '../../../assets/images/team-1-2.jpg';
 import courseD1 from '../../../assets/images/course-d-1.jpg';
 
-const CourseDetails = () => {
-    React.useEffect(() => {
-        window.scrollTo({
-            top: 280,
-            behavior: 'smooth',
-        });
-    });
+const CourseDetails = ({
+    idCourse,
+    courseName,
+    image,
+    courseDescription,
+    categoryData,
+    instructorData,
+    isAuthor,
+}: any) => {
     return (
         <section className="course-details">
             <div className="container">
@@ -22,14 +25,13 @@ const CourseDetails = () => {
                         <div className="course-details__content">
                             <p className="course-details__author">
                                 <img src={team1} alt="" />
-                                by <a href="#none">Addie Walters</a>
+                                by{' '}
+                                <a href="#none">{`${instructorData.first_name} ${instructorData.last_name}`}</a>
                             </p>
 
                             <div className="course-details__top">
                                 <div className="course-details__top-left">
-                                    <h2 className="course-details__title">
-                                        Improve editing skills
-                                    </h2>
+                                    <h2 className="course-details__title">{courseName || ''}</h2>
                                     <div className="course-one__stars">
                                         <span className="course-one__stars-wrap">
                                             <i className="fa fa-star" />
@@ -44,12 +46,12 @@ const CourseDetails = () => {
                                 </div>
                                 <div className="course-details__top-right">
                                     <a href="#none" className="course-one__category">
-                                        marketing
+                                        {categoryData?.categoryName || ''}
                                     </a>
                                 </div>
                             </div>
                             <div className="course-one__image">
-                                <img src={courseD1} alt="" />
+                                <img src={image} alt="" />
                                 <i className="far fa-heart" />
                             </div>
 
@@ -82,35 +84,8 @@ const CourseDetails = () => {
                                     id="overview"
                                 >
                                     <p className="course-details__tab-text">
-                                        Aelltes port lacus quis enim var sed efficitur turpis gilla
-                                        sed sit Lorem Ipsum is simply dummy text of the printing and
-                                        typesetting industry. Lorem Ipsum has been the industry’s
-                                        standard dummy text ever since the 1500s, when an unknown
-                                        printer took a galley of type and scrambled it to make a
-                                        type specimen book. It has survived not only five centuries,
-                                        but also the leap into electronic typesetting, remaining
-                                        essentially unchanged.
+                                        {courseDescription || ''}
                                     </p>
-                                    <br />
-                                    <p className="course-details__tab-text">
-                                        It was popularised in the 1960s with the release of Letraset
-                                        sheets containing Lorem Ipsum passages, and more recently
-                                        with desktop publishing software like Aldus PageMaker
-                                        including versions of lorem ipsum amet finibus eros. Lorem
-                                        Ipsum is simply dummy text of the printing and typesetting
-                                        industry. Lorem Ipsum has been the industry’s standard dummy
-                                        text ever since the 1500s, when an unknown printer took a
-                                        galley of type and scrambled it to make a type specimen
-                                        book. It has survived not only five centuries, but also the
-                                        leap into electronic typesetting.
-                                    </p>
-                                    <br />
-                                    <ul className="list-unstyled course-details__overview-list">
-                                        <li>It has survived not only five centuries</li>
-                                        <li>Lorem Ipsum is simply dummy text of the new design</li>
-                                        <li>Printng and type setting ipsum</li>
-                                        <li>Take a look at our round up of the best shows</li>
-                                    </ul>
                                 </div>
                                 <div
                                     className="tab-pane  animated fadeInUp"
@@ -410,14 +385,31 @@ const CourseDetails = () => {
                         </div>
                     </div>
                     <div className="col-lg-4">
-                        <div className="course-details__price">
-                            <p className="course-details__price-text">Course price </p>
-                            <p className="course-details__price-amount">$18.00</p>
-                            <a href="#none" className="thm-btn course-details__price-btn">
-                                Buy This Course
-                            </a>
-                        </div>
-
+                        {isAuthor ? (
+                            <div className="course-details__price">
+                                <Link className="course-details__price-text" to="">
+                                    Edit Course
+                                </Link>{' '}
+                                <br />
+                                <Link className="course-details__price-amount" to="">
+                                    Manage Your Student
+                                </Link>
+                                <Link
+                                    to={`/add-lecture/${instructorData?._id}`}
+                                    className="thm-btn course-details__price-btn"
+                                >
+                                    Add Lecture
+                                </Link>
+                            </div>
+                        ) : (
+                            <div className="course-details__price">
+                                <p className="course-details__price-text">Course price </p>
+                                <p className="course-details__price-amount">$18.00</p>
+                                <a href="#none" className="thm-btn course-details__price-btn">
+                                    Buy This Course
+                                </a>
+                            </div>
+                        )}
                         <div className="course-details__meta">
                             <a href="#none" className="course-details__meta-link">
                                 <span className="course-details__meta-icon">
@@ -430,18 +422,6 @@ const CourseDetails = () => {
                                     <i className="far fa-folder-open" />
                                 </span>
                                 Lectures: <span>6</span>
-                            </a>
-                            <a href="#none" className="course-details__meta-link">
-                                <span className="course-details__meta-icon">
-                                    <i className="far fa-user-circle" />
-                                </span>
-                                Students: <span>Max 4</span>
-                            </a>
-                            <a href="#none" className="course-details__meta-link">
-                                <span className="course-details__meta-icon">
-                                    <i className="fas fa-play" />
-                                </span>
-                                Video: <span>8 hours</span>
                             </a>
                             <a href="#none" className="course-details__meta-link">
                                 <span className="course-details__meta-icon">

@@ -29,12 +29,12 @@ const ShowCategory = ({ category }: any) => {
                             <th scope="row">{index}</th>
                             <td>{child?.categoryName}</td>
                             <td>
-                                <a
+                                <Link
                                     className="link-action__category"
-                                    href={`/ShowCategoryList/edit/${child?._id}`}
+                                    to={`/ShowCategoryList/edit/${child?._id}`}
                                 >
                                     Edit
-                                </a>
+                                </Link>
                             </td>
                         </tr>
                     ))}

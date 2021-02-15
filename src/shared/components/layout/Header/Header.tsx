@@ -13,8 +13,6 @@ const Header = ({
     classNameCategory,
     classNameEnroll,
     classMyCourses,
-    classAddCourse,
-    classAddLecture,
     classAllCourses,
     classProfile,
     classNameLogin,
@@ -59,9 +57,6 @@ const Header = ({
                     </Link>
                     <Link to={`/services/${auth.users.id}`}>
                         <span className={classMyCourses}>{t('nav.manageMyCourses')}</span>
-                    </Link>
-                    <Link to={`/add-lecture/${auth.users.id}`}>
-                        <span className={classAddLecture}>{t('nav.addLecture')}</span>
                     </Link>
                     <Link to="/services">
                         <span className={classAllCourses}>{t('nav.allCourses')}</span>

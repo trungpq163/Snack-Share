@@ -2,6 +2,7 @@
 import * as React from 'react';
 import 'components/manage/ShowCategory/ShowCategory.Styles.css';
 
+import { Link } from 'react-router-dom';
 import SearchInput from 'components/common/SearchInput/SearchInput';
 
 const ShowAllUsers = ({ users, handleISODateToString, values, handleChange }: any) => {
@@ -38,12 +39,12 @@ const ShowAllUsers = ({ users, handleISODateToString, values, handleChange }: an
                                 <td>{user?.role || ''}</td>
                                 <td>{handleISODateToString(user?.created_at) || '1/1/2020'}</td>
                                 <td>
-                                    <a
+                                    <Link
                                         className="link-action__category"
-                                        href={`/allusers/edit/${user?._id}`}
+                                        to={`/allusers/edit/${user?._id}`}
                                     >
                                         Edit
-                                    </a>
+                                    </Link>
                                 </td>
                             </tr>
                         ))}

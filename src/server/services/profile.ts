@@ -3,7 +3,7 @@ export const getCurrentUserProfileService = async (profile: any, reqUserId: stri
         .findOne({
             user: reqUserId,
         })
-        .populate('user', ['name', 'avatar']);
+        .populate('user');
 };
 
 export const getAllProfilesService = async (profile: any) => {

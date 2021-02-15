@@ -1,47 +1,29 @@
 import * as React from 'react';
 
 import { useLocation } from 'react-router';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
+import { useSelector } from 'react-redux';
 import PageHeader from 'components/layout/PageHeader/PageHeader';
 import ManageCoursesContainer from 'containers/course/ManageCoursesContainer/ManageCoursesContainer';
-
-import { getCoursesByInstructor } from 'store/courses/effects';
 import CircleLoader from 'components/loader/CircleLoader/CircleLoader';
+import { getCourses } from 'store/courses/selectors';
 
 const ManageCourses = () => {
     const location = useLocation();
 
     const pathName = location?.pathname || '';
     const idInstructor = pathName.split('/services/').join('');
-    const [courses, setCourses] = React.useState({});
-    const [loading, setLoading] = React.useState(true);
 
-    React.useEffect(() => {
-        // const interval = setInterval(() => {
-        //     setLoading(false);
-        // }, 500);
-
-        // return () => clearInterval(interval);
-        setLoading(false);
-    }, []);
-
-    React.useEffect(() => {
-        getCoursesByInstructor(idInstructor)
-            .then((data) => {
-                setCourses(data);
-            })
-            .catch((err) => toast(err));
-    }, [idInstructor]);
-
-    console.log('course', courses);
+    const course = useSelector(getCourses);
+    const coursesByInstructor = course?.courses?.filter((x) => x?.instructor?._id === idInstructor);
 
     return (
         <>
             <PageHeader title="Manage Courses" />
-            {loading ? (
+            {course?.loading ? (
                 <CircleLoader />
             ) : (
-                <ManageCoursesContainer idInstructor={idInstructor} courses={courses} />
+                <ManageCoursesContainer idInstructor={idInstructor} courses={coursesByInstructor} />
             )}
             <ToastContainer />
         </>
