@@ -25,7 +25,8 @@ const HeaderContainer = () => {
     const checkMyCoursesRoute =
         location?.pathname?.includes(`/services/${auth.users.id}`) ||
         location?.pathname?.includes('/servicesforstudent/') ||
-        location?.pathname?.includes('addcourse');
+        location?.pathname?.includes('addcourse') ||
+        location?.pathname?.includes('lecture');
     const checkAllCoursesRoute =
         location?.pathname === '/services' || location?.pathname?.includes('course-details');
     const checkProfileRoute =

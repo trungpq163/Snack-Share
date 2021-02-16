@@ -6,7 +6,6 @@ import lcImage2 from '../../../assets/images/lc-1-2.jpg';
 import lcImage3 from '../../../assets/images/lc-1-3.jpg';
 import team1 from '../../../assets/images/team-1-1.jpg';
 import team2 from '../../../assets/images/team-1-2.jpg';
-import courseD1 from '../../../assets/images/course-d-1.jpg';
 
 const CourseDetails = ({
     idCourse,
@@ -395,7 +394,7 @@ const CourseDetails = ({
                                     Manage Your Student
                                 </Link>
                                 <Link
-                                    to={`/add-lecture/${instructorData?._id}`}
+                                    to={`/add-lecture/${idCourse}`}
                                     className="thm-btn course-details__price-btn"
                                 >
                                     Add Lecture
@@ -404,10 +403,13 @@ const CourseDetails = ({
                         ) : (
                             <div className="course-details__price">
                                 <p className="course-details__price-text">Course price </p>
-                                <p className="course-details__price-amount">$18.00</p>
-                                <a href="#none" className="thm-btn course-details__price-btn">
+                                <p className="course-details__price-amount">$Free</p>
+                                <Link
+                                    to={`/checkout/${idCourse}`}
+                                    className="thm-btn course-details__price-btn"
+                                >
                                     Buy This Course
-                                </a>
+                                </Link>
                             </div>
                         )}
                         <div className="course-details__meta">

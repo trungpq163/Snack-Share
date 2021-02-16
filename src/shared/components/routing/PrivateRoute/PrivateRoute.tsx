@@ -43,7 +43,7 @@ const PrivateRoute = ({ component: Component, ...rest }: any) => {
                     decoded?.role === 'student') ? (
                     <Component {...props} />
                 ) : (
-                    <Redirect to="/login/student" />
+                    <Redirect to="/login" />
                 )
             }
         />

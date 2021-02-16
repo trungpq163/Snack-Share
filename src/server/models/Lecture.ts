@@ -5,7 +5,7 @@ export interface LectureInterface extends Document {
     no?: number;
     title: string;
     videoLink: string;
-    course?: CourseInterface['_id'];
+    course: CourseInterface['_id'];
 }
 
 const LectureSchema: Schema = new Schema(

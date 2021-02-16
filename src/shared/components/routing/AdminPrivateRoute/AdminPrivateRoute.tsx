@@ -40,7 +40,7 @@ const AdminPrivateRoute = ({ component: Component, ...rest }: any) => {
                 auth.isAuthenticated === true && decoded?.role === 'admin' ? (
                     <Component {...props} />
                 ) : (
-                    <Redirect to="/login/student" />
+                    <Redirect to="/login" />
                 )
             }
         />

@@ -18,6 +18,7 @@ const routes = {
     addLecture: '/add-lecture/:id',
     manageCourses: '/services/:id',
     courseDetails: '/course-details/:id',
+    courseCheckout: '/checkout/:id',
 };
 
 export const getRoute = (

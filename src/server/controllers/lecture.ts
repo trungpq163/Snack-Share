@@ -19,7 +19,7 @@ export const getLecturesCtrl = (req: Request, res: Response) => {
 export const postVideosCtrl = (req: Request, res: Response) => {
     findCourseByNameService(courseModel, req.body.course, (error: any, cat: any) => {
         if (!error && cat) {
-            req.body.course = cat[0]._id;
+            req.body.course = cat[0]?._id;
         }
 
         if (req.files !== undefined) {
