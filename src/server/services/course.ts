@@ -30,9 +30,6 @@ export const getCourseByInstructorIdService = async (
     reqQueryId: string,
     cb: Function
 ) => {
-    // return await course.find({
-    //     instructor: reqQueryId,
-    // });
     return await course
         .find({ instructor: reqQueryId })
         .populate({ path: 'category', model: 'category' })

@@ -1,18 +1,35 @@
 import * as React from 'react';
+
+import { ToastContainer } from 'react-toastify';
+
 import './Checkout.Styles.css';
-const Checkout = () => {
+
+interface Props {
+    values: any;
+    handleChange: (name: any) => (event: any) => void;
+    handleSubmit: any;
+}
+
+const Checkout = ({ handleChange, handleSubmit, values }: Props) => {
     return (
         <div className="container mt-5 pt-5 px-5">
             <div className="mb-4">
                 <h2>Confirm order and pay</h2>{' '}
             </div>
             <div className="row">
-                <form className="col-md-8">
+                <form className="col-md-8" onSubmit={handleSubmit}>
                     <div className="card p-3">
                         <h6 className="text-uppercase">Payment details</h6>
                         <div className="inputbox mt-3">
                             {' '}
-                            <input type="text" name="name" className="form-control" required />{' '}
+                            <input
+                                type="text"
+                                name="name"
+                                className="form-control"
+                                onChange={handleChange('name')}
+                                value={values.name}
+                                required
+                            />{' '}
                             <span>Name on card</span>{' '}
                         </div>
                         <div className="row">
@@ -21,8 +38,10 @@ const Checkout = () => {
                                     {' '}
                                     <input
                                         type="text"
-                                        name="name"
+                                        name="cardNumber"
                                         className="form-control"
+                                        onChange={handleChange('cardNumber')}
+                                        value={values.cardNumber}
                                         required
                                     />{' '}
                                     <i className="fa fa-credit-card" /> <span>Card Number</span>{' '}
@@ -34,7 +53,9 @@ const Checkout = () => {
                                         {' '}
                                         <input
                                             type="text"
-                                            name="name"
+                                            name="expire"
+                                            onChange={handleChange('expire')}
+                                            value={values.expire}
                                             className="form-control"
                                             required
                                         />{' '}
@@ -44,7 +65,9 @@ const Checkout = () => {
                                         {' '}
                                         <input
                                             type="text"
-                                            name="name"
+                                            name="cvv"
+                                            onChange={handleChange('cvv')}
+                                            value={values.cvv}
                                             className="form-control"
                                             required
                                         />{' '}
@@ -61,7 +84,9 @@ const Checkout = () => {
                                         {' '}
                                         <input
                                             type="text"
-                                            name="name"
+                                            name="street"
+                                            onChange={handleChange('street')}
+                                            value={values.street}
                                             className="form-control"
                                             required
                                         />{' '}
@@ -73,7 +98,9 @@ const Checkout = () => {
                                         {' '}
                                         <input
                                             type="text"
-                                            name="name"
+                                            name="city"
+                                            onChange={handleChange('city')}
+                                            value={values.city}
                                             className="form-control"
                                             required
                                         />{' '}
@@ -87,7 +114,9 @@ const Checkout = () => {
                                         {' '}
                                         <input
                                             type="text"
-                                            name="name"
+                                            name="stateProvince"
+                                            onChange={handleChange('stateProvince')}
+                                            value={values.stateProvince}
                                             className="form-control"
                                             required
                                         />{' '}
@@ -99,7 +128,9 @@ const Checkout = () => {
                                         {' '}
                                         <input
                                             type="text"
-                                            name="name"
+                                            name="zipCode"
+                                            onChange={handleChange('zipCode')}
+                                            value={values.zipCode}
                                             className="form-control"
                                             required
                                         />{' '}
@@ -134,6 +165,7 @@ const Checkout = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 };

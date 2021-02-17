@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import * as React from 'react';
 
 import { Link } from 'react-router-dom';
@@ -15,6 +16,7 @@ const CourseDetails = ({
     categoryData,
     instructorData,
     isAuthor,
+    enrolled,
 }: any) => {
     return (
         <section className="course-details">
@@ -25,7 +27,7 @@ const CourseDetails = ({
                             <p className="course-details__author">
                                 <img src={team1} alt="" />
                                 by{' '}
-                                <a href="#none">{`${instructorData.first_name} ${instructorData.last_name}`}</a>
+                                <a href="#none">{`${instructorData?.first_name} ${instructorData?.last_name}`}</a>
                             </p>
 
                             <div className="course-details__top">
@@ -400,7 +402,7 @@ const CourseDetails = ({
                                     Add Lecture
                                 </Link>
                             </div>
-                        ) : (
+                        ) : enrolled === undefined ? (
                             <div className="course-details__price">
                                 <p className="course-details__price-text">Course price </p>
                                 <p className="course-details__price-amount">$Free</p>
@@ -409,6 +411,17 @@ const CourseDetails = ({
                                     className="thm-btn course-details__price-btn"
                                 >
                                     Buy This Course
+                                </Link>
+                            </div>
+                        ) : (
+                            <div className="course-details__price">
+                                {/* <p className="course-details__price-text">Course price </p>
+                                        <p className="course-details__price-amount">$Free</p> */}
+                                <Link
+                                    to={`/checkout/${idCourse}`}
+                                    className="thm-btn course-details__price-btn"
+                                >
+                                    Study Now!
                                 </Link>
                             </div>
                         )}

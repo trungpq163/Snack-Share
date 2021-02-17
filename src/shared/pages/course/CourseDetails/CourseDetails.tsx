@@ -8,6 +8,7 @@ import { getCourses } from 'store/courses/selectors';
 import CircleLoader from 'components/loader/CircleLoader/CircleLoader';
 
 import { getProfile } from 'store/profile/selectors';
+import { getEnrollments } from 'store/enrollment/selectors';
 
 const CourseDetail = () => {
     const location = useLocation();
@@ -17,24 +18,28 @@ const CourseDetail = () => {
 
     const courses = useSelector(getCourses);
     const currentUser = useSelector(getProfile);
+    const enrollments = useSelector(getEnrollments);
 
     // @ts-ignore
     const courseDetails = courses?.courses?.find((x) => x?._id === idCourse);
 
     const isAuthor = courseDetails?.instructor?._id === currentUser?.profile?.user?._id;
 
-    console.log('course', courseDetails);
-    console.log('currentUser', currentUser);
+    const enrolled = enrollments.enrollments?.find(
+        (x) => x?.student?._id === currentUser?.profile?.user?._id && x?.course?._id === idCourse
+    );
+
     return (
         <>
             <PageHeader title="Course Detail" />
-            {courses.loading ? (
+            {courses.loading || currentUser.loading ? (
                 <CircleLoader />
             ) : (
                 <CourseDetailsContainer
                     idCourse={idCourse}
                     courseDetails={courseDetails}
                     isAuthor={isAuthor}
+                    enrolled={enrolled}
                 />
             )}
         </>

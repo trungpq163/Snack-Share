@@ -73,7 +73,7 @@ const Header = ({
                     <Link to="/">
                         <span className={classNameHome}>{t('nav.home')}</span>
                     </Link>
-                    <Link to={`/servicesforstudent/${auth.users.id}`}>
+                    <Link to={'/servicesforstudent/'}>
                         <span className={classMyCourses}>{t('nav.mycourses')}</span>
                     </Link>
                     <Link to="/services">

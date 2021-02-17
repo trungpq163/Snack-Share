@@ -16,8 +16,16 @@ const EnrollmentSchema: Schema = new Schema(
             default: 1,
             required: false,
         },
-        student: { type: Schema.Types.ObjectId, ref: 'User' },
-        course: { type: Schema.Types.ObjectId, ref: 'Course' },
+        student: {
+            type: Schema.Types.ObjectId,
+            ref: 'User',
+            required: true,
+        },
+        course: {
+            type: Schema.Types.ObjectId,
+            ref: 'Course',
+            required: true,
+        },
         approved: {
             type: Boolean,
             default: true,

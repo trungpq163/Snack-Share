@@ -9,6 +9,7 @@ import userReducer from './user/reducer';
 import courseReducer from './course/reducer';
 import coursesReducer from './courses/reducer';
 import lecturesReducer from './lectures/reducer';
+import enrollmentsReducer from './enrollment/reducer';
 
 const createRootReducer = () =>
     combineReducers({
@@ -22,6 +23,7 @@ const createRootReducer = () =>
         course: courseReducer,
         courses: coursesReducer,
         lectures: lecturesReducer,
+        enrollments: enrollmentsReducer,
     });
 
 export default createRootReducer;

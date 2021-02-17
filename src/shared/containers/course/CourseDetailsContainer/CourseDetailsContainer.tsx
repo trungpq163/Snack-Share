@@ -6,9 +6,10 @@ interface Props {
     idCourse: string;
     courseDetails?: any;
     isAuthor: boolean;
+    enrolled?: any;
 }
 
-const CourseDetailsContainer = ({ idCourse, courseDetails, isAuthor }: Props) => {
+const CourseDetailsContainer = ({ idCourse, courseDetails, isAuthor, enrolled }: Props) => {
     const dataCourse = {
         id: courseDetails?._id,
         courseName: courseDetails?.courseName,
@@ -19,7 +20,15 @@ const CourseDetailsContainer = ({ idCourse, courseDetails, isAuthor }: Props) =>
         categoryData: courseDetails?.category,
         instructorData: courseDetails?.instructor,
     };
-    return <CourseDetails idCourse={idCourse} {...dataCourse} isAuthor={isAuthor} />;
+
+    return (
+        <CourseDetails
+            idCourse={idCourse}
+            {...dataCourse}
+            isAuthor={isAuthor}
+            enrolled={enrolled}
+        />
+    );
 };
 
 export default CourseDetailsContainer;
