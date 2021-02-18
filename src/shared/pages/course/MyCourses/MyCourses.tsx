@@ -17,7 +17,6 @@ const MyCourses = () => {
         (x) => x?.student?._id === profile?.profile?.user?._id
     );
 
-    console.log(users);
     return (
         <>
             <PageHeader title="My Courses" />

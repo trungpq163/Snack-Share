@@ -20,6 +20,9 @@ const routes = {
     courseDetails: '/course-details/:id',
     courseCheckout: '/checkout/:id',
     myCourses: '/servicesforstudent',
+    courses: '/courses/:id',
+    lesson: '/courses/:id/lessons/:lessons',
+    dashboard: '/dashboard',
 };
 
 export const getRoute = (

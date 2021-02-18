@@ -33,6 +33,7 @@ const AddLectureContainer = ({ course, currentUser, isAuthor }: Props) => {
         const data = {
             title: values.title,
             videoLink: values.videoLink,
+            course: course._id,
         };
 
         dispatch(

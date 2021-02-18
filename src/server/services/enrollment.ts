@@ -5,9 +5,14 @@ export const getEnrollmentsService = async (enrollment: any, cb: Function) => {
             path: 'student',
             model: 'users',
         })
-        // .populate({ path: 'course', model: 'courses', select: 'courseName' })
-        .populate({ path: 'course', model: 'courses' })
-        .populate({ path: 'course.instructor', model: 'users' })
+        .populate({
+            path: 'course',
+            model: 'courses',
+            populate: {
+                path: 'instructor',
+                model: 'users',
+            },
+        })
         .exec(cb);
 };
 

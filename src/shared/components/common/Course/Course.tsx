@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import team1 from '../../../assets/images/team-1-1.jpg';
 
-const Course = ({ col, course }: any) => {
+const Course = ({ col, course, isMyCourseRoute }: any) => {
     return (
         <div className={`col-lg-${col}`}>
             <div className="course-one__single">
@@ -48,9 +48,15 @@ const Course = ({ col, course }: any) => {
                         </a>
                         <a href="/course-details">$Free</a>
                     </div>
-                    <a href="#none" className="course-one__link">
-                        See Preview
-                    </a>
+                    {!isMyCourseRoute ? (
+                        <Link to="#none" className="course-one__link">
+                            See Preview
+                        </Link>
+                    ) : (
+                        <Link to={`/courses/${course?._id}`} className="course-one__link">
+                            Study Now
+                        </Link>
+                    )}
                 </div>
             </div>
         </div>
