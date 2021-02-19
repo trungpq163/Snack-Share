@@ -23,6 +23,8 @@ const routes = {
     courses: '/courses/:id',
     lesson: '/courses/:id/lessons/:lessons',
     dashboard: '/dashboard',
+    enrollmentList: '/EnrollmentList',
+    createEnrollAdmin: '/createEnrollAdmin',
 };
 
 export const getRoute = (

@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import './CircleLoader.Styles.css';
 
 interface Props {
@@ -8,7 +9,16 @@ interface Props {
 
 const CircleLoader = ({ size, isButton }: Props) => {
     return (
-        <div className="circle-loading2" style={{ marginTop: '5%' }}>
+        <div
+            className="circle-loading2"
+            style={{
+                marginTop: '10%',
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center',
+            }}
+        >
             <div />
             <div />
         </div>

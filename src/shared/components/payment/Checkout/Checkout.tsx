@@ -25,7 +25,7 @@ const Checkout = ({ handleChange, handleSubmit, values }: Props) => {
                             <input
                                 type="text"
                                 name="name"
-                                className="form-control"
+                                className="form-control check-out"
                                 onChange={handleChange('name')}
                                 value={values.name}
                                 required
@@ -39,7 +39,7 @@ const Checkout = ({ handleChange, handleSubmit, values }: Props) => {
                                     <input
                                         type="text"
                                         name="cardNumber"
-                                        className="form-control"
+                                        className="form-control check-out"
                                         onChange={handleChange('cardNumber')}
                                         value={values.cardNumber}
                                         required
@@ -56,7 +56,7 @@ const Checkout = ({ handleChange, handleSubmit, values }: Props) => {
                                             name="expire"
                                             onChange={handleChange('expire')}
                                             value={values.expire}
-                                            className="form-control"
+                                            className="form-control check-out"
                                             required
                                         />{' '}
                                         <span>Expiry</span>{' '}
@@ -68,7 +68,7 @@ const Checkout = ({ handleChange, handleSubmit, values }: Props) => {
                                             name="cvv"
                                             onChange={handleChange('cvv')}
                                             value={values.cvv}
-                                            className="form-control"
+                                            className="form-control check-out"
                                             required
                                         />{' '}
                                         <span>CVV</span>{' '}
@@ -87,7 +87,7 @@ const Checkout = ({ handleChange, handleSubmit, values }: Props) => {
                                             name="street"
                                             onChange={handleChange('street')}
                                             value={values.street}
-                                            className="form-control"
+                                            className="form-control check-out"
                                             required
                                         />{' '}
                                         <span>Street Address</span>{' '}
@@ -101,7 +101,7 @@ const Checkout = ({ handleChange, handleSubmit, values }: Props) => {
                                             name="city"
                                             onChange={handleChange('city')}
                                             value={values.city}
-                                            className="form-control"
+                                            className="form-control check-out"
                                             required
                                         />{' '}
                                         <span>City</span>{' '}
@@ -117,7 +117,7 @@ const Checkout = ({ handleChange, handleSubmit, values }: Props) => {
                                             name="stateProvince"
                                             onChange={handleChange('stateProvince')}
                                             value={values.stateProvince}
-                                            className="form-control"
+                                            className="form-control check-out"
                                             required
                                         />{' '}
                                         <span>State/Province</span>{' '}
@@ -131,7 +131,7 @@ const Checkout = ({ handleChange, handleSubmit, values }: Props) => {
                                             name="zipCode"
                                             onChange={handleChange('zipCode')}
                                             value={values.zipCode}
-                                            className="form-control"
+                                            className="form-control check-out"
                                             required
                                         />{' '}
                                         <span>Zip code</span>{' '}

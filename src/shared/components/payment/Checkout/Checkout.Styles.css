@@ -2,41 +2,41 @@
     border: none;
 }
 
-.form-control {
-    border-bottom: 2px solid #eee !important;
+.check-out {
     border: none;
+    border-bottom: 2px solid #eee !important;
     font-weight: 600;
 }
 
 .form-control:focus {
-    color: #495057;
     background-color: #fff;
-    border-color: #8bbafe;
-    outline: 0;
-    box-shadow: none;
-    border-radius: 0px;
     border-bottom: 2px solid blue !important;
+    border-color: #8bbafe;
+    border-radius: 0px;
+    box-shadow: none;
+    color: #495057;
+    outline: 0;
 }
 
 .inputbox {
-    position: relative;
     margin-bottom: 20px;
+    position: relative;
     width: 100%;
 }
 
 .inputbox span {
+    left: 11px;
     position: absolute;
     top: 7px;
-    left: 11px;
     transition: 0.5s;
 }
 
 .inputbox i {
-    position: absolute;
-    top: 13px;
-    right: 8px;
-    transition: 0.5s;
     color: #3f51b5;
+    position: absolute;
+    right: 8px;
+    top: 13px;
+    transition: 0.5s;
 }
 
 input::-webkit-outer-spin-button,
@@ -46,13 +46,13 @@ input::-webkit-inner-spin-button {
 }
 
 .inputbox input:focus ~ span {
-    transform: translateX(-0px) translateY(-15px);
     font-size: 12px;
+    transform: translateX(-0px) translateY(-15px);
 }
 
 .inputbox input:valid ~ span {
-    transform: translateX(-0px) translateY(-15px);
     font-size: 12px;
+    transform: translateX(-0px) translateY(-15px);
 }
 
 .card-blue {
@@ -61,10 +61,10 @@ input::-webkit-inner-spin-button {
 
 .hightlight {
     background-color: #5737d9;
-    padding: 10px;
     border-radius: 10px;
-    margin-top: 15px;
     font-size: 14px;
+    margin-top: 15px;
+    padding: 10px;
 }
 
 .yellow {
@@ -72,23 +72,23 @@ input::-webkit-inner-spin-button {
 }
 
 .decoration {
-    text-decoration: none;
     font-size: 14px;
+    text-decoration: none;
 }
 
 .btn-success {
-    color: #fff;
     background-color: #492bc4;
     border-color: #492bc4;
+    color: #fff;
 }
 
 .btn-success:hover {
-    color: #fff;
     background-color: #492bc4;
     border-color: #492bc4;
+    color: #fff;
 }
 
 .decoration:hover {
-    text-decoration: none;
     color: #fdcc49;
+    text-decoration: none;
 }

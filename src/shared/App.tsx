@@ -36,6 +36,9 @@ import MyCourses from './pages/course/MyCourses/MyCourses';
 import Courses from './pages/course/Courses/Courses';
 import Lesson from './pages/course/Lesson/Lesson';
 import Dashboard from './pages/manage/Dashboard/Dashboard';
+import EnrollmentList from './pages/manage/EnrollmentList/EnrollmentList';
+import CreateEnrollAdmin from './pages/manage/CreateEnrollAdmin/CreateEnrollAdmin';
+import NotFound from './pages/common/NotFound/NotFound';
 import Footer from './components/layout/Footer/Footer';
 
 import { GlobalStyle } from './styles/GlobalStyles';
@@ -154,7 +157,17 @@ const App: React.FC<any> = () => {
                         <PrivateRoute exact path={routes.courses} component={Courses} />
                         <PrivateRoute exact path={routes.lesson} component={Lesson} />
                         <AdminPrivateRoute exact path={routes.dashboard} component={Dashboard} />
-                        <Route render={() => '404!'} />
+                        <AdminPrivateRoute
+                            exact
+                            path={routes.enrollmentList}
+                            component={EnrollmentList}
+                        />
+                        <AdminPrivateRoute
+                            exact
+                            path={routes.createEnrollAdmin}
+                            component={CreateEnrollAdmin}
+                        />
+                        <Route render={NotFound} />
                     </Switch>
                     <Footer />
                 </div>
