@@ -1,0 +1,15 @@
+version = 1
+
+[[analyzers]]
+name = "javascript"
+enabled = true
+
+  [analyzers.meta]
+  dialect = "typescript"
+  style_guide = "google"
+  environment = [
+    "nodejs",
+    "jest",
+    "mongo"
+  ]
+  plugins = ["react"]
