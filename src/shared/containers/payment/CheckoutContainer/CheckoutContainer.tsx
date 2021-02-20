@@ -3,7 +3,7 @@ import * as React from 'react';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import Checkout from 'components/payment/Checkout/Checkout';
-import { addEnrollments } from 'store/enrollment/effects';
+import { addEnrollments, getAllEnrollments } from 'store/enrollment/effects';
 
 interface Props {
     idCourse?: string;
@@ -64,12 +64,11 @@ const CheckoutContainer = ({ idCourse, idUser }: Props) => {
                         city: '',
                         stateProvince: '',
                         zipCode: '',
-                    })
+                    }),
+                () => dispatch(getAllEnrollments)
             )
         );
     };
-
-    console.log('values', values);
 
     return <Checkout values={values} handleChange={handleChange} handleSubmit={handleSubmit} />;
 };

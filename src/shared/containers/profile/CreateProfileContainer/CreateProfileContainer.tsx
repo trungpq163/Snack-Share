@@ -1,11 +1,12 @@
 import * as React from 'react';
 import { useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import jwtDecode from 'jwt-decode';
 
 import { toast } from 'react-toastify';
 
 import setData from 'utils/setData';
+import { getAuth } from 'store/auth/selectors';
 import { createProfile } from '../../../store/profile/effects';
 
 import FormCreateProfile from '../../../components/profile/FormCreateProfile/FormCreateProfile';
@@ -13,6 +14,7 @@ import FormCreateProfile from '../../../components/profile/FormCreateProfile/For
 const CreateProfileContainer = () => {
     const dispatch = useDispatch();
     const history = useHistory();
+    const auth = useSelector(getAuth);
     const decoded = jwtDecode(localStorage.jwtToken);
 
     const [values, setValues] = React.useState({
@@ -92,7 +94,7 @@ const CreateProfileContainer = () => {
                         instagram: '',
                     }),
                 () => setData(dispatch, decoded),
-                () => history.push('/finaldashboard')
+                () => history.push(`/user/${auth?.users?.id}`)
             )
         );
     };

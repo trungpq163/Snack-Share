@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import jwtDecode from 'jwt-decode';
 
 import { toast } from 'react-toastify';
@@ -8,6 +8,7 @@ import { toast } from 'react-toastify';
 import setData from 'utils/setData';
 import isEmpty from 'validation/isEmpty';
 import CircleLoader from 'components/loader/CircleLoader/CircleLoader';
+import { getAuth } from 'store/auth/selectors';
 import { createProfile } from '../../../store/profile/effects';
 
 import FormEditProfile from '../../../components/profile/FormEditProfile/FormEditProfile';
@@ -15,6 +16,7 @@ import FormEditProfile from '../../../components/profile/FormEditProfile/FormEdi
 const EditProfileContainer = ({ profile, loading }: any) => {
     const dispatch = useDispatch();
     const history = useHistory();
+    const auth = useSelector(getAuth);
     const [decoded, setDecoded] = React.useState(undefined);
 
     const [values, setValues] = React.useState({
@@ -136,7 +138,7 @@ const EditProfileContainer = ({ profile, loading }: any) => {
                         instagram: '',
                     }),
                 () => setData(dispatch, decoded),
-                () => history.push('/finaldashboard')
+                () => history.push(`/user/${auth?.users?.id}`)
             )
         );
     };

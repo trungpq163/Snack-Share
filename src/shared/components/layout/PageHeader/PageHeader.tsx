@@ -25,15 +25,6 @@ const PageHeader = ({ title, loading }: Props) => {
                 ) : (
                     <h2 className="inner-banner__title">LOADING...........</h2>
                 )}
-                {/* <ul className="list-unstyled thm-breadcrumb">
-                    <li>
-                        <Link to="/">Home</Link>
-                    </li>
-                    <li className="active">
-                        <a href="#none">{title}</a>
-                    </li>
-                </ul>
-                <h2 className="inner-banner__title">{title}</h2> */}
             </div>
         </section>
     );

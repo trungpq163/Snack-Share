@@ -20,11 +20,39 @@ export const getAllEnrollments = () => (dispatch: Dispatch<Action>) => {
         .catch((_err) => dispatch(getEnrollments({})));
 };
 
+export const addEnrollmentsByAdmin = (
+    data: any,
+    errorCb: Function,
+    doneCb: Function,
+    clearInput: Function,
+    setData: Function
+) => (_dispatch: Dispatch<Action>) => {
+    const config: AxiosRequestConfig = {
+        method: 'post',
+        url: '/enroll/add/',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        data: data,
+    };
+
+    axios(config)
+        .then((_res) => {
+            doneCb('Enroll Course Successfully!');
+            clearInput();
+            setData();
+        })
+        .catch((err) => {
+            errorCb(errorResponse(err));
+        });
+};
+
 export const addEnrollments = (
     data: any,
     errorCb: Function,
     doneCb: Function,
-    clearInput: Function
+    clearInput: Function,
+    setData: Function
 ) => (_dispatch: Dispatch<Action>) => {
     const config: AxiosRequestConfig = {
         method: 'post',
@@ -39,6 +67,7 @@ export const addEnrollments = (
         .then((_res) => {
             doneCb('Enroll Course Successfully!');
             clearInput();
+            setData();
         })
         .catch((err) => {
             clearInput();

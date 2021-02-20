@@ -19,6 +19,7 @@ const Header = ({
     classNameInstructor,
 }: any) => {
     const { t } = useTranslation();
+    console.log('authHeader', auth);
     return (
         <>
             <HeaderStyles>
@@ -61,7 +62,7 @@ const Header = ({
                     <Link to="/services">
                         <span className={classAllCourses}>{t('nav.allCourses')}</span>
                     </Link>
-                    <Link to="/finaldashboard">
+                    <Link to={`/user/${auth?.users?.id}`}>
                         <span className={classProfile}>{t('nav.profile')}</span>
                     </Link>
                     <Link to="" onClick={logout}>
@@ -79,7 +80,7 @@ const Header = ({
                     <Link to="/services">
                         <span className={classAllCourses}>{t('nav.allCourses')}</span>
                     </Link>
-                    <Link to="/finaldashboard">
+                    <Link to={`/user/${auth?.users?.id}`}>
                         <span className={classProfile}>{t('nav.profile')}</span>
                     </Link>
                     <Link to="" onClick={logout}>

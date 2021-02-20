@@ -30,7 +30,7 @@ const HeaderContainer = () => {
     const checkAllCoursesRoute =
         location?.pathname === '/services' || location?.pathname?.includes('course-details');
     const checkProfileRoute =
-        location?.pathname === '/finaldashboard' ||
+        location?.pathname?.includes('/user/') ||
         location?.pathname === '/edit-profile' ||
         location?.pathname === '/add-experience' ||
         location?.pathname === '/add-education' ||

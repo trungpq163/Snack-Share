@@ -4,10 +4,10 @@ import Course from 'components/common/Course/Course';
 
 interface Props {
     courses: any;
+    enrollments: any;
 }
 
-const MyCourses = ({ courses }: Props) => {
-    console.log(courses);
+const MyCourses = ({ courses, enrollments }: Props) => {
     const location = useLocation();
     const isMyCourseRoute = location?.pathname?.includes('servicesforstudent');
 
@@ -23,6 +23,7 @@ const MyCourses = ({ courses }: Props) => {
                                           key={index}
                                           col={6}
                                           course={course?.course}
+                                          enrollments={enrollments}
                                           isMyCourseRoute={isMyCourseRoute}
                                       />
                                   ) : courses.length === 2 ? (
@@ -30,6 +31,7 @@ const MyCourses = ({ courses }: Props) => {
                                           key={index}
                                           col={6}
                                           course={course?.course}
+                                          enrollments={enrollments}
                                           isMyCourseRoute={isMyCourseRoute}
                                       />
                                   ) : (
@@ -37,6 +39,7 @@ const MyCourses = ({ courses }: Props) => {
                                           key={index}
                                           col={4}
                                           course={course?.course}
+                                          enrollments={enrollments}
                                           isMyCourseRoute={isMyCourseRoute}
                                       />
                                   )

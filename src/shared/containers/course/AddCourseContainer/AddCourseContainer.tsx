@@ -16,7 +16,6 @@ interface Props {
 
 const AddCourseContainer = ({ category, loading }: Props) => {
     const dispatch = useDispatch();
-    const history = useHistory();
     const location = useLocation();
 
     const [decoded, setDecoded] = React.useState(undefined);

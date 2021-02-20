@@ -51,19 +51,19 @@ export const addEnrollmentCtrl = (req: Request, res: Response) => {
         return res.status(400).send('Request body is missing');
     }
 
-    findUserByEmailService(userModel, req.body.student, (error: any, cat: any) => {
-        if (!error && cat) {
-            console.log(cat);
-            req.body.student = cat[0]._id;
-        }
-    });
+    // findUserByEmailService(userModel, req.body.student, (error: any, cat: any) => {
+    //     if (!error && cat) {
+    //         console.log(cat);
+    //         req.body.student = cat[0]._id;
+    //     }
+    // });
 
-    findCourseByNameService(courseModel, req.body.course, (error: any, cat: any) => {
-        if (!error && cat) {
-            console.log(cat);
-            req.body.course = cat[0]._id;
-        }
-    });
+    // findCourseByNameService(courseModel, req.body.course, (error: any, cat: any) => {
+    //     if (!error && cat) {
+    //         console.log(cat);
+    //         req.body.course = cat[0]._id;
+    //     }
+    // });
 
     const model = new enrollmentModel(req.body);
     saveEnrollmentService(model)

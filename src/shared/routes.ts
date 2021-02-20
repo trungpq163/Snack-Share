@@ -3,7 +3,7 @@ const routes = {
     home: '/',
     login: '/login',
     register: '/register/:role',
-    profile: '/finaldashboard',
+    profile: '/user/:id',
     createprofile: '/create-profile',
     editprofile: '/edit-profile',
     addexperience: '/add-experience',
