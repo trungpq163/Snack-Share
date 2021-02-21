@@ -1,10 +1,8 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import Course from 'components/common/Course/Course';
 import teamd1 from '../../../assets/images/avt.jpg';
 
 import { Auth } from '../../../store/auth/types';
-
-import routes from '../../../routes';
 
 import '../ProfileDetails/ProfileDetails.Styles.css';
 
@@ -12,9 +10,14 @@ interface Props {
     auth?: Auth;
     profile?: any;
     name?: string;
+    courses?: any;
+    idUser: string;
+    enrollments?: any;
 }
 
-const OtherProfileDetails = ({ auth, profile, name }: Props) => {
+const OtherProfileDetails = ({ auth, profile, name, courses, idUser, enrollments }: Props) => {
+    const coursesById = courses?.filter((course: any) => course?.instructor?._id === idUser);
+    console.log('courseOtherProfileDetails', coursesById);
     return (
         <section className="team-details">
             <div className="container">
@@ -97,6 +100,35 @@ const OtherProfileDetails = ({ auth, profile, name }: Props) => {
                             </div>
                         </div>
                     </div>
+                </div>
+                <div className="row justify-content-between mt-5 pt-5">
+                    <h2 className="team-details__title">My courses</h2>
+                    {coursesById.length > 0
+                        ? coursesById.map((course: any, index: number | string) =>
+                              courses.length === 1 ? (
+                                  <Course
+                                      key={index}
+                                      col={6}
+                                      course={course}
+                                      enrollments={enrollments}
+                                  />
+                              ) : courses.length === 2 ? (
+                                  <Course
+                                      key={index}
+                                      col={6}
+                                      course={course}
+                                      enrollments={enrollments}
+                                  />
+                              ) : (
+                                  <Course
+                                      key={index}
+                                      col={4}
+                                      course={course}
+                                      enrollments={enrollments}
+                                  />
+                              )
+                          )
+                        : ''}
                 </div>
             </div>
         </section>

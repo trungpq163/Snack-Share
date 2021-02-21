@@ -7,9 +7,9 @@ interface Props {
     enrollments: any;
 }
 
-const MyCourses = ({ courses, enrollments }: Props) => {
+const MyLearning = ({ courses, enrollments }: Props) => {
     const location = useLocation();
-    const isMyCourseRoute = location?.pathname?.includes('servicesforstudent');
+    const isMyLearningRoute = location?.pathname?.includes('/my-courses/learning/');
 
     return (
         <div className="block__header">
@@ -24,7 +24,7 @@ const MyCourses = ({ courses, enrollments }: Props) => {
                                           col={6}
                                           course={course?.course}
                                           enrollments={enrollments}
-                                          isMyCourseRoute={isMyCourseRoute}
+                                          isMyLearningRoute={isMyLearningRoute}
                                       />
                                   ) : courses.length === 2 ? (
                                       <Course
@@ -32,7 +32,7 @@ const MyCourses = ({ courses, enrollments }: Props) => {
                                           col={6}
                                           course={course?.course}
                                           enrollments={enrollments}
-                                          isMyCourseRoute={isMyCourseRoute}
+                                          isMyLearningRoute={isMyLearningRoute}
                                       />
                                   ) : (
                                       <Course
@@ -40,7 +40,7 @@ const MyCourses = ({ courses, enrollments }: Props) => {
                                           col={4}
                                           course={course?.course}
                                           enrollments={enrollments}
-                                          isMyCourseRoute={isMyCourseRoute}
+                                          isMyLearningRoute={isMyLearningRoute}
                                       />
                                   )
                               )
@@ -52,4 +52,4 @@ const MyCourses = ({ courses, enrollments }: Props) => {
     );
 };
 
-export default MyCourses;
+export default MyLearning;

@@ -24,11 +24,11 @@ const HeaderContainer = () => {
     const checkEnrollRoute = location?.pathname === '/EnrollmentList';
     const checkMyCoursesRoute =
         location?.pathname?.includes(`/services/${auth.users.id}`) ||
-        location?.pathname?.includes('/servicesforstudent/') ||
         location?.pathname?.includes('addcourse') ||
         location?.pathname?.includes('lecture');
+    const checkMyLearningRoute = location?.pathname?.includes('/my-courses/learning/');
     const checkAllCoursesRoute =
-        location?.pathname === '/services' || location?.pathname?.includes('course-details');
+        location?.pathname === '/courses' || location?.pathname?.includes('course-details');
     const checkProfileRoute =
         location?.pathname?.includes('/user/') ||
         location?.pathname === '/edit-profile' ||
@@ -46,6 +46,7 @@ const HeaderContainer = () => {
         classNameCategory: `filter-item ${checkCategoryRoute ? 'active' : ''}`,
         classNameEnroll: `filter-item ${checkEnrollRoute ? 'active' : ''}`,
         classMyCourses: `filter-item ${checkMyCoursesRoute ? 'active' : ''}`,
+        classMyLearning: `filter-item ${checkMyLearningRoute ? 'active' : ''}`,
         classAllCourses: `filter-item ${checkAllCoursesRoute ? 'active' : ''}`,
         classProfile: `filter-item ${checkProfileRoute ? 'active' : ''}`,
     };

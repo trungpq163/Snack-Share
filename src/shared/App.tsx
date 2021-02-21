@@ -32,7 +32,7 @@ import AllCourses from './pages/course/AllCourses/AllCourses';
 import ManageCourses from './pages/course/ManageCourses/ManageCourses';
 import CourseDetails from './pages/course/CourseDetails/CourseDetails';
 import Checkout from './pages/payment/Checkout/Checkout';
-import MyCourses from './pages/course/MyCourses/MyCourses';
+import MyLearning from './pages/course/MyLearning/MyLearning';
 import Courses from './pages/course/Courses/Courses';
 import Lesson from './pages/course/Lesson/Lesson';
 import Dashboard from './pages/manage/Dashboard/Dashboard';
@@ -153,7 +153,7 @@ const App: React.FC<any> = () => {
                         <PrivateRoute exact path={routes.allCourses} component={AllCourses} />
                         <Route exact path={routes.courseDetails} component={CourseDetails} />
                         <PrivateRoute exact path={routes.courseCheckout} component={Checkout} />
-                        <PrivateRoute exact path={routes.myCourses} component={MyCourses} />
+                        <PrivateRoute exact path={routes.myLearning} component={MyLearning} />
                         <PrivateRoute exact path={routes.courses} component={Courses} />
                         <PrivateRoute exact path={routes.lesson} component={Lesson} />
                         <AdminPrivateRoute exact path={routes.dashboard} component={Dashboard} />

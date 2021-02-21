@@ -17,6 +17,7 @@ const Header = ({
     classProfile,
     classNameLogin,
     classNameInstructor,
+    classMyLearning,
 }: any) => {
     const { t } = useTranslation();
     console.log('authHeader', auth);
@@ -56,10 +57,13 @@ const Header = ({
                     <Link to="/">
                         <span className={classNameHome}>{t('nav.home')}</span>
                     </Link>
+                    <Link to={'/my-courses/learning/'}>
+                        <span className={classMyLearning}>{t('nav.myLearning')}</span>
+                    </Link>
                     <Link to={`/services/${auth.users.id}`}>
                         <span className={classMyCourses}>{t('nav.manageMyCourses')}</span>
                     </Link>
-                    <Link to="/services">
+                    <Link to="/courses">
                         <span className={classAllCourses}>{t('nav.allCourses')}</span>
                     </Link>
                     <Link to={`/user/${auth?.users?.id}`}>
@@ -74,10 +78,10 @@ const Header = ({
                     <Link to="/">
                         <span className={classNameHome}>{t('nav.home')}</span>
                     </Link>
-                    <Link to={'/servicesforstudent/'}>
-                        <span className={classMyCourses}>{t('nav.mycourses')}</span>
+                    <Link to={'/my-courses/learning/'}>
+                        <span className={classMyLearning}>{t('nav.myLearning')}</span>
                     </Link>
-                    <Link to="/services">
+                    <Link to="/courses">
                         <span className={classAllCourses}>{t('nav.allCourses')}</span>
                     </Link>
                     <Link to={`/user/${auth?.users?.id}`}>

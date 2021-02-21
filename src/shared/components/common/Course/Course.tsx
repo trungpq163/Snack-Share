@@ -1,19 +1,24 @@
+/* eslint-disable camelcase */
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 
+import { isoDateToString } from 'utils/isoToString';
+
 import avt from '../../../assets/images/avt.jpg';
 
-const Course = ({ col, course, isMyCourseRoute, enrollments }: any) => {
+const Course = ({ col, course, isMyLearningRoute, enrollments }: any) => {
     const handleNumberOfStudents = (id: string): number =>
         enrollments?.filter((enrollment: any) => enrollment?.course?._id === id)?.length;
 
     const numberOfStudents = `${handleNumberOfStudents(course._id)} students`;
+    console.log('courseCourse', course);
+    const dateCreated = isoDateToString(course?.created_at);
 
     return (
         <div className={`col-lg-${col}`}>
             <div className="course-one__single">
                 <div className="course-one__image">
-                    {!isMyCourseRoute ? (
+                    {!isMyLearningRoute ? (
                         <Link to={`/course-details/${course?._id}`}>
                             <img src={course?.image} alt="" />
                         </Link>
@@ -32,12 +37,12 @@ const Course = ({ col, course, isMyCourseRoute, enrollments }: any) => {
                         <img src={avt} alt="" />
                         by
                         <Link
-                            to={'/teacher-details'}
+                            to={`/user/${course?.instructor?._id}`}
                             /* eslint-disable-next-line camelcase */
                         >{`${course?.instructor?.first_name} ${course?.instructor?.last_name}`}</Link>
                     </div>
                     <h2 className="course-one__title">
-                        {!isMyCourseRoute ? (
+                        {!isMyLearningRoute ? (
                             <Link to={`/course-details/${course?._id}`}>
                                 {course?.courseName || ''}
                             </Link>
@@ -57,14 +62,14 @@ const Course = ({ col, course, isMyCourseRoute, enrollments }: any) => {
                     </div>
                     <div className="course-one__meta">
                         <a href="/course-details">
-                            <i className="far fa-clock" /> 10 Hours
+                            <i className="far fa-clock" /> {dateCreated}
                         </a>
                         <a href="/course-details">
                             <i className="fal fa-user" /> {numberOfStudents}
                         </a>
                         <a href="/course-details">$Free</a>
                     </div>
-                    {!isMyCourseRoute ? (
+                    {!isMyLearningRoute ? (
                         <Link to="#none" className="course-one__link">
                             See Preview
                         </Link>

@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
 
-import MyCourses from './MyCourses';
+import MyLearning from './MyLearning';
 
-describe('MyCourses', () => {
+describe('MyLearning', () => {
     const defaultProps = {};
 
     it('tests something', () => {
-        shallow(<MyCourses {...defaultProps} />);
+        shallow(<MyLearning {...defaultProps} />);
     });
 });
