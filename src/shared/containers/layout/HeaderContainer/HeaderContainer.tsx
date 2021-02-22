@@ -17,11 +17,13 @@ const HeaderContainer = () => {
     const checkLoginRoute = location?.pathname?.includes('login');
     const checkInstructorRoute = location?.pathname === '/register/instructor';
     const checkDashboardRoute = location?.pathname === '/dashboard';
-    const checkUsersRoute = location?.pathname?.includes('/allusers');
+    const checkUsersRoute = location?.pathname?.includes('/users');
     const checkCourseRoute = location?.pathname === '/ShowCourseList';
     const checkCategoryRoute =
-        location?.pathname?.includes('Category') || location?.pathname?.includes('category');
-    const checkEnrollRoute = location?.pathname === '/EnrollmentList';
+        location?.pathname?.includes('categories') ||
+        location?.pathname?.includes('category') ||
+        location?.pathname?.includes('/create-category');
+    const checkEnrollRoute = location?.pathname === '/enrollments';
     const checkMyCoursesRoute =
         location?.pathname === '/my-courses' ||
         location?.pathname?.includes('addcourse') ||

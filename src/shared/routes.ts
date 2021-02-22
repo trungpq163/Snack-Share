@@ -8,11 +8,11 @@ const routes = {
     editprofile: '/edit-profile',
     addexperience: '/add-experience',
     addeducation: '/add-education',
-    showcategory: '/ShowCategoryList',
-    createCategoryAdmin: '/CreateCategoryAdmin',
-    editCategoryAdmin: '/ShowCategoryList/edit/:id',
-    showAllUsers: '/allusers',
-    editUser: '/allusers/edit/:id',
+    categories: '/categories',
+    createCategory: '/create-category',
+    editCategory: '/categories/edit/:id',
+    showAllUsers: '/users',
+    editUser: '/users/edit/:id',
     addCourse: '/addcourse/:id',
     allCourses: '/courses',
     addLecture: '/add-lecture/:id',
@@ -23,8 +23,8 @@ const routes = {
     courses: '/courses/:id',
     lesson: '/courses/:id/lessons/:lessons',
     dashboard: '/dashboard',
-    enrollmentList: '/EnrollmentList',
-    createEnrollAdmin: '/createEnrollAdmin',
+    enrollments: '/enrollments',
+    createEnrollment: '/create-enrollment',
 };
 
 export const getRoute = (

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router';
-import CircleLoader from 'components/loader/CircleLoader/CircleLoader';
 import PageHeader from 'components/layout/PageHeader/PageHeader';
 import EditUserContainer from 'containers/manage/EditUserContainer/EditUserContainer';
 
@@ -12,7 +11,7 @@ const EditUser = () => {
     const dispatch = useDispatch();
 
     const pathName = location?.pathname || '';
-    const pathNameHandle = pathName.split('/allusers/edit/').join('');
+    const pathNameHandle = pathName.split('/users/edit/').join('');
 
     React.useEffect(() => {
         dispatch(getUserEff(pathNameHandle));

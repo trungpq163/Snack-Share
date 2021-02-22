@@ -39,13 +39,13 @@ const Header = ({
                     <Link to="/dashboard">
                         <span className={classNameDashboard}>{t('nav.dashBoard')}</span>
                     </Link>
-                    <Link to="/allusers">
+                    <Link to="/users">
                         <span className={classNameUsers}>{t('nav.users')}</span>
                     </Link>
-                    <Link to="/ShowCategoryList">
+                    <Link to="/categories">
                         <span className={classNameCategory}>{t('nav.categories')}</span>
                     </Link>
-                    <Link to="/EnrollmentList">
+                    <Link to="/enrollments">
                         <span className={classNameEnroll}>{t('nav.enrolledUsers')}</span>
                     </Link>
                     <Link to="" onClick={logout}>

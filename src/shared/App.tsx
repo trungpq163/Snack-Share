@@ -22,9 +22,10 @@ import CreateProfile from './pages/profile/CreateProfile/CreateProfile';
 import EditProfile from './pages/profile/EditProfile/EditProfile';
 import AddExperience from './pages/profile/AddExperience/AddExperience';
 import AddEducation from './pages/profile/AddEducation/AddEducation';
-import ShowCategoryList from './pages/manage/ShowCategoryList/ShowCategoryList';
-import CreateCategoryAdmin from './pages/manage/CreateCategoryAdmin/CreateCategoryAdmin';
-import EditCategoryList from './pages/manage/EditCategoryList/EditCategoryList';
+
+import Categories from './pages/manage/Categories/Categories';
+import CreateCategory from './pages/manage/CreateCategory/CreateCategory';
+import EditCategory from './pages/manage/EditCategory/EditCategory';
 import ShowAllUsers from './pages/manage/ShowAllUsers/ShowAllUsers';
 import EditUser from './pages/manage/EditUser/EditUser';
 import AddCourse from './pages/course/AddCourse/AddCourse';
@@ -36,8 +37,8 @@ import MyLearning from './pages/course/MyLearning/MyLearning';
 import Courses from './pages/course/Courses/Courses';
 import Lesson from './pages/course/Lesson/Lesson';
 import Dashboard from './pages/manage/Dashboard/Dashboard';
-import EnrollmentList from './pages/manage/EnrollmentList/EnrollmentList';
-import CreateEnrollAdmin from './pages/manage/CreateEnrollAdmin/CreateEnrollAdmin';
+import Enrollments from './pages/manage/Enrollments/Enrollments';
+import CreateEnrollment from './pages/manage/CreateEnrollment/CreateEnrollment';
 import NotFound from './pages/common/NotFound/NotFound';
 import Footer from './components/layout/Footer/Footer';
 
@@ -114,20 +115,16 @@ const App: React.FC<any> = () => {
                         <PrivateRoute exact path={routes.editprofile} component={EditProfile} />
                         <PrivateRoute exact path={routes.addexperience} component={AddExperience} />
                         <PrivateRoute exact path={routes.addeducation} component={AddEducation} />
+                        <AdminPrivateRoute exact path={routes.categories} component={Categories} />
                         <AdminPrivateRoute
                             exact
-                            path={routes.showcategory}
-                            component={ShowCategoryList}
+                            path={routes.createCategory}
+                            component={CreateCategory}
                         />
                         <AdminPrivateRoute
                             exact
-                            path={routes.createCategoryAdmin}
-                            component={CreateCategoryAdmin}
-                        />
-                        <AdminPrivateRoute
-                            exact
-                            path={routes.editCategoryAdmin}
-                            component={EditCategoryList}
+                            path={routes.editCategory}
+                            component={EditCategory}
                         />
                         <AdminPrivateRoute
                             exact
@@ -159,13 +156,13 @@ const App: React.FC<any> = () => {
                         <AdminPrivateRoute exact path={routes.dashboard} component={Dashboard} />
                         <AdminPrivateRoute
                             exact
-                            path={routes.enrollmentList}
-                            component={EnrollmentList}
+                            path={routes.enrollments}
+                            component={Enrollments}
                         />
                         <AdminPrivateRoute
                             exact
-                            path={routes.createEnrollAdmin}
-                            component={CreateEnrollAdmin}
+                            path={routes.createEnrollment}
+                            component={CreateEnrollment}
                         />
                         <Route render={NotFound} />
                     </Switch>
