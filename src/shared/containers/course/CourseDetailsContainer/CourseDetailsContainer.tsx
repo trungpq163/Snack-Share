@@ -7,9 +7,16 @@ interface Props {
     courseDetails?: any;
     isAuthor: boolean;
     enrolled?: any;
+    courses?: any;
 }
 
-const CourseDetailsContainer = ({ idCourse, courseDetails, isAuthor, enrolled }: Props) => {
+const CourseDetailsContainer = ({
+    idCourse,
+    courseDetails,
+    isAuthor,
+    enrolled,
+    courses,
+}: Props) => {
     const dataCourse = {
         id: courseDetails?._id,
         courseName: courseDetails?.courseName,
@@ -27,6 +34,7 @@ const CourseDetailsContainer = ({ idCourse, courseDetails, isAuthor, enrolled }:
             {...dataCourse}
             isAuthor={isAuthor}
             enrolled={enrolled}
+            courses={courses}
         />
     );
 };

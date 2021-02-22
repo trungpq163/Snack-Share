@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-import { useLocation } from 'react-router';
 import { ToastContainer } from 'react-toastify';
 import { useSelector } from 'react-redux';
 import PageHeader from 'components/layout/PageHeader/PageHeader';

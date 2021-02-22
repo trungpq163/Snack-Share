@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 import lcImage1 from '../../../assets/images/lc-1-1.jpg';
 import lcImage2 from '../../../assets/images/lc-1-2.jpg';
 import lcImage3 from '../../../assets/images/lc-1-3.jpg';
-import team1 from '../../../assets/images/team-1-1.jpg';
+
+import avt from '../../../assets/images/avt.jpg';
 import team2 from '../../../assets/images/team-1-2.jpg';
 
 const CourseDetails = ({
@@ -17,7 +18,9 @@ const CourseDetails = ({
     instructorData,
     isAuthor,
     enrolled,
+    courses,
 }: any) => {
+    console.log('courses', courses);
     return (
         <section className="course-details">
             <div className="container">
@@ -25,7 +28,7 @@ const CourseDetails = ({
                     <div className="col-lg-8">
                         <div className="course-details__content">
                             <p className="course-details__author">
-                                <img src={team1} alt="" />
+                                <img src={avt} alt="" />
                                 by{' '}
                                 <a href="#none">{`${instructorData?.first_name} ${instructorData?.last_name}`}</a>
                             </p>
@@ -42,7 +45,6 @@ const CourseDetails = ({
                                             <i className="fa fa-star" />
                                         </span>
                                         <span className="course-one__count">4.8</span>
-                                        <span className="course-one__stars-count">250</span>
                                     </div>
                                 </div>
                                 <div className="course-details__top-right">
@@ -287,7 +289,7 @@ const CourseDetails = ({
                                         <div className="course-details__comment-single">
                                             <div className="course-details__comment-top">
                                                 <div className="course-details__comment-img">
-                                                    <img src={team1} alt="" />
+                                                    <img src={avt} alt="" />
                                                 </div>
                                                 <div className="course-details__comment-right">
                                                     <h2 className="course-details__comment-name">
@@ -418,7 +420,7 @@ const CourseDetails = ({
                                 {/* <p className="course-details__price-text">Course price </p>
                                         <p className="course-details__price-amount">$Free</p> */}
                                 <Link
-                                    to={`/checkout/${idCourse}`}
+                                    to={`/courses/${idCourse}`}
                                     className="thm-btn course-details__price-btn"
                                 >
                                     Study Now!
@@ -453,69 +455,44 @@ const CourseDetails = ({
                         </div>
                         <div className="course-details__list">
                             <h2 className="course-details__list-title">New Courses</h2>
-                            <div className="course-details__list-item">
-                                <div className="course-details__list-img">
-                                    <img src={lcImage1} alt="" />
-                                </div>
-                                <div className="course-details__list-content">
-                                    <a className="course-details__list-author" href="#none">
-                                        by <span>Lydia Byrd</span>
-                                    </a>
-                                    <h3>
-                                        <a href="#none">Marketing strategies</a>
-                                    </h3>
-                                    <div className="course-details__list-stars">
-                                        <i className="fas fa-star" />
-                                        <i className="fas fa-star" />
-                                        <i className="fas fa-star" />
-                                        <i className="fas fa-star" />
-                                        <i className="fas fa-star" />
-                                        <span>4.8</span>
+                            {courses.slice(0, 3).map((course: any, index: number) => (
+                                <div className="course-details__list-item" key={index}>
+                                    <div className="course-details__list-img">
+                                        <img
+                                            style={{
+                                                objectFit: 'cover',
+                                                objectPosition: '30% 80%',
+                                            }}
+                                            width={66}
+                                            height={66}
+                                            src={course?.image}
+                                            alt=""
+                                        />
+                                    </div>
+                                    <div className="course-details__list-content">
+                                        <Link
+                                            className="course-details__list-author"
+                                            to={`/user/${course?.instructor?._id}`}
+                                            /* eslint-disable-next-line camelcase */
+                                        >
+                                            by
+                                            <span>{`${course?.instructor?.first_name} ${course?.instructor?.last_name}`}</span>
+                                        </Link>
+
+                                        <h3>
+                                            <a href="#none">{course?.courseName}</a>
+                                        </h3>
+                                        <div className="course-details__list-stars">
+                                            <i className="fas fa-star" />
+                                            <i className="fas fa-star" />
+                                            <i className="fas fa-star" />
+                                            <i className="fas fa-star" />
+                                            <i className="fas fa-star" />
+                                            <span>4.8</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="course-details__list-item">
-                                <div className="course-details__list-img">
-                                    <img src={lcImage2} alt="" />
-                                </div>
-                                <div className="course-details__list-content">
-                                    <a className="course-details__list-author" href="#none">
-                                        by <span>Lydia Byrd</span>
-                                    </a>
-                                    <h3>
-                                        <a href="#none">Marketing strategies</a>
-                                    </h3>
-                                    <div className="course-details__list-stars">
-                                        <i className="fas fa-star" />
-                                        <i className="fas fa-star" />
-                                        <i className="fas fa-star" />
-                                        <i className="fas fa-star" />
-                                        <i className="fas fa-star" />
-                                        <span>4.8</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="course-details__list-item">
-                                <div className="course-details__list-img">
-                                    <img src={lcImage3} alt="" />
-                                </div>
-                                <div className="course-details__list-content">
-                                    <a className="course-details__list-author" href="#none">
-                                        by <span>Lydia Byrd</span>
-                                    </a>
-                                    <h3>
-                                        <a href="#none">Marketing strategies</a>
-                                    </h3>
-                                    <div className="course-details__list-stars">
-                                        <i className="fas fa-star" />
-                                        <i className="fas fa-star" />
-                                        <i className="fas fa-star" />
-                                        <i className="fas fa-star" />
-                                        <i className="fas fa-star" />
-                                        <span>4.8</span>
-                                    </div>
-                                </div>
-                            </div>
+                            ))}
                         </div>
                     </div>
                 </div>

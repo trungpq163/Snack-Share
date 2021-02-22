@@ -1,10 +1,11 @@
 import * as React from 'react';
 
 import { useLocation } from 'react-router';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import PageHeader from 'components/layout/PageHeader/PageHeader';
 import CourseDetailsContainer from 'containers/course/CourseDetailsContainer/CourseDetailsContainer';
 import { getCourses } from 'store/courses/selectors';
+import { getAllCourses } from 'store/courses/effects';
 import CircleLoader from 'components/loader/CircleLoader/CircleLoader';
 
 import { getProfile } from 'store/profile/selectors';
@@ -12,9 +13,13 @@ import { getEnrollments } from 'store/enrollment/selectors';
 
 const CourseDetail = () => {
     const location = useLocation();
-
+    const dispatch = useDispatch();
     const pathName = location?.pathname || '';
     const idCourse = pathName.split('/course-details/').join('');
+
+    React.useEffect(() => {
+        dispatch(getAllCourses());
+    }, [dispatch]);
 
     const courses = useSelector(getCourses);
     const currentUser = useSelector(getProfile);
@@ -31,16 +36,22 @@ const CourseDetail = () => {
 
     return (
         <>
-            <PageHeader title="Course Details" />
-            {courses.loading || currentUser.loading ? (
-                <CircleLoader />
+            {courses.loading || currentUser.loading || enrollments.loading ? (
+                <>
+                    <PageHeader title="Loading............." />
+                    <CircleLoader />
+                </>
             ) : (
-                <CourseDetailsContainer
-                    idCourse={idCourse}
-                    courseDetails={courseDetails}
-                    isAuthor={isAuthor}
-                    enrolled={enrolled}
-                />
+                <>
+                    <PageHeader title={courseDetails?.courseName} />
+                    <CourseDetailsContainer
+                        idCourse={idCourse}
+                        courseDetails={courseDetails}
+                        courses={courses.courses}
+                        isAuthor={isAuthor}
+                        enrolled={enrolled}
+                    />
+                </>
             )}
         </>
     );
