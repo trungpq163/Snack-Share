@@ -12,7 +12,7 @@ export const getUserEff = (id: any) => (dispatch: Dispatch<Action>) => {
     dispatch(setUserLoading());
     const config: AxiosRequestConfig = {
         method: 'get',
-        url: `/user?id=${id}`,
+        url: `/api/user?id=${id}`,
     };
 
     axios(config)
@@ -30,7 +30,7 @@ export const updateUser = (
 ) => (_dispatch: Dispatch<Action>) => {
     const config: AxiosRequestConfig = {
         method: 'put',
-        url: `/user?id=${id}`,
+        url: `/api/user?id=${id}`,
         headers: {
             'Content-Type': 'application/json',
         },

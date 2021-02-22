@@ -12,7 +12,7 @@ export const getAllCourses = () => (dispatch: Dispatch<Action>) => {
     dispatch(setCoursesLoading());
     const config: AxiosRequestConfig = {
         method: 'get',
-        url: '/courses',
+        url: '/api/courses',
     };
 
     axios(config)

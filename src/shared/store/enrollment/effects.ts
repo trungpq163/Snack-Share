@@ -12,7 +12,7 @@ export const getAllEnrollments = () => (dispatch: Dispatch<Action>) => {
     dispatch(setEnrollmentsLoading());
     const config: AxiosRequestConfig = {
         method: 'get',
-        url: '/enrollments',
+        url: '/api/enrollments',
     };
 
     axios(config)
@@ -29,7 +29,7 @@ export const addEnrollmentsByAdmin = (
 ) => (_dispatch: Dispatch<Action>) => {
     const config: AxiosRequestConfig = {
         method: 'post',
-        url: '/enroll/add/',
+        url: '/api/enroll/add/',
         headers: {
             'Content-Type': 'application/json',
         },
@@ -56,7 +56,7 @@ export const addEnrollments = (
 ) => (_dispatch: Dispatch<Action>) => {
     const config: AxiosRequestConfig = {
         method: 'post',
-        url: '/enrollbystudent/add',
+        url: '/api/enrollbystudent/add',
         headers: {
             'Content-Type': 'application/json',
         },
@@ -83,7 +83,7 @@ export const deleteEnrollmentsByID = (
 ) => (_dispatch: Dispatch<Action>) => {
     const config: AxiosRequestConfig = {
         method: 'delete',
-        url: `/enrollment?id=${id}`,
+        url: `/api/enrollment?id=${id}`,
         headers: {},
     };
 

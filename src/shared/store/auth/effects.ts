@@ -23,7 +23,7 @@ export const registerUser = (
         // eslint-disable-next-line prefer-const
         let config: AxiosRequestConfig = {
             method: 'post',
-            url: '/users/register',
+            url: '/api/users/register',
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -58,7 +58,7 @@ export const loginUser = (
     // eslint-disable-next-line prefer-const
     let config: AxiosRequestConfig = {
         method: 'post',
-        url: '/users/login',
+        url: '/api/users/login',
         headers: {
             'Content-Type': 'application/json',
         },

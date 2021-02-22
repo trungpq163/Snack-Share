@@ -12,7 +12,7 @@ export const getAllUsers = () => (dispatch: Dispatch<Action>) => {
     dispatch(setUsersLoading());
     const config: AxiosRequestConfig = {
         method: 'get',
-        url: '/users',
+        url: '/api/users',
     };
 
     axios(config)

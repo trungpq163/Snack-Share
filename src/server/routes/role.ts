@@ -5,6 +5,6 @@ const router: Router = express.Router();
 
 router.route('/role/add').post(addRoleCtrl);
 
-router.route('/showroles').get(showRolesCtrl);
+router.route('/show-roles').get(showRolesCtrl);
 
 export default router;

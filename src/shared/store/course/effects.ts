@@ -12,7 +12,7 @@ export const addCourse = (data: any, errorCb: Function, doneCb: Function, clearI
 ) => {
     const config: AxiosRequestConfig = {
         method: 'post',
-        url: '/course/add',
+        url: '/api/course/add',
         headers: {
             'Content-Type': 'application/json',
         },

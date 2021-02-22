@@ -13,7 +13,7 @@ export const getCategory = () => (dispatch: Dispatch<Action>) => {
     dispatch(setCategoryLoading());
     const config: AxiosRequestConfig = {
         method: 'get',
-        url: '/categories',
+        url: '/api/categories',
     };
 
     axios(config)
@@ -30,7 +30,7 @@ export const addCategory = (
 ) => (_dispatch: Dispatch<Action>) => {
     const config: AxiosRequestConfig = {
         method: 'post',
-        url: '/category/add',
+        url: '/api/category/add',
         headers: {
             'Content-Type': 'application/json',
         },
@@ -58,7 +58,7 @@ export const updateCategory = (
 ) => (_dispatch: Dispatch<Action>) => {
     const config: AxiosRequestConfig = {
         method: 'put',
-        url: `/category/?id=${id}`,
+        url: `/api/category/?id=${id}`,
         headers: {
             'Content-Type': 'application/json',
         },

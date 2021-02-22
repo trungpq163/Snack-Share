@@ -62,13 +62,13 @@ app.get('/locales/:locale/:ns.json', i18nextXhr);
 app.get('/helloworld', (_req, res) => res.send('Hello World'));
 
 // Mount routes
-app.use(categoryRoute);
-app.use(courseRoute);
-app.use(enrollmentRoute);
-app.use(lectureRoute);
+app.use('/api/', categoryRoute);
+app.use('/api', courseRoute);
+app.use('/api/', enrollmentRoute);
+app.use('/api/', lectureRoute);
 app.use('/api/profile/', profileRoute);
-app.use(roleRoute);
-app.use(usersRoute);
+app.use('/api/', roleRoute);
+app.use('/api/', usersRoute);
 
 app.use(addStore);
 

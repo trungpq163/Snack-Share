@@ -12,7 +12,7 @@ export const getLecturesById = (id: string) => (dispatch: Dispatch<Action>) => {
     dispatch(setLecturesLoading());
     const config: AxiosRequestConfig = {
         method: 'get',
-        url: `/lectures?id=${id}`,
+        url: `/api/lectures?id=${id}`,
     };
 
     axios(config)
@@ -29,7 +29,7 @@ export const addLecture = (
 ) => (_dispatch: Dispatch<Action>) => {
     const config: AxiosRequestConfig = {
         method: 'post',
-        url: '/lectures/youtubeupload',
+        url: '/api/lectures/youtubeupload',
         data: data,
     };
 
