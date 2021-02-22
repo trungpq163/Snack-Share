@@ -4,7 +4,7 @@ import 'components/common/CourseOne/CourseOne.Styles.css';
 import Course from 'components/common/Course/Course';
 import CircleLoader from 'components/loader/CircleLoader/CircleLoader';
 
-const AllCourses = ({ courses }: any) => {
+const AllCourses = ({ courses, enrollments }: any) => {
     const [loading, setLoading] = React.useState(true);
 
     React.useEffect(() => {
@@ -23,11 +23,26 @@ const AllCourses = ({ courses }: any) => {
                                 {courses.length > 0
                                     ? courses.map((course: any[], index: number | string) =>
                                           courses.length === 1 ? (
-                                              <Course key={index} col={6} course={course} />
+                                              <Course
+                                                  key={index}
+                                                  col={6}
+                                                  course={course}
+                                                  enrollments={enrollments}
+                                              />
                                           ) : courses.length === 2 ? (
-                                              <Course key={index} col={6} course={course} />
+                                              <Course
+                                                  key={index}
+                                                  col={6}
+                                                  course={course}
+                                                  enrollments={enrollments}
+                                              />
                                           ) : (
-                                              <Course key={index} col={4} course={course} />
+                                              <Course
+                                                  key={index}
+                                                  col={4}
+                                                  course={course}
+                                                  enrollments={enrollments}
+                                              />
                                           )
                                       )
                                     : ''}

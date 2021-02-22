@@ -7,6 +7,7 @@ export const initialState = Object.freeze<AuthState>({
     auth: {
         isAuthenticated: false,
         users: {},
+        loading: false,
     },
 });
 
@@ -16,6 +17,12 @@ export default (state: AuthState = initialState, action: Action): AuthState =>
             case ActionTypes.SET_CURRENT_USER: {
                 draft.auth.isAuthenticated = !isEmpty(action.payload);
                 draft.auth.users = action.payload;
+                draft.auth.loading = false;
+                return;
+            }
+
+            case ActionTypes.AUTH_LOADING: {
+                draft.auth.loading = true;
                 return;
             }
 

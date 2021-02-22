@@ -31,7 +31,7 @@ const CourseDetail = () => {
 
     return (
         <>
-            <PageHeader title="Course Detail" />
+            <PageHeader title="Course Details" />
             {courses.loading || currentUser.loading ? (
                 <CircleLoader />
             ) : (

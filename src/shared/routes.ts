@@ -16,7 +16,7 @@ const routes = {
     addCourse: '/addcourse/:id',
     allCourses: '/courses',
     addLecture: '/add-lecture/:id',
-    manageCourses: '/services/:id',
+    myCourses: '/my-courses',
     courseDetails: '/course-details/:id',
     courseCheckout: '/checkout/:id',
     myLearning: '/my-courses/learning/',

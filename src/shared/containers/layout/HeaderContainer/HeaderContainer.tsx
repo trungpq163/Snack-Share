@@ -23,7 +23,7 @@ const HeaderContainer = () => {
         location?.pathname?.includes('Category') || location?.pathname?.includes('category');
     const checkEnrollRoute = location?.pathname === '/EnrollmentList';
     const checkMyCoursesRoute =
-        location?.pathname?.includes(`/services/${auth.users.id}`) ||
+        location?.pathname === '/my-courses' ||
         location?.pathname?.includes('addcourse') ||
         location?.pathname?.includes('lecture');
     const checkMyLearningRoute = location?.pathname?.includes('/my-courses/learning/');

@@ -2,12 +2,13 @@ import { Dispatch } from 'redux';
 import axios, { AxiosRequestConfig } from 'axios';
 import jwtDecode from 'jwt-decode';
 import setAuthToken from 'utils/setAuthToken';
-import { setCurrentUser } from '../auth/action';
+import { setCurrentUser, setAuthLoading } from '../auth/action';
 import setData from '../../utils/setData';
 import clearData from '../../utils/clearData';
 import { Action } from './types';
 
 export const dispatchSetCurrentUser = (data: any) => (dispatch: Dispatch<Action>) => {
+    dispatch(setAuthLoading());
     dispatch(setCurrentUser(data));
 };
 

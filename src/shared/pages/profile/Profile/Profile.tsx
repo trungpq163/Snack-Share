@@ -37,63 +37,68 @@ const Profile = () => {
     const firstLetterUppercase = (str: string = ''): string => {
         return str.charAt(0).toUpperCase() + str.slice(1);
     };
-    console.log('courses', courses);
 
     return (
         <>
-            {profile.loading ? (
+            {!isOwner && otherProfile ? (
                 <>
-                    <PageHeader
-                        title={
-                            profile?.profile?.handle ||
-                            `${auth?.users?.first_name} ${auth?.users?.last_name}`
-                        }
-                    />
-                    <CircleLoader />
-                </>
-            ) : !isOwner && otherProfile ? (
-                <>
-                    <PageHeader title={otherProfile?.handle} />
-                    {courses?.loading || enrollments?.loading ? (
-                        <CircleLoader />
+                    {courses?.loading || enrollments?.loading || profile.loading || auth.loading ? (
+                        <>
+                            <PageHeader title="Loading..............." />
+                            <CircleLoader />
+                        </>
                     ) : (
-                        <OtherProfileDetails
-                            auth={auth}
-                            enrollments={enrollments.enrollments}
-                            idUser={idUser}
-                            profile={otherProfile}
-                            courses={courses?.courses}
-                            name={
-                                `${firstLetterUppercase(
-                                    // eslint-disable-next-line camelcase
-                                    auth?.users.first_name
-                                    // eslint-disable-next-line camelcase
-                                )} ${firstLetterUppercase(auth?.users.last_name)}` || 'nothing here'
-                            }
-                        />
+                        <>
+                            <PageHeader title={otherProfile?.handle} />
+                            <OtherProfileDetails
+                                auth={auth}
+                                enrollments={enrollments.enrollments}
+                                idUser={idUser}
+                                profile={otherProfile}
+                                courses={courses?.courses}
+                                name={
+                                    `${firstLetterUppercase(
+                                        // eslint-disable-next-line camelcase
+                                        auth?.users.first_name
+                                        // eslint-disable-next-line camelcase
+                                    )} ${firstLetterUppercase(auth?.users.last_name)}` ||
+                                    'nothing here'
+                                }
+                            />
+                        </>
                     )}
                 </>
             ) : !isOwner && !otherProfile ? (
-                <NotFound />
+                <>{profile.loading || auth.loading ? <CircleLoader /> : <NotFound />}</>
             ) : (
                 <>
-                    <PageHeader
-                        title={
-                            profile?.profile?.handle ||
-                            `${auth?.users?.first_name} ${auth?.users?.last_name}`
-                        }
-                    />
-                    <ProfileDetails
-                        auth={auth}
-                        profile={profile.profile}
-                        name={
-                            `${firstLetterUppercase(
-                                // eslint-disable-next-line camelcase
-                                auth?.users.first_name
-                                // eslint-disable-next-line camelcase
-                            )} ${firstLetterUppercase(auth?.users.last_name)}` || 'nothing here'
-                        }
-                    />
+                    {profile.loading || auth.loading ? (
+                        <>
+                            <PageHeader title="Loading................." />
+                            <CircleLoader />
+                        </>
+                    ) : (
+                        <>
+                            <PageHeader
+                                title={
+                                    profile?.profile?.handle ||
+                                    `${auth?.users?.first_name} ${auth?.users?.last_name}`
+                                }
+                            />
+                            <ProfileDetails
+                                auth={auth}
+                                profile={profile.profile}
+                                name={
+                                    `${firstLetterUppercase(
+                                        // eslint-disable-next-line camelcase
+                                        auth?.users.first_name
+                                        // eslint-disable-next-line camelcase
+                                    )} ${firstLetterUppercase(auth?.users.last_name)}` ||
+                                    'nothing here'
+                                }
+                            />
+                        </>
+                    )}
                 </>
             )}
         </>

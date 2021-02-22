@@ -1,6 +1,7 @@
 export type Auth = {
     isAuthenticated?: boolean;
     users?: any;
+    loading?: boolean;
 };
 
 export type AuthState = Readonly<{
@@ -9,5 +10,5 @@ export type AuthState = Readonly<{
 
 export type Action = {
     type: string;
-    payload: any;
+    payload?: any;
 };

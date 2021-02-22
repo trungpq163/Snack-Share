@@ -29,7 +29,7 @@ import ShowAllUsers from './pages/manage/ShowAllUsers/ShowAllUsers';
 import EditUser from './pages/manage/EditUser/EditUser';
 import AddCourse from './pages/course/AddCourse/AddCourse';
 import AllCourses from './pages/course/AllCourses/AllCourses';
-import ManageCourses from './pages/course/ManageCourses/ManageCourses';
+import MyCourses from './pages/course/MyCourses/MyCourses';
 import CourseDetails from './pages/course/CourseDetails/CourseDetails';
 import Checkout from './pages/payment/Checkout/Checkout';
 import MyLearning from './pages/course/MyLearning/MyLearning';
@@ -147,8 +147,8 @@ const App: React.FC<any> = () => {
                         />
                         <InstructorPrivateRoute
                             exact
-                            path={routes.manageCourses}
-                            component={ManageCourses}
+                            path={routes.myCourses}
+                            component={MyCourses}
                         />
                         <PrivateRoute exact path={routes.allCourses} component={AllCourses} />
                         <Route exact path={routes.courseDetails} component={CourseDetails} />

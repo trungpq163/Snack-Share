@@ -1,14 +1,16 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import Course from 'components/common/Course/Course';
-import '../../manage/ShowCategory/ShowCategory.Styles.css';
+
+import 'components/manage/ShowCategory/ShowCategory.Styles.css';
 
 interface Props {
     idInstructor: string;
     courses: any;
+    enrollments: any;
 }
 
-const ManageCourses = ({ idInstructor, courses }: Props) => {
+const MyCourses = ({ idInstructor, courses, enrollments }: Props) => {
     return (
         <div className="block__header">
             <div className="block-title" style={{ textAlign: 'center' }}>
@@ -32,11 +34,26 @@ const ManageCourses = ({ idInstructor, courses }: Props) => {
                         {courses?.length > 0
                             ? courses?.map((course: any[], index: number | string) =>
                                   courses?.length === 1 ? (
-                                      <Course key={index} col={6} course={course} />
+                                      <Course
+                                          key={index}
+                                          col={6}
+                                          course={course}
+                                          enrollments={enrollments}
+                                      />
                                   ) : courses?.length === 2 ? (
-                                      <Course key={index} col={6} course={course} />
+                                      <Course
+                                          key={index}
+                                          col={6}
+                                          course={course}
+                                          enrollments={enrollments}
+                                      />
                                   ) : (
-                                      <Course key={index} col={4} course={course} />
+                                      <Course
+                                          key={index}
+                                          col={4}
+                                          course={course}
+                                          enrollments={enrollments}
+                                      />
                                   )
                               )
                             : ''}
@@ -47,4 +64,4 @@ const ManageCourses = ({ idInstructor, courses }: Props) => {
     );
 };
 
-export default ManageCourses;
+export default MyCourses;

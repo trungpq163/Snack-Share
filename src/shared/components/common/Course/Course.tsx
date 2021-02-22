@@ -61,16 +61,16 @@ const Course = ({ col, course, isMyLearningRoute, enrollments }: any) => {
                         <span className="course-one__count">4.8</span>
                     </div>
                     <div className="course-one__meta">
-                        <a href="/course-details">
+                        <a href="#">
                             <i className="far fa-clock" /> {dateCreated}
                         </a>
-                        <a href="/course-details">
+                        <a href="#">
                             <i className="fal fa-user" /> {numberOfStudents}
                         </a>
-                        <a href="/course-details">$Free</a>
+                        <a href="#">$Free</a>
                     </div>
                     {!isMyLearningRoute ? (
-                        <Link to="#none" className="course-one__link">
+                        <Link to={`/course-details/${course?._id}`} className="course-one__link">
                             See Preview
                         </Link>
                     ) : (
