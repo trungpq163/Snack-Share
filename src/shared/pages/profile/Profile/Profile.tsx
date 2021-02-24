@@ -3,6 +3,7 @@ import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { useLocation } from 'react-router';
+import jwtDecode from 'jwt-decode';
 import { getProfile } from 'store/profile/selectors';
 import { getAuth } from 'store/auth/selectors';
 import { getCourses } from 'store/courses/selectors';
@@ -14,6 +15,9 @@ import OtherProfileDetails from 'components/profile/OtherProfileDetails/OtherPro
 import NotFound from 'pages/common/NotFound/NotFound';
 import { getAllEnrollments } from 'store/enrollment/effects';
 import { getEnrollments } from 'store/enrollment/selectors';
+import { dispatchSetCurrentUser } from 'store/auth/effects';
+import { getCurrentProfile } from 'store/profile/effects';
+import { getAllCourses } from 'store/courses/effects';
 
 const Profile = () => {
     const location = useLocation();
@@ -26,13 +30,19 @@ const Profile = () => {
     const otherProfile = profile?.profiles?.find((x: any) => x.user?._id === idUser);
 
     React.useEffect(() => {
+        if (localStorage.jwtToken) {
+            const decoded = jwtDecode(localStorage.jwtToken);
+            dispatch(dispatchSetCurrentUser(decoded));
+        }
+    }, [dispatch]);
+
+    React.useEffect(() => {
         dispatch(getAllEnrollments());
+        dispatch(getCurrentProfile());
+        dispatch(getAllCourses());
     }, [dispatch]);
 
     const isOwner = auth?.users?.id === idUser;
-    console.log('isOwner', isOwner);
-    console.log('profile', profile);
-    console.log('auth', auth);
 
     const firstLetterUppercase = (str: string = ''): string => {
         return str.charAt(0).toUpperCase() + str.slice(1);

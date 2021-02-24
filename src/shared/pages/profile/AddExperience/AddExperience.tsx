@@ -1,14 +1,31 @@
 import * as React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import jwtDecode from 'jwt-decode';
 import CircleLoader from 'components/loader/CircleLoader/CircleLoader';
 
 import PageHeader from 'components/layout/PageHeader/PageHeader';
 import AddExperienceContainer from 'containers/profile/AddExperienceContainer/AddExperienceContainer';
 
-import { getProfile } from '../../../store/profile/selectors';
+import { getAuth } from 'store/auth/selectors';
+import { dispatchSetCurrentUser } from 'store/auth/effects';
+import { getProfile } from 'store/profile/selectors';
+import { getCurrentProfile } from 'store/profile/effects';
 
 const AddExperience = () => {
+    const dispatch = useDispatch();
     const profile = useSelector(getProfile);
+    const auth = useSelector(getAuth);
+
+    React.useEffect(() => {
+        if (localStorage.jwtToken) {
+            const decoded = jwtDecode(localStorage.jwtToken);
+            dispatch(dispatchSetCurrentUser(decoded));
+        }
+    }, [dispatch]);
+
+    React.useEffect(() => {
+        dispatch(getCurrentProfile());
+    }, [dispatch]);
 
     return (
         <>
@@ -16,7 +33,11 @@ const AddExperience = () => {
             {profile?.loading ? (
                 <CircleLoader />
             ) : (
-                <AddExperienceContainer loading={profile.loading} profile={profile.profile} />
+                <AddExperienceContainer
+                    loading={profile.loading}
+                    profile={profile.profile}
+                    auth={auth}
+                />
             )}
         </>
     );

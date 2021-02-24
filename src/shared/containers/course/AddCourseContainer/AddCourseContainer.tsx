@@ -19,8 +19,6 @@ interface Props {
 const AddCourseContainer = ({ category, loading }: Props) => {
     const dispatch = useDispatch();
     const location = useLocation();
-
-    const [decoded, setDecoded] = React.useState(undefined);
     const history = useHistory();
 
     const pathName = location?.pathname || '';
@@ -37,12 +35,6 @@ const AddCourseContainer = ({ category, loading }: Props) => {
         label: x?.categoryName || '',
         value: x?._id || '',
     }));
-
-    React.useEffect(() => {
-        if (localStorage.jwtToken) {
-            setDecoded(jwtDecode(localStorage.getItem('jwtToken') as string));
-        }
-    }, []);
 
     const handleChange = (name: any) => (event: any) => {
         setValues({
@@ -82,7 +74,7 @@ const AddCourseContainer = ({ category, loading }: Props) => {
                                 image: '',
                                 category: '',
                             }),
-                        () => setInterval(() => history.push('/my-courses'), 3000)
+                        () => history.push('/my-courses')
                     )
                 );
             });

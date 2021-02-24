@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useHistory } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import jwtDecode from 'jwt-decode';
 
 import { toast } from 'react-toastify';
@@ -9,18 +9,17 @@ import setData from 'utils/setData';
 import CircleLoader from 'components/loader/CircleLoader/CircleLoader';
 
 import FormAddEducation from 'components/profile/FormAddEducation/FormAddEducation';
-import { getAuth } from 'store/auth/selectors';
 import { addEducation } from '../../../store/profile/effects';
 
 interface Props {
     profile: any;
     loading: any;
+    auth: any;
 }
 
-const AddEducationContainer = ({ profile, loading }: Props) => {
+const AddEducationContainer = ({ profile, loading, auth }: Props) => {
     const dispatch = useDispatch();
     const history = useHistory();
-    const auth = useSelector(getAuth);
     const [decoded, setDecoded] = React.useState(undefined);
 
     const [values, setValues] = React.useState({
@@ -104,8 +103,6 @@ const AddEducationContainer = ({ profile, loading }: Props) => {
             )
         );
     };
-
-    console.log('add education', values);
 
     return (
         <>

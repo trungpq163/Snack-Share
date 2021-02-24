@@ -5,6 +5,7 @@ import LessonContainer from 'containers/course/LessonContainer/LessonContainer';
 import PageHeader from 'components/layout/PageHeader/PageHeader';
 import { getLecturesById } from 'store/lectures/effects';
 import { getLectures } from 'store/lectures/selectors';
+import { getAllCourses } from 'store/courses/effects';
 import { getCourses } from 'store/courses/selectors';
 import CircleLoader from 'components/loader/CircleLoader/CircleLoader';
 
@@ -19,8 +20,8 @@ const Lesson = () => {
 
     React.useEffect(() => {
         dispatch(getLecturesById(idCourse));
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [idCourse]);
+        dispatch(getAllCourses());
+    }, [idCourse, dispatch]);
 
     const lectures = useSelector(getLectures);
     const courses = useSelector(getCourses);
@@ -28,8 +29,6 @@ const Lesson = () => {
     const course = courses?.courses?.find((x) => x?._id === idCourse);
     // @ts-ignore
     const lecture = lectures?.lectures?.find((x) => x?._id === idLesson);
-
-    console.log('lecture', lecture);
 
     return (
         <>

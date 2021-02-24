@@ -1,20 +1,18 @@
 import * as React from 'react';
 import { useHistory } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import jwtDecode from 'jwt-decode';
 
 import { toast } from 'react-toastify';
 
 import setData from 'utils/setData';
-import { getAuth } from 'store/auth/selectors';
 import { createProfile } from '../../../store/profile/effects';
 
 import FormCreateProfile from '../../../components/profile/FormCreateProfile/FormCreateProfile';
 
-const CreateProfileContainer = () => {
+const CreateProfileContainer = ({ auth }: any) => {
     const dispatch = useDispatch();
     const history = useHistory();
-    const auth = useSelector(getAuth);
     const decoded = jwtDecode(localStorage.jwtToken);
 
     const [values, setValues] = React.useState({

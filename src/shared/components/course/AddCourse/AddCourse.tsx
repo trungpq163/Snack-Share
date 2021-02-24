@@ -13,7 +13,6 @@ interface Props {
 }
 
 const AddCourse = ({ handleChange, handleSubmit, values, options, handleChangeFile }: Props) => {
-    console.log('values', values);
     return (
         <div className="block__header">
             <div className="block-title" style={{ textAlign: 'center' }}>

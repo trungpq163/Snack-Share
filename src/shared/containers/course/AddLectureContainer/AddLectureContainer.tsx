@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import AddLecture from 'components/course/AddLecture/AddLecture';
 

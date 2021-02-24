@@ -61,8 +61,6 @@ const EditCategoryContainer = ({ loading, category, pathName }: Props) => {
         );
     };
 
-    console.log('values', values);
-
     return (
         <>
             {loading ? (

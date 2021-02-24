@@ -1,8 +1,7 @@
 import * as React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import jwtDecode from 'jwt-decode';
-import { getUser } from 'store/user/selectors';
 import { getUserEff, updateUser } from 'store/user/effects';
 import setData from 'utils/setData';
 import CircleLoader from 'components/loader/CircleLoader/CircleLoader';
@@ -10,10 +9,10 @@ import EditUser from 'components/manage/EditUser/EditUser';
 
 interface Props {
     pathName?: string;
+    user?: any;
 }
 
-const EditUserContainer = ({ pathName }: Props) => {
-    const user = useSelector(getUser);
+const EditUserContainer = ({ pathName, user }: Props) => {
     const dispatch = useDispatch();
 
     const [decoded, setDecoded] = React.useState(undefined);

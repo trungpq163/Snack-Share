@@ -9,7 +9,9 @@ import { getAllCourses } from 'store/courses/effects';
 import CircleLoader from 'components/loader/CircleLoader/CircleLoader';
 
 import { getProfile } from 'store/profile/selectors';
+import { getCurrentProfile } from 'store/profile/effects';
 import { getEnrollments } from 'store/enrollment/selectors';
+import { getAllEnrollments } from 'store/enrollment/effects';
 
 const CourseDetail = () => {
     const location = useLocation();
@@ -17,13 +19,15 @@ const CourseDetail = () => {
     const pathName = location?.pathname || '';
     const idCourse = pathName.split('/course-details/').join('');
 
-    React.useEffect(() => {
-        dispatch(getAllCourses());
-    }, [dispatch]);
-
     const courses = useSelector(getCourses);
     const currentUser = useSelector(getProfile);
     const enrollments = useSelector(getEnrollments);
+
+    React.useEffect(() => {
+        dispatch(getAllCourses());
+        dispatch(getCurrentProfile());
+        dispatch(getAllEnrollments());
+    }, [dispatch]);
 
     // @ts-ignore
     const courseDetails = courses?.courses?.find((x) => x?._id === idCourse);

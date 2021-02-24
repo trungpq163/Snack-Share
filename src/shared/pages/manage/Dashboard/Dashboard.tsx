@@ -1,17 +1,25 @@
 /* eslint-disable prefer-const */
 import * as React from 'react';
 
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import DashboardContainer from 'containers/manage/DashboardContainer/DashboardContainer';
 import PageHeader from 'components/layout/PageHeader/PageHeader';
 
 import { getCourses } from 'store/courses/selectors';
 import { getEnrollments as getEnrolls } from 'store/enrollment/selectors';
+import { getAllCourses as getAllCoursesEff } from 'store/courses/effects';
+import { getAllEnrollments as getAllEnrollmentsEff } from 'store/enrollment/effects';
 import CircleLoader from 'components/loader/CircleLoader/CircleLoader';
 
 const Dashboard = () => {
+    const dispatch = useDispatch();
     const getAllCourses = useSelector(getCourses);
     const getAllEnrollments = useSelector(getEnrolls);
+
+    React.useEffect(() => {
+        dispatch(getAllCoursesEff());
+        dispatch(getAllEnrollmentsEff());
+    }, [dispatch]);
 
     let dict: any = {};
     let dict2: any = {};
@@ -65,13 +73,6 @@ const Dashboard = () => {
     const labels = coursesPerInstructor.map((course) => course.label);
     const labels2 = coursesPerCategory.map((course) => course.label);
     const labels3 = studentsPerCourse.map((student) => student.label);
-
-    console.log('data', data);
-    console.log('label', labels);
-    console.log('data2', data2);
-    console.log('labels2', labels2);
-    console.log('data3', data3);
-    console.log('labels3', labels3);
 
     return (
         <>

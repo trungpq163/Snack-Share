@@ -5,6 +5,7 @@ import PageHeader from 'components/layout/PageHeader/PageHeader';
 import CoursesContainer from 'containers/course/CoursesContainer/CoursesContainer';
 import { getLectures } from 'store/lectures/selectors';
 import { getCourses } from 'store/courses/selectors';
+import { getAllCourses } from 'store/courses/effects';
 import { getLecturesById } from 'store/lectures/effects';
 import CircleLoader from 'components/loader/CircleLoader/CircleLoader';
 
@@ -17,8 +18,8 @@ const Courses = () => {
 
     React.useEffect(() => {
         dispatch(getLecturesById(id));
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [id]);
+        dispatch(getAllCourses());
+    }, [dispatch, id]);
 
     const lectures = useSelector(getLectures);
     const courses = useSelector(getCourses);

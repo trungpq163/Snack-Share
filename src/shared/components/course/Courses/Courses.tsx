@@ -5,7 +5,6 @@ import CircleLoader from 'components/loader/CircleLoader/CircleLoader';
 import './Courses.Styles.css';
 
 const Courses = ({ lectures, loading, pathName }: any) => {
-    console.log(lectures);
     return (
         <>
             {loading ? (

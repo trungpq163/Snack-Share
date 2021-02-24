@@ -1,14 +1,10 @@
 /* eslint-disable prefer-const */
 import * as React from 'react';
 
-import { useSelector } from 'react-redux';
-import { getUsers } from 'store/users/selectors';
-
 import ShowAllUsers from 'components/manage/ShowAllUsers/ShowAllUsers';
 import CircleLoader from 'components/loader/CircleLoader/CircleLoader';
 
-const ShowAllUsersContainer = () => {
-    const users = useSelector(getUsers);
+const ShowAllUsersContainer = ({ users }: any) => {
     const handleISODateToString = (isoDate: string = ''): string => {
         const date = new Date(isoDate);
         let year = date.getFullYear();

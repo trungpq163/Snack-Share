@@ -1,15 +1,21 @@
 import * as React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import CircleLoader from 'components/loader/CircleLoader/CircleLoader';
 import PageHeader from 'components/layout/PageHeader/PageHeader';
 import EditCategoryContainer from 'containers/manage/EditCategoryContainer/EditCategoryContainer';
 
 import { getCategory } from 'store/category/selectors';
+import { getCategory as getCategoryEff } from 'store/category/effects';
 
 const EditCategory = () => {
+    const dispatch = useDispatch();
     const category = useSelector(getCategory);
     const location = useLocation();
+
+    React.useEffect(() => {
+        dispatch(getCategoryEff());
+    }, [dispatch]);
 
     const pathName = location?.pathname || '';
     const categoryFilter = category.category.find((x: any) => pathName?.includes(x?._id));
