@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
+import cloudinary from 'config/cloudinary';
 import courseModel from '../models/Course';
 import categoryModel from '../models/Category';
-
 import {
     addCourseService,
     saveAddCourseService,
@@ -11,6 +11,7 @@ import {
     updateCourseService,
     deleteCourseService,
 } from '../services/course';
+import { uploadImageService } from '../services/cloudinary';
 
 export const addCourseCtrl = (req: Request, res: Response) => {
     if (!req.body) {
@@ -18,17 +19,38 @@ export const addCourseCtrl = (req: Request, res: Response) => {
     }
 
     addCourseService(categoryModel, req.body.category, (_error: any, _cat: any) => {
-        const model = new courseModel(req.body);
-        saveAddCourseService(model)
-            .then((doc) => {
-                if (!doc || doc.length === 0) {
-                    return res.status(500).send(doc);
+        const uniqueFilename = new Date().toISOString();
+        uploadImageService(
+            cloudinary,
+            req.body.image,
+            {
+                public_id: `courses/${uniqueFilename}`,
+                tags: 'courses',
+            },
+            (err: any, img: any) => {
+                if (err) {
+                    return res.status(500).send(err);
                 }
-                res.status(200).send(doc);
-            })
-            .catch((err) => {
-                res.status(500).json(err);
-            });
+                const model = new courseModel({
+                    courseName: req.body.courseName,
+                    image: img.url || 'not upload!',
+                    courseDescription: req.body.courseDescription,
+                    instructor: req.body.instructor,
+                    category: req.body.category,
+                });
+                console.log(img);
+                saveAddCourseService(model)
+                    .then((doc) => {
+                        if (!doc || doc.length === 0) {
+                            return res.status(500).send(doc);
+                        }
+                        res.status(200).send(doc);
+                    })
+                    .catch((err) => {
+                        res.status(500).json(err);
+                    });
+            }
+        );
     });
 };
 

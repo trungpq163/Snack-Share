@@ -1,9 +1,11 @@
 import jwtDecode from 'jwt-decode';
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
-import { useHistory, useLocation } from 'react-router';
+import { useLocation } from 'react-router';
 import { toast } from 'react-toastify';
+import Resizer from 'react-image-file-resizer';
 
+import { useHistory } from 'react-router-dom';
 import { addCourse } from 'store/course/effects';
 
 import AddCourse from 'components/course/AddCourse/AddCourse';
@@ -19,6 +21,7 @@ const AddCourseContainer = ({ category, loading }: Props) => {
     const location = useLocation();
 
     const [decoded, setDecoded] = React.useState(undefined);
+    const history = useHistory();
 
     const pathName = location?.pathname || '';
     const pathNameHandle = pathName.split('/addcourse/').join('');
@@ -48,31 +51,42 @@ const AddCourseContainer = ({ category, loading }: Props) => {
         });
     };
 
-    const handleSubmit = (e: React.FocusEvent) => {
+    const handleChangeFile = (name: string) => (e: any) => {
+        setValues({
+            ...values,
+            [name]: e.target.files[0],
+        });
+    };
+
+    const handleSubmit = (e: React.FormEvent<HTMLButtonElement>) => {
         e.preventDefault();
+        if (values.image !== '') {
+            Resizer.imageFileResizer(values.image as any, 720, 720, 'jpeg', 100, 0, (uri) => {
+                const courseData = {
+                    courseName: values.courseName,
+                    courseDescription: values.courseDescription,
+                    image: uri,
+                    instructor: pathNameHandle,
+                    category: values.category,
+                };
 
-        const courseData = {
-            courseName: values.courseName,
-            courseDescription: values.courseDescription,
-            image: values.image,
-            instructor: pathNameHandle,
-            category: values.category,
-        };
-
-        dispatch(
-            addCourse(
-                courseData,
-                (err: any) => toast(err),
-                (mess: string) => toast(mess),
-                () =>
-                    setValues({
-                        courseName: '',
-                        courseDescription: '',
-                        image: '',
-                        category: '',
-                    })
-            )
-        );
+                dispatch(
+                    addCourse(
+                        courseData,
+                        (err: any) => toast(err),
+                        (mess: string) => toast(mess),
+                        () =>
+                            setValues({
+                                courseName: '',
+                                courseDescription: '',
+                                image: '',
+                                category: '',
+                            }),
+                        () => setInterval(() => history.push('/my-courses'), 3000)
+                    )
+                );
+            });
+        }
     };
 
     return (
@@ -84,6 +98,7 @@ const AddCourseContainer = ({ category, loading }: Props) => {
                     handleSubmit={handleSubmit}
                     values={values}
                     handleChange={handleChange}
+                    handleChangeFile={handleChangeFile}
                     options={options}
                 />
             )}

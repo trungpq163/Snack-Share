@@ -9,9 +9,10 @@ interface Props {
     handleChange?: any;
     values?: any;
     options?: any;
+    handleChangeFile?: any;
 }
 
-const AddCourse = ({ handleChange, handleSubmit, values, options }: Props) => {
+const AddCourse = ({ handleChange, handleSubmit, values, options, handleChangeFile }: Props) => {
     console.log('values', values);
     return (
         <div className="block__header">
@@ -36,10 +37,10 @@ const AddCourse = ({ handleChange, handleSubmit, values, options }: Props) => {
                 />
                 <InputField
                     name="image"
-                    placeholder="Embed Image Link"
-                    text="Image Link (https://......)"
-                    onChange={handleChange('image')}
-                    value={values?.image}
+                    text="Upload Image"
+                    acceptFile="image/*"
+                    type="file"
+                    onChange={handleChangeFile('image')}
                     required={true}
                 />
                 <InputDropdown

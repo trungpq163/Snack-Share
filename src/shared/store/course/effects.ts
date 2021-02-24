@@ -7,9 +7,13 @@ export const errorResponse = (errData: any): string | undefined => {
     return errRes;
 };
 
-export const addCourse = (data: any, errorCb: Function, doneCb: Function, clearInput: Function) => (
-    _dispatch: Dispatch<Action>
-) => {
+export const addCourse = (
+    data: any,
+    errorCb: Function,
+    doneCb: Function,
+    clearInput: Function,
+    redirectWhenSuccess: Function
+) => (_dispatch: Dispatch<Action>) => {
     const config: AxiosRequestConfig = {
         method: 'post',
         url: '/api/course/add',
@@ -23,6 +27,7 @@ export const addCourse = (data: any, errorCb: Function, doneCb: Function, clearI
         .then((_res) => {
             doneCb('Create course successfully!');
             clearInput();
+            redirectWhenSuccess();
         })
         .catch((err) => {
             clearInput();

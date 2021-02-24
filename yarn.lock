@@ -13251,6 +13251,11 @@ react-id-swiper@^3.0.0:
   dependencies:
     object-assign "^4.1.1"
 
+react-image-file-resizer@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/react-image-file-resizer/-/react-image-file-resizer-0.4.2.tgz#433d647881b9c9b128a737b7e4e964458a1ba6e0"
+  integrity sha512-WMhT3ROQC2pNj6fIcLLOF63K5babk28YW1zbQhlQhDy4Kfs9rx3lZG41WQgrH+u8LkSdZ2BPx9iq7GiWsVWy/g==
+
 react-is@^16.12.0:
   version "16.13.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.0.tgz#0f37c3613c34fe6b37cd7f763a0d6293ab15c527"
