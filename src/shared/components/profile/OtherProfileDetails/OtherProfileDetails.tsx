@@ -105,14 +105,14 @@ const OtherProfileDetails = ({ auth, profile, name, courses, idUser, enrollments
                     <h2 className="team-details__title">My courses</h2>
                     {coursesById.length > 0
                         ? coursesById.map((course: any, index: number | string) =>
-                              courses.length === 1 ? (
+                              coursesById.length === 1 ? (
                                   <Course
                                       key={index}
                                       col={6}
                                       course={course}
                                       enrollments={enrollments}
                                   />
-                              ) : courses.length === 2 ? (
+                              ) : coursesById.length === 2 ? (
                                   <Course
                                       key={index}
                                       col={6}

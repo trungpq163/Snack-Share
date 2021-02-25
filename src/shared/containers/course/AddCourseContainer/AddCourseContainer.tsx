@@ -1,4 +1,3 @@
-import jwtDecode from 'jwt-decode';
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router';
@@ -26,6 +25,9 @@ const AddCourseContainer = ({ category, loading }: Props) => {
 
     const [values, setValues] = React.useState({
         courseName: '',
+        price: '',
+        skillLevel: '',
+        language: '',
         courseDescription: '',
         image: '',
         category: '',
@@ -35,6 +37,45 @@ const AddCourseContainer = ({ category, loading }: Props) => {
         label: x?.categoryName || '',
         value: x?._id || '',
     }));
+
+    const finaleOptions = options?.unshift({
+        label: '* Select category',
+        value: '',
+    });
+
+    const languageOptions = [
+        {
+            label: '*Select language',
+            value: '',
+        },
+        {
+            label: 'English',
+            value: 'english',
+        },
+        {
+            label: 'VietNamese',
+            value: 'vietnamese',
+        },
+    ];
+
+    const skillLevelOptions = [
+        {
+            label: '*Select skill level',
+            value: '',
+        },
+        {
+            label: 'Advanced',
+            value: 'advanced',
+        },
+        {
+            label: 'Basic',
+            value: 'basic',
+        },
+        {
+            label: 'Newbie',
+            value: 'newbie',
+        },
+    ];
 
     const handleChange = (name: any) => (event: any) => {
         setValues({
@@ -52,10 +93,34 @@ const AddCourseContainer = ({ category, loading }: Props) => {
 
     const handleSubmit = (e: React.FormEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        if (values.image !== '') {
+        if (values.category === '') {
+            toast('You not choose category of course');
+        }
+
+        if (values.image === '') {
+            toast('You must upload course image');
+        }
+
+        if (values.language === '') {
+            toast('You not choose language');
+        }
+
+        if (values.skillLevel === '') {
+            toast('You not choose skill level(student) to take this course');
+        }
+
+        if (
+            values.image !== '' &&
+            values.category !== '' &&
+            values.skillLevel !== '' &&
+            values.language !== ''
+        ) {
             Resizer.imageFileResizer(values.image as any, 720, 720, 'jpeg', 100, 0, (uri) => {
                 const courseData = {
                     courseName: values.courseName,
+                    price: Number(values.price),
+                    skillLevel: values.skillLevel,
+                    language: values.language,
                     courseDescription: values.courseDescription,
                     image: uri,
                     instructor: pathNameHandle,
@@ -70,6 +135,9 @@ const AddCourseContainer = ({ category, loading }: Props) => {
                         () =>
                             setValues({
                                 courseName: '',
+                                price: '',
+                                skillLevel: '',
+                                language: '',
                                 courseDescription: '',
                                 image: '',
                                 category: '',
@@ -80,6 +148,8 @@ const AddCourseContainer = ({ category, loading }: Props) => {
             });
         }
     };
+
+    console.log('values', values);
 
     return (
         <>
@@ -92,6 +162,8 @@ const AddCourseContainer = ({ category, loading }: Props) => {
                     handleChange={handleChange}
                     handleChangeFile={handleChangeFile}
                     options={options}
+                    skillLevelOptions={skillLevelOptions}
+                    languageOptions={languageOptions}
                 />
             )}
         </>

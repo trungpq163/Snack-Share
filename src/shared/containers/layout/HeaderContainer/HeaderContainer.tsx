@@ -53,7 +53,11 @@ const HeaderContainer = () => {
         classProfile: `filter-item ${checkProfileRoute ? 'active' : ''}`,
     };
 
-    if (typeof window !== 'undefined') {
+    if (
+        typeof window !== 'undefined' &&
+        typeof auth.users.id !== 'undefined' &&
+        typeof auth.users.role !== 'undefined'
+    ) {
         localStorage.setItem('userid', JSON.stringify(auth.users.id));
         localStorage.setItem('userRole', JSON.stringify(auth.users.role));
     }

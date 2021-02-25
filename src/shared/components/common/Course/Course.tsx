@@ -6,7 +6,8 @@ import { isoDateToString } from 'utils/isoToString';
 
 import avt from '../../../assets/images/avt.jpg';
 
-const Course = ({ col, course, isMyLearningRoute, enrollments }: any) => {
+const Course = ({ col, course, isMyLearningRoute, enrollments, key }: any) => {
+    console.log('courseCourse', course);
     const handleNumberOfStudents = (id: string): number =>
         enrollments?.filter((enrollment: any) => enrollment?.course?._id === id)?.length;
 
@@ -15,7 +16,7 @@ const Course = ({ col, course, isMyLearningRoute, enrollments }: any) => {
 
     return (
         <div className={`col-lg-${col}`}>
-            <div className="course-one__single">
+            <div className={`course-one__single color-${key}`}>
                 <div className="course-one__image">
                     {!isMyLearningRoute ? (
                         <Link to={`/course-details/${course?._id}`}>
@@ -66,7 +67,7 @@ const Course = ({ col, course, isMyLearningRoute, enrollments }: any) => {
                         <a href="#">
                             <i className="fal fa-user" /> {numberOfStudents}
                         </a>
-                        <a href="#">$Free</a>
+                        <a href="#">{course.price ? `${course.price}$` : '$Free'}</a>
                     </div>
                     {!isMyLearningRoute ? (
                         <Link to={`/course-details/${course?._id}`} className="course-one__link">

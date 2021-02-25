@@ -9,6 +9,7 @@ const InputField = ({
     placeholder,
     type,
     acceptFile,
+    inputNumber,
     disabled,
     required,
 }: any) => {
@@ -31,6 +32,7 @@ const InputField = ({
                 onChange={onChange}
                 value={value}
                 accept={acceptFile}
+                onInput={() => inputNumber}
                 className="input-focus"
                 placeholder={placeholder}
                 disabled={disabled}

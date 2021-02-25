@@ -2,15 +2,16 @@ import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import PrivateRoute from 'components/routing/PrivateRoute/PrivateRoute';
 import InstructorPrivateRoute from 'components/routing/InstructorPrivateRoute/InstructorPrivateRoute';
 import AdminPrivateRoute from 'components/routing/AdminPrivateRoute/AdminPrivateRoute';
 import MainLoader from 'components/loader/MainLoader/MainLoader';
 import AddLecture from 'pages/course/AddLecture/AddLecture';
+import { getAuth } from 'store/auth/selectors';
 import favicon from '../shared/assets/favicon.png';
 import setAuthToken from './utils/setAuthToken';
-import { logoutUser } from './store/auth/effects';
+import { logoutUser, dispatchSetCurrentUser } from './store/auth/effects';
 import setData from './utils/setData';
 
 import Home from './pages/main/Home/Home';
@@ -57,6 +58,7 @@ import 'styles/utils.css';
 const App: React.FC<any> = () => {
     const dispatch = useDispatch();
     const history = useHistory();
+    // const auth = useSelector(getAuth);
 
     const [loading, setLoading] = React.useState(true);
 

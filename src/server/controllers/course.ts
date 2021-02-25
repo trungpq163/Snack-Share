@@ -34,6 +34,9 @@ export const addCourseCtrl = (req: Request, res: Response) => {
                 const model = new courseModel({
                     courseName: req.body.courseName,
                     image: img.url || 'not upload!',
+                    price: req.body.price,
+                    language: req.body.language,
+                    skillLevel: req.body.skillLevel,
                     courseDescription: req.body.courseDescription,
                     instructor: req.body.instructor,
                     category: req.body.category,

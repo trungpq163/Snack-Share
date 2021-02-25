@@ -5,6 +5,10 @@ import { CategoryInterface } from './Category';
 
 export interface CourseInterface extends Document {
     courseName: string;
+    image: string;
+    price: number;
+    language: string;
+    skillLevel: string;
     courseDescription: string;
     instructor?: UserInterface['_id'];
     category?: CategoryInterface['_id'];
@@ -17,6 +21,18 @@ const CourseSchema: Schema = new Schema(
             required: true,
         },
         image: {
+            type: String,
+            required: true,
+        },
+        price: {
+            type: Number,
+            required: true,
+        },
+        language: {
+            type: String,
+            required: true,
+        },
+        skillLevel: {
             type: String,
             required: true,
         },

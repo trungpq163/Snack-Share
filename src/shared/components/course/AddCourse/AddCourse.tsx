@@ -10,9 +10,19 @@ interface Props {
     values?: any;
     options?: any;
     handleChangeFile?: any;
+    skillLevelOptions?: any;
+    languageOptions?: any;
 }
 
-const AddCourse = ({ handleChange, handleSubmit, values, options, handleChangeFile }: Props) => {
+const AddCourse = ({
+    handleChange,
+    handleSubmit,
+    values,
+    options,
+    handleChangeFile,
+    languageOptions,
+    skillLevelOptions,
+}: Props) => {
     return (
         <div className="block__header">
             <div className="block-title" style={{ textAlign: 'center' }}>
@@ -27,12 +37,47 @@ const AddCourse = ({ handleChange, handleSubmit, values, options, handleChangeFi
                     value={values?.courseName}
                     required={true}
                 />
+                <InputField
+                    name="price"
+                    placeholder="usd"
+                    inputNumber="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                    text="* Course Price (USD)"
+                    type="number"
+                    onChange={handleChange('price')}
+                    value={values?.price}
+                    required={true}
+                />
+                <InputDropdown
+                    options={languageOptions}
+                    onChange={handleChange('language')}
+                    value={values?.language}
+                    info="*Choose language in your course"
+                    name="language"
+                    required={true}
+                />
+                <InputDropdown
+                    options={skillLevelOptions}
+                    onChange={handleChange('skillLevel')}
+                    value={values?.skillLevel}
+                    info="*Choose skill level (student) to take this course"
+                    name="skillLevel"
+                    required={true}
+                />
+                <InputDropdown
+                    options={options}
+                    onChange={handleChange('category')}
+                    value={values?.category}
+                    name="category"
+                    info="*Choose Category"
+                    required={true}
+                />
                 <TextArea
                     name="courseDescription"
                     text="Description"
                     placeholder="Course Description"
                     onChange={handleChange('courseDescription')}
                     value={values?.courseDescription}
+                    required={true}
                 />
                 <InputField
                     name="image"
@@ -41,14 +86,6 @@ const AddCourse = ({ handleChange, handleSubmit, values, options, handleChangeFi
                     type="file"
                     onChange={handleChangeFile('image')}
                     required={true}
-                />
-                <InputDropdown
-                    options={options}
-                    onChange={handleChange('category')}
-                    value={values?.category}
-                    name="category"
-                    placeholder="*Category"
-                    required
                 />
                 <button type="submit" className="btn btn--gradient">
                     Submit
