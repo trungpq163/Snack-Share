@@ -11,6 +11,8 @@ import { CenterComponent } from 'styles/CenterComponent';
 
 import { User } from 'types';
 
+import capitalizeFirstLetter from 'utils/capitalizeFirstLetter';
+
 const Register = ({ match }: any) => {
     const dispatch = useDispatch();
     const roleParams = match.params.role;
@@ -59,10 +61,6 @@ const Register = ({ match }: any) => {
                 () => history.push('/login')
             )
         );
-    };
-
-    const capitalizeFirstLetter = (str: string): string => {
-        return str.charAt(0).toUpperCase() + str.slice(1);
     };
 
     return (

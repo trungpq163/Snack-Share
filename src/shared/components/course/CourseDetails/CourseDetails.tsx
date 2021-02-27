@@ -2,10 +2,15 @@
 import * as React from 'react';
 
 import { Link } from 'react-router-dom';
-import lcImage1 from '../../../assets/images/lc-1-1.jpg';
-import lcImage2 from '../../../assets/images/lc-1-2.jpg';
-import lcImage3 from '../../../assets/images/lc-1-3.jpg';
-
+import CourseDetailsAuthor from 'components/common/CourseDetailsAuthor/CourseDetailsAuthor';
+import CourseDetailsTop from 'components/common/CourseDetailsTop/CourseDetailsTop';
+import CourseDetailsImage from 'components/common/CourseDetailsImage/CourseDetailsImage';
+import IsAuthorCourseDetails from 'components/common/IsAuthorCourseDetails/IsAuthorCourseDetails';
+import BuyThisCourseDetails from 'components/common/BuyThisCourseDetails/BuyThisCourseDetails';
+import StudyNowCourseDetails from 'components/common/StudyNowCourseDetails/StudyNowCourseDetails';
+import CourseDetailsMeta from 'components/common/CourseDetailsMeta/CourseDetailsMeta';
+import CourseDetailsList from 'components/common/CourseDetailsList/CourseDetailsList';
+import CourseDetailsRightBar from 'components/common/CourseDetailsRightBar/CourseDetailsRightBar';
 import avt from '../../../assets/images/avt.jpg';
 import team2 from '../../../assets/images/team-1-2.jpg';
 
@@ -19,6 +24,9 @@ const CourseDetails = ({
     isAuthor,
     enrolled,
     courses,
+    language,
+    price,
+    skillLevel,
 }: any) => {
     console.log('courses', courses);
     return (
@@ -27,36 +35,16 @@ const CourseDetails = ({
                 <div className="row">
                     <div className="col-lg-8">
                         <div className="course-details__content">
-                            <p className="course-details__author">
-                                <img src={avt} alt="" />
-                                by{' '}
-                                <a href="#none">{`${instructorData?.first_name} ${instructorData?.last_name}`}</a>
-                            </p>
-
-                            <div className="course-details__top">
-                                <div className="course-details__top-left">
-                                    <h2 className="course-details__title">{courseName || ''}</h2>
-                                    <div className="course-one__stars">
-                                        <span className="course-one__stars-wrap">
-                                            <i className="fa fa-star" />
-                                            <i className="fa fa-star" />
-                                            <i className="fa fa-star" />
-                                            <i className="fa fa-star" />
-                                            <i className="fa fa-star" />
-                                        </span>
-                                        <span className="course-one__count">4.8</span>
-                                    </div>
-                                </div>
-                                <div className="course-details__top-right">
-                                    <a href="#none" className="course-one__category">
-                                        {categoryData?.categoryName || ''}
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="course-one__image">
-                                <img src={image} alt="" />
-                                <i className="far fa-heart" />
-                            </div>
+                            <CourseDetailsAuthor
+                                firstName={instructorData?.first_name}
+                                lastName={instructorData?.last_name}
+                                avt={avt}
+                            />
+                            <CourseDetailsTop
+                                courseName={courseName || ''}
+                                categoryName={categoryData?.categoryName || ''}
+                            />
+                            <CourseDetailsImage image={image} />
 
                             <ul className="course-details__tab-navs list-unstyled nav nav-tabs">
                                 <li>
@@ -387,114 +375,15 @@ const CourseDetails = ({
                             </div>
                         </div>
                     </div>
-                    <div className="col-lg-4">
-                        {isAuthor ? (
-                            <div className="course-details__price">
-                                <Link className="course-details__price-text" to="">
-                                    Edit Course
-                                </Link>{' '}
-                                <br />
-                                <Link className="course-details__price-amount" to="">
-                                    Manage Your Student
-                                </Link>
-                                <Link
-                                    to={`/add-lecture/${idCourse}`}
-                                    className="thm-btn course-details__price-btn"
-                                >
-                                    Add Lecture
-                                </Link>
-                            </div>
-                        ) : enrolled === undefined ? (
-                            <div className="course-details__price">
-                                <p className="course-details__price-text">Course price </p>
-                                <p className="course-details__price-amount">$Free</p>
-                                <Link
-                                    to={`/checkout/${idCourse}`}
-                                    className="thm-btn course-details__price-btn"
-                                >
-                                    Buy This Course
-                                </Link>
-                            </div>
-                        ) : (
-                            <div className="course-details__price">
-                                {/* <p className="course-details__price-text">Course price </p>
-                                        <p className="course-details__price-amount">$Free</p> */}
-                                <Link
-                                    to={`/courses/${idCourse}`}
-                                    className="thm-btn course-details__price-btn"
-                                >
-                                    Study Now!
-                                </Link>
-                            </div>
-                        )}
-                        <div className="course-details__meta">
-                            <a href="#none" className="course-details__meta-link">
-                                <span className="course-details__meta-icon">
-                                    <i className="far fa-clock" />
-                                </span>
-                                Durations: <span>10 hours</span>
-                            </a>
-                            <a href="#none" className="course-details__meta-link">
-                                <span className="course-details__meta-icon">
-                                    <i className="far fa-folder-open" />
-                                </span>
-                                Lectures: <span>6</span>
-                            </a>
-                            <a href="#none" className="course-details__meta-link">
-                                <span className="course-details__meta-icon">
-                                    <i className="far fa-flag" />
-                                </span>
-                                Skill Level: <span>Advanced</span>
-                            </a>
-                            <a href="#none" className="course-details__meta-link">
-                                <span className="course-details__meta-icon">
-                                    <i className="far fa-bell" />
-                                </span>
-                                Language: <span>English</span>
-                            </a>
-                        </div>
-                        <div className="course-details__list">
-                            <h2 className="course-details__list-title">New Courses</h2>
-                            {courses.slice(0, 3).map((course: any, index: number) => (
-                                <div className="course-details__list-item" key={index}>
-                                    <div className="course-details__list-img">
-                                        <img
-                                            style={{
-                                                objectFit: 'cover',
-                                                objectPosition: '30% 80%',
-                                            }}
-                                            width={66}
-                                            height={66}
-                                            src={course?.image}
-                                            alt=""
-                                        />
-                                    </div>
-                                    <div className="course-details__list-content">
-                                        <Link
-                                            className="course-details__list-author"
-                                            to={`/user/${course?.instructor?._id}`}
-                                            /* eslint-disable-next-line camelcase */
-                                        >
-                                            by
-                                            <span>{`${course?.instructor?.first_name} ${course?.instructor?.last_name}`}</span>
-                                        </Link>
-
-                                        <h3>
-                                            <a href="#none">{course?.courseName}</a>
-                                        </h3>
-                                        <div className="course-details__list-stars">
-                                            <i className="fas fa-star" />
-                                            <i className="fas fa-star" />
-                                            <i className="fas fa-star" />
-                                            <i className="fas fa-star" />
-                                            <i className="fas fa-star" />
-                                            <span>4.8</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
+                    <CourseDetailsRightBar
+                        isAuthor={isAuthor}
+                        idCourse={idCourse}
+                        price={price || 0}
+                        courses={courses}
+                        enrolled={enrolled}
+                        language={language}
+                        skillLevel={skillLevel}
+                    />
                 </div>
             </div>
         </section>
