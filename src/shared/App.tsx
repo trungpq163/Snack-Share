@@ -2,16 +2,16 @@ import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
 import PrivateRoute from 'components/routing/PrivateRoute/PrivateRoute';
 import InstructorPrivateRoute from 'components/routing/InstructorPrivateRoute/InstructorPrivateRoute';
 import AdminPrivateRoute from 'components/routing/AdminPrivateRoute/AdminPrivateRoute';
 import MainLoader from 'components/loader/MainLoader/MainLoader';
 import AddLecture from 'pages/course/AddLecture/AddLecture';
-import { getAuth } from 'store/auth/selectors';
 import favicon from '../shared/assets/favicon.png';
 import setAuthToken from './utils/setAuthToken';
-import { logoutUser, dispatchSetCurrentUser } from './store/auth/effects';
+import { logoutUser } from './store/auth/effects';
 import setData from './utils/setData';
 
 import Home from './pages/main/Home/Home';
@@ -49,6 +49,7 @@ import routes from './routes';
 
 import css from './App.module.css';
 import 'styles/utils.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 // Does not yet work with server side rendering:
 // const Home = React.lazy(() => import('./pages/Home'));
@@ -168,6 +169,7 @@ const App: React.FC<any> = () => {
                         />
                         <Route render={NotFound} />
                     </Switch>
+                    <ToastContainer />
                     <Footer />
                 </div>
             )}

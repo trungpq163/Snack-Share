@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { ToastContainer } from 'react-toastify';
 
 import InputField from 'components/common/InputField/InputField';
 import InputDropdown from 'components/common/InputDropdown/InputDropdown';
@@ -88,7 +87,6 @@ const EditUser = ({ handleChange, handleSubmit, values }: Props) => {
                     Submit
                 </button>
             </form>
-            <ToastContainer />
         </div>
     );
 };

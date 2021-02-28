@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ToastContainer } from 'react-toastify';
+
 import InputField from 'components/common/InputField/InputField';
 
 interface Props {
@@ -27,7 +27,6 @@ const EditCategory = ({ handleChange, values, handleSubmit }: Props) => {
                     Submit
                 </button>
             </form>
-            <ToastContainer />
         </div>
     );
 };

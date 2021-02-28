@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
+
 import { useTranslation } from 'react-i18next';
 import { LinkCustom, LinkCustomActive } from 'styles/LinkCustom.Styles';
 
-import 'react-toastify/dist/ReactToastify.css';
 import 'styles/Form.Styles.css';
 
 import { User } from 'types';
@@ -144,7 +143,6 @@ const Register = ({
                         {t('register.signup')}
                     </button>
                 </form>
-                <ToastContainer />
             </div>
         </div>
     );

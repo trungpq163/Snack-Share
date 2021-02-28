@@ -1,7 +1,5 @@
 import * as React from 'react';
 
-import { ToastContainer } from 'react-toastify';
-
 import './Checkout.Styles.css';
 
 interface Props {
@@ -165,7 +163,6 @@ const Checkout = ({ handleChange, handleSubmit, values }: Props) => {
                     </div>
                 </div>
             </div>
-            <ToastContainer />
         </div>
     );
 };

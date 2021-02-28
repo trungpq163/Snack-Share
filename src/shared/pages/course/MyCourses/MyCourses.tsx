@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-import { ToastContainer } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 import jwtDecode from 'jwt-decode';
 import PageHeader from 'components/layout/PageHeader/PageHeader';
@@ -47,7 +46,6 @@ const MyCourses = () => {
                     courses={coursesByInstructor}
                 />
             )}
-            <ToastContainer />
         </>
     );
 };

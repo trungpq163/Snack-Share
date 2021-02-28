@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ToastContainer } from 'react-toastify';
+
 import InputField from 'components/common/InputField/InputField';
 
 const AddLecture = ({ handleSubmit, handleChange, values, course, currentUser }: any) => {
@@ -29,7 +29,6 @@ const AddLecture = ({ handleSubmit, handleChange, values, course, currentUser }:
                     Submit
                 </button>
             </form>
-            <ToastContainer />
         </div>
     );
 };

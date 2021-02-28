@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ToastContainer } from 'react-toastify';
+
 import InputDropdown from 'components/common/InputDropdown/InputDropdown';
 
 interface Props {
@@ -38,7 +38,6 @@ const CreateEnrollment = ({ values, handleChange, options, handleSubmit }: Props
                     Submit
                 </button>
             </form>
-            <ToastContainer />
         </div>
     );
 };

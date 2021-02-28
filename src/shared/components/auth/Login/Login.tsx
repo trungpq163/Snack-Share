@@ -1,13 +1,12 @@
 import React, { FormEvent } from 'react';
 import { Link } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
+
 import { useTranslation } from 'react-i18next';
 import { LinkCustom, LinkCustomActive } from 'styles/LinkCustom.Styles';
 
 import { User } from 'types';
 import bg from '../../../assets/images/bg.png';
 
-import 'react-toastify/dist/ReactToastify.css';
 import 'styles/Form.Styles.css';
 
 interface Props {
@@ -81,7 +80,6 @@ const Login = ({ clickSubmit, handleChange, values }: Props) => {
                         {t('login.signin')}
                     </button>
                 </form>
-                <ToastContainer />
             </div>
         </div>
     );

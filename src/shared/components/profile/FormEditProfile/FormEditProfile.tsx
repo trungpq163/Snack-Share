@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { ToastContainer } from 'react-toastify';
 
 import InputField from '../../common/InputField/InputField';
 import InputDropdown from '../../common/InputDropdown/InputDropdown';
@@ -117,7 +116,6 @@ const FormEditProfile = ({ handleSubmit, values, handleChange, options }: Props)
                     Submit
                 </button>
             </form>
-            <ToastContainer />
         </div>
     );
 };

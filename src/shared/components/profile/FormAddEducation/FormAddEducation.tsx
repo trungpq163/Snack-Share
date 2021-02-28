@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-import { ToastContainer } from 'react-toastify';
 import InputField from 'components/common/InputField/InputField';
 import TextArea from 'components/common/TextAreaField/TextAreaField';
 
@@ -91,7 +90,6 @@ const FormAddEducation = ({ handleChange, handleCheck, handleSubmit, values }: P
                     Submit
                 </button>
             </form>
-            <ToastContainer />
         </div>
     );
 };
