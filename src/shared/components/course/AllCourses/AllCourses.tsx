@@ -24,22 +24,25 @@ const AllCourses = ({ courses, enrollments }: any) => {
                                     ? courses.map((course: any[], index: number | string) =>
                                           courses.length === 1 ? (
                                               <Course
-                                                  key={index}
+                                                  index={index}
                                                   col={6}
                                                   course={course}
+                                                  key={index}
                                                   enrollments={enrollments}
                                               />
                                           ) : courses.length === 2 ? (
                                               <Course
-                                                  key={index}
+                                                  index={index}
                                                   col={6}
+                                                  key={index}
                                                   course={course}
                                                   enrollments={enrollments}
                                               />
                                           ) : (
                                               <Course
-                                                  key={index}
+                                                  index={index}
                                                   col={4}
+                                                  key={index}
                                                   course={course}
                                                   enrollments={enrollments}
                                               />

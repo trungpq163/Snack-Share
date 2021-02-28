@@ -6,7 +6,7 @@ import { isoDateToString } from 'utils/isoToString';
 
 import avt from '../../../assets/images/avt.jpg';
 
-const Course = ({ col, course, isMyLearningRoute, enrollments, key }: any) => {
+const Course = ({ col, course, isMyLearningRoute, enrollments, index }: any) => {
     console.log('courseCourse', course);
     const handleNumberOfStudents = (id: string): number =>
         enrollments?.filter((enrollment: any) => enrollment?.course?._id === id)?.length;
@@ -15,8 +15,8 @@ const Course = ({ col, course, isMyLearningRoute, enrollments, key }: any) => {
     const dateCreated = isoDateToString(course?.created_at);
 
     return (
-        <div className={`col-lg-${col}`}>
-            <div className={`course-one__single color-${key}`}>
+        <div className={`col-lg-${col}`} key={index}>
+            <div className={`course-one__single color-${index}`}>
                 <div className="course-one__image">
                     {!isMyLearningRoute ? (
                         <Link to={`/course-details/${course?._id}`}>

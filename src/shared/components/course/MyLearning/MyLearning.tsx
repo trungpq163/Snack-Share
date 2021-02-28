@@ -20,25 +20,28 @@ const MyLearning = ({ courses, enrollments }: Props) => {
                             ? courses.map((course: any, index: number | string) =>
                                   courses.length === 1 ? (
                                       <Course
-                                          key={index}
+                                          index={index}
                                           col={6}
                                           course={course?.course}
+                                          key={index}
                                           enrollments={enrollments}
                                           isMyLearningRoute={isMyLearningRoute}
                                       />
                                   ) : courses.length === 2 ? (
                                       <Course
-                                          key={index}
+                                          index={index}
                                           col={6}
+                                          key={index}
                                           course={course?.course}
                                           enrollments={enrollments}
                                           isMyLearningRoute={isMyLearningRoute}
                                       />
                                   ) : (
                                       <Course
-                                          key={index}
+                                          index={index}
                                           col={4}
                                           course={course?.course}
+                                          key={index}
                                           enrollments={enrollments}
                                           isMyLearningRoute={isMyLearningRoute}
                                       />

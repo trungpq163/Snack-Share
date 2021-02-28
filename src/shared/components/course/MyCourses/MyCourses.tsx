@@ -35,6 +35,7 @@ const MyCourses = ({ idInstructor, courses, enrollments }: Props) => {
                             ? courses?.map((course: any[], index: number | string) =>
                                   courses?.length === 1 ? (
                                       <Course
+                                          index={index}
                                           key={index}
                                           col={6}
                                           course={course}
@@ -42,6 +43,7 @@ const MyCourses = ({ idInstructor, courses, enrollments }: Props) => {
                                       />
                                   ) : courses?.length === 2 ? (
                                       <Course
+                                          index={index}
                                           key={index}
                                           col={6}
                                           course={course}
@@ -49,6 +51,7 @@ const MyCourses = ({ idInstructor, courses, enrollments }: Props) => {
                                       />
                                   ) : (
                                       <Course
+                                          index={index}
                                           key={index}
                                           col={4}
                                           course={course}
