@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
 import { useDispatch } from 'react-redux';
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import PrivateRoute from 'components/routing/PrivateRoute/PrivateRoute';
 import InstructorPrivateRoute from 'components/routing/InstructorPrivateRoute/InstructorPrivateRoute';
 import AdminPrivateRoute from 'components/routing/AdminPrivateRoute/AdminPrivateRoute';
@@ -75,7 +75,12 @@ const App: React.FC<any> = () => {
             const currentTime = Date.now() / 1000;
             if ((decoded as any).exp < currentTime) {
                 // Logout user
-                dispatch(logoutUser(() => history?.push('/')));
+                dispatch(
+                    logoutUser(
+                        () => history?.push('/'),
+                        () => toast('Sorry, Your token expired so please login again! Thank you')
+                    )
+                );
             }
         }
     }, [dispatch, history]);

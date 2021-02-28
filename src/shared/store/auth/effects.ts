@@ -84,7 +84,10 @@ export const loginUser = (
         });
 };
 
-export const logoutUser = (redirectWhenSuccess: Function) => (dispatch: Dispatch<Action>) => {
+export const logoutUser = (redirectWhenSuccess: Function, toastLogout: Function) => (
+    dispatch: Dispatch<Action>
+) => {
+    toastLogout();
     // Remove token from localStorage
     localStorage.removeItem('jwtToken');
     localStorage.removeItem('userid');

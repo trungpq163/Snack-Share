@@ -1,6 +1,7 @@
 import React, { FormEvent } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 import { getAuth } from '../../../store/auth/selectors';
 
 import { logoutUser } from '../../../store/auth/effects';
@@ -64,7 +65,12 @@ const HeaderContainer = () => {
 
     const logoutClick = (e: FormEvent) => {
         e.preventDefault();
-        dispatch(logoutUser(() => history?.push('/')));
+        dispatch(
+            logoutUser(
+                () => history?.push('/'),
+                () => toast('Logout successfully!')
+            )
+        );
     };
 
     return <Header logout={logoutClick} auth={auth} {...allClass} />;
