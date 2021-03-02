@@ -6,9 +6,11 @@ interface Props {
     values: any;
     handleChange: (name: any) => (event: any) => void;
     handleSubmit: any;
+    price: number;
 }
 
-const Checkout = ({ handleChange, handleSubmit, values }: Props) => {
+const Checkout = ({ handleChange, handleSubmit, values, price }: Props) => {
+    console.log('price', price);
     return (
         <div className="container mt-5 pt-5 px-5">
             <div className="mb-4">
@@ -140,7 +142,10 @@ const Checkout = ({ handleChange, handleSubmit, values }: Props) => {
                     </div>
                     <div className="mt-4 mb-4 d-flex justify-content-between">
                         {' '}
-                        <span /> <button className="btn btn-success px-3">Pay $840</button>{' '}
+                        <span />{' '}
+                        <button className="btn btn-success px-3">
+                            {price && price > 0 ? `Pay $${price}` : 'Pay'}
+                        </button>{' '}
                     </div>
                 </form>
                 <div className="col-md-4">
@@ -148,7 +153,15 @@ const Checkout = ({ handleChange, handleSubmit, values }: Props) => {
                         {' '}
                         <span>You have to pay</span>
                         <div className="d-flex flex-row align-items-end mb-3">
-                            <h1 className="mb-0 yellow">$549</h1> <span>.99</span>
+                            {price && price > 0 ? (
+                                <>
+                                    <h1 className="mb-0 yellow">${price}</h1> <span>.00</span>
+                                </>
+                            ) : (
+                                <>
+                                    <h1 className="mb-0 yellow">$0</h1> <span>.00</span>
+                                </>
+                            )}
                         </div>{' '}
                         <span>
                             By completing your purchase you agree to these{' '}

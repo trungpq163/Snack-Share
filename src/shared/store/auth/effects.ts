@@ -52,6 +52,7 @@ export const registerUser = (
 export const loginUser = (
     data: any,
     errorCb: Function,
+    doneCb: Function,
     clearInput: Function,
     redirectWhenSuccess: Function
 ) => (dispatch: Dispatch<Action>) => {
@@ -76,6 +77,7 @@ export const loginUser = (
             // Set current user
             setData(dispatch, decoded);
             clearInput();
+            doneCb('Welcome to SnackShare! ^^');
             redirectWhenSuccess();
         })
         .catch((err) => {

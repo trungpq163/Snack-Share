@@ -90,7 +90,6 @@ export const deleteEnrollmentsByID = (
     axios(config)
         .then((_res) => {
             doneCb('Delete Enrollment Successfully!');
-            console.log(id);
             setData();
         })
         .catch((err) => {

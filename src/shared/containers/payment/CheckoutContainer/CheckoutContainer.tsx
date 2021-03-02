@@ -8,9 +8,10 @@ import { addEnrollments, getAllEnrollments } from 'store/enrollment/effects';
 interface Props {
     idCourse?: string;
     idUser?: string;
+    price?: number;
 }
 
-const CheckoutContainer = ({ idCourse, idUser }: Props) => {
+const CheckoutContainer = ({ idCourse, idUser, price }: Props) => {
     const dispatch = useDispatch();
     const [values, setValues] = React.useState({
         name: '',
@@ -70,7 +71,14 @@ const CheckoutContainer = ({ idCourse, idUser }: Props) => {
         );
     };
 
-    return <Checkout values={values} handleChange={handleChange} handleSubmit={handleSubmit} />;
+    return (
+        <Checkout
+            values={values}
+            price={price}
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+        />
+    );
 };
 
 export default CheckoutContainer;

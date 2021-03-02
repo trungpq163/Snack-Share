@@ -40,7 +40,11 @@ const Checkout = () => {
             {!isAuthor ? (
                 <>
                     <PageHeader title="Checkout" />
-                    <CheckoutContainer idCourse={idCourse} idUser={currentUser?.users?.id} />
+                    <CheckoutContainer
+                        idCourse={idCourse}
+                        idUser={currentUser?.users?.id}
+                        price={courseDetails?.price || 0}
+                    />
                 </>
             ) : (
                 <Redirect to="/" />

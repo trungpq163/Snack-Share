@@ -1,9 +1,13 @@
 export type Course = {
+    _id: string;
     courseName?: string;
     image?: string;
     courseDescription?: string;
     instructor?: any;
     category?: any;
+    language: string;
+    price: number;
+    skillLevel: string;
 };
 
 export type Courses = {

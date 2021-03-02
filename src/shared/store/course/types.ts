@@ -1,10 +1,14 @@
 export type Course = {
     course?: {
+        _id: string;
         courseName: string;
         image: string;
         courseDescription: string;
         instructor: string;
         category: string;
+        language: string;
+        price: number;
+        skillLevel: string;
     };
     loading?: boolean;
 };
