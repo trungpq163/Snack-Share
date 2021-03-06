@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
+import { toastErrorNotify, toastSuccessNotify } from 'utils/toast';
 import { deleteEnrollmentsByID, getAllEnrollments } from 'store/enrollment/effects';
 
 import Enrollments from 'components/manage/Enrollments/Enrollments';
@@ -15,8 +15,8 @@ const EnrollmentsContainer = ({ enrollments }: Props) => {
         dispatch(
             deleteEnrollmentsByID(
                 id,
-                (err: any) => toast(err),
-                (mess: string) => toast(mess),
+                (err: any) => toastErrorNotify(err),
+                (mess: string) => toastSuccessNotify(mess),
                 () => dispatch(getAllEnrollments())
             )
         );

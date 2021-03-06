@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import jwtDecode from 'jwt-decode';
 
-import { toast } from 'react-toastify';
+import { toastSuccessNotify, toastErrorNotify } from 'utils/toast';
 
 import setData from 'utils/setData';
 import isEmpty from 'validation/isEmpty';
@@ -117,8 +117,8 @@ const EditProfileContainer = ({ profile, loading, auth }: any) => {
         dispatch(
             createProfile(
                 profileData,
-                (err: any) => toast(err),
-                (mess: string) => toast(mess),
+                (err: any) => toastErrorNotify(err),
+                (mess: string) => toastSuccessNotify(mess),
                 () =>
                     setValues({
                         handle: '',

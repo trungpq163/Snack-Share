@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
 import jwtDecode from 'jwt-decode';
-import { toast } from 'react-toastify';
+import { toastErrorNotify, toastSuccessNotify } from 'utils/toast';
 import CircleLoader from 'components/loader/CircleLoader/CircleLoader';
 import EditCategory from 'components/manage/EditCategory/EditCategory';
 
@@ -54,8 +54,8 @@ const EditCategoryContainer = ({ loading, category, pathName }: Props) => {
             updateCategory(
                 categoryData,
                 pathName,
-                (err: any) => toast(err),
-                (mess: string) => toast(mess),
+                (err: any) => toastErrorNotify(err),
+                (mess: string) => toastSuccessNotify(mess),
                 () => setData(dispatch, decoded)
             )
         );

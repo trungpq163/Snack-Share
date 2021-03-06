@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import jwtDecode from 'jwt-decode';
 
-import { toast } from 'react-toastify';
+import { toastErrorNotify, toastSuccessNotify } from 'utils/toast';
 
 import setData from 'utils/setData';
 import CircleLoader from 'components/loader/CircleLoader/CircleLoader';
@@ -82,8 +82,8 @@ const AddExperienceContainer = ({ profile, loading, auth }: Props) => {
         dispatch(
             addExperience(
                 expData,
-                (err: any) => toast(err),
-                (mess: string) => toast(mess),
+                (err: any) => toastErrorNotify(err),
+                (mess: string) => toastSuccessNotify(mess),
                 () =>
                     setValues({
                         company: '',

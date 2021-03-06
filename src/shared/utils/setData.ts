@@ -1,4 +1,4 @@
-import { toast } from 'react-toastify';
+import { toastErrorNotify } from 'utils/toast';
 import { dispatchSetCurrentUser } from 'store/auth/effects';
 import { getCurrentProfile, getAllProfiles } from 'store/profile/effects';
 import { getCategory } from 'store/category/effects';
@@ -9,7 +9,7 @@ import { getAllUsers } from 'store/users/effects';
 export default (dispatch: any, decoded: any) => {
     dispatch(dispatchSetCurrentUser(decoded as any));
     dispatch(getCurrentProfile());
-    dispatch(getAllProfiles((err: string) => toast(err)));
+    dispatch(getAllProfiles((err: string) => toastErrorNotify(err)));
     dispatch(getCategory());
     dispatch(getAllCourses());
     dispatch(getAllEnrollments());

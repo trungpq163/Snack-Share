@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
 import jwtDecode from 'jwt-decode';
+import { toastErrorNotify, toastSuccessNotify } from 'utils/toast';
 import { getUserEff, updateUser } from 'store/user/effects';
 import setData from 'utils/setData';
 import CircleLoader from 'components/loader/CircleLoader/CircleLoader';
@@ -70,8 +70,8 @@ const EditUserContainer = ({ pathName, user }: Props) => {
             updateUser(
                 pathName,
                 userData,
-                (err: any) => toast(err),
-                (mess: string) => toast(mess),
+                (err: any) => toastErrorNotify(err),
+                (mess: string) => toastSuccessNotify(mess),
                 () =>
                     setValues({
                         // eslint-disable-next-line camelcase

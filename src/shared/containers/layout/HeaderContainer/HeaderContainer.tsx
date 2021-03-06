@@ -1,12 +1,10 @@
 import React, { FormEvent } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
-import { getAuth } from '../../../store/auth/selectors';
-
-import { logoutUser } from '../../../store/auth/effects';
-
-import Header from '../../../components/layout/Header/Header';
+import { toastSuccessNotify } from 'utils/toast';
+import { getAuth } from 'store/auth/selectors';
+import { logoutUser } from 'store/auth/effects';
+import Header from 'components/layout/Header/Header';
 
 const HeaderContainer = () => {
     const auth = useSelector(getAuth);
@@ -68,7 +66,7 @@ const HeaderContainer = () => {
         dispatch(
             logoutUser(
                 () => history?.push('/'),
-                () => toast('Logout successfully!')
+                () => toastSuccessNotify('Logout successfully!')
             )
         );
     };

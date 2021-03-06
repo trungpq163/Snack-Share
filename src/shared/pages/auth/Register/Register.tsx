@@ -2,7 +2,7 @@ import React, { FormEvent, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import { toast } from 'react-toastify';
+import { toastErrorNotify, toastSuccessNotify } from 'utils/toast';
 
 import { registerUser } from 'store/auth/effects';
 
@@ -48,8 +48,8 @@ const Register = ({ match }: any) => {
         dispatch(
             registerUser(
                 JSON.stringify(user),
-                (message: string) => toast(message),
-                (err: any) => toast(err),
+                (message: string) => toastSuccessNotify(message),
+                (err: any) => toastErrorNotify(err),
                 () =>
                     setValues({
                         first_name: '',

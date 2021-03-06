@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router';
-import { toast } from 'react-toastify';
 import Resizer from 'react-image-file-resizer';
 
 import { useHistory } from 'react-router-dom';
+import { toastErrorNotify, toastSuccessNotify, toastEmojiNotify } from 'utils/toast';
 import { addCourse } from 'store/course/effects';
 
 import AddCourse from 'components/course/AddCourse/AddCourse';
@@ -94,19 +94,19 @@ const AddCourseContainer = ({ category, loading }: Props) => {
     const handleSubmit = (e: React.FormEvent<HTMLButtonElement>) => {
         e.preventDefault();
         if (values.category === '') {
-            toast('You not choose category of course');
+            toastEmojiNotify('You not choose category of course', '❗');
         }
 
         if (values.image === '') {
-            toast('You must upload course image');
+            toastEmojiNotify('You must upload course image', '❗');
         }
 
         if (values.language === '') {
-            toast('You not choose language');
+            toastEmojiNotify('You not choose language', '❗');
         }
 
         if (values.skillLevel === '') {
-            toast('You not choose skill level(student) to take this course');
+            toastEmojiNotify('You not choose skill level(student) to take this course', '❗');
         }
 
         if (
@@ -130,8 +130,8 @@ const AddCourseContainer = ({ category, loading }: Props) => {
                 dispatch(
                     addCourse(
                         courseData,
-                        (err: any) => toast(err),
-                        (mess: string) => toast(mess),
+                        (err: any) => toastErrorNotify(err),
+                        (mess: string) => toastSuccessNotify(mess),
                         () =>
                             setValues({
                                 courseName: '',
@@ -148,8 +148,6 @@ const AddCourseContainer = ({ category, loading }: Props) => {
             });
         }
     };
-
-    console.log('values', values);
 
     return (
         <>

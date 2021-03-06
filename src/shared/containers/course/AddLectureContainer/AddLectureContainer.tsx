@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
+import { toastErrorNotify, toastSuccessNotify } from 'utils/toast';
 import AddLecture from 'components/course/AddLecture/AddLecture';
 
 import { addLecture, getLecturesById } from 'store/lectures/effects';
@@ -39,8 +39,8 @@ const AddLectureContainer = ({ course, currentUser, isAuthor }: Props) => {
         dispatch(
             addLecture(
                 data,
-                (err: any) => toast(err),
-                (mess: string) => toast(mess),
+                (err: any) => toastErrorNotify(err),
+                (mess: string) => toastSuccessNotify(mess),
                 () =>
                     setValues({
                         title: '',

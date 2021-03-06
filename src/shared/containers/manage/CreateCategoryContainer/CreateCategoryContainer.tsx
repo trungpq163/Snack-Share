@@ -1,8 +1,7 @@
 import jwtDecode from 'jwt-decode';
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
-
-import { toast } from 'react-toastify';
+import { toastErrorNotify, toastSuccessNotify } from 'utils/toast';
 import CreateCategory from 'components/manage/CreateCategory/CreateCategory';
 
 import { addCategory } from 'store/category/effects';
@@ -39,8 +38,8 @@ const CreateCategoryContainer = () => {
         dispatch(
             addCategory(
                 categoryData,
-                (err: string) => toast(err),
-                (mess: string) => toast(mess),
+                (err: string) => toastErrorNotify(err),
+                (mess: string) => toastSuccessNotify(mess),
                 () =>
                     setValues({
                         categoryName: '',

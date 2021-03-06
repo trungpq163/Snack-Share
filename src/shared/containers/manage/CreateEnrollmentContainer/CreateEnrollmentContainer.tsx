@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
+import { toastErrorNotify, toastSuccessNotify } from 'utils/toast';
 import CreateEnrollment from 'components/manage/CreateEnrollment/CreateEnrollment';
 import { addEnrollmentsByAdmin, getAllEnrollments } from 'store/enrollment/effects';
 
@@ -68,8 +68,8 @@ const CreateEnrollmentContainer = ({ users, courses }: Props) => {
         dispatch(
             addEnrollmentsByAdmin(
                 dataEnrollment,
-                (err: any) => toast(err),
-                (mess: string) => toast(mess),
+                (err: any) => toastErrorNotify(err),
+                (mess: string) => toastSuccessNotify(mess),
                 () =>
                     setValues({
                         userId: '',

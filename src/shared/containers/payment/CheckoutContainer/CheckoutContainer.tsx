@@ -1,14 +1,14 @@
 import * as React from 'react';
 
 import { useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
+import { toastErrorNotify, toastSuccessNotify } from 'utils/toast';
 import Checkout from 'components/payment/Checkout/Checkout';
 import { addEnrollments, getAllEnrollments } from 'store/enrollment/effects';
 
 interface Props {
     idCourse?: string;
     idUser?: string;
-    price?: number;
+    price: number;
 }
 
 const CheckoutContainer = ({ idCourse, idUser, price }: Props) => {
@@ -53,8 +53,8 @@ const CheckoutContainer = ({ idCourse, idUser, price }: Props) => {
         dispatch(
             addEnrollments(
                 checkoutData,
-                (err: any) => toast(err),
-                (mess: string) => toast(mess),
+                (err: any) => toastErrorNotify(err),
+                (mess: string) => toastSuccessNotify(mess),
                 () =>
                     setValues({
                         name: '',
