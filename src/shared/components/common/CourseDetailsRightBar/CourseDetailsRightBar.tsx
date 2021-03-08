@@ -13,6 +13,7 @@ interface Props {
     language: string;
     skillLevel: string;
     courses: any;
+    clickCheckout: any;
 }
 
 const CourseDetailsRightBar = ({
@@ -23,13 +24,18 @@ const CourseDetailsRightBar = ({
     language,
     skillLevel,
     courses,
+    clickCheckout,
 }: Props) => {
     return (
         <div className="col-lg-4">
             {isAuthor ? (
                 <IsAuthorCourseDetails idCourse={idCourse} />
             ) : enrolled === undefined ? (
-                <BuyThisCourseDetails idCourse={idCourse} price={price || 0} />
+                <BuyThisCourseDetails
+                    clickCheckout={clickCheckout}
+                    idCourse={idCourse}
+                    price={price || 0}
+                />
             ) : (
                 <StudyNowCourseDetails idCourse={idCourse} />
             )}

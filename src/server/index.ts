@@ -51,8 +51,10 @@ app.use(cors());
 app.options('*', cors());
 
 // BodyParser
-app.use(bodyParser.json({ limit: '50mb' }));
-app.use(bodyParser.urlencoded({ limit: '50mb', extended: true, parameterLimit: 1000000 }));
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ limit: '50mb', extended: true, parameterLimit: 1000000 }));
+// app.use(bodyParser.json({ limit: '50mb' }));
+// app.use(bodyParser.urlencoded({ limit: '50mb', extended: true, parameterLimit: 1000000 }));
 
 app.get('/locales/refresh', webhookVerification, refreshTranslations);
 
@@ -60,6 +62,12 @@ app.get('/locales/refresh', webhookVerification, refreshTranslations);
 app.get('/locales/:locale/:ns.json', i18nextXhr);
 
 app.get('/helloworld', (_req, res) => res.send('Hello World'));
+
+app.post('/api/webhook', express.raw({ type: 'application/json' }), (req, res) => {
+    const payload = req.body;
+    console.log('Got payload: ' + payload);
+    res.status(200).send({ success: 'ok' });
+});
 
 // Mount routes
 app.use('/api/', categoryRoute);

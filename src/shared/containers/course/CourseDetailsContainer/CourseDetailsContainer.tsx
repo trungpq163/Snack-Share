@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import { Stripe } from '@stripe/stripe-js';
+import { toastErrorNotify } from 'utils/toast';
 import CourseDetails from 'components/course/CourseDetails/CourseDetails';
 import capitalizeFirstLetter from 'utils/capitalizeFirstLetter';
 
@@ -9,6 +11,7 @@ interface Props {
     isAuthor: boolean;
     enrolled?: any;
     courses?: any;
+    stripePromise: Promise<Stripe | null>;
 }
 
 const CourseDetailsContainer = ({
@@ -17,6 +20,7 @@ const CourseDetailsContainer = ({
     isAuthor,
     enrolled,
     courses,
+    stripePromise,
 }: Props) => {
     const dataCourse = {
         id: courseDetails?._id,
@@ -31,6 +35,25 @@ const CourseDetailsContainer = ({
         categoryData: courseDetails?.category,
         instructorData: courseDetails?.instructor,
     };
+
+    const clickCheckout = async () => {
+        const stripe = await stripePromise;
+        const response = await fetch('/api/checkout', {
+            method: 'POST',
+        });
+        const session = await response.json();
+        // When the customer clicks on the button, redirect them to Checkout.
+        const result = await stripe?.redirectToCheckout({
+            sessionId: session.id,
+        });
+        if ((result as any).error) {
+            // If `redirectToCheckout` fails due to a browser or network
+            // error, display the localized error message to your customer
+            // using `result.error.message`.
+            toastErrorNotify(result?.error.message || '');
+        }
+    };
+
     console.log('dataCourses', courseDetails);
     return (
         <CourseDetails
@@ -39,6 +62,7 @@ const CourseDetailsContainer = ({
             isAuthor={isAuthor}
             enrolled={enrolled}
             courses={courses}
+            clickCheckout={clickCheckout}
         />
     );
 };

@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import { useLocation } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
+import stripePromise from 'utils/stripePromise';
 import PageHeader from 'components/layout/PageHeader/PageHeader';
 import CourseDetailsContainer from 'containers/course/CourseDetailsContainer/CourseDetailsContainer';
 import { getCourses } from 'store/courses/selectors';
@@ -54,6 +55,7 @@ const CourseDetail = () => {
                         courses={courses.courses}
                         isAuthor={isAuthor}
                         enrolled={enrolled}
+                        stripePromise={stripePromise}
                     />
                 </>
             )}
