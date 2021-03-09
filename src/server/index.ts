@@ -24,6 +24,7 @@ import lectureRoute from './routes/lecture';
 import profileRoute from './routes/profile';
 import roleRoute from './routes/role';
 import usersRoute from './routes/users';
+import checkoutRoute from './routes/checkout';
 import keys from './config/key';
 
 require('dotenv').config();
@@ -50,9 +51,8 @@ app.use(fileUpload());
 app.use(cors());
 app.options('*', cors());
 
-// BodyParser
-app.use(bodyParser.json({ limit: '50mb' }));
-app.use(bodyParser.urlencoded({ limit: '50mb', extended: true, parameterLimit: 1000000 }));
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ limit: '50mb', extended: true, parameterLimit: 1000000 }));
 
 app.get('/locales/refresh', webhookVerification, refreshTranslations);
 
@@ -69,6 +69,7 @@ app.use('/api/', lectureRoute);
 app.use('/api/profile/', profileRoute);
 app.use('/api/', roleRoute);
 app.use('/api/', usersRoute);
+app.use('/api/', checkoutRoute);
 
 app.use(addStore);
 

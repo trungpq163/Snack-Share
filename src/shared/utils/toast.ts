@@ -5,7 +5,7 @@ export const toastErrorNotify = (content: string) =>
         style: {
             padding: '16px',
         },
-        duration: 3000,
+        duration: 6000,
     });
 
 export const toastSuccessNotify = (content: string) =>
@@ -13,7 +13,7 @@ export const toastSuccessNotify = (content: string) =>
         style: {
             padding: '16px',
         },
-        duration: 3000,
+        duration: 6000,
     });
 
 export const toastEmojiNotify = (content: string, emoji: string) =>
@@ -22,5 +22,5 @@ export const toastEmojiNotify = (content: string, emoji: string) =>
             padding: '16px',
         },
         icon: emoji,
-        duration: 3000,
+        duration: 6000,
     });
