@@ -14,4 +14,5 @@ export default {
         process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'development'
             ? 'http://localhost:8500'
             : 'https://snack-dev.herokuapp.com/',
+    ENDPOINT_SECRET: 'whsec_zsJ85520HPkfejhtcbdLrUUvS2KJydXv',
 };

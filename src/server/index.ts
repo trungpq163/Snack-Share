@@ -1,13 +1,14 @@
 // import * as React from 'react';
 import path from 'path';
-import express from 'express';
+import express, { Request, Response } from 'express';
 import cors from 'cors';
 import chalk from 'chalk';
 import manifestHelpers from 'express-manifest-helpers';
-import bodyParser from 'body-parser';
+// import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import fileUpload from 'express-fileupload';
 import passport from 'passport';
+import stripe from 'config/stripe';
 import paths from '../../config/paths';
 // import { configureStore } from '../shared/store';
 import errorHandler from './middleware/errorHandler';
@@ -25,7 +26,7 @@ import profileRoute from './routes/profile';
 import roleRoute from './routes/role';
 import usersRoute from './routes/users';
 import checkoutRoute from './routes/checkout';
-import keys from './config/key';
+import key from './config/key';
 
 require('dotenv').config();
 
@@ -61,6 +62,34 @@ app.get('/locales/:locale/:ns.json', i18nextXhr);
 
 app.get('/helloworld', (_req, res) => res.send('Hello World'));
 
+// Hook Point is https://snack-dev.herokuapp.com/webhook OK
+app.post('/webhook', express.raw({ type: 'application/json' }), (req: Request, res: Response) => {
+    const event = req.body;
+    // Handle the event
+    switch (event.type) {
+        case 'payment_intent.succeeded': {
+            const paymentIntent = event.data.object;
+            console.log(`PaymentIntent for ${paymentIntent.amount} was successful!`);
+            // Then define and call a method to handle the successful payment intent.
+            // handlePaymentIntentSucceeded(paymentIntent);
+            break;
+        }
+        case 'payment_method.attached': {
+            const paymentMethod = event.data.object;
+            // Then define and call a method to handle the successful attachment of a PaymentMethod.
+            // handlePaymentMethodAttached(paymentMethod);
+            console.log(paymentMethod);
+            break;
+        }
+        default: {
+            // Unexpected event type
+            console.log(`Unhandled event type ${event.type}.`);
+        }
+    }
+    // Return a 200 response to acknowledge receipt of the event
+    res.send();
+});
+
 // Mount routes
 app.use('/api/', categoryRoute);
 app.use('/api', courseRoute);
@@ -87,7 +116,7 @@ app.use(errorHandler);
 
 // Connection URL
 mongoose.Promise = global.Promise;
-mongoose.connect(keys.MONGODB_URI, {
+mongoose.connect(key.MONGODB_URI, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
@@ -95,7 +124,7 @@ mongoose.connect(keys.MONGODB_URI, {
 });
 
 mongoose.connection.on('error', () => {
-    throw new Error(`Unable connect to database ${keys.MONGODB_URI}`);
+    throw new Error(`Unable connect to database ${key.MONGODB_URI}`);
 });
 
 app.listen(process.env.PORT || 8500, () => {
