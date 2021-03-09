@@ -4,6 +4,7 @@ import { useLocation } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
+
 import CheckoutContainer from 'containers/payment/CheckoutContainer/CheckoutContainer';
 import PageHeader from 'components/layout/PageHeader/PageHeader';
 import { getAuth } from 'store/auth/selectors';

@@ -1,7 +1,10 @@
 import * as React from 'react';
 
+import { createSessionCheckout } from 'store/checkout/effect';
+import { toastErrorNotify } from 'utils/toast';
 import CourseDetails from 'components/course/CourseDetails/CourseDetails';
 import capitalizeFirstLetter from 'utils/capitalizeFirstLetter';
+import stripePromise from 'utils/stripePromise';
 
 interface Props {
     idCourse: string;
@@ -31,7 +34,22 @@ const CourseDetailsContainer = ({
         categoryData: courseDetails?.category,
         instructorData: courseDetails?.instructor,
     };
+
     console.log('dataCourses', courseDetails);
+
+    const redirectToSessionCheckout = async (_event: React.FormEvent<HTMLInputElement>) => {
+        const stripe = await stripePromise;
+
+        await createSessionCheckout(
+            '/api/create-checkout-session',
+            (err: string) => toastErrorNotify(err),
+            (sessionId: string) =>
+                stripe?.redirectToCheckout({
+                    sessionId: sessionId,
+                })
+        );
+    };
+
     return (
         <CourseDetails
             idCourse={idCourse}
@@ -39,6 +57,7 @@ const CourseDetailsContainer = ({
             isAuthor={isAuthor}
             enrolled={enrolled}
             courses={courses}
+            redirectToSessionCheckout={redirectToSessionCheckout}
         />
     );
 };

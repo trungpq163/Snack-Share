@@ -19,6 +19,7 @@ const CourseDetails = ({
     language,
     price,
     skillLevel,
+    redirectToSessionCheckout,
 }: any) => {
     console.log('courses', courses);
     return (
@@ -44,6 +45,7 @@ const CourseDetails = ({
                         enrolled={enrolled}
                         language={language}
                         skillLevel={skillLevel}
+                        redirectToSessionCheckout={redirectToSessionCheckout}
                     />
                 </div>
             </div>
