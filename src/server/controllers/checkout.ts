@@ -6,6 +6,7 @@ import { createCheckoutSessionService } from 'services/checkout';
 import key from 'config/key';
 
 export const createCheckoutSession = async (req: Request, res: Response) => {
+    const { student, course } = req.body;
     try {
         const session = await createCheckoutSessionService(
             stripe,
@@ -25,7 +26,8 @@ export const createCheckoutSession = async (req: Request, res: Response) => {
             ],
             'payment',
             `${key.DOMAIN_NAME}?success=true`,
-            `${key.DOMAIN_NAME}?canceled=true`
+            `${key.DOMAIN_NAME}?canceled=true`,
+            `${!(student && course) ? '' : `${student + '/' + course}`}`
         );
         res.json({ id: session.id });
     } catch (err) {

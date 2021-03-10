@@ -10,10 +10,17 @@ export const createSessionCheckout = (
     errorCb: Function,
     redirectWhenSuccess: Function
 ) => {
+    const data = JSON.stringify({
+        student: '603672079555802b8117410a',
+        course: '6037a7e5e445271ce0d25e06',
+    });
     const config: AxiosRequestConfig = {
         method: 'post',
         url: url,
-        headers: {},
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        data: data,
     };
 
     axios(config)

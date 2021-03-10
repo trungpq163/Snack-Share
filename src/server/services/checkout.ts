@@ -6,7 +6,8 @@ export const createCheckoutSessionService = (
     lineItem: any,
     mode: any,
     successURL: string,
-    cancelURL: string
+    cancelURL: string,
+    description: string
 ) => {
     return stripe.checkout.sessions.create({
         payment_method_types: paymentMethodTypes,
@@ -14,5 +15,8 @@ export const createCheckoutSessionService = (
         mode: mode,
         success_url: successURL,
         cancel_url: cancelURL,
+        payment_intent_data: {
+            description: description,
+        },
     });
 };

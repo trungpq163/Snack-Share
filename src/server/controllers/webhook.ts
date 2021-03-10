@@ -9,7 +9,9 @@ export const stripeWebhook = (req: Request, res: Response) => {
             console.log(`PaymentIntent for ${paymentIntent.amount} was successful!`);
             // Then define and call a method to handle the successful payment intent.
             // handlePaymentIntentSucceeded(paymentIntent);
-            console.log(`Req body ${paymentIntent.id}`);
+            // console.log(`Req body ${paymentIntent.id}`);
+            console.log(`Description ${paymentIntent.description}`);
+
             break;
         }
         case 'payment_method.attached': {
