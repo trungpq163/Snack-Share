@@ -5,7 +5,7 @@ import { createCheckoutSessionService } from 'services/checkout';
 
 import key from 'config/key';
 
-export const createCheckoutSession = async (_req: Request, res: Response) => {
+export const createCheckoutSession = async (req: Request, res: Response) => {
     try {
         const session = await createCheckoutSessionService(
             stripe,
