@@ -1,0 +1,47 @@
+{
+    "nav": {
+        "home": "Home",
+        "login": "Login",
+        "teachOnSnackDev": "Teach On SnackShare",
+        "logout": "Logout",
+        "profile": "Profile",
+        "myLearning": "My Learning",
+        "myCourses": "My Courses",
+        "addCourses": "Add Courses",
+        "addLecture": "Add Lecture",
+        "allCourses": "All Courses",
+        "dashBoard": "DashBoard",
+        "users": "Users",
+        "categories": "Categories",
+        "enrolledUsers": "Enrolled Users"
+    },
+    "login": {
+        "signin": "Signin",
+        "detail": "Don't have an account?",
+        "signupStudent": "Sign up (student)",
+        "signupInstructor": "Sign up (instructors)",
+        "signup": "Sign up"
+    },
+    "register": {
+        "signup": "Sign up",
+        "signin": "Sign in",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "email": "Email",
+        "password": "Password",
+        "repeatPassword": "Repeat Password",
+        "alReadyHaveAnAccount": "Already have an account",
+        "login": "Login"
+    },
+    "home": {
+        "titleIntro": "What do you want to learn today?",
+        "contentTitleIntro": "Learn about anything, anytime & anywhere from accredited instructors & courses",
+        "titleIntro2": "Start learning from our experts",
+        "titleIntro3": "Enhance your skills with us now",
+        "titleButton": "Learn more",
+        "trustBy": "Trusted By",
+        "titlePopularCourse": "Explore our",
+        "titlePopularCourse2": "popular courses",
+        "ourStudent": "Our student work at"
+    }
+}

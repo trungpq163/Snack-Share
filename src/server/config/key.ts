@@ -16,6 +16,6 @@ export default {
             : 'http://localhost:8500',
     ENDPOINT_SECRET:
         process.env.NODE_ENV === 'production'
-            ? 'whsec_r5qojlEDOdTkwWMbN32cFS7YHZWmrgUR'
+            ? 'whsec_V24YONf406QIbPO8CezXE66pv4Vz6Wb5'
             : 'whsec_zsJ85520HPkfejhtcbdLrUUvS2KJydXv',
 };
