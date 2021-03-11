@@ -3,12 +3,13 @@ import { Helmet } from 'react-helmet-async';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
 import { useDispatch } from 'react-redux';
-import toast, { Toaster } from 'react-hot-toast';
+import { ToastContainer } from 'react-toastify';
 import PrivateRoute from 'components/routing/PrivateRoute/PrivateRoute';
 import InstructorPrivateRoute from 'components/routing/InstructorPrivateRoute/InstructorPrivateRoute';
 import AdminPrivateRoute from 'components/routing/AdminPrivateRoute/AdminPrivateRoute';
 import MainLoader from 'components/loader/MainLoader/MainLoader';
 import AddLecture from 'pages/course/AddLecture/AddLecture';
+import { toastEmojiNotify } from 'utils/toast';
 import favicon from '../shared/assets/favicon.png';
 import setAuthToken from './utils/setAuthToken';
 import { logoutUser } from './store/auth/effects';
@@ -49,6 +50,7 @@ import routes from './routes';
 
 import css from './App.module.css';
 import 'styles/utils.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 // Does not yet work with server side rendering:
 // const Home = React.lazy(() => import('./pages/Home'));
@@ -78,9 +80,10 @@ const App: React.FC<any> = () => {
                     logoutUser(
                         () => history?.push('/'),
                         () =>
-                            toast('Sorry, Your token expired so please login again! Thank you', {
-                                icon: '😞',
-                            })
+                            toastEmojiNotify(
+                                'Sorry, Your token expired so please login again! Thank you',
+                                '😞'
+                            )
                     )
                 );
             }
@@ -176,7 +179,7 @@ const App: React.FC<any> = () => {
                         />
                         <Route render={NotFound} />
                     </Switch>
-                    <Toaster position="top-right" reverseOrder={false} />
+                    <ToastContainer />
                     <Footer />
                 </div>
             )}

@@ -1,26 +1,34 @@
-import toast from 'react-hot-toast';
+import { toast } from 'react-toastify';
 
 export const toastErrorNotify = (content: string) =>
-    toast.error(content, {
-        style: {
-            padding: '16px',
-        },
-        duration: 6000,
+    toast.error(`😞${content}`, {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
     });
 
 export const toastSuccessNotify = (content: string) =>
-    toast.success(content, {
-        style: {
-            padding: '16px',
-        },
-        duration: 6000,
+    toast(`😆 ${content}`, {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
     });
 
 export const toastEmojiNotify = (content: string, emoji: string) =>
-    toast(content, {
-        style: {
-            padding: '16px',
-        },
-        icon: emoji,
-        duration: 6000,
+    toast(`${emoji}${content}`, {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
     });
