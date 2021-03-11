@@ -11,8 +11,11 @@ export default {
     STRIPE_SECRET_KEY:
         'sk_test_51IR24mCdh8kNNNyZihB4K9CyUZCWlKMwa4aiQecl92mgj8zgfpx5Hzr2l4xputI7MFl3IMh8HdntSZ2vCdj2pQd800684XvBsf',
     DOMAIN_NAME:
-        process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'development'
-            ? 'http://localhost:8500'
-            : 'https://snack-dev.herokuapp.com/',
-    ENDPOINT_SECRET: 'whsec_zsJ85520HPkfejhtcbdLrUUvS2KJydXv',
+        process.env.NODE_ENV === 'production'
+            ? 'https://snack-dev.herokuapp.com'
+            : 'http://localhost:8500',
+    ENDPOINT_SECRET:
+        process.env.NODE_ENV === 'production'
+            ? 'whsec_r5qojlEDOdTkwWMbN32cFS7YHZWmrgUR'
+            : 'whsec_zsJ85520HPkfejhtcbdLrUUvS2KJydXv',
 };
