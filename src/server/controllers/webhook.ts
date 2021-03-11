@@ -1,4 +1,7 @@
 import { Request, Response } from 'express';
+import enrollmentModel from '../models/Enrollment';
+
+import { saveEnrollmentService } from '../services/enrollment';
 
 export const stripeWebhook = (req: Request, res: Response) => {
     const event = req.body;
@@ -11,7 +14,14 @@ export const stripeWebhook = (req: Request, res: Response) => {
             // handlePaymentIntentSucceeded(paymentIntent);
             // console.log(`Req body ${paymentIntent.id}`);
             console.log(`Description ${paymentIntent.description}`);
+            const studentId = paymentIntent.description.split('/')[0];
+            const courseId = paymentIntent.description.split('/')[1];
 
+            const model = new enrollmentModel({
+                student: studentId,
+                course: courseId,
+            });
+            saveEnrollmentService(model);
             break;
         }
         case 'payment_method.attached': {
