@@ -1,5 +1,5 @@
 export type Course = {
-    course?: {
+    course: {
         _id: string;
         courseName: string;
         image: string;
@@ -10,7 +10,7 @@ export type Course = {
         price: number;
         skillLevel: string;
     };
-    loading?: boolean;
+    loading: boolean;
 };
 
 export type CourseState = Readonly<{
