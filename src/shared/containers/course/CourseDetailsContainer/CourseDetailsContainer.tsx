@@ -12,6 +12,7 @@ interface Props {
     isAuthor: boolean;
     enrolled?: any;
     courses?: any;
+    isAuth: any;
 }
 
 const CourseDetailsContainer = ({
@@ -20,6 +21,7 @@ const CourseDetailsContainer = ({
     isAuthor,
     enrolled,
     courses,
+    isAuth,
 }: Props) => {
     const dataCourse = {
         id: courseDetails?._id,
@@ -36,6 +38,7 @@ const CourseDetailsContainer = ({
     };
 
     console.log('dataCourses', courseDetails);
+    console.log('currentUser', isAuth);
 
     const redirectToSessionCheckout = async (_event: React.FormEvent<HTMLInputElement>) => {
         const stripe = await stripePromise;

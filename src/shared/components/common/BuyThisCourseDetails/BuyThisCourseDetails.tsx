@@ -1,13 +1,13 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 interface Props {
     price: number;
-    idCourse: string;
     redirectToSessionCheckout: any;
 }
 
-const BuyThisCourseDetails = ({ idCourse, price, redirectToSessionCheckout }: Props) => {
+// idCourse,
+const BuyThisCourseDetails = ({ price, redirectToSessionCheckout }: Props) => {
     return (
         <div className="course-details__price">
             <p className="course-details__price-text">Course price </p>

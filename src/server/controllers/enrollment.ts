@@ -1,15 +1,15 @@
 import { Request, Response, NextFunction } from 'express';
 
 import enrollmentModel from '../models/Enrollment';
-import courseModel from '../models/Course';
-import userModel from '../models/User';
+// import courseModel from '../models/Course';
+// import userModel from '../models/User';
 
 import {
     getEnrollmentsService,
     getEnrollmentByStudentService,
     getCheckEnrollmentService,
-    findUserByEmailService,
-    findCourseByNameService,
+    // findUserByEmailService,
+    // findCourseByNameService,
     saveEnrollmentService,
     deleteEnrollmentService,
 } from '../services/enrollment';

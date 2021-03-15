@@ -2,7 +2,8 @@ import * as React from 'react';
 import './InputDropdown.Styles.css';
 import '../InputField/InputField.Styles.css';
 
-const InputDropdown = ({ name, value, error, info, onChange, options, require }: any) => {
+// error
+const InputDropdown = ({ name, value, info, onChange, options, require }: any) => {
     const selectOption = options.map(
         (option: { value: string | number | string[] | undefined; label: any }) => (
             <option value={option.value} key={option.label}>
