@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import CircleLoader from 'components/loader/CircleLoader/CircleLoader';
+import CircleLoader from '../../../components/loader/CircleLoader/CircleLoader';
 
 import './Courses.Styles.css';
 

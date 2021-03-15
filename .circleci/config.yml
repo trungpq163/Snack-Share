@@ -38,6 +38,7 @@ jobs:
 
       - run:
           name: Run tests
+          no_output_timeout: 30m
           command: yarn test
 
 workflows:

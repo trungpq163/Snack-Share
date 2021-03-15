@@ -2,9 +2,9 @@ import React, { FormEvent } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useTranslation } from 'react-i18next';
-import { LinkCustom, LinkCustomActive } from 'styles/LinkCustom.Styles';
+import { User } from '../../../types';
+import { LinkCustom, LinkCustomActive } from '../../../styles/LinkCustom.Styles';
 
-import { User } from 'types';
 import bg from '../../../assets/images/bg.png';
 
 import 'styles/Form.Styles.css';

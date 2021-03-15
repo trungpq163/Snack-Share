@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import InputField from 'components/common/InputField/InputField';
+import InputField from '../../../components/common/InputField/InputField';
 
 const AddLecture = ({ handleSubmit, handleChange, values, course /*currentUser*/ }: any) => {
     return (

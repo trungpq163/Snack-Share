@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { isoDateToString } from 'utils/isoToString';
+import { isoDateToString } from '../../../utils/isoToString';
 
 import avt from '../../../assets/images/avt.jpg';
 

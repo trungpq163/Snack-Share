@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import Course from 'components/common/Course/Course';
+import Course from '../../../components/common/Course/Course';
 
-import 'components/manage/Categories/Categories.Styles.css';
+import '../../../components/manage/Categories/Categories.Styles.css';
 
 interface Props {
     idInstructor: string;

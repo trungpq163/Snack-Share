@@ -1,9 +1,9 @@
 /* eslint-disable camelcase */
 import * as React from 'react';
-import 'components/manage/Categories/Categories.Styles.css';
+import '../../../components/manage/Categories/Categories.Styles.css';
 
 import { Link } from 'react-router-dom';
-import SearchInput from 'components/common/SearchInput/SearchInput';
+import SearchInput from '../../../components/common/SearchInput/SearchInput';
 
 const ShowAllUsers = ({ users, handleISODateToString, values, handleChange }: any) => {
     return (

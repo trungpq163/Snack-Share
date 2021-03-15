@@ -5,10 +5,10 @@ import Resizer from 'react-image-file-resizer';
 
 import { useHistory } from 'react-router-dom';
 import { toastErrorNotify, toastSuccessNotify, toastEmojiNotify } from 'utils/toast';
-import { addCourse } from 'store/course/effects';
+import { addCourse } from '../../../store/course/effects';
 
-import AddCourse from 'components/course/AddCourse/AddCourse';
-import CircleLoader from 'components/loader/CircleLoader/CircleLoader';
+import AddCourse from '../../../components/course/AddCourse/AddCourse';
+import CircleLoader from '../../../components/loader/CircleLoader/CircleLoader';
 
 interface Props {
     category?: any[];

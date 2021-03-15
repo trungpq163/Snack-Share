@@ -1,5 +1,5 @@
 import * as React from 'react';
-import LanguageButton from 'components/layout/LanguageButton/LanguageButton';
+import LanguageButton from '../../../components/layout/LanguageButton/LanguageButton';
 import ScrollTopArrow from '../ScrollTopArrow/ScrollTopArrow';
 import { FooterStyles } from './Footer.Styles';
 

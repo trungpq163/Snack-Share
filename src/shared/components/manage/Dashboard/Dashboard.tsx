@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import PieChart from 'components/common/PieChart/PieChart';
-import VerticalBarChart from 'components/common/VerticalBarChart/VerticalBarChart';
+import PieChart from '../../../components/common/PieChart/PieChart';
+import VerticalBarChart from '../../../components/common/VerticalBarChart/VerticalBarChart';
 
 const Dashboard = ({ data, labels, data2, labels2, data3, labels3 }: any) => {
     return (

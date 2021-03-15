@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import InputField from 'components/common/InputField/InputField';
-import TextArea from 'components/common/TextAreaField/TextAreaField';
-import InputDropdown from 'components/common/InputDropdown/InputDropdown';
+import InputField from '../../../components/common/InputField/InputField';
+import TextArea from '../../../components/common/TextAreaField/TextAreaField';
+import InputDropdown from '../../../components/common/InputDropdown/InputDropdown';
 
 interface Props {
     handleSubmit?: any;

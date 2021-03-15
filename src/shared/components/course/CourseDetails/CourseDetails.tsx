@@ -1,8 +1,8 @@
 /* eslint-disable camelcase */
 import * as React from 'react';
 
-import CourseDetailsRightBar from 'components/common/CourseDetailsRightBar/CourseDetailsRightBar';
-import CourseDetailsLeftBar from 'components/common/CourseDetailsLeftBar/CourseDetailsLeftBar';
+import CourseDetailsRightBar from '../../../components/common/CourseDetailsRightBar/CourseDetailsRightBar';
+import CourseDetailsLeftBar from '../../../components/common/CourseDetailsLeftBar/CourseDetailsLeftBar';
 import avt from '../../../assets/images/avt.jpg';
 import team2 from '../../../assets/images/team-1-2.jpg';
 

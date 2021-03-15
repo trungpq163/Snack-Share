@@ -2,13 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { useTranslation } from 'react-i18next';
-import { LinkCustom, LinkCustomActive } from 'styles/LinkCustom.Styles';
+import { LinkCustom, LinkCustomActive } from '../../../styles/LinkCustom.Styles';
 
-import 'styles/Form.Styles.css';
-
-import { User } from 'types';
+import { User } from '../../../types';
 
 import bg from '../../../assets/images/bg.png';
+
+import '../../../styles/Form.Styles.css';
 
 interface Props {
     roleParams: string;

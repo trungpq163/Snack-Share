@@ -2,9 +2,9 @@ import * as React from 'react';
 
 import { useDispatch } from 'react-redux';
 import { toastErrorNotify, toastSuccessNotify } from 'utils/toast';
-import AddLecture from 'components/course/AddLecture/AddLecture';
+import AddLecture from '../../../components/course/AddLecture/AddLecture';
 
-import { addLecture, getLecturesById } from 'store/lectures/effects';
+import { addLecture, getLecturesById } from '../../../store/lectures/effects';
 
 interface Props {
     isAuthor: boolean;

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import InputDropdown from 'components/common/InputDropdown/InputDropdown';
+import InputDropdown from '../../../components/common/InputDropdown/InputDropdown';
 
 interface Props {
     values?: any;

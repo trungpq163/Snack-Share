@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Course from 'components/common/Course/Course';
+import Course from '../../../components/common/Course/Course';
 import teamd1 from '../../../assets/images/avt.jpg';
 
 import { Auth } from '../../../store/auth/types';

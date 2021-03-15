@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import jwtDecode from 'jwt-decode';
-import CircleLoader from 'components/loader/CircleLoader/CircleLoader';
+import CircleLoader from '../../../components/loader/CircleLoader/CircleLoader';
 import { getAuth } from '../../../store/auth/selectors';
 
 const PrivateRoute = ({ component: Component, ...rest }: any) => {

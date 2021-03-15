@@ -1,8 +1,8 @@
 import * as React from 'react';
-import 'components/common/CourseOne/CourseOne.Styles.css';
+import '../../../components/common/CourseOne/CourseOne.Styles.css';
 
-import Course from 'components/common/Course/Course';
-import CircleLoader from 'components/loader/CircleLoader/CircleLoader';
+import Course from '../../../components/common/Course/Course';
+import CircleLoader from '../../../components/loader/CircleLoader/CircleLoader';
 
 const AllCourses = ({ courses, enrollments }: any) => {
     const [loading, setLoading] = React.useState(true);

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import InputField from 'components/common/InputField/InputField';
+import InputField from '../../../components/common/InputField/InputField';
 
 interface Props {
     handleSubmit: (e: React.FormEvent) => void;
