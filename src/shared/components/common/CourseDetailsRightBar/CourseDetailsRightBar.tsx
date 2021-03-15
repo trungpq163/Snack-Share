@@ -32,7 +32,7 @@ const CourseDetailsRightBar = ({
                 <IsAuthorCourseDetails idCourse={idCourse} />
             ) : enrolled === undefined ? (
                 <BuyThisCourseDetails
-                    idCourse={idCourse}
+                    // idCourse={idCourse}
                     price={price || 0}
                     redirectToSessionCheckout={redirectToSessionCheckout}
                 />

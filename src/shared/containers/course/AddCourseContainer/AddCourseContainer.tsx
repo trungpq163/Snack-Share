@@ -38,6 +38,7 @@ const AddCourseContainer = ({ category, loading }: Props) => {
         value: x?._id || '',
     }));
 
+    // @ts-ignore
     const finaleOptions = options?.unshift({
         label: '* Select category',
         value: '',

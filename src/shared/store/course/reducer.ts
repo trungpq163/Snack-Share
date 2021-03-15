@@ -5,11 +5,15 @@ import { Action, CourseState } from './types';
 export const initialState = Object.freeze<CourseState>({
     course: {
         course: {
+            _id: '',
             courseName: '',
             image: '',
             courseDescription: '',
             instructor: '',
             category: '',
+            language: '',
+            price: 0,
+            skillLevel: '',
         },
         loading: false,
     },

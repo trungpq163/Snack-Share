@@ -39,11 +39,13 @@ const CreateEnrollmentContainer = ({ users, courses }: Props) => {
         value: course?._id,
     }));
 
+    // @ts-ignore
     const handleCourseOptions = courseOptions?.unshift({
         label: 'Select course',
         value: '************',
     });
 
+    // @ts-ignore
     const finaleUserOptions = userOptions?.unshift({
         label: 'Select user',
         value: '************',

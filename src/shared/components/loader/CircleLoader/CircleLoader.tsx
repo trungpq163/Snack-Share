@@ -2,12 +2,12 @@ import * as React from 'react';
 
 import './CircleLoader.Styles.css';
 
-interface Props {
-    size?: any;
-    isButton?: boolean;
-}
-
-const CircleLoader = ({ size, isButton }: Props) => {
+// interface Props {
+//     size?: any;
+//     isButton?: boolean;
+// }
+// { size, isButton }: Props
+const CircleLoader = () => {
     return (
         <div
             className="circle-loading2"

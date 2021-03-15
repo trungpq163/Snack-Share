@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import InputField from 'components/common/InputField/InputField';
 
-const AddLecture = ({ handleSubmit, handleChange, values, course, currentUser }: any) => {
+const AddLecture = ({ handleSubmit, handleChange, values, course /*currentUser*/ }: any) => {
     return (
         <div className="block__header">
             <div className="block-title" style={{ textAlign: 'center' }}>

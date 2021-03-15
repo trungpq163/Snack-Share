@@ -12,7 +12,7 @@ interface Props {
     course: any;
 }
 
-const AddLectureContainer = ({ course, currentUser, isAuthor }: Props) => {
+const AddLectureContainer = ({ course, currentUser /*isAuthor*/ }: Props) => {
     const dispatch = useDispatch();
 
     const [values, setValues] = React.useState({
