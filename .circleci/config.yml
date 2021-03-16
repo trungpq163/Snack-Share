@@ -40,6 +40,8 @@ jobs:
           name: Run tests
           no_output_timeout: 55m
           command: yarn test
+          environment:
+            NODE_OPTIONS=--max_old_space_size=8192
 
 workflows:
   version: 2
