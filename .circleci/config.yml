@@ -40,6 +40,8 @@ jobs:
           name: Run tests
           no_output_timeout: 30m
           command: yarn test
+          override:
+            - mvn clean package
           environment:
             NODE_OPTIONS: --max_old_space_size=4096
 
