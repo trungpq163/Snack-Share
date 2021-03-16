@@ -1,14 +1,14 @@
 import * as React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import PageHeader from 'components/layout/PageHeader/PageHeader';
-import AllCoursesContainer from 'containers/course/AllCoursesContainer/AllCoursesContainer';
 
-import { getCourses } from 'store/courses/selectors';
-import { getEnrollments } from 'store/enrollment/selectors';
-import { getAllCourses } from 'store/courses/effects';
-import { getAllEnrollments } from 'store/enrollment/effects';
-import CircleLoader from 'components/loader/CircleLoader/CircleLoader';
+import { getAllCourses } from '../../../store/courses/effects';
+import { getAllEnrollments } from '../../../store/enrollment/effects';
+import CircleLoader from '../../../components/loader/CircleLoader/CircleLoader';
+import { getEnrollments } from '../../../store/enrollment/selectors';
+import { getCourses } from '../../../store/courses/selectors';
+import AllCoursesContainer from '../../../containers/course/AllCoursesContainer/AllCoursesContainer';
+import PageHeader from '../../../components/layout/PageHeader/PageHeader';
 
 const AllCourses = () => {
     const dispatch = useDispatch();

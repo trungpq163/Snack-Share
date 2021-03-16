@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import 'styles/InnerBanner.Styles.css';
+import '../../../styles/InnerBanner.Styles.css';
 interface Props {
     title?: string;
     loading?: boolean;

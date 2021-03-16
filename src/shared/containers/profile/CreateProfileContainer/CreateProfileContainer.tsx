@@ -3,14 +3,16 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import jwtDecode from 'jwt-decode';
 
-import { toastSuccessNotify, toastErrorNotify } from 'utils/toast';
+import setData from '../../../utils/setData';
+import { toastSuccessNotify, toastErrorNotify } from '../../../utils/toast';
 
-import setData from 'utils/setData';
 import { createProfile } from '../../../store/profile/effects';
 
 import FormCreateProfile from '../../../components/profile/FormCreateProfile/FormCreateProfile';
 
 const CreateProfileContainer = ({ auth }: any) => {
+    // @ts-nocheck
+    // @ts-ignore
     const dispatch = useDispatch();
     const history = useHistory();
     const decoded = jwtDecode(localStorage.jwtToken);

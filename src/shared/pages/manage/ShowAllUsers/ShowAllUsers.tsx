@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { getAllUsers } from 'store/users/effects';
-import { getUsers } from 'store/users/selectors';
-import PageHeader from 'components/layout/PageHeader/PageHeader';
-import ShowAllUsersContainer from 'containers/manage/ShowAllUsersContainer/ShowAllUsersContainer';
+import ShowAllUsersContainer from '../../../containers/manage/ShowAllUsersContainer/ShowAllUsersContainer';
+import PageHeader from '../../../components/layout/PageHeader/PageHeader';
+import { getAllUsers } from '../../../store/users/effects';
+import { getUsers } from '../../../store/users/selectors';
 
 const ShowAllUsers = () => {
     const dispatch = useDispatch();

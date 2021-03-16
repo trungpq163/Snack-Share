@@ -7,7 +7,7 @@ import { LinkCustom, LinkCustomActive } from '../../../styles/LinkCustom.Styles'
 
 import bg from '../../../assets/images/bg.png';
 
-import 'styles/Form.Styles.css';
+import '../../../styles/Form.Styles.css';
 
 interface Props {
     clickSubmit: (e: FormEvent) => void;

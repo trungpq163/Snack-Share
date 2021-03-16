@@ -7,7 +7,7 @@ configure({ adapter: new Adapter() });
 describe('FormEditProfile', () => {
     const defaultProps = {
         handleSubmit: (_e: React.FormEvent) => console.log('handleSubmit'),
-        handleChange: '',
+        handleChange: (name: string) => console.log(name),
         options: [],
         values: 666,
     };

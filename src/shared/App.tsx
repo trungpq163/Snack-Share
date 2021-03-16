@@ -4,13 +4,13 @@ import { Route, Switch, useHistory } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
 import { useDispatch } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
-import PrivateRoute from 'components/routing/PrivateRoute/PrivateRoute';
-import InstructorPrivateRoute from 'components/routing/InstructorPrivateRoute/InstructorPrivateRoute';
-import AdminPrivateRoute from 'components/routing/AdminPrivateRoute/AdminPrivateRoute';
-import MainLoader from 'components/loader/MainLoader/MainLoader';
-import AddLecture from 'pages/course/AddLecture/AddLecture';
-import { toastEmojiNotify } from 'utils/toast';
 import favicon from '../shared/assets/favicon.png';
+
+import PrivateRoute from './components/routing/PrivateRoute/PrivateRoute';
+import InstructorPrivateRoute from './components/routing/InstructorPrivateRoute/InstructorPrivateRoute';
+import AdminPrivateRoute from './components/routing/AdminPrivateRoute/AdminPrivateRoute';
+import MainLoader from './components/loader/MainLoader/MainLoader';
+import { toastEmojiNotify } from './utils/toast';
 import setAuthToken from './utils/setAuthToken';
 import { logoutUser } from './store/auth/effects';
 import setData from './utils/setData';
@@ -24,6 +24,7 @@ import CreateProfile from './pages/profile/CreateProfile/CreateProfile';
 import EditProfile from './pages/profile/EditProfile/EditProfile';
 import AddExperience from './pages/profile/AddExperience/AddExperience';
 import AddEducation from './pages/profile/AddEducation/AddEducation';
+import AddLecture from './pages/course/AddLecture/AddLecture';
 
 import Categories from './pages/manage/Categories/Categories';
 import CreateCategory from './pages/manage/CreateCategory/CreateCategory';
@@ -49,7 +50,7 @@ import { GlobalStyle } from './styles/GlobalStyles';
 import routes from './routes';
 
 import css from './App.module.css';
-import 'styles/utils.css';
+import './styles/utils.css';
 import 'react-toastify/dist/ReactToastify.css';
 
 // Does not yet work with server side rendering:

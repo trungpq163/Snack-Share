@@ -1,8 +1,8 @@
 /* eslint-disable prefer-const */
 import * as React from 'react';
 
-import ShowAllUsers from 'components/manage/ShowAllUsers/ShowAllUsers';
-import CircleLoader from 'components/loader/CircleLoader/CircleLoader';
+import ShowAllUsers from '../../../components/manage/ShowAllUsers/ShowAllUsers';
+import CircleLoader from '../../../components/loader/CircleLoader/CircleLoader';
 
 const ShowAllUsersContainer = ({ users }: any) => {
     const handleISODateToString = (isoDate: string = ''): string => {

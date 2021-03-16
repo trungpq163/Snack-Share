@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import CircleLoader from 'components/loader/CircleLoader/CircleLoader';
-import PageHeader from 'components/layout/PageHeader/PageHeader';
-import EditCategoryContainer from 'containers/manage/EditCategoryContainer/EditCategoryContainer';
 
-import { getCategory } from 'store/category/selectors';
-import { getCategory as getCategoryEff } from 'store/category/effects';
+import { getCategory } from '../../../store/category/selectors';
+import { getCategory as getCategoryEff } from '../../../store/category/effects';
+import EditCategoryContainer from '../../../containers/manage/EditCategoryContainer/EditCategoryContainer';
+import PageHeader from '../../../components/layout/PageHeader/PageHeader';
+import CircleLoader from '../../../components/loader/CircleLoader/CircleLoader';
 
 const EditCategory = () => {
     const dispatch = useDispatch();

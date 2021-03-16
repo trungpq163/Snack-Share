@@ -8,7 +8,7 @@ configure({ adapter: new Adapter() });
 describe('FormCreateProfile', () => {
     const defaultProps = {
         handleSubmit: (_e: React.FormEvent) => console.log('handleSubmit'),
-        handleChange: '',
+        handleChange: (name: string) => console.log(name),
         options: [],
         values: '',
     };

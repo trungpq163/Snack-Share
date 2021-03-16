@@ -2,14 +2,14 @@
 import * as React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import DashboardContainer from 'containers/manage/DashboardContainer/DashboardContainer';
-import PageHeader from 'components/layout/PageHeader/PageHeader';
 
-import { getCourses } from 'store/courses/selectors';
-import { getEnrollments as getEnrolls } from 'store/enrollment/selectors';
-import { getAllCourses as getAllCoursesEff } from 'store/courses/effects';
-import { getAllEnrollments as getAllEnrollmentsEff } from 'store/enrollment/effects';
-import CircleLoader from 'components/loader/CircleLoader/CircleLoader';
+import CircleLoader from '../../../components/loader/CircleLoader/CircleLoader';
+import { getCourses } from '../../../store/courses/selectors';
+import { getEnrollments as getEnrolls } from '../../../store/enrollment/selectors';
+import { getAllCourses as getAllCoursesEff } from '../../../store/courses/effects';
+import { getAllEnrollments as getAllEnrollmentsEff } from '../../../store/enrollment/effects';
+import PageHeader from '../../../components/layout/PageHeader/PageHeader';
+import DashboardContainer from '../../../containers/manage/DashboardContainer/DashboardContainer';
 
 const Dashboard = () => {
     const dispatch = useDispatch();

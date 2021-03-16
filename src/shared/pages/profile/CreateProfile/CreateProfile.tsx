@@ -2,9 +2,9 @@ import * as React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import jwtDecode from 'jwt-decode';
-import PageHeader from 'components/layout/PageHeader/PageHeader';
-import { getAuth } from 'store/auth/selectors';
-import { dispatchSetCurrentUser } from 'store/auth/effects';
+import PageHeader from '../../../components/layout/PageHeader/PageHeader';
+import { getAuth } from '../../../store/auth/selectors';
+import { dispatchSetCurrentUser } from '../../../store/auth/effects';
 import CreateProfileContainer from '../../../containers/profile/CreateProfileContainer/CreateProfileContainer';
 
 const CreateProfile = () => {

@@ -1,13 +1,14 @@
 import React, { FormEvent } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { toastSuccessNotify } from 'utils/toast';
-import { getAuth } from 'store/auth/selectors';
-import { logoutUser } from 'store/auth/effects';
-import Header from 'components/layout/Header/Header';
+import { getAuth } from '../../../store/auth/selectors';
+import { logoutUser } from '../../../store/auth/effects';
+import Header from '../../../components/layout/Header/Header';
+import { toastSuccessNotify } from '../../../utils/toast';
 
 const HeaderContainer = () => {
     const auth = useSelector(getAuth);
+
     const dispatch = useDispatch();
     const location = useLocation();
     const history = useHistory();

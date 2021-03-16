@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux';
 import axios, { AxiosRequestConfig } from 'axios';
-import { setCurrentUser } from 'store/auth/action';
+import { setCurrentUser } from '../../store/auth/action';
 import { getProfile, getProfiles, setProfileLoading } from './action';
 import { Action, Profile } from './types';
 

@@ -3,12 +3,11 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import jwtDecode from 'jwt-decode';
 
-import { toastErrorNotify, toastSuccessNotify } from 'utils/toast';
+import FormAddEducation from '../../../components/profile/FormAddEducation/FormAddEducation';
+import CircleLoader from '../../../components/loader/CircleLoader/CircleLoader';
 
-import setData from 'utils/setData';
-import CircleLoader from 'components/loader/CircleLoader/CircleLoader';
-
-import FormAddEducation from 'components/profile/FormAddEducation/FormAddEducation';
+import setData from '../../../utils/setData';
+import { toastErrorNotify, toastSuccessNotify } from '../../../utils/toast';
 import { addEducation } from '../../../store/profile/effects';
 
 interface Props {

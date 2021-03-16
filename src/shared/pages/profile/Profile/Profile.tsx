@@ -4,23 +4,24 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { useLocation } from 'react-router';
 import jwtDecode from 'jwt-decode';
-import { getProfile } from 'store/profile/selectors';
-import { getAuth } from 'store/auth/selectors';
-import { getCourses } from 'store/courses/selectors';
+import { getProfile } from '../../../store/profile/selectors';
+import { getAuth } from '../../../store/auth/selectors';
+import { getCourses } from '../../../store/courses/selectors';
 
-import CircleLoader from 'components/loader/CircleLoader/CircleLoader';
-import PageHeader from 'components/layout/PageHeader/PageHeader';
-import ProfileDetails from 'components/profile/ProfileDetails/ProfileDetails';
-import OtherProfileDetails from 'components/profile/OtherProfileDetails/OtherProfileDetails';
-import NotFound from 'pages/common/NotFound/NotFound';
-import { getAllEnrollments } from 'store/enrollment/effects';
-import { getEnrollments } from 'store/enrollment/selectors';
-import { dispatchSetCurrentUser } from 'store/auth/effects';
-import { getCurrentProfile } from 'store/profile/effects';
-import { getAllCourses } from 'store/courses/effects';
+import { getAllEnrollments } from '../../../store/enrollment/effects';
+import { getEnrollments } from '../../../store/enrollment/selectors';
+import { dispatchSetCurrentUser } from '../../../store/auth/effects';
+import { getCurrentProfile } from '../../../store/profile/effects';
+import { getAllCourses } from '../../../store/courses/effects';
+import NotFound from '../../../pages/common/NotFound/NotFound';
+import OtherProfileDetails from '../../../components/profile/OtherProfileDetails/OtherProfileDetails';
+import ProfileDetails from '../../../components/profile/ProfileDetails/ProfileDetails';
+import PageHeader from '../../../components/layout/PageHeader/PageHeader';
+import CircleLoader from '../../../components/loader/CircleLoader/CircleLoader';
 
 const Profile = () => {
     const location = useLocation();
+
     const dispatch = useDispatch();
     const auth = useSelector(getAuth);
     const enrollments = useSelector(getEnrollments);

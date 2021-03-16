@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
-import { toastErrorNotify, toastSuccessNotify } from 'utils/toast';
-import { deleteEnrollmentsByID, getAllEnrollments } from 'store/enrollment/effects';
+import Enrollments from '../../../components/manage/Enrollments/Enrollments';
+import { deleteEnrollmentsByID, getAllEnrollments } from '../../../store/enrollment/effects';
 
-import Enrollments from 'components/manage/Enrollments/Enrollments';
+import { toastErrorNotify, toastSuccessNotify } from '../../../utils/toast';
 
 interface Props {
     enrollments: any;

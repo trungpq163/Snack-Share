@@ -1,5 +1,5 @@
 import { produce } from 'immer';
-import isEmpty from 'validation/isEmpty';
+import isEmpty from '../../validation/isEmpty';
 import { ActionTypes } from './action';
 import { Action, AuthState } from './types';
 

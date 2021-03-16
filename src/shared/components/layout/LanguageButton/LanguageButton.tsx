@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
-import { setLocale } from 'store/app/actions';
-import { Locale } from 'store/app/types';
+import { setLocale } from '../../../store/app/actions';
+import { Locale } from '../../../store/app/types';
 
 import './LanguageButton.Styles.css';
 

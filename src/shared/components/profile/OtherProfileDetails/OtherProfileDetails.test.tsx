@@ -11,7 +11,14 @@ describe('OtherProfileDetails', () => {
             users: [],
             loading: false,
         },
-        profile: '',
+        profile: {
+            experience: [
+                { company: 'fpt', title: 'engineer', current: 'Working', from: '', to: '' },
+            ],
+            education: [
+                { school: 'dalat university', degree: 'engineer', fieldofstudy: '', current: '' },
+            ],
+        },
         name: 'trung',
         courses: [],
         idUser: '',

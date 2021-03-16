@@ -1,5 +1,5 @@
 import * as React from 'react';
-import MyLearning from 'components/course/MyLearning/MyLearning';
+import MyLearning from '../../../components/course/MyLearning/MyLearning';
 
 interface Props {
     courses: any;

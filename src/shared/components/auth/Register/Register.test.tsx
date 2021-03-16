@@ -5,6 +5,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import Register from './Register';
 
 configure({ adapter: new Adapter() });
+
 describe('Register', () => {
     const defaultProps = {
         roleParams: 'admin',

@@ -1,16 +1,17 @@
 import * as React from 'react';
 import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import LessonContainer from 'containers/course/LessonContainer/LessonContainer';
-import PageHeader from 'components/layout/PageHeader/PageHeader';
-import { getLecturesById } from 'store/lectures/effects';
-import { getLectures } from 'store/lectures/selectors';
-import { getAllCourses } from 'store/courses/effects';
-import { getCourses } from 'store/courses/selectors';
-import CircleLoader from 'components/loader/CircleLoader/CircleLoader';
+import { getLecturesById } from '../../../store/lectures/effects';
+import { getLectures } from '../../../store/lectures/selectors';
+import { getAllCourses } from '../../../store/courses/effects';
+import { getCourses } from '../../../store/courses/selectors';
+import PageHeader from '../../../components/layout/PageHeader/PageHeader';
+import CircleLoader from '../../../components/loader/CircleLoader/CircleLoader';
+import LessonContainer from '../../../containers/course/LessonContainer/LessonContainer';
 
 const Lesson = () => {
     const location = useLocation();
+
     const dispatch = useDispatch();
 
     const pathName = location?.pathname || '';

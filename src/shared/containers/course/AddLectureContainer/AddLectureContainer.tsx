@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { useDispatch } from 'react-redux';
-import { toastErrorNotify, toastSuccessNotify } from 'utils/toast';
+import { toastErrorNotify, toastSuccessNotify } from '../../../utils/toast';
 import AddLecture from '../../../components/course/AddLecture/AddLecture';
 
 import { addLecture, getLecturesById } from '../../../store/lectures/effects';

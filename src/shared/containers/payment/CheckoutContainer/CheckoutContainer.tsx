@@ -1,9 +1,9 @@
 import * as React from 'react';
 
 import { useDispatch } from 'react-redux';
-import { toastErrorNotify, toastSuccessNotify } from 'utils/toast';
-import Checkout from 'components/payment/Checkout/Checkout';
-import { addEnrollments, getAllEnrollments } from 'store/enrollment/effects';
+import { addEnrollments, getAllEnrollments } from '../../../store/enrollment/effects';
+import Checkout from '../../../components/payment/Checkout/Checkout';
+import { toastErrorNotify, toastSuccessNotify } from '../../../utils/toast';
 
 interface Props {
     idCourse?: string;

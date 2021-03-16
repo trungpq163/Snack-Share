@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
-import { toastErrorNotify, toastSuccessNotify } from 'utils/toast';
-import CreateEnrollment from 'components/manage/CreateEnrollment/CreateEnrollment';
-import { addEnrollmentsByAdmin, getAllEnrollments } from 'store/enrollment/effects';
+import CreateEnrollment from '../../../components/manage/CreateEnrollment/CreateEnrollment';
+import { addEnrollmentsByAdmin, getAllEnrollments } from '../../../store/enrollment/effects';
+import { toastErrorNotify, toastSuccessNotify } from '../../../utils/toast';
 
 interface Props {
     users?: any[];

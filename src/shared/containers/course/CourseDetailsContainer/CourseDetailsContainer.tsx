@@ -1,10 +1,10 @@
 import * as React from 'react';
 
-import { createSessionCheckout } from 'store/checkout/effect';
-import { toastErrorNotify } from 'utils/toast';
-import CourseDetails from 'components/course/CourseDetails/CourseDetails';
-import capitalizeFirstLetter from 'utils/capitalizeFirstLetter';
-import stripePromise from 'utils/stripePromise';
+import { toastErrorNotify } from '../../../utils/toast';
+import CourseDetails from '../../../components/course/CourseDetails/CourseDetails';
+import capitalizeFirstLetter from '../../../utils/capitalizeFirstLetter';
+import stripePromise from '../../../utils/stripePromise';
+import { createSessionCheckout } from '../../../store/checkout/effect';
 
 interface Props {
     idCourse: string;

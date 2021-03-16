@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux';
 import axios, { AxiosRequestConfig } from 'axios';
 import jwtDecode from 'jwt-decode';
-import setAuthToken from 'utils/setAuthToken';
+import setAuthToken from '../../utils/setAuthToken';
 import { setCurrentUser, setAuthLoading } from '../auth/action';
 import setData from '../../utils/setData';
 import clearData from '../../utils/clearData';

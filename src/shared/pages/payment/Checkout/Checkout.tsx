@@ -5,12 +5,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
 
-import CheckoutContainer from 'containers/payment/CheckoutContainer/CheckoutContainer';
-import PageHeader from 'components/layout/PageHeader/PageHeader';
-import { getAuth } from 'store/auth/selectors';
-import { dispatchSetCurrentUser } from 'store/auth/effects';
-import { getAllCourses } from 'store/courses/effects';
-import { getCourses } from 'store/courses/selectors';
+import { getAuth } from '../../../store/auth/selectors';
+import { dispatchSetCurrentUser } from '../../../store/auth/effects';
+import { getAllCourses } from '../../../store/courses/effects';
+import { getCourses } from '../../../store/courses/selectors';
+import PageHeader from '../../../components/layout/PageHeader/PageHeader';
+import CheckoutContainer from '../../../containers/payment/CheckoutContainer/CheckoutContainer';
 
 const Checkout = () => {
     const location = useLocation();

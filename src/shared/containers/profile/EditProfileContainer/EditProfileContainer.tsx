@@ -3,14 +3,14 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import jwtDecode from 'jwt-decode';
 
-import { toastSuccessNotify, toastErrorNotify } from 'utils/toast';
+import { toastSuccessNotify, toastErrorNotify } from '../../../utils/toast';
 
-import setData from 'utils/setData';
-import isEmpty from 'validation/isEmpty';
-import CircleLoader from 'components/loader/CircleLoader/CircleLoader';
-import { createProfile } from 'store/profile/effects';
+import FormEditProfile from '../../../components/profile/FormEditProfile/FormEditProfile';
+import { createProfile } from '../../../store/profile/effects';
 
-import FormEditProfile from 'components/profile/FormEditProfile/FormEditProfile';
+import CircleLoader from '../../../components/loader/CircleLoader/CircleLoader';
+import isEmpty from '../../../validation/isEmpty';
+import setData from '../../../utils/setData';
 
 const EditProfileContainer = ({ profile, loading, auth }: any) => {
     const dispatch = useDispatch();

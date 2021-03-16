@@ -1,11 +1,10 @@
 import jwtDecode from 'jwt-decode';
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
-import { toastErrorNotify, toastSuccessNotify } from 'utils/toast';
-import CreateCategory from 'components/manage/CreateCategory/CreateCategory';
-
-import { addCategory } from 'store/category/effects';
-import setData from 'utils/setData';
+import { addCategory } from '../../../store/category/effects';
+import setData from '../../../utils/setData';
+import { toastErrorNotify, toastSuccessNotify } from '../../../utils/toast';
+import CreateCategory from '../../../components/manage/CreateCategory/CreateCategory';
 
 const CreateCategoryContainer = () => {
     const dispatch = useDispatch();

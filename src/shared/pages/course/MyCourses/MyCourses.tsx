@@ -2,15 +2,15 @@ import * as React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import jwtDecode from 'jwt-decode';
-import PageHeader from 'components/layout/PageHeader/PageHeader';
-import MyCoursesContainer from 'containers/course/MyCoursesContainer/MyCoursesContainer';
-import CircleLoader from 'components/loader/CircleLoader/CircleLoader';
-import { getCourses } from 'store/courses/selectors';
-import { getAuth } from 'store/auth/selectors';
-import { dispatchSetCurrentUser } from 'store/auth/effects';
-import { getEnrollments } from 'store/enrollment/selectors';
-import { getAllCourses } from 'store/courses/effects';
-import { getAllEnrollments } from 'store/enrollment/effects';
+import { getCourses } from '../../../store/courses/selectors';
+import { getAuth } from '../../../store/auth/selectors';
+import { dispatchSetCurrentUser } from '../../../store/auth/effects';
+import { getEnrollments } from '../../../store/enrollment/selectors';
+import { getAllCourses } from '../../../store/courses/effects';
+import { getAllEnrollments } from '../../../store/enrollment/effects';
+import MyCoursesContainer from '../../../containers/course/MyCoursesContainer/MyCoursesContainer';
+import CircleLoader from '../../../components/loader/CircleLoader/CircleLoader';
+import PageHeader from '../../../components/layout/PageHeader/PageHeader';
 
 const MyCourses = () => {
     const dispatch = useDispatch();

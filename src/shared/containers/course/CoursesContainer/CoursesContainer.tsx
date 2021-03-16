@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import Courses from 'components/course/Courses/Courses';
+import Courses from '../../../components/course/Courses/Courses';
 
 interface Props {
     lectures?: any;

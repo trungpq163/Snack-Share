@@ -1,15 +1,14 @@
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import jwtDecode from 'jwt-decode';
-import CircleLoader from 'components/loader/CircleLoader/CircleLoader';
 
-import PageHeader from 'components/layout/PageHeader/PageHeader';
-import AddExperienceContainer from 'containers/profile/AddExperienceContainer/AddExperienceContainer';
-
-import { getAuth } from 'store/auth/selectors';
-import { dispatchSetCurrentUser } from 'store/auth/effects';
-import { getProfile } from 'store/profile/selectors';
-import { getCurrentProfile } from 'store/profile/effects';
+import { dispatchSetCurrentUser } from '../../../store/auth/effects';
+import { getProfile } from '../../../store/profile/selectors';
+import { getCurrentProfile } from '../../../store/profile/effects';
+import { getAuth } from '../../../store/auth/selectors';
+import AddExperienceContainer from '../../../containers/profile/AddExperienceContainer/AddExperienceContainer';
+import PageHeader from '../../../components/layout/PageHeader/PageHeader';
+import CircleLoader from '../../../components/loader/CircleLoader/CircleLoader';
 
 const AddExperience = () => {
     const dispatch = useDispatch();

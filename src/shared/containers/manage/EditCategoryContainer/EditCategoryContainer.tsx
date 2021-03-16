@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
 import jwtDecode from 'jwt-decode';
-import { toastErrorNotify, toastSuccessNotify } from 'utils/toast';
-import CircleLoader from 'components/loader/CircleLoader/CircleLoader';
-import EditCategory from 'components/manage/EditCategory/EditCategory';
+import { toastErrorNotify, toastSuccessNotify } from '../../../utils/toast';
+import CircleLoader from '../../../components/loader/CircleLoader/CircleLoader';
+import EditCategory from '../../../components/manage/EditCategory/EditCategory';
 
-import { updateCategory } from 'store/category/effects';
-import setData from 'utils/setData';
+import { updateCategory } from '../../../store/category/effects';
+import setData from '../../../utils/setData';
 
 interface Props {
     loading?: any;

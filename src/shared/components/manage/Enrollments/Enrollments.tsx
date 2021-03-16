@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 
-import routes from 'routes';
+import routes from '../../../routes';
 
 interface Props {
     enrollments: any[];

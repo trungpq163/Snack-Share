@@ -2,19 +2,20 @@ import * as React from 'react';
 
 import { useLocation } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCourses } from 'store/courses/selectors';
-import { getAllCourses } from 'store/courses/effects';
-import CircleLoader from 'components/loader/CircleLoader/CircleLoader';
+import CircleLoader from '../../../components/loader/CircleLoader/CircleLoader';
+import { getCourses } from '../../../store/courses/selectors';
+import { getAllCourses } from '../../../store/courses/effects';
 
-import { getProfile } from 'store/profile/selectors';
-import { getCurrentProfile } from 'store/profile/effects';
-import { getEnrollments } from 'store/enrollment/selectors';
-import { getAllEnrollments } from 'store/enrollment/effects';
+import { getProfile } from '../../../store/profile/selectors';
+import { getCurrentProfile } from '../../../store/profile/effects';
+import { getEnrollments } from '../../../store/enrollment/selectors';
+import { getAllEnrollments } from '../../../store/enrollment/effects';
 import CourseDetailsContainer from '../../../containers/course/CourseDetailsContainer/CourseDetailsContainer';
 import PageHeader from '../../../components/layout/PageHeader/PageHeader';
 
 const CourseDetail = () => {
     const location = useLocation();
+
     const dispatch = useDispatch();
     const pathName = location?.pathname || '';
     const idCourse = pathName.split('/course-details/').join('');

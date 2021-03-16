@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import Dashboard from 'components/manage/Dashboard/Dashboard';
+import Dashboard from '../../../components/manage/Dashboard/Dashboard';
 
 const DashboardContainer = ({ data, labels, data2, labels2, data3, labels3 }: any) => {
     return (

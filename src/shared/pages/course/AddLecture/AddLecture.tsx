@@ -3,16 +3,17 @@ import * as React from 'react';
 import { useLocation } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import PageHeader from 'components/layout/PageHeader/PageHeader';
-import AddLectureContainer from 'containers/course/AddLectureContainer/AddLectureContainer';
-import { getCourses } from 'store/courses/selectors';
-import { getProfile } from 'store/profile/selectors';
-import { getAllCourses } from 'store/courses/effects';
-import { getCurrentProfile } from 'store/profile/effects';
-import CircleLoader from 'components/loader/CircleLoader/CircleLoader';
+import CircleLoader from '../../../components/loader/CircleLoader/CircleLoader';
+import { getCurrentProfile } from '../../../store/profile/effects';
+import { getAllCourses } from '../../../store/courses/effects';
+import { getProfile } from '../../../store/profile/selectors';
+import { getCourses } from '../../../store/courses/selectors';
+import AddLectureContainer from '../../../containers/course/AddLectureContainer/AddLectureContainer';
+import PageHeader from '../../../components/layout/PageHeader/PageHeader';
 
 const AddLecture = () => {
     const location = useLocation();
+
     const dispatch = useDispatch();
     const pathName = location?.pathname || '';
     const idCourse = pathName.split('/add-lecture/').join('');

@@ -2,13 +2,12 @@ import React, { FormEvent, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import { toastErrorNotify, toastSuccessNotify } from 'utils/toast';
-import { loginUser } from 'store/auth/effects';
+import { User } from '../../../types';
+import { CenterComponent } from '../../../styles/CenterComponent';
 
-import LoginDumb from 'components/auth/Login/Login';
-import { CenterComponent } from 'styles/CenterComponent';
-
-import { User } from 'types';
+import LoginDumb from '../../../components/auth/Login/Login';
+import { loginUser } from '../../../store/auth/effects';
+import { toastErrorNotify, toastSuccessNotify } from '../../../utils/toast';
 
 const Login = () => {
     const dispatch = useDispatch();

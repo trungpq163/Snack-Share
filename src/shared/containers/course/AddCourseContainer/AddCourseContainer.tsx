@@ -4,7 +4,7 @@ import { useLocation } from 'react-router';
 import Resizer from 'react-image-file-resizer';
 
 import { useHistory } from 'react-router-dom';
-import { toastErrorNotify, toastSuccessNotify, toastEmojiNotify } from 'utils/toast';
+import { toastErrorNotify, toastSuccessNotify, toastEmojiNotify } from '../../../utils/toast';
 import { addCourse } from '../../../store/course/effects';
 
 import AddCourse from '../../../components/course/AddCourse/AddCourse';

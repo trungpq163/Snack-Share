@@ -2,16 +2,13 @@ import React, { FormEvent, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import { toastErrorNotify, toastSuccessNotify } from 'utils/toast';
+import capitalizeFirstLetter from '../../../utils/capitalizeFirstLetter';
+import { User } from '../../../types';
 
-import { registerUser } from 'store/auth/effects';
-
-import RegisterDumb from 'components/auth/Register/Register';
-import { CenterComponent } from 'styles/CenterComponent';
-
-import { User } from 'types';
-
-import capitalizeFirstLetter from 'utils/capitalizeFirstLetter';
+import { CenterComponent } from '../../../styles/CenterComponent';
+import RegisterDumb from '../../../components/auth/Register/Register';
+import { registerUser } from '../../../store/auth/effects';
+import { toastErrorNotify, toastSuccessNotify } from '../../../utils/toast';
 
 const Register = ({ match }: any) => {
     const dispatch = useDispatch();
