@@ -8,7 +8,7 @@ describe('EditUser', () => {
     const defaultProps = {
         handleSubmit: (_e: React.FormEvent) => console.log('handleSubmit'),
         handleChange: (name: string) => console.log(name),
-        values: 666,
+        values: 'phanquoctrung',
     };
 
     it('tests something', () => {
