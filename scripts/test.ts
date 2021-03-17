@@ -18,7 +18,9 @@ require('../config/env');
 const argv = process.argv.slice(2);
 
 // Run in band (ci)
-argv.push('--runInBand');
+if (process.env.CI) {
+    argv.push('--runInBand');
+}
 
 // Watch unless on CI or in coverage mode
 if (!process.env.CI && argv.includes('--coverage') === false) {
