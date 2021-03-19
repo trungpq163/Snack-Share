@@ -6,7 +6,7 @@ import { createCheckoutSessionService } from 'services/checkout';
 import key from 'config/key';
 
 export const createCheckoutSession = async (req: Request, res: Response) => {
-    const { student, course } = req.body;
+    const { studentId, course } = req.body;
     try {
         const session = await createCheckoutSessionService(
             stripe,
@@ -16,10 +16,10 @@ export const createCheckoutSession = async (req: Request, res: Response) => {
                     price_data: {
                         currency: 'usd',
                         product_data: {
-                            name: 'Stubborn Attachments',
-                            images: ['https://i.imgur.com/EHyR2nP.png'],
+                            name: course.courseName,
+                            images: [course.image],
                         },
-                        unit_amount: 2000,
+                        unit_amount: course.price,
                     },
                     quantity: 1,
                 },
@@ -27,7 +27,7 @@ export const createCheckoutSession = async (req: Request, res: Response) => {
             'payment',
             `${key.DOMAIN_NAME}?success=true`,
             `${key.DOMAIN_NAME}?canceled=true`,
-            `${!(student && course) ? '' : `${student + '/' + course}`}`
+            `${!(studentId && course) ? '' : `${studentId + '/' + course.id}`}`
         );
         res.json({ id: session.id });
     } catch (err) {
