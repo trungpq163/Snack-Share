@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import { useHistory } from 'react-router-dom';
+
 import { toastErrorNotify } from '../../../utils/toast';
 import CourseDetails from '../../../components/course/CourseDetails/CourseDetails';
 import capitalizeFirstLetter from '../../../utils/capitalizeFirstLetter';
@@ -12,7 +14,7 @@ interface Props {
     isAuthor: boolean;
     enrolled?: any;
     courses?: any;
-    isAuth: any;
+    isNotAuth: boolean;
 }
 
 const CourseDetailsContainer = ({
@@ -21,8 +23,9 @@ const CourseDetailsContainer = ({
     isAuthor,
     enrolled,
     courses,
-    isAuth,
+    isNotAuth,
 }: Props) => {
+    const history = useHistory();
     const dataCourse = {
         id: courseDetails?._id,
         courseName: courseDetails?.courseName,
@@ -37,20 +40,21 @@ const CourseDetailsContainer = ({
         instructorData: courseDetails?.instructor,
     };
 
-    console.log('dataCourses', courseDetails);
-    console.log('currentUser', isAuth);
-
     const redirectToSessionCheckout = async (_event: React.FormEvent<HTMLInputElement>) => {
-        const stripe = await stripePromise;
+        if (isNotAuth === true) {
+            await history.push('/login');
+        } else {
+            const stripe = await stripePromise;
 
-        await createSessionCheckout(
-            '/api/create-checkout-session',
-            (err: string) => toastErrorNotify(err),
-            (sessionId: string) =>
-                stripe?.redirectToCheckout({
-                    sessionId: sessionId,
-                })
-        );
+            await createSessionCheckout(
+                '/api/create-checkout-session',
+                (err: string) => toastErrorNotify(err),
+                (sessionId: string) =>
+                    stripe?.redirectToCheckout({
+                        sessionId: sessionId,
+                    })
+            );
+        }
     };
 
     return (

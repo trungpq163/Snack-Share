@@ -43,6 +43,7 @@ const CourseDetail = () => {
         (x) => x?.student?._id === currentUser?.profile?.user?._id && x?.course?._id === idCourse
     );
     console.log('1111', JSON.stringify(currentUser.profile));
+    console.log('isAuth', isNotAuth);
     return (
         <>
             {courses.loading || currentUser.loading || enrollments.loading ? (
@@ -59,7 +60,7 @@ const CourseDetail = () => {
                         courses={courses.courses}
                         isAuthor={isAuthor}
                         enrolled={enrolled}
-                        isAuth={isNotAuth}
+                        isNotAuth={isNotAuth}
                     />
                 </>
             )}
