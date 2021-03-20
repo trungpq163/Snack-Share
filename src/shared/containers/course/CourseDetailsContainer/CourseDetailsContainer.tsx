@@ -15,6 +15,7 @@ interface Props {
     enrolled?: any;
     courses?: any;
     isNotAuth: boolean;
+    studentId: string;
 }
 
 const CourseDetailsContainer = ({
@@ -24,6 +25,7 @@ const CourseDetailsContainer = ({
     enrolled,
     courses,
     isNotAuth,
+    studentId,
 }: Props) => {
     const history = useHistory();
     const dataCourse = {
@@ -48,6 +50,8 @@ const CourseDetailsContainer = ({
 
             await createSessionCheckout(
                 '/api/create-checkout-session',
+                studentId,
+                dataCourse,
                 (err: string) => toastErrorNotify(err),
                 (sessionId: string) =>
                     stripe?.redirectToCheckout({
@@ -56,6 +60,8 @@ const CourseDetailsContainer = ({
             );
         }
     };
+
+    console.log('dataCourse', dataCourse);
 
     return (
         <CourseDetails

@@ -4,5 +4,4 @@ require('@babel/register')({
     // env specific configs and results in an "Unknown option" error.
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
 });
-
 module.exports = require('./.eslintrc.ts').default;

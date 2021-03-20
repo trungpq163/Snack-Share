@@ -7,12 +7,14 @@ export const errorResponse = (errData: any): string | undefined => {
 
 export const createSessionCheckout = (
     url: string,
+    studentId: string,
+    dataCourse: any,
     errorCb: Function,
     redirectWhenSuccess: Function
 ) => {
     const data = JSON.stringify({
-        student: '603672079555802b8117410a',
-        course: '6037a7e5e445271ce0d25e06',
+        studentId: studentId,
+        course: dataCourse,
     });
     const config: AxiosRequestConfig = {
         method: 'post',

@@ -34,14 +34,14 @@
         "login": "Đăng nhập"
     },
     "home": {
-        "titleIntro": "Chao mung toi lop hoc online",
-        "contentTitleIntro": "Learn about anything, anytime & anywhere from accredited instructors & courses",
-        "titleIntro2": "Bắt đầu học ngay!",
-        "titleIntro3": "Nâng cao kĩ năng coding ngay bây giờ :D",
-        "titleButton": "Tìm hiểu thêm",
-        "trustBy": "Duoc tin cay boi",
-        "titlePopularCourse": "Kham pha cac khoa hoc",
-        "titlePopularCourse2": "pho bien cua chung toi",
-        "ourStudent": "Hoc sinh chung toi lam viec tai"
+        "titleIntro": "Bạn muốn học gì hôm nay?",
+        "contentTitleIntro": "Tìm hiểu về mọi thứ, mọi lúc và mọi nơi từ các giảng viên và khóa học được công nhận",
+        "titleIntro2": "Bắt đầu học hỏi từ các chuyên gia của chúng tôi",
+        "titleIntro3": "Nâng cao kỹ năng của bạn ngay bây giờ",
+        "titleButton": "Xem thêm",
+        "trustBy": "Được tin cậy bởi",
+        "titlePopularCourse": "Khám phá khoá học",
+        "titlePopularCourse2": "phổ biến của chúng tôi",
+        "ourStudent": "Học sinh chúng tôi làm việc tại"
     }
 }

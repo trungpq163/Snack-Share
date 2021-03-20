@@ -2,10 +2,13 @@ import * as React from 'react';
 
 import { useLocation } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
+import jwtDecode from 'jwt-decode';
+import { dispatchSetCurrentUser } from 'store/auth/effects';
 import CircleLoader from '../../../components/loader/CircleLoader/CircleLoader';
 import { getCourses } from '../../../store/courses/selectors';
 import { getAllCourses } from '../../../store/courses/effects';
 
+import { getAuth } from '../../../store/auth/selectors';
 import { getProfile } from '../../../store/profile/selectors';
 import { getCurrentProfile } from '../../../store/profile/effects';
 import { getEnrollments } from '../../../store/enrollment/selectors';
@@ -23,11 +26,19 @@ const CourseDetail = () => {
     const courses = useSelector(getCourses);
     const currentUser = useSelector(getProfile);
     const enrollments = useSelector(getEnrollments);
+    const auth = useSelector(getAuth);
 
     React.useEffect(() => {
         dispatch(getAllCourses());
         dispatch(getCurrentProfile());
         dispatch(getAllEnrollments());
+    }, [dispatch]);
+
+    React.useEffect(() => {
+        if (localStorage.jwtToken) {
+            const decoded = jwtDecode(localStorage.jwtToken);
+            dispatch(dispatchSetCurrentUser(decoded));
+        }
     }, [dispatch]);
 
     // @ts-ignore
@@ -42,8 +53,7 @@ const CourseDetail = () => {
     const enrolled = enrollments.enrollments?.find(
         (x) => x?.student?._id === currentUser?.profile?.user?._id && x?.course?._id === idCourse
     );
-    console.log('1111', JSON.stringify(currentUser.profile));
-    console.log('isAuth', isNotAuth);
+
     return (
         <>
             {courses.loading || currentUser.loading || enrollments.loading ? (
@@ -61,6 +71,7 @@ const CourseDetail = () => {
                         isAuthor={isAuthor}
                         enrolled={enrolled}
                         isNotAuth={isNotAuth}
+                        studentId={auth.users.id || ''}
                     />
                 </>
             )}
