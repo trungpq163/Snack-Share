@@ -10,11 +10,10 @@ react-codemod
 coverage
 .env
 stuff
-build/*
+# build/*
 yarn-error.log
 tmp
 bundle-stats.json
 .vscode
 .DS_Store
 # /dependency-graph.svg
-#666
