@@ -1,0 +1,2 @@
+- name: Create Standup Discussions
+  uses: MLH-Fellowship/create-standup-discussions@v1.0.1
