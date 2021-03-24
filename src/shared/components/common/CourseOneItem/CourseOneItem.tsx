@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { isoDateToString } from '../../../utils/isoToString';
 
 import avt from '../../../assets/images/avt.jpg';
@@ -12,13 +13,11 @@ interface Props {
 }
 
 const CourseOneItem = ({ course, index, enrollments }: Props) => {
+    const { t } = useTranslation();
     const handleNumberOfStudents = (id: string): number =>
         enrollments?.filter((enrollment: any) => enrollment?.course?._id === id)?.length;
-    console.log('enrollments', enrollments);
-    const numberOfStudents = `${handleNumberOfStudents(course._id)} students`;
-    console.log('numberOfStudents', numberOfStudents);
+    const numberOfStudents = `${handleNumberOfStudents(course._id)} ${t('courseCard.students')}`;
     const dateCreated = isoDateToString(course?.created_at);
-
     return (
         <div className="item">
             <div className={`course-one__single color-${index}`}>
@@ -34,7 +33,7 @@ const CourseOneItem = ({ course, index, enrollments }: Props) => {
                     </a>
                     <div className="course-one__admin">
                         <img src={avt} alt="" />
-                        by
+                        {t('courseCard.by')}
                         <Link
                             to={`/user/${course.instructor._id}`}
                             /* eslint-disable-next-line camelcase */
@@ -60,10 +59,10 @@ const CourseOneItem = ({ course, index, enrollments }: Props) => {
                         <a href="#">
                             <i className="fal fa-user" /> {numberOfStudents}
                         </a>
-                        <a href="#">$Free</a>
+                        <a href="#">{course.price ? `${course.price}$` : '$Free'}</a>
                     </div>
                     <Link to={`/course-details/${course._id}`} className="course-one__link">
-                        See Preview
+                        {t('courseCard.seeMore')}
                     </Link>
                 </div>
             </div>

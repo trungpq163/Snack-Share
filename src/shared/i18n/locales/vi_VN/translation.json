@@ -13,7 +13,7 @@
         "dashBoard": "Bảng Điều Khiển",
         "users": "Người Dùng",
         "categories": "Thể Loại",
-        "enrolledUsers": "Người Dùng Đã Đăng Kí"
+        "enrolledUsers": "Học sinh Đã Ghi Danh"
     },
     "login": {
         "signin": "Đăng nhập",
@@ -39,9 +39,25 @@
         "titleIntro2": "Bắt đầu học hỏi từ các chuyên gia của chúng tôi",
         "titleIntro3": "Nâng cao kỹ năng của bạn ngay bây giờ",
         "titleButton": "Xem thêm",
-        "trustBy": "Được tin cậy bởi",
+        "trustBy": "Được tin cậy",
         "titlePopularCourse": "Khám phá khoá học",
         "titlePopularCourse2": "phổ biến của chúng tôi",
         "ourStudent": "Học sinh chúng tôi làm việc tại"
+    },
+    "courseCard": {
+        "students": "học sinh",
+        "by": "bởi",
+        "seeMore": "Xem thêm",
+        "studyNow": "Học ngay"
+    },
+    "breadcrumb": {
+        "home": "Trang chủ",
+        "myLearning": "Việc học của tôi",
+        "allCourse": "Tất cả khoá học",
+        "myCourses": "Khoá học của tôi",
+        "dashboard": "Bảng điều khiển",
+        "userManagement": "Quản lý người dùng",
+        "categoryManagement": "Quản lý thể loại khoá học",
+        "enrollStudent": "Học sinh đã ghi danh"
     }
 }

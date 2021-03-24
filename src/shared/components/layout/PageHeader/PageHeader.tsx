@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import '../../../styles/InnerBanner.Styles.css';
 interface Props {
     title?: string;
@@ -7,6 +8,7 @@ interface Props {
 }
 
 const PageHeader = ({ title, loading }: Props) => {
+    const { t } = useTranslation();
     return (
         <section className="inner-banner">
             <div className="container">
@@ -14,7 +16,7 @@ const PageHeader = ({ title, loading }: Props) => {
                     <>
                         <ul className="list-unstyled thm-breadcrumb">
                             <li>
-                                <Link to="/">Home</Link>
+                                <Link to="/">{`${t('breadcrumb.home')}`}</Link>
                             </li>
                             <li className="active">
                                 <a href="#none">{title}</a>

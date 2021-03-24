@@ -74,7 +74,7 @@ const Introduction = () => {
                             />
                             <div className="about-two__count">
                                 <div className="about-two__count-text">
-                                    Trusted by
+                                    {t('home.trustBy')}
                                     <span className="counter">
                                         <VisibilitySensor
                                             onChange={onVisibilityChange}

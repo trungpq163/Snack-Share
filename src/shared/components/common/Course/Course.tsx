@@ -1,17 +1,17 @@
 /* eslint-disable camelcase */
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-
+import { useTranslation } from 'react-i18next';
 import { isoDateToString } from '../../../utils/isoToString';
 
 import avt from '../../../assets/images/avt.jpg';
 
 const Course = ({ col, course, isMyLearningRoute, enrollments, index }: any) => {
-    console.log('courseCourse', course);
+    const { t } = useTranslation();
     const handleNumberOfStudents = (id: string): number =>
         enrollments?.filter((enrollment: any) => enrollment?.course?._id === id)?.length;
 
-    const numberOfStudents = `${handleNumberOfStudents(course._id)} students`;
+    const numberOfStudents = `${handleNumberOfStudents(course._id)} ${t('courseCard.students')}`;
     const dateCreated = isoDateToString(course?.created_at);
 
     return (
@@ -35,7 +35,7 @@ const Course = ({ col, course, isMyLearningRoute, enrollments, index }: any) => 
                     </a>
                     <div className="course-one__admin">
                         <img src={avt} alt="" />
-                        by
+                        {t('courseCard.by')}
                         <Link
                             to={`/user/${course?.instructor?._id}`}
                             /* eslint-disable-next-line camelcase */
@@ -71,7 +71,7 @@ const Course = ({ col, course, isMyLearningRoute, enrollments, index }: any) => 
                     </div>
                     {!isMyLearningRoute ? (
                         <Link to={`/course-details/${course?._id}`} className="course-one__link">
-                            See Preview
+                            {t('courseCard.seeMore')}
                         </Link>
                     ) : (
                         <Link to={`/courses/${course?._id}`} className="course-one__link">

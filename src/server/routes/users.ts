@@ -40,20 +40,20 @@ router
 /**
  * @route GET api/users
  * @desc Return all users in mongoDB
- * @access Public
+ * @access Private Admin
  */
-router.route('/users').get(getUsersCtrl);
+router.route('/users').get(passport.authenticate('admin', { session: false }), getUsersCtrl);
 
 /**
  * @route GET POST PUT DELETE api/user
  * @desc Display Profile User, Update Profile User, Delete Some Info, vv
- * @access Public
+ * @access Private
  */
 router
     .route('/user')
-    .get(getUserCtrl)
-    .post(postUserCtrl)
-    .put(updateUserByIdCtrl)
-    .delete(deleteUserByIdCtrl);
+    .get(passport.authenticate('admin', { session: false }), getUserCtrl)
+    .post(passport.authenticate('admin', { session: false }), postUserCtrl)
+    .put(passport.authenticate('admin', { session: false }), updateUserByIdCtrl)
+    .delete(passport.authenticate('admin', { session: false }), deleteUserByIdCtrl);
 
 export default router;

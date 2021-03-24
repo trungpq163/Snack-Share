@@ -93,7 +93,7 @@ export const loginUsersCtrl = (req: Request, res: Response) => {
                 };
 
                 // Sign token
-                jwt.sign(payload, keys.SECRET_ORKEY, { expiresIn: 3600 }, (_err, token) => {
+                jwt.sign(payload, keys.SECRET_ORKEY, { expiresIn: 7200 }, (_err, token) => {
                     res.json({
                         success: true,
                         token: 'Bearer ' + token,

@@ -2,6 +2,7 @@
 import * as React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import CircleLoader from '../../../components/loader/CircleLoader/CircleLoader';
 import { getCourses } from '../../../store/courses/selectors';
@@ -15,6 +16,7 @@ const Dashboard = () => {
     const dispatch = useDispatch();
     const getAllCourses = useSelector(getCourses);
     const getAllEnrollments = useSelector(getEnrolls);
+    const { t } = useTranslation();
 
     React.useEffect(() => {
         dispatch(getAllCoursesEff());
@@ -76,7 +78,7 @@ const Dashboard = () => {
 
     return (
         <>
-            <PageHeader title="Dashboard" />
+            <PageHeader title={`${t('breadcrumb.dashboard')}`} />
             {getAllCourses.loading ? (
                 <CircleLoader />
             ) : (

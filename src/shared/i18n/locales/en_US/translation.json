@@ -43,5 +43,28 @@
         "titlePopularCourse": "Explore our",
         "titlePopularCourse2": "popular courses",
         "ourStudent": "Our student work at"
+    },
+    "courseCard": {
+        "students": "students",
+        "by": "by",
+        "seeMore": "See Preview",
+        "studyNow": "Study Now"
+    },
+    "breadcrumb": {
+        "home": "Home",
+        "myLearning": "My Learning",
+        "allCourse": "All Course",
+        "myCourses": "My Courses",
+        "dashboard": "Dashboard",
+        "userManagement": "User Management",
+        "categoryManagement": "Category Management",
+        "enrollStudent": "Enrolled Student",
+        "addCourse": "Add Course",
+        "addLecture": "Add Lecture",
+        "loading": "Loading...........",
+        "editCategory": "Edit Category",
+        "editUser": "Edit User",
+        "checkout": "Checkout",
+        "addEducation": "Add Education"
     }
 }

@@ -7,11 +7,14 @@ import { getAllEnrollments } from '../store/enrollment/effects';
 import { getAllUsers } from '../store/users/effects';
 
 export default (dispatch: any, decoded: any) => {
+    console.log('decoded with love', decoded);
     dispatch(dispatchSetCurrentUser(decoded as any));
     dispatch(getCurrentProfile());
-    dispatch(getAllProfiles((err: string) => toastErrorNotify(err)));
     dispatch(getCategory());
     dispatch(getAllCourses());
+    dispatch(getAllProfiles((err: string) => toastErrorNotify(err)));
     dispatch(getAllEnrollments());
-    dispatch(getAllUsers());
+    if (decoded.role === 'admin') {
+        dispatch(getAllUsers());
+    }
 };
