@@ -30,7 +30,9 @@ const CourseDetail = () => {
 
     React.useEffect(() => {
         dispatch(getAllCourses());
-        dispatch(getCurrentProfile());
+        if (localStorage.jwtToken) {
+            dispatch(getCurrentProfile());
+        }
         dispatch(getAllEnrollments());
     }, [dispatch]);
 

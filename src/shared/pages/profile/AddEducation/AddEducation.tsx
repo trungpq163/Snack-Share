@@ -23,7 +23,10 @@ const AddEducation = () => {
     }, [dispatch]);
 
     React.useEffect(() => {
-        dispatch(getCurrentProfile());
+        // dispatch(getCurrentProfile());
+        if (localStorage.jwtToken) {
+            dispatch(getCurrentProfile());
+        }
     }, [dispatch]);
 
     return (

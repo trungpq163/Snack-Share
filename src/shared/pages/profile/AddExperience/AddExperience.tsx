@@ -23,7 +23,10 @@ const AddExperience = () => {
     }, [dispatch]);
 
     React.useEffect(() => {
-        dispatch(getCurrentProfile());
+        // dispatch(getCurrentProfile());
+        if (localStorage.jwtToken) {
+            dispatch(getCurrentProfile());
+        }
     }, [dispatch]);
 
     return (

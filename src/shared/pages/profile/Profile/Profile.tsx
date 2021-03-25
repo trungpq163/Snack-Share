@@ -39,7 +39,10 @@ const Profile = () => {
 
     React.useEffect(() => {
         dispatch(getAllEnrollments());
-        dispatch(getCurrentProfile());
+        // dispatch(getCurrentProfile());
+        if (localStorage.jwtToken) {
+            dispatch(getCurrentProfile());
+        }
         dispatch(getAllCourses());
     }, [dispatch]);
 
