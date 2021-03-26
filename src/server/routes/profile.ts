@@ -53,7 +53,7 @@ router
  * @desc Get all profiles
  * @access Public
  */
-router.route('/all').get(passport.authenticate('jwt', { session: false }), getAllProfilesCtrl);
+router.route('/all').get(getAllProfilesCtrl);
 
 /**
  * @route GET api/profile/handle/:handle

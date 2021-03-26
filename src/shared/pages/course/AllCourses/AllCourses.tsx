@@ -1,6 +1,6 @@
 import * as React from 'react';
-
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import { getAllCourses } from '../../../store/courses/effects';
 import { getAllEnrollments } from '../../../store/enrollment/effects';
@@ -14,6 +14,7 @@ const AllCourses = () => {
     const dispatch = useDispatch();
     const courses = useSelector(getCourses);
     const enrollments = useSelector(getEnrollments);
+    const { t } = useTranslation();
 
     React.useEffect(() => {
         dispatch(getAllCourses());
@@ -22,7 +23,7 @@ const AllCourses = () => {
 
     return (
         <>
-            <PageHeader title="Courses" />
+            <PageHeader title={`${t('breadcrumb.allCourse')}`} />
             {courses.loading || enrollments.loading ? (
                 <CircleLoader />
             ) : (

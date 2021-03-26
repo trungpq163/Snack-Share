@@ -12,7 +12,7 @@
         "allCourses": "Tất Cả Khoá Học",
         "dashBoard": "Bảng Điều Khiển",
         "users": "Người Dùng",
-        "categories": "Thể Loại",
+        "categories": "Các Danh Mục",
         "enrolledUsers": "Học sinh Đã Ghi Danh"
     },
     "login": {
@@ -57,7 +57,16 @@
         "myCourses": "Khoá học của tôi",
         "dashboard": "Bảng điều khiển",
         "userManagement": "Quản lý người dùng",
-        "categoryManagement": "Quản lý thể loại khoá học",
-        "enrollStudent": "Học sinh đã ghi danh"
+        "categoryManagement": "Quản lý danh mục",
+        "createCategory": "Tạo danh mục",
+        "enrollStudent": "Học sinh ghi danh",
+        "createEnrollment": "Tạo ghi danh",
+        "addCourse": "Thêm khoá học",
+        "addLecture": "Add bài giảng",
+        "loading": "Đang tải...........",
+        "editCategory": "Chỉnh sửa danh mục",
+        "editUser": "Chỉnh sửa người dùng",
+        "checkout": "Thanh toán",
+        "addEducation": "Thêm nơi bạn học"
     }
 }

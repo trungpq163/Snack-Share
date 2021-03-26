@@ -30,8 +30,8 @@ i18next.init({
     // i18next-xhr-backend, otherwise no calls will be made if resources are defined.
     partialBundledLanguages: true,
     resources: {
-        en_US: { translation: enUS },
         vi_VN: { translation: viVN },
+        en_US: { translation: enUS },
     },
     parseMissingKeyHandler: (missing: any) => {
         if (process.env.NODE_ENV === 'development' && __BROWSER__) {
@@ -41,7 +41,7 @@ i18next.init({
     },
 });
 
-i18next.languages = ['en_US', 'vi_VN'];
+i18next.languages = ['vi_VN', 'en_US'];
 
 const I18N: React.FC<any> = ({ children }) => {
     const locale = useSelector(getLocale);

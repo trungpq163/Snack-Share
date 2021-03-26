@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import { getCategory } from '../../../store/category/selectors';
 import { getCategory as getCategoryEff } from '../../../store/category/effects';
@@ -12,6 +13,7 @@ const EditCategory = () => {
     const dispatch = useDispatch();
     const category = useSelector(getCategory);
     const location = useLocation();
+    const { t } = useTranslation();
 
     React.useEffect(() => {
         dispatch(getCategoryEff());
@@ -23,7 +25,7 @@ const EditCategory = () => {
 
     return (
         <>
-            <PageHeader title="Edit Category" />
+            <PageHeader title={`${t('breadcrumb.editCategory')}`} />
             {category?.loading ? (
                 <CircleLoader />
             ) : (

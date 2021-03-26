@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import { getUsers } from '../../../store/users/selectors';
 import { getCourses } from '../../../store/courses/selectors';
@@ -13,6 +14,7 @@ const CreateEnrollment = () => {
     const dispatch = useDispatch();
     const users = useSelector(getUsers);
     const courses = useSelector(getCourses);
+    const { t } = useTranslation();
 
     React.useEffect(() => {
         dispatch(getAllUsers());
@@ -21,7 +23,7 @@ const CreateEnrollment = () => {
 
     return (
         <>
-            <PageHeader title="Create Enrollment" />
+            <PageHeader title={`${t('breadcrumb.createEnrollment')}`} />
             {users.loading || courses.loading ? (
                 <CircleLoader />
             ) : (

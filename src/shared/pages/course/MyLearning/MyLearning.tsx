@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import jwtDecode from 'jwt-decode';
+
 import PageHeader from '../../../components/layout/PageHeader/PageHeader';
 import MyLearningContainer from '../../../containers/course/MyLearningContainer/MyLearningContainer';
 import { getEnrollments } from '../../../store/enrollment/selectors';
@@ -12,9 +14,9 @@ import { dispatchSetCurrentUser } from '../../../store/auth/effects';
 const MyLearning = () => {
     const courses = useSelector(getEnrollments);
     const currentUser = useSelector(getAuth);
-    const [myCourse, setMyCourse] = React.useState([]);
-
     const dispatch = useDispatch();
+    const { t } = useTranslation();
+    const [myCourse, setMyCourse] = React.useState([]);
 
     React.useEffect(() => {
         if (localStorage.jwtToken) {
@@ -35,7 +37,7 @@ const MyLearning = () => {
 
     return (
         <>
-            <PageHeader title="My Learning" />
+            <PageHeader title={`${t('breadcrumb.myLearning')}`} />
             {courses.loading ? (
                 <CircleLoader />
             ) : (

@@ -1,6 +1,6 @@
 import * as React from 'react';
-
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import jwtDecode from 'jwt-decode';
 import { getCourses } from '../../../store/courses/selectors';
 import { getAuth } from '../../../store/auth/selectors';
@@ -14,6 +14,7 @@ import PageHeader from '../../../components/layout/PageHeader/PageHeader';
 
 const MyCourses = () => {
     const dispatch = useDispatch();
+    const { t } = useTranslation();
     const currentUser = useSelector(getAuth);
     const course = useSelector(getCourses);
     const enrollments = useSelector(getEnrollments);
@@ -36,7 +37,7 @@ const MyCourses = () => {
 
     return (
         <>
-            <PageHeader title="My Courses" />
+            <PageHeader title={`${t('breadcrumb.myCourses')}`} />
             {course?.loading || enrollments?.loading ? (
                 <CircleLoader />
             ) : (
