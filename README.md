@@ -41,7 +41,6 @@ yarn plop
 ```
 
 ### Environment Variables
-
 There are a few environment variables you can set to adjust the setup to your needs
 
 | Variable         | Default            | Description                                                                                                                                                                                                                                                                                      |
