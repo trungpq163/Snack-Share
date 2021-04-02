@@ -24,6 +24,7 @@ const routes = {
     lesson: '/courses/:id/lessons/:lessons',
     dashboard: '/dashboard',
     enrollments: '/enrollments',
+    manageYourStudent: '/manage-your-student/:id',
     createEnrollment: '/create-enrollment',
 };
 

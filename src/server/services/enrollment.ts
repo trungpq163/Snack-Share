@@ -55,6 +55,21 @@ export const findCourseByNameService = async (course: any, reqBodyCourse: string
     );
 };
 
+export const updateEnrollmentByIdService = async (
+    enrollment: any,
+    reqQueryId: string,
+    reqBody: any,
+    option: any
+) => {
+    return await enrollment.findOneAndUpdate(
+        {
+            _id: reqQueryId,
+        },
+        reqBody,
+        option
+    );
+};
+
 export const saveEnrollmentService = async (enrollment: any) => {
     return await enrollment.save();
 };

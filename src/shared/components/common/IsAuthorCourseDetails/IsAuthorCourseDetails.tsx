@@ -6,6 +6,7 @@ interface Props {
 }
 
 const IsAuthorCourseDetails = ({ idCourse }: Props) => {
+    console.log('idCourseAt', idCourse);
     return (
         <>
             <div className="course-details__price">
@@ -13,7 +14,10 @@ const IsAuthorCourseDetails = ({ idCourse }: Props) => {
                     Edit Course
                 </Link>{' '}
                 <br />
-                <Link className="course-details__price-amount" to="">
+                <Link
+                    className="course-details__price-amount"
+                    to={`/manage-your-student/${idCourse}`}
+                >
                     Manage Your Student
                 </Link>
                 <Link to={`/add-lecture/${idCourse}`} className="thm-btn course-details__price-btn">

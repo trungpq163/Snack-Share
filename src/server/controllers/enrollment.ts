@@ -12,6 +12,7 @@ import {
     // findCourseByNameService,
     saveEnrollmentService,
     deleteEnrollmentService,
+    updateEnrollmentByIdService,
 } from '../services/enrollment';
 
 export const getEnrollmentsCtrl = (_req: Request, res: Response, next: NextFunction) => {
@@ -94,6 +95,14 @@ export const addEnrollmentByStudentCtrl = (req: Request, res: Response) => {
         .catch((err) => {
             res.status(500).json(err);
         });
+};
+
+export const updateEnrollmentByIdCtrl = (req: Request, res: Response) => {
+    updateEnrollmentByIdService(enrollmentModel, req.query.id, req.body, {
+        new: true,
+    })
+        .then((doc) => res.json(doc))
+        .catch((err) => res.status(500).json(err));
 };
 
 export const deleteEnrollmentCtrl = (req: Request, res: Response) => {

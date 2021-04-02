@@ -68,5 +68,12 @@
         "editUser": "Edit User",
         "checkout": "Checkout",
         "addEducation": "Add Education"
+    },
+    "manageYourStudent": {
+        "manageYourStudent": "Manage Your Student",
+        "studentEmail": "Student Email",
+        "courseTitle": "Course Title",
+        "action": "Action",
+        "delete": "Delete"
     }
 }

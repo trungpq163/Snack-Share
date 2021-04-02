@@ -75,6 +75,28 @@ export const addEnrollments = (
         });
 };
 
+export const deleteEnrollmentsInstructorByID = (
+    id: string,
+    errorCb: Function,
+    doneCb: Function,
+    setData: Function
+) => (_dispatch: Dispatch<Action>) => {
+    const config: AxiosRequestConfig = {
+        method: 'delete',
+        url: `/api/enrollmentInstructor?id=${id}`,
+        headers: {},
+    };
+
+    axios(config)
+        .then((_res) => {
+            doneCb('Delete Enrollment Successfully!');
+            setData();
+        })
+        .catch((err) => {
+            errorCb(errorResponse(err));
+        });
+};
+
 export const deleteEnrollmentsByID = (
     id: string,
     errorCb: Function,

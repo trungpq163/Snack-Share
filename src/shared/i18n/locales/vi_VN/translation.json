@@ -68,5 +68,12 @@
         "editUser": "Chỉnh sửa người dùng",
         "checkout": "Thanh toán",
         "addEducation": "Thêm nơi bạn học"
+    },
+    "manageYourStudent": {
+        "manageYourStudent": "Quản lý học sinh đăng kí",
+        "studentEmail": "Email học sinh",
+        "courseTitle": "Tên khoá học",
+        "action": "Hành động",
+        "delete": "Xoá"
     }
 }

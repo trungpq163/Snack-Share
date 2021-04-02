@@ -34,6 +34,7 @@ import EditUser from './pages/manage/EditUser/EditUser';
 import AddCourse from './pages/course/AddCourse/AddCourse';
 import AllCourses from './pages/course/AllCourses/AllCourses';
 import MyCourses from './pages/course/MyCourses/MyCourses';
+import ManageYourStudent from './pages/manage/ManageYourStudent/ManageYourStudent';
 import CourseDetails from './pages/course/CourseDetails/CourseDetails';
 import Checkout from './pages/payment/Checkout/Checkout';
 import MyLearning from './pages/course/MyLearning/MyLearning';
@@ -177,6 +178,11 @@ const App: React.FC<any> = () => {
                             exact
                             path={routes.createEnrollment}
                             component={CreateEnrollment}
+                        />
+                        <InstructorPrivateRoute
+                            exact
+                            path={routes.manageYourStudent}
+                            component={ManageYourStudent}
                         />
                         <Route render={NotFound} />
                     </Switch>
