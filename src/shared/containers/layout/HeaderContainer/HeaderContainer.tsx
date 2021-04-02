@@ -27,7 +27,9 @@ const HeaderContainer = () => {
     const checkMyCoursesRoute =
         location?.pathname === '/my-courses' ||
         location?.pathname?.includes('addcourse') ||
-        location?.pathname?.includes('lecture');
+        location?.pathname?.includes('lecture') ||
+        location?.pathname?.includes('manage-your-student') ||
+        location?.pathname?.includes('edit-course');
     const checkMyLearningRoute = location?.pathname?.includes('/my-courses/learning/');
     const checkAllCoursesRoute =
         location?.pathname === '/courses' || location?.pathname?.includes('course-details');

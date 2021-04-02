@@ -26,6 +26,7 @@ const routes = {
     enrollments: '/enrollments',
     manageYourStudent: '/manage-your-student/:id',
     createEnrollment: '/create-enrollment',
+    editCourse: '/edit-course/:id',
 };
 
 export const getRoute = (

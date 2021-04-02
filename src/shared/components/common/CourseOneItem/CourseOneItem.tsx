@@ -35,7 +35,7 @@ const CourseOneItem = ({ course, index, enrollments }: Props) => {
                         <img src={avt} alt="" />
                         {t('courseCard.by')}
                         <Link
-                            to={`/user/${course.instructor._id}`}
+                            to={`/user/${course?.instructor?._id}`}
                             /* eslint-disable-next-line camelcase */
                         >{`${course?.instructor?.first_name} ${course?.instructor?.last_name}`}</Link>
                     </div>

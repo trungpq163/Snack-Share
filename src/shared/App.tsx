@@ -43,6 +43,7 @@ import Lesson from './pages/course/Lesson/Lesson';
 import Dashboard from './pages/manage/Dashboard/Dashboard';
 import Enrollments from './pages/manage/Enrollments/Enrollments';
 import CreateEnrollment from './pages/manage/CreateEnrollment/CreateEnrollment';
+import EditCourse from './pages/manage/EditCourse/EditCourse';
 import NotFound from './pages/common/NotFound/NotFound';
 import Footer from './components/layout/Footer/Footer';
 
@@ -183,6 +184,11 @@ const App: React.FC<any> = () => {
                             exact
                             path={routes.manageYourStudent}
                             component={ManageYourStudent}
+                        />
+                        <InstructorPrivateRoute
+                            exact
+                            path={routes.editCourse}
+                            component={EditCourse}
                         />
                         <Route render={NotFound} />
                     </Switch>

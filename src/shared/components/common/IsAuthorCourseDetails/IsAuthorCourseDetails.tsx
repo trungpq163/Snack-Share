@@ -10,7 +10,7 @@ const IsAuthorCourseDetails = ({ idCourse }: Props) => {
     return (
         <>
             <div className="course-details__price">
-                <Link className="course-details__price-text" to="">
+                <Link className="course-details__price-text" to={`/edit-course/${idCourse}`}>
                     Edit Course
                 </Link>{' '}
                 <br />
