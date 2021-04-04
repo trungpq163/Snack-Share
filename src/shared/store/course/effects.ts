@@ -30,7 +30,7 @@ export const updateCourseById = (
             clearInput();
             setData();
             redirectWhenSuccess();
-            doneCb('Update user successfully!');
+            doneCb('Update course successfully!');
         })
         .catch((err) => {
             clearInput();

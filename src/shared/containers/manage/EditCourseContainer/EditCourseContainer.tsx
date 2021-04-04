@@ -4,8 +4,6 @@ import jwtDecode from 'jwt-decode';
 import Resizer from 'react-image-file-resizer';
 import { useHistory } from 'react-router-dom';
 import { toastErrorNotify, toastSuccessNotify, toastEmojiNotify } from '../../../utils/toast';
-import CircleLoader from '../../../components/loader/CircleLoader/CircleLoader';
-import EditCategory from '../../../components/manage/EditCategory/EditCategory';
 import { updateCourseById } from '../../../store/course/effects';
 
 import isEmpty from '../../../validation/isEmpty';
@@ -172,7 +170,7 @@ const EditCourseContainer = ({ course, pathname, category }: Props) => {
                     language: values.language,
                     courseDescription: values.courseDescription,
                     image: uri,
-                    instructor: pathname,
+                    instructor: course.instructor._id,
                     category: values.category,
                 };
 
