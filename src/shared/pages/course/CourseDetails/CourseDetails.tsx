@@ -13,6 +13,8 @@ import { getProfile } from '../../../store/profile/selectors';
 import { getCurrentProfile } from '../../../store/profile/effects';
 import { getEnrollments } from '../../../store/enrollment/selectors';
 import { getAllEnrollments } from '../../../store/enrollment/effects';
+import { getAllRatingsByIDCourse } from '../../../store/ratings/effects';
+import { getRatingsByIDCourse } from '../../../store/ratings/selectors';
 import CourseDetailsContainer from '../../../containers/course/CourseDetailsContainer/CourseDetailsContainer';
 import PageHeader from '../../../components/layout/PageHeader/PageHeader';
 
@@ -26,6 +28,7 @@ const CourseDetail = () => {
     const courses = useSelector(getCourses);
     const currentUser = useSelector(getProfile);
     const enrollments = useSelector(getEnrollments);
+    const ratings = useSelector(getRatingsByIDCourse);
     const auth = useSelector(getAuth);
 
     React.useEffect(() => {
@@ -35,6 +38,10 @@ const CourseDetail = () => {
         }
         dispatch(getAllEnrollments());
     }, [dispatch]);
+
+    React.useEffect(() => {
+        dispatch(getAllRatingsByIDCourse(idCourse));
+    }, [idCourse, dispatch]);
 
     React.useEffect(() => {
         if (localStorage.jwtToken) {
@@ -58,7 +65,7 @@ const CourseDetail = () => {
 
     return (
         <>
-            {courses.loading || currentUser.loading || enrollments.loading ? (
+            {courses.loading || currentUser.loading || enrollments.loading || ratings.loading ? (
                 <>
                     <PageHeader title="Loading............." />
                     <CircleLoader />
