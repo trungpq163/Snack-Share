@@ -14,5 +14,9 @@ export const saveRatingService = async (rating: any) => {
 };
 
 export const findRatingByCourse = async (rating: any, reqQueryCourse: string) => {
-    return rating.find({ course: reqQueryCourse });
+    return await rating.find({ course: reqQueryCourse }).populate({
+        path: 'user',
+        model: 'users',
+        select: 'email first_name last_name -_id',
+    });
 };

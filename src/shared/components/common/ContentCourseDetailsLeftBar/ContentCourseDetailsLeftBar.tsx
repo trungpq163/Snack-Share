@@ -10,6 +10,7 @@ interface Props {
     isReviewContentClass: string;
     team2: string;
     avt: string;
+    ratings: any;
 }
 
 const ContentCourseDetailsLeftBar = ({
@@ -19,6 +20,7 @@ const ContentCourseDetailsLeftBar = ({
     isReviewContentClass,
     team2,
     avt,
+    ratings,
 }: Props) => {
     return (
         <div className="tab-content course-details__tab-content ">
@@ -31,6 +33,7 @@ const ContentCourseDetailsLeftBar = ({
                 avt={avt}
                 isReviewContentClass={isReviewContentClass}
                 team2={team2}
+                ratings={ratings}
             />
         </div>
     );

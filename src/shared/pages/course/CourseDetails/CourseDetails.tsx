@@ -81,6 +81,7 @@ const CourseDetail = () => {
                         enrolled={enrolled}
                         isNotAuth={isNotAuth}
                         studentId={auth.users.id || ''}
+                        ratings={ratings.ratings}
                     />
                 </>
             )}

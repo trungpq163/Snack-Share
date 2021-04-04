@@ -16,6 +16,7 @@ interface Props {
     courseDescription: string;
     team2: string;
     idInstructor: any;
+    ratings: any;
 }
 
 const CourseDetailsLeftBar = ({
@@ -28,6 +29,7 @@ const CourseDetailsLeftBar = ({
     courseDescription,
     team2,
     idInstructor,
+    ratings,
 }: Props) => {
     const location = useLocation();
     const hashTag = location.hash;
@@ -78,6 +80,7 @@ const CourseDetailsLeftBar = ({
                     isOverviewContentClass={isOverviewContentClass}
                     isReviewContentClass={isReviewContentClass}
                     team2={team2}
+                    ratings={ratings}
                 />
             </div>
         </div>

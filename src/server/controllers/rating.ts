@@ -43,5 +43,8 @@ export const addRatingCtrl = (req: Request, res: Response) => {
 export const getRatingByCourse = (req: Request, res: Response) => {
     findRatingByCourse(ratingModel, req.query.course)
         .then((rating) => res.status(200).json(rating))
-        .catch((err) => res.status(400).json(err));
+        .catch((err) => {
+            console.log(err);
+            res.status(400).json(err);
+        });
 };

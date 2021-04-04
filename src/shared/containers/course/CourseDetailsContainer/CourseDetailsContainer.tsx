@@ -16,6 +16,7 @@ interface Props {
     courses?: any;
     isNotAuth: boolean;
     studentId: string;
+    ratings: any;
 }
 
 const CourseDetailsContainer = ({
@@ -26,6 +27,7 @@ const CourseDetailsContainer = ({
     courses,
     isNotAuth,
     studentId,
+    ratings,
 }: Props) => {
     const history = useHistory();
     const dataCourse = {
@@ -71,6 +73,7 @@ const CourseDetailsContainer = ({
             enrolled={enrolled}
             courses={courses}
             redirectToSessionCheckout={redirectToSessionCheckout}
+            ratings={ratings}
         />
     );
 };

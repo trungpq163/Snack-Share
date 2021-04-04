@@ -20,6 +20,7 @@ const CourseDetails = ({
     price,
     skillLevel,
     redirectToSessionCheckout,
+    ratings,
 }: any) => {
     console.log('courses', courses);
     return (
@@ -36,6 +37,7 @@ const CourseDetails = ({
                         lastName={instructorData?.last_name}
                         image={image}
                         team2={team2}
+                        ratings={ratings}
                     />
                     <CourseDetailsRightBar
                         isAuthor={isAuthor}
