@@ -42,7 +42,7 @@ export const getAllProfilesCtrl = (_req: Request, res: Response) => {
         .then((profiles) => {
             if (!profiles) {
                 return res.status(200).json({
-                    res: 'There is no profile for this user',
+                    res: 'There are no profiles',
                 });
             }
 
