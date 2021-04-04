@@ -24,6 +24,7 @@ import lectureRoute from './routes/lecture';
 import profileRoute from './routes/profile';
 import roleRoute from './routes/role';
 import usersRoute from './routes/users';
+import ratingRoute from './routes/rating';
 import checkoutRoute from './routes/checkout';
 import webhookRoute from './routes/webhook';
 import key from './config/key';
@@ -71,6 +72,7 @@ app.use('/api/profile/', profileRoute);
 app.use('/api/', roleRoute);
 app.use('/api/', usersRoute);
 app.use('/api/', checkoutRoute);
+app.use('/api/', ratingRoute);
 app.use('/api/', webhookRoute);
 
 app.use(addStore);
