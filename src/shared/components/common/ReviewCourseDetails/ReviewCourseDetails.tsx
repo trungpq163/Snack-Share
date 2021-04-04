@@ -135,6 +135,7 @@ const ReviewCourseDetails = ({ isReviewContentClass, avt, team2 }: Props) => {
                         <i className="fas fa-star" />
                     </a>
                 </p>
+
                 <div className="row">
                     <div className="col-lg-6">
                         <input type="text" placeholder="Your Name" />
