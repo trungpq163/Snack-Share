@@ -1,5 +1,5 @@
 {
-    "name": "snack-dev",
+    "name": "snack-share",
     "version": "1.0.0",
     "author": "QuocTrung <quoctrung163s@gmail.com> (https://github.com/quoctrung163)",
     "license": "MIT",
@@ -70,6 +70,7 @@
         "react-redux": "^7.2.0",
         "react-router": "^5.2.0",
         "react-router-dom": "^5.2.0",
+        "react-stars": "^2.2.5",
         "react-toastify": "^7.0.3",
         "react-visibility-sensor": "^5.1.1",
         "redux": "^4.0.5",
@@ -128,6 +129,7 @@
         "@types/react-redux": "^7.1.8",
         "@types/react-router": "^5.1.7",
         "@types/react-router-dom": "^5.1.5",
+        "@types/react-stars": "^2.2.0",
         "@types/rimraf": "^3.0.0",
         "@types/styled-components": "^5.1.7",
         "@types/terser-webpack-plugin": "^3.0.0",

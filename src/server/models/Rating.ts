@@ -9,25 +9,28 @@ export interface RatingInterface extends Document {
     star: number;
 }
 
-const RatingSchema: Schema = new Schema({
-    user: {
-        type: Schema.Types.ObjectId,
-        ref: 'user',
-        required: true,
+const RatingSchema: Schema = new Schema(
+    {
+        user: {
+            type: Schema.Types.ObjectId,
+            ref: 'user',
+            required: true,
+        },
+        course: {
+            type: Schema.Types.ObjectId,
+            ref: 'course',
+            required: true,
+        },
+        content: {
+            type: String,
+            required: true,
+        },
+        star: {
+            type: Number,
+            required: true,
+        },
     },
-    course: {
-        type: Schema.Types.ObjectId,
-        ref: 'course',
-        required: true,
-    },
-    content: {
-        type: String,
-        required: true,
-    },
-    star: {
-        type: Number,
-        required: true,
-    },
-});
+    { timestamps: { createdAt: 'created_at' } }
+);
 
 export default mongoose.model<RatingInterface>('ratings', RatingSchema);

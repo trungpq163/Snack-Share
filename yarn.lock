@@ -2753,6 +2753,13 @@
     "@types/history" "*"
     "@types/react" "*"
 
+"@types/react-stars@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@types/react-stars/-/react-stars-2.2.0.tgz#f68885fd850f127f14a746c53c8afe56db6db137"
+  integrity sha512-A97QK826/5pUBoBufEYnhJzzo0rmj94jj2fxGL5U3IcS5wQg4DRcRROodm+RQWznlPEhyjHjo6D/5Y5KnDJmAQ==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react@*":
   version "16.9.2"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.9.2.tgz#6d1765431a1ad1877979013906731aae373de268"
@@ -13503,6 +13510,11 @@ react-router@5.2.0, react-router@^5.2.0:
     react-is "^16.6.0"
     tiny-invariant "^1.0.2"
     tiny-warning "^1.0.0"
+
+react-stars@^2.2.5:
+  version "2.2.5"
+  resolved "https://registry.yarnpkg.com/react-stars/-/react-stars-2.2.5.tgz#911852018e1574a0f9a2c1dfa4f0bc9af071b921"
+  integrity sha1-kRhSAY4VdKD5osHfpPC8mvBxuSE=
 
 react-test-renderer@^16.0.0-0:
   version "16.14.0"

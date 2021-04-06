@@ -1,3 +1,14 @@
+/* eslint-disable prefer-const */
+// .aggregate([
+//     {
+//         $lookup: {
+//             from: 'ratings',
+//             localField: '_id',
+//             foreignField: 'course',
+//             as: 'ratingsData',
+//         },
+//     },
+// ])
 export const addCourseService = async (category: any, reqBodyCategory: any, cb: Function) => {
     return await category.find(
         {
@@ -13,9 +24,34 @@ export const saveAddCourseService = async (course: any) => {
 
 export const getCoursesService = async (course: any, cb: Function) => {
     return await course
-        .find()
-        .populate({ path: 'category', model: 'category' })
-        .populate({ path: 'instructor', model: 'users' })
+        .aggregate([
+            {
+                $lookup: {
+                    from: 'ratings',
+                    localField: '_id',
+                    foreignField: 'course',
+                    as: 'ratings',
+                },
+            },
+            {
+                $lookup: {
+                    from: 'categories',
+                    localField: 'category',
+                    foreignField: '_id',
+                    as: 'category',
+                },
+            },
+            { $unwind: '$category' },
+            {
+                $lookup: {
+                    from: 'users',
+                    localField: 'instructor',
+                    foreignField: '_id',
+                    as: 'instructor',
+                },
+            },
+            { $unwind: '$instructor' },
+        ])
         .exec(cb);
 };
 

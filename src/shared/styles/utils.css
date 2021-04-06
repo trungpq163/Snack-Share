@@ -10,3 +10,8 @@
 .block-title__center {
     text-align: center;
 }
+
+.fa-star:before,
+.fa-star-half::before {
+    color: red !important;
+}

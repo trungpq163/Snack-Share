@@ -21,14 +21,17 @@ const CourseDetails = ({
     skillLevel,
     redirectToSessionCheckout,
     ratings,
+    user,
+    courseDetailRatings,
 }: any) => {
-    console.log('courses', courses);
+    console.log('courseDetailRatings', courseDetailRatings);
     return (
         <section className="course-details">
             <div className="container">
                 <div className="row">
                     <CourseDetailsLeftBar
                         avt={avt}
+                        idCourse={idCourse}
                         categoryName={categoryData?.categoryName || ''}
                         courseDescription={courseDescription || ''}
                         courseName={courseName || ''}
@@ -38,6 +41,7 @@ const CourseDetails = ({
                         image={image}
                         team2={team2}
                         ratings={ratings}
+                        user={user}
                     />
                     <CourseDetailsRightBar
                         isAuthor={isAuthor}

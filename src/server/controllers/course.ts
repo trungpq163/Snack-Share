@@ -70,10 +70,10 @@ export const getCoursesCtrl = (_req: Request, res: Response, next: NextFunction)
 
 export const getCourseCtrl = (req: Request, res: Response) => {
     getCourseService(courseModel, req.query.id)
-        .then((doc) => {
+        .then((doc: any) => {
             res.json(doc);
         })
-        .catch((err) => {
+        .catch((err: any) => {
             res.status(500).json(err);
         });
 };

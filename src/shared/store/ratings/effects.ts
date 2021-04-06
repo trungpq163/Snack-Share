@@ -22,3 +22,30 @@ export const getAllRatingsByIDCourse = (idCourse: string) => (dispatch: Dispatch
         })
         .catch((_err) => dispatch(getRatings({})));
 };
+
+export const addRating = (
+    data: any,
+    errorCb: Function,
+    doneCb: Function,
+    setData: Function,
+    redirectWhenSuccess: Function
+) => (_dispatch: Dispatch<Action>) => {
+    const config: AxiosRequestConfig = {
+        method: 'post',
+        url: '/api/rating',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        data: data,
+    };
+
+    axios(config)
+        .then((_res) => {
+            doneCb('Rating course successfully!');
+            setData();
+            redirectWhenSuccess();
+        })
+        .catch((err) => {
+            errorCb(errorResponse(err.response.data));
+        });
+};

@@ -65,7 +65,11 @@ const CourseDetail = () => {
 
     return (
         <>
-            {courses.loading || currentUser.loading || enrollments.loading || ratings.loading ? (
+            {courses.loading ||
+            currentUser.loading ||
+            enrollments.loading ||
+            ratings.loading ||
+            auth.loading ? (
                 <>
                     <PageHeader title="Loading............." />
                     <CircleLoader />
@@ -80,6 +84,7 @@ const CourseDetail = () => {
                         isAuthor={isAuthor}
                         enrolled={enrolled}
                         isNotAuth={isNotAuth}
+                        user={auth.users}
                         studentId={auth.users.id || ''}
                         ratings={ratings.ratings}
                     />

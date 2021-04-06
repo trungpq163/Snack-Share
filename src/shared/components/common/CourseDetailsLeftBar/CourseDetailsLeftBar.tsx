@@ -17,6 +17,8 @@ interface Props {
     team2: string;
     idInstructor: any;
     ratings: any;
+    user: any;
+    idCourse: string;
 }
 
 const CourseDetailsLeftBar = ({
@@ -30,6 +32,8 @@ const CourseDetailsLeftBar = ({
     team2,
     idInstructor,
     ratings,
+    user,
+    idCourse,
 }: Props) => {
     const location = useLocation();
     const hashTag = location.hash;
@@ -81,6 +85,8 @@ const CourseDetailsLeftBar = ({
                     isReviewContentClass={isReviewContentClass}
                     team2={team2}
                     ratings={ratings}
+                    user={user}
+                    idCourse={idCourse}
                 />
             </div>
         </div>

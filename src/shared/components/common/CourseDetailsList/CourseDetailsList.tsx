@@ -2,11 +2,15 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 
+import ReactStar from '../../common/RatingStar/RatingStar';
+import countRating from '../../../utils/countRating';
+
 interface Props {
     courses: any;
 }
 
 const CourseDetailsList = ({ courses }: Props) => {
+    console.log(courses);
     return (
         <div className="course-details__list">
             <h2 className="course-details__list-title">New Courses</h2>
@@ -36,14 +40,14 @@ const CourseDetailsList = ({ courses }: Props) => {
                         <h3>
                             <a href="#none">{course?.courseName}</a>
                         </h3>
-                        <div className="course-details__list-stars">
-                            <i className="fas fa-star" />
-                            <i className="fas fa-star" />
-                            <i className="fas fa-star" />
-                            <i className="fas fa-star" />
-                            <i className="fas fa-star" />
-                            <span>4.8</span>
-                        </div>
+                        {Number(countRating(course.ratings)) === 0 ? (
+                            <p>Chưa có đánh giá</p>
+                        ) : (
+                            <div className="course-details__list-stars">
+                                <ReactStar countRating={countRating(course.ratings)} />
+                                <span>{`${countRating(course.ratings)}`}</span>
+                            </div>
+                        )}
                     </div>
                 </div>
             ))}

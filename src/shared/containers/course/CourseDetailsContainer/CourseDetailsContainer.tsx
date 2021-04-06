@@ -17,6 +17,7 @@ interface Props {
     isNotAuth: boolean;
     studentId: string;
     ratings: any;
+    user: any;
 }
 
 const CourseDetailsContainer = ({
@@ -28,6 +29,7 @@ const CourseDetailsContainer = ({
     isNotAuth,
     studentId,
     ratings,
+    user,
 }: Props) => {
     const history = useHistory();
     const dataCourse = {
@@ -42,6 +44,7 @@ const CourseDetailsContainer = ({
         createdAt: courseDetails?.created_at,
         categoryData: courseDetails?.category,
         instructorData: courseDetails?.instructor,
+        courseDetailRatings: courseDetails?.ratings,
     };
 
     const redirectToSessionCheckout = async (_event: React.FormEvent<HTMLInputElement>) => {
@@ -63,8 +66,6 @@ const CourseDetailsContainer = ({
         }
     };
 
-    console.log('dataCourse', dataCourse);
-
     return (
         <CourseDetails
             idCourse={idCourse}
@@ -74,6 +75,7 @@ const CourseDetailsContainer = ({
             courses={courses}
             redirectToSessionCheckout={redirectToSessionCheckout}
             ratings={ratings}
+            user={user}
         />
     );
 };

@@ -3,6 +3,9 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { isoDateToString } from '../../../utils/isoToString';
+import countRating from '../../../utils/countRating';
+
+import RatingStar from '../RatingStar/RatingStar';
 
 import avt from '../../../assets/images/avt.jpg';
 
@@ -13,6 +16,7 @@ const Course = ({ col, course, isMyLearningRoute, enrollments, index }: any) => 
 
     const numberOfStudents = `${handleNumberOfStudents(course._id)} ${t('courseCard.students')}`;
     const dateCreated = isoDateToString(course?.created_at);
+    console.log('course at Course', course);
 
     return (
         <div className={`col-lg-${col}`} key={index}>
@@ -50,16 +54,17 @@ const Course = ({ col, course, isMyLearningRoute, enrollments, index }: any) => 
                             <Link to={`/courses/${course?._id}`}>{course?.courseName || ''}</Link>
                         )}
                     </h2>
-                    <div className="course-one__stars">
-                        <span className="course-one__stars-wrap">
-                            <i className="fa fa-star" />
-                            <i className="fa fa-star" />
-                            <i className="fa fa-star" />
-                            <i className="fa fa-star" />
-                            <i className="fa fa-star" />
-                        </span>
-                        <span className="course-one__count">4.8</span>
-                    </div>
+                    {Number(countRating(course.ratings)) === 0 ? (
+                        <p style={{ color: '#81868a', fontSize: '0.8rem' }}>Chưa có đánh giá</p>
+                    ) : (
+                        <div className="course-one__stars">
+                            <span className="course-one__stars-wrap">
+                                <RatingStar countRating={Number(countRating(course.ratings))} />
+                            </span>
+                            <span className="course-one__count">{countRating(course.ratings)}</span>
+                        </div>
+                    )}
+
                     <div className="course-one__meta">
                         <a href="#">
                             <i className="far fa-clock" /> {dateCreated}
