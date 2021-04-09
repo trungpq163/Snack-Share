@@ -1,18 +1,42 @@
 export const getEnrollmentsService = async (enrollment: any, cb: Function) => {
     return await enrollment
-        .find()
-        .populate({
-            path: 'student',
-            model: 'users',
-        })
-        .populate({
-            path: 'course',
-            model: 'courses',
-            populate: {
-                path: 'instructor',
-                model: 'users',
+        .aggregate([
+            {
+                $lookup: {
+                    from: 'ratings',
+                    localField: 'course',
+                    foreignField: 'course',
+                    as: 'ratings',
+                },
             },
-        })
+            {
+                $lookup: {
+                    from: 'courses',
+                    localField: 'course',
+                    foreignField: '_id',
+                    as: 'course',
+                },
+            },
+            { $unwind: '$course' },
+            {
+                $lookup: {
+                    from: 'users',
+                    localField: 'course.instructor',
+                    foreignField: '_id',
+                    as: 'course.instructor',
+                },
+            },
+            { $unwind: '$course.instructor' },
+            {
+                $lookup: {
+                    from: 'users',
+                    localField: 'student',
+                    foreignField: '_id',
+                    as: 'student',
+                },
+            },
+            { $unwind: '$student' },
+        ])
         .exec(cb);
 };
 

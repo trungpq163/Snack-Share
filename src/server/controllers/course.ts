@@ -57,6 +57,45 @@ export const addCourseCtrl = (req: Request, res: Response) => {
     });
 };
 
+export const updateCourseCtrl = (req: Request, res: Response) => {
+    if (!req.body) {
+        return res.status(400).send('Request body is missing');
+    }
+
+    const uniqueFilename = new Date().toISOString();
+    uploadImageService(
+        cloudinary,
+        req.body.image,
+        {
+            public_id: `courses/${uniqueFilename}`,
+            tags: 'courses',
+        },
+        (err: any, img: any) => {
+            if (err) {
+                console.log(err);
+                return res.status(500).send(err);
+            }
+            const reqBody = {
+                courseName: req.body.courseName,
+                image: img.url || 'not upload!',
+                price: req.body.price,
+                language: req.body.language,
+                skillLevel: req.body.skillLevel,
+                courseDescription: req.body.courseDescription,
+                instructor: req.body.instructor,
+                category: req.body.category,
+            };
+            updateCourseService(courseModel, req.query.id, reqBody, { new: true })
+                .then((doc) => {
+                    res.json(doc);
+                })
+                .catch((err) => {
+                    res.status(500).json(err);
+                });
+        }
+    );
+};
+
 export const getCoursesCtrl = (_req: Request, res: Response, next: NextFunction) => {
     getCoursesService(courseModel, (err: any, results: any) => {
         if (err) {
@@ -88,16 +127,6 @@ export const getCourseByInstructorIdCtrl = (req: Request, res: Response) => {
             return res.status(200).json(results);
         }
     });
-};
-
-export const updateCourseCtrl = (req: Request, res: Response) => {
-    updateCourseService(courseModel, req.query.id, req.body, { new: true })
-        .then((doc) => {
-            res.json(doc);
-        })
-        .catch((err) => {
-            res.status(500).json(err);
-        });
 };
 
 export const deleteCourseCtrl = (req: Request, res: Response) => {

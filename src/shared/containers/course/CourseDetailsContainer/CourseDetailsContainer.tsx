@@ -47,6 +47,14 @@ const CourseDetailsContainer = ({
         courseDetailRatings: courseDetails?.ratings,
     };
 
+    const dataCourseForCheckout = {
+        id: courseDetails?._id,
+        courseName: courseDetails?.courseName,
+        courseDescription: courseDetails?.courseDescription,
+        image: courseDetails?.image,
+        price: courseDetails?.price || 0,
+    };
+
     const redirectToSessionCheckout = async (_event: React.FormEvent<HTMLInputElement>) => {
         if (isNotAuth === true) {
             await history.push('/login');
@@ -56,7 +64,7 @@ const CourseDetailsContainer = ({
             await createSessionCheckout(
                 '/api/create-checkout-session',
                 studentId,
-                dataCourse,
+                dataCourseForCheckout,
                 (err: string) => toastErrorNotify(err),
                 (sessionId: string) =>
                     stripe?.redirectToCheckout({

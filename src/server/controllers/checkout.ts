@@ -25,8 +25,8 @@ export const createCheckoutSession = async (req: Request, res: Response) => {
                 },
             ],
             'payment',
-            `${key.DOMAIN_NAME}?success=true`,
-            `${key.DOMAIN_NAME}?canceled=true`,
+            `${key.DOMAIN_NAME}/my-courses/learning/`,
+            `${key.DOMAIN_NAME}/`,
             `${!(studentId && course) ? '' : `${studentId + '/' + course.id}`}`
         );
         res.json({ id: session.id });

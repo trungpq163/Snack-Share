@@ -9,13 +9,14 @@ import RatingStar from '../RatingStar/RatingStar';
 
 import avt from '../../../assets/images/avt.jpg';
 
-const Course = ({ col, course, isMyLearningRoute, enrollments, index }: any) => {
+const Course = ({ col, course, isMyLearningRoute, enrollments, index, ratings }: any) => {
     const { t } = useTranslation();
     const handleNumberOfStudents = (id: string): number =>
         enrollments?.filter((enrollment: any) => enrollment?.course?._id === id)?.length;
 
     const numberOfStudents = `${handleNumberOfStudents(course._id)} ${t('courseCard.students')}`;
     const dateCreated = isoDateToString(course?.created_at);
+    const courseRatings = course.ratings || ratings;
     console.log('course at Course', course);
 
     return (
@@ -54,14 +55,14 @@ const Course = ({ col, course, isMyLearningRoute, enrollments, index }: any) => 
                             <Link to={`/courses/${course?._id}`}>{course?.courseName || ''}</Link>
                         )}
                     </h2>
-                    {Number(countRating(course.ratings)) === 0 ? (
+                    {Number(countRating(courseRatings)) === 0 ? (
                         <p style={{ color: '#81868a', fontSize: '0.8rem' }}>Chưa có đánh giá</p>
                     ) : (
                         <div className="course-one__stars">
                             <span className="course-one__stars-wrap">
-                                <RatingStar countRating={Number(countRating(course.ratings))} />
+                                <RatingStar countRating={Number(countRating(courseRatings))} />
                             </span>
-                            <span className="course-one__count">{countRating(course.ratings)}</span>
+                            <span className="course-one__count">{countRating(courseRatings)}</span>
                         </div>
                     )}
 
