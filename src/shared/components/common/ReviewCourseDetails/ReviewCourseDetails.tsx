@@ -15,14 +15,7 @@ interface Props {
     idCourse: string;
 }
 
-const ReviewCourseDetails = ({
-    isReviewContentClass,
-    avt,
-    team2,
-    ratings,
-    user,
-    idCourse,
-}: Props) => {
+const ReviewCourseDetails = ({ isReviewContentClass, avt, ratings, user, idCourse }: Props) => {
     console.log('ratings at review with love', ratings);
     const hadRated = ratings.find((rating: any, _index: number) => rating.user._id === user.id);
 
