@@ -105,15 +105,16 @@ const ProfileDetails = ({ auth, profile, name }: Props) => {
                             </div>
                             <div className="team-one__social">
                                 {Object.values(profile?.social || {}).map((item: any, index) => {
-                                    const domain = new URL(item);
-                                    const domainName = domain.hostname
-                                        .split('.com')
-                                        .join('')
-                                        .split('www.')
-                                        .join('');
+                                    console.log(item);
+                                    // const domain = new URL(item);
+                                    // const domainName = domain.hostname
+                                    //     .split('.com')
+                                    //     .join('')
+                                    //     .split('www.')
+                                    //     .join('');
                                     return (
                                         <a href={item} key={index}>
-                                            <i className={`fab fa-${domainName}`} />
+                                            {/* <i className={`fab fa-${domainName}`} /> */}
                                         </a>
                                     );
                                 })}

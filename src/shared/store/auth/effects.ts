@@ -10,6 +10,7 @@ import { Action } from './types';
 export const dispatchSetCurrentUser = (data: any) => (dispatch: Dispatch<Action>) => {
     dispatch(setAuthLoading());
     dispatch(setCurrentUser(data));
+    return;
 };
 
 export const registerUser = (
