@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+
+import returnSocial from '../../../utils/returnSocial';
 import teamd1 from '../../../assets/images/avt.jpg';
 
 import { Auth } from '../../../store/auth/types';
@@ -104,20 +106,11 @@ const ProfileDetails = ({ auth, profile, name }: Props) => {
                                 </p>
                             </div>
                             <div className="team-one__social">
-                                {Object.values(profile?.social || {}).map((item: any, index) => {
-                                    console.log(item);
-                                    // const domain = new URL(item);
-                                    // const domainName = domain.hostname
-                                    //     .split('.com')
-                                    //     .join('')
-                                    //     .split('www.')
-                                    //     .join('');
-                                    return (
-                                        <a href={item} key={index}>
-                                            {/* <i className={`fab fa-${domainName}`} /> */}
-                                        </a>
-                                    );
-                                })}
+                                {Object.values(profile?.social || {}).map((item: any, index) => (
+                                    <a href={item} key={index}>
+                                        <i className={`fab fa-${returnSocial(item || '')}`} />
+                                    </a>
+                                ))}
                             </div>
                         </div>
                     </div>
