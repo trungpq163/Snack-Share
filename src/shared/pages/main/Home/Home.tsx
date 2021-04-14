@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router';
-import LanguageButton from 'components/layout/LanguageButton/LanguageButton';
-import MainLoader from 'components/loader/MainLoader/MainLoader';
+import LanguageButton from '../../../components/layout/LanguageButton/LanguageButton';
+import MainLoader from '../../../components/loader/MainLoader/MainLoader';
 import { getCourses } from '../../../store/courses/selectors';
 import { getAllCourses } from '../../../store/courses/effects';
 import { getEnrollments } from '../../../store/enrollment/selectors';

@@ -3,7 +3,7 @@ import * as React from 'react';
 import { useLocation } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import jwtDecode from 'jwt-decode';
-import { dispatchSetCurrentUser } from 'store/auth/effects';
+import { dispatchSetCurrentUser } from '../../../store/auth/effects';
 import CircleLoader from '../../../components/loader/CircleLoader/CircleLoader';
 import { getCourses } from '../../../store/courses/selectors';
 import { getAllCourses } from '../../../store/courses/effects';

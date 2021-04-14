@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router';
 
-import { getAuth } from 'store/auth/selectors';
+import { getAuth } from '../../../store/auth/selectors';
 import { getEnrollments } from '../../../store/enrollment/selectors';
 import { getAllEnrollments } from '../../../store/enrollment/effects';
 

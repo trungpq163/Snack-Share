@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
-import { toastErrorNotify, toastSuccessNotify } from 'utils/toast';
+import { toastErrorNotify, toastSuccessNotify } from '../../../utils/toast';
 import CourseDetailsCommentForm from '../../../components/common/CourseDetailsCommentForm/CourseDetailsCommentForm';
 import { addRating, getAllRatingsByIDCourse } from '../../../store/ratings/effects';
 

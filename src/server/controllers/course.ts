@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import cloudinary from 'config/cloudinary';
+import cloudinary from '../config/cloudinary';
 import courseModel from '../models/Course';
 import categoryModel from '../models/Category';
 import {

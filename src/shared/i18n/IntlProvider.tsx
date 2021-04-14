@@ -8,7 +8,7 @@ import { getLocale } from '../store/app/selectors';
 import enUS from './locales/en_US/translation.json';
 import viVN from './locales/vi_VN/translation.json';
 
-if (__BROWSER__) {
+if (typeof __BROWSER__ !== 'undefined') {
     i18next.use(i18nextXHRBackend);
 }
 

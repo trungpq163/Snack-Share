@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
-import stripe from 'config/stripe';
 
-import { createCheckoutSessionService } from 'services/checkout';
+import { createCheckoutSessionService } from '../services/checkout';
 
-import key from 'config/key';
+import key from '../config/key';
+import stripe from '../config/stripe';
 
 export const createCheckoutSession = async (req: Request, res: Response) => {
     const { studentId, course } = req.body;
