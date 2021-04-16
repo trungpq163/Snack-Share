@@ -53,14 +53,17 @@ const CourseDetail = () => {
     // @ts-ignore
     const courseDetails = courses?.courses?.find((x) => x?._id === idCourse);
 
-    const isAuthor = courseDetails?.instructor?._id === currentUser?.profile?.user?._id;
+    const isAuthor = courseDetails?.instructor?._id === auth?.users?.id;
 
     const isNotAuth =
         JSON.stringify(currentUser.profile) === JSON.stringify({}) ||
-        JSON.stringify(currentUser.profile) === null;
+        JSON.stringify(currentUser) ===
+            JSON.stringify({ profile: null, profiles: null, loading: false }) ||
+        JSON.stringify(currentUser.profile) === null ||
+        localStorage.getItem('userid') === null;
 
     const enrolled = enrollments.enrollments?.find(
-        (x) => x?.student?._id === currentUser?.profile?.user?._id && x?.course?._id === idCourse
+        (x) => x?.student?._id === auth?.users?.id && x?.course?._id === idCourse
     );
 
     return (

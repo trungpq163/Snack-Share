@@ -3,6 +3,9 @@ import * as React from 'react';
 import { useLocation } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import jwtDecode from 'jwt-decode';
+import { dispatchSetCurrentUser } from '../../../store/auth/effects';
+import { getAuth } from '../../../store/auth/selectors';
 import CircleLoader from '../../../components/loader/CircleLoader/CircleLoader';
 import { getCurrentProfile } from '../../../store/profile/effects';
 import { getAllCourses } from '../../../store/courses/effects';
@@ -23,12 +26,20 @@ const AddLecture = () => {
     const course = data?.courses?.find((x) => x?._id === idCourse);
 
     const currentUser = useSelector(getProfile);
-    const isAuthor = course?.instructor?._id === currentUser?.profile?.user?._id;
+    const auth = useSelector(getAuth);
+    const isAuthor = course?.instructor?._id === auth?.users?.id;
 
     React.useEffect(() => {
         dispatch(getAllCourses());
         if (localStorage.jwtToken) {
             dispatch(getCurrentProfile());
+        }
+    }, [dispatch]);
+
+    React.useEffect(() => {
+        if (localStorage.jwtToken) {
+            const decoded = jwtDecode(localStorage.jwtToken);
+            dispatch(dispatchSetCurrentUser(decoded));
         }
     }, [dispatch]);
 
