@@ -28,6 +28,7 @@ const PieChart = ({ data, labels }: any) => {
             },
         ],
     };
+
     return (
         <>
             <div className="header">

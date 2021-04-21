@@ -5,9 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { LinkCustom, LinkCustomActive } from '../../../styles/LinkCustom.Styles';
 
 import { User } from '../../../types';
-
 import { introLogin as bg } from '../../../utils/imageURL';
-
 import '../../../styles/Form.Styles.css';
 
 interface Props {
