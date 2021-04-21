@@ -1,9 +1,8 @@
 import * as React from 'react';
 import Course from '../../../components/common/Course/Course';
-import teamd1 from '../../../assets/images/avt.jpg';
 
 import { Auth } from '../../../store/auth/types';
-
+import { profileImage } from '../../../utils/imageURL';
 import '../ProfileDetails/ProfileDetails.Styles.css';
 
 interface Props {
@@ -73,7 +72,7 @@ const OtherProfileDetails = ({ auth, profile, name, courses, idUser, enrollments
                     <div className="col-lg-6">
                         <div className="team-one__single">
                             <div className="team-one__image">
-                                <img src={teamd1} alt="" />
+                                <img src={profileImage().avt} alt="avt" />
                             </div>
                             <div className="team-one__content">
                                 <h2 className="team-one__name">

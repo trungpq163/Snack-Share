@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 
 import returnSocial from '../../../utils/returnSocial';
-import teamd1 from '../../../assets/images/avt.jpg';
+import { profileImage } from '../../../utils/imageURL';
 
 import { Auth } from '../../../store/auth/types';
 
@@ -95,7 +95,7 @@ const ProfileDetails = ({ auth, profile, name }: Props) => {
                     <div className="col-lg-6">
                         <div className="team-one__single">
                             <div className="team-one__image">
-                                <img src={teamd1} alt="" />
+                                <img src={profileImage().avt} alt="avt" />
                             </div>
                             <div className="team-one__content">
                                 <h2 className="team-one__name">

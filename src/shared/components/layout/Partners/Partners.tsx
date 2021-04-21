@@ -2,13 +2,8 @@ import React from 'react';
 import Swiper from 'react-id-swiper';
 
 import { useTranslation } from 'react-i18next';
-import img1 from '../../../assets/images/logo-directi.png';
-import img2 from '../../../assets/images/logo-gojek.png';
-import img3 from '../../../assets/images/logo-make-my-trip.png';
-import img4 from '../../../assets/images/logo-microsoft.png';
-import img5 from '../../../assets/images/logo-paytm.png';
-import img6 from '../../../assets/images/logo-swiggy.png';
-import img7 from '../../../assets/images/logo-zomato.png';
+
+import { studentWorkAt } from '../../../utils/imageURL';
 
 import './Partners.Styles.css';
 
@@ -50,25 +45,25 @@ const Partners = () => {
                 <div className="brand-one__carousel">
                     <Swiper {...params}>
                         <div className="item">
-                            <img src={img1} alt="" />
+                            <img src={studentWorkAt().directiLogo} alt="" />
                         </div>
                         <div className="item">
-                            <img src={img2} alt="" />
+                            <img src={studentWorkAt().gojekLogo} alt="" />
                         </div>
                         <div className="item">
-                            <img src={img3} alt="" />
+                            <img src={studentWorkAt().makeMyTripLogo} alt="" />
                         </div>
                         <div className="item">
-                            <img src={img4} alt="" />
+                            <img src={studentWorkAt().microsoftLogo} alt="" />
                         </div>
                         <div className="item">
-                            <img src={img5} alt="" />
+                            <img src={studentWorkAt().paytmLogo} alt="" />
                         </div>
                         <div className="item">
-                            <img src={img6} alt="" />
+                            <img src={studentWorkAt().swiggyLogo} alt="" />
                         </div>
                         <div className="item">
-                            <img src={img7} alt="" />
+                            <img src={studentWorkAt().zomatoLogo} alt="" />
                         </div>
                     </Swiper>
                 </div>

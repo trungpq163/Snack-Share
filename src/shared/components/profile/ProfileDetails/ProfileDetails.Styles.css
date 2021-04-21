@@ -17,7 +17,7 @@
     box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.05);
 }
 
-.team-one__single:hover .team-one__image > img {
+.team-one__single:hover .team-one__image>img {
     -webkit-transform: scale(1.02);
     transform: scale(1.02);
 }
@@ -72,7 +72,7 @@
     color: #f16101;
 }
 
-.team-one__social a + a {
+.team-one__social a+a {
     margin-left: 28px;
 }
 
@@ -177,11 +177,11 @@
     margin-bottom: 30px;
 }
 
-.team-details__certificate-list li + li {
+.team-details__certificate-list li+li {
     margin-left: 25px;
 }
 
-.progress-one__single + .progress-one__single {
+.progress-one__single+.progress-one__single {
     margin-top: 20px;
 }
 
@@ -233,7 +233,7 @@
 }
 
 .team-tab:before {
-    background-image: url('../../../assets/images/patter-1-1.jpg');
+    background-image: url('https://res.cloudinary.com/snack-dev/image/upload/v1618981939/styles/patter-1-1_a5a4oq.jpg');
     bottom: 0;
     content: '';
     left: 0;
@@ -306,7 +306,7 @@
     color: #f16101;
 }
 
-.team-tab__social a + a {
+.team-tab__social a+a {
     margin-left: 38px;
 }
 
@@ -356,6 +356,6 @@
     opacity: 1;
 }
 
-.team-tab__tab-navs li + li {
+.team-tab__tab-navs li+li {
     margin-left: 10px;
 }

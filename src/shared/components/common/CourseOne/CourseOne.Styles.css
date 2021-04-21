@@ -11,7 +11,7 @@
 }
 
 .become-teacher__form:before {
-    background-image: url('../../../assets/images/dot-pattern-1-1.png');
+    background-image: url('https://res.cloudinary.com/snack-dev/image/upload/v1618982404/styles/dot-pattern-1-1_yhahpl.png');
     bottom: -11%;
     content: '';
     height: 268px;
@@ -28,7 +28,7 @@
 }
 
 .become-teacher__form-top::before {
-    background-image: url('../../../assets/images/become-form-angle.png');
+    background-image: url('https://res.cloudinary.com/snack-dev/image/upload/v1618982455/styles/become-form-angle_muwkv9.png');
     background-position: 0 0;
     content: '';
     height: 10px;
@@ -208,7 +208,7 @@
     position: relative;
 }
 
-.course-one__image > img {
+.course-one__image>img {
     width: 100%;
 }
 
@@ -271,7 +271,7 @@
     margin-bottom: 20px;
 }
 
-.course-one__admin > img {
+.course-one__admin>img {
     border-radius: 50%;
     margin-right: 10px;
     width: 21px !important;
@@ -282,7 +282,7 @@
     margin-left: 5px;
 }
 
-.course-one__image > img {
+.course-one__image>img {
     width: 100%;
 }
 
@@ -622,7 +622,7 @@
     display: flex;
 }
 
-.course-details__comment-single + .course-details__comment-single {
+.course-details__comment-single+.course-details__comment-single {
     border-top: 2px solid #f1f1f1;
     margin-top: 40px;
     padding-top: 50px;
@@ -639,7 +639,7 @@
     width: 76px;
 }
 
-.course-details__comment-img > img {
+.course-details__comment-img>img {
     width: 100%;
 }
 
@@ -1043,7 +1043,7 @@
     border-color: #33a9bb;
 }
 
-.course-details__meta-link + .course-details__meta-link {
+.course-details__meta-link+.course-details__meta-link {
     border-top: 2px solid #f1f1f1;
 }
 
@@ -1109,7 +1109,7 @@
     -ms-flex-align: center;
 }
 
-.course-details__list-item + .course-details__list-item {
+.course-details__list-item+.course-details__list-item {
     border-top: 2px solid #f1f1f1;
     margin-top: 30px;
     padding-top: 30px;
@@ -1120,7 +1120,7 @@
     width: 67px;
 }
 
-.course-details__list-img > img {
+.course-details__list-img>img {
     width: 100%;
 }
 
@@ -1181,7 +1181,7 @@
     outline: none;
 }
 
-.course-one__carousel .owl-nav.disabled + .owl-dots {
+.course-one__carousel .owl-nav.disabled+.owl-dots {
     margin-top: 30px;
 }
 
@@ -1218,7 +1218,7 @@
 }
 
 .course-one__top-title.home-one:after {
-    background-image: url('../../../assets/images/patter-1-1.jpg');
+    background-image: url('https://res.cloudinary.com/snack-dev/image/upload/v1618981939/styles/patter-1-1_a5a4oq.jpg');
     bottom: 0;
     content: '';
     left: 0;
@@ -1237,7 +1237,7 @@
 }
 
 .course-one__top-title__curve {
-    background-image: url('../../../assets/images/course-title-curve.png');
+    background-image: url('https://res.cloudinary.com/snack-dev/image/upload/v1618981955/styles/course-title-curve_dypwwp.png');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1397,7 +1397,7 @@
     outline: none;
 }
 
-.course-category-two .owl-nav.disabled + .owl-dots {
+.course-category-two .owl-nav.disabled+.owl-dots {
     margin-top: 30px;
 }
 
@@ -1572,7 +1572,7 @@
 }
 
 .course-one.home-two:before {
-    background-image: url('../../../assets/images/patter-1-1.jpg');
+    background-image: url('https://res.cloudinary.com/snack-dev/image/upload/v1618981939/styles/patter-1-1_a5a4oq.jpg');
     bottom: 0;
     content: '';
     left: 0;

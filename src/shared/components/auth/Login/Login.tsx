@@ -2,10 +2,9 @@ import React, { FormEvent } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useTranslation } from 'react-i18next';
+import CloudinaryImage from '../../common/CloudinaryImage/CloudinaryImage';
 import { User } from '../../../types';
 import { LinkCustom, LinkCustomActive } from '../../../styles/LinkCustom.Styles';
-
-import bg from '../../../assets/images/bg.png';
 
 import '../../../styles/Form.Styles.css';
 
@@ -19,7 +18,7 @@ const Login = ({ clickSubmit, handleChange, values }: Props) => {
     const { t } = useTranslation();
     return (
         <div className="signup-signin">
-            <img src={bg} alt="login" className="signup-signin-image" />
+            <CloudinaryImage url="intro/bg_bswtvg.jpg" />
             <div className="signup-signin-container">
                 <div className="tab">
                     <div className="tab-item">

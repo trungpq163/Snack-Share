@@ -4,7 +4,6 @@ import VisibilitySensor from 'react-visibility-sensor';
 
 import './Introduction.Styles.css';
 import { useTranslation } from 'react-i18next';
-import banner from '../../../assets/images/dlu_university.jpg';
 
 const Introduction = () => {
     const [startCounter, setStartCounter] = useState(false);
@@ -69,7 +68,7 @@ const Introduction = () => {
                                 style={{
                                     borderRadius: '100% !important',
                                 }}
-                                src={banner}
+                                src="https://res.cloudinary.com/snack-dev/image/upload/v1618979787/intro/dlu_university_fjqlfk.jpg"
                                 alt=""
                             />
                             <div className="about-two__count">

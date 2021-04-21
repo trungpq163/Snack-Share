@@ -3,8 +3,7 @@ import * as React from 'react';
 
 import CourseDetailsRightBar from '../../../components/common/CourseDetailsRightBar/CourseDetailsRightBar';
 import CourseDetailsLeftBar from '../../../components/common/CourseDetailsLeftBar/CourseDetailsLeftBar';
-import avt from '../../../assets/images/avt.jpg';
-import team2 from '../../../assets/images/team-1-2.jpg';
+import { profileImage } from '../../../utils/imageURL';
 
 const CourseDetails = ({
     idCourse,
@@ -30,7 +29,7 @@ const CourseDetails = ({
             <div className="container">
                 <div className="row">
                     <CourseDetailsLeftBar
-                        avt={avt}
+                        avt={profileImage().avt}
                         idCourse={idCourse}
                         categoryName={categoryData?.categoryName || ''}
                         courseDescription={courseDescription || ''}
@@ -39,7 +38,7 @@ const CourseDetails = ({
                         idInstructor={instructorData?._id}
                         lastName={instructorData?.last_name}
                         image={image}
-                        team2={team2}
+                        team2="https://res.cloudinary.com/snack-dev/image/upload/v1618982622/styles/team-1-2_eqqjvd.jpg"
                         ratings={ratings}
                         user={user}
                     />

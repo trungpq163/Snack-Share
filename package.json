@@ -39,6 +39,7 @@
         "chart.js": "^2.9.4",
         "classnames": "^2.2.6",
         "cloudinary": "^1.25.0",
+        "cloudinary-react": "^1.7.0",
         "cors": "^2.8.5",
         "decompress": "^4.2.1",
         "dotenv": "^8.2.0",

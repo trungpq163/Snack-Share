@@ -4,9 +4,8 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { isoDateToString } from '../../../utils/isoToString';
 import countRating from '../../../utils/countRating';
+import { profileImage } from '../../../utils/imageURL';
 import RatingStar from '../RatingStar/RatingStar';
-
-import avt from '../../../assets/images/avt.jpg';
 
 interface Props {
     course: any;
@@ -35,7 +34,7 @@ const CourseOneItem = ({ course, index, enrollments }: Props) => {
                         {course.category.categoryName}
                     </a>
                     <div className="course-one__admin">
-                        <img src={avt} alt="" />
+                        <img src={profileImage().avt} alt="avt" />
                         {t('courseCard.by')}
                         <Link
                             to={`/user/${course?.instructor?._id}`}

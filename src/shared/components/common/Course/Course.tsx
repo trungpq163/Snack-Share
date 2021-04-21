@@ -3,11 +3,10 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { isoDateToString } from '../../../utils/isoToString';
+import { profileImage } from '../../../utils/imageURL';
 import countRating from '../../../utils/countRating';
 
 import RatingStar from '../RatingStar/RatingStar';
-
-import avt from '../../../assets/images/avt.jpg';
 
 const Course = ({ col, course, isMyLearningRoute, enrollments, index, ratings }: any) => {
     const { t } = useTranslation();
@@ -39,7 +38,7 @@ const Course = ({ col, course, isMyLearningRoute, enrollments, index, ratings }:
                         {course?.category?.categoryName}
                     </a>
                     <div className="course-one__admin">
-                        <img src={avt} alt="" />
+                        <img src={profileImage().avt} alt="avt" />
                         {t('courseCard.by')}
                         <Link
                             to={`/user/${course?.instructor?._id}`}

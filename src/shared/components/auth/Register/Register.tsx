@@ -6,7 +6,7 @@ import { LinkCustom, LinkCustomActive } from '../../../styles/LinkCustom.Styles'
 
 import { User } from '../../../types';
 
-import bg from '../../../assets/images/bg.png';
+import { introLogin as bg } from '../../../utils/imageURL';
 
 import '../../../styles/Form.Styles.css';
 

@@ -8,7 +8,7 @@
     background-size: cover;
     background-attachment: fixed;
     position: relative;
-    background-image: url('../assets/images/bg1.jpg');
+    background-image: url('https://res.cloudinary.com/snack-dev/image/upload/v1618968778/intro/bg1_byqqoh.jpg');
 }
 
 .inner-banner::before {
@@ -73,7 +73,7 @@
     color: #fff;
 }
 
-.thm-breadcrumb li + li::before {
+.thm-breadcrumb li+li::before {
     content: '.';
     color: #fff;
     margin-left: 15px;

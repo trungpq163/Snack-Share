@@ -95,14 +95,14 @@
     width: 100%;
 }
 
-.about-two__image > img {
+.about-two__image>img {
     border-radius: 50%;
     position: relative;
     z-index: 10;
 }
 
 .about-two__image-dots {
-    background-image: url('../../../assets/dot-pattern-1-2.png');
+    background-image: url('https://res.cloudinary.com/snack-dev/image/upload/v1618982765/styles/dot-pattern-1-2_wwuy4i.png');
     background-position: 0 0;
     height: 268px;
     left: calc(100% - 60px);

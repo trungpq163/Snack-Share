@@ -107,8 +107,8 @@ const App: React.FC<any> = () => {
             {loading ? (
                 <>
                     <Helmet
-                        defaultTitle="React SSR Starter – TypeScript Edition"
-                        titleTemplate="%s – React SSR Starter – TypeScript Edition"
+                        defaultTitle="SnackShare - Learn Anything, On Your Schedule"
+                        titleTemplate="%s – SnackShare - Learn Anything, On Your Schedule"
                         link={[{ rel: 'icon', type: 'image/png', href: favicon }]}
                     />
                     <MainLoader />
@@ -117,8 +117,8 @@ const App: React.FC<any> = () => {
                 <div className={css.wrapper}>
                     <GlobalStyle />
                     <Helmet
-                        defaultTitle="React SSR Starter – TypeScript Edition"
-                        titleTemplate="%s – React SSR Starter – TypeScript Edition"
+                        defaultTitle="SnackShare - Learn Anything, On Your Schedule"
+                        titleTemplate="%s – SnackShare - Learn Anything, On Your Schedule"
                         link={[{ rel: 'icon', type: 'image/png', href: favicon }]}
                     />
                     <Header />
