@@ -20,11 +20,14 @@ const argv = process.argv.slice(2);
 // Run in band (ci)
 if (process.env.CI) {
     argv.push('--runInBand');
+    argv.push('--detectOpenHandles');
 }
 
 // Watch unless on CI or in coverage mode
 if (!process.env.CI && argv.includes('--coverage') === false) {
     argv.push('--watch');
+    argv.push('--runInBand');
+    argv.push('--detectOpenHandles');
 }
 
 jest.run(argv);
