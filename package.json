@@ -24,7 +24,7 @@
         "plop": "plop",
         "start": "cross-env NODE_ENV=development TS_NODE_PROJECT=tsconfig.tooling.json ts-node scripts/start",
         "start:analyzer": "webpack-bundle-analyzer build/client/static/bundle-stats.json",
-        "test": "cross-env TS_NODE_PROJECT=tsconfig.tooling.json ts-node scripts/test --env=node",
+        "test": "cross-env TS_NODE_PROJECT=tsconfig.tooling.json ts-node scripts/test --env=jsdom",
         "test:update": "yarn-or-npm test --updateSnapshot",
         "transpile": "yarn-or-npm babel -d build/transpiled ./src --extensions .es6,.js,.es,.jsx,.mjs,.ts,.tsx --ignore **/*.d.ts",
         "tsc": "tsc --noEmit",
