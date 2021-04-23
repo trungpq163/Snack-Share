@@ -6,7 +6,6 @@ interface Props {
 }
 
 const IsAuthorCourseDetails = ({ idCourse }: Props) => {
-    console.log('idCourseAt', idCourse);
     return (
         <>
             <div className="course-details__price">

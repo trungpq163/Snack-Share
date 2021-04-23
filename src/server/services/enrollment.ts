@@ -36,6 +36,31 @@ export const getEnrollmentsService = async (enrollment: any, cb: Function) => {
                 },
             },
             { $unwind: '$student' },
+            {
+                $project: {
+                    '_id': 1,
+                    'no': 1,
+                    'student._id': 1,
+                    'student.first_name': 1,
+                    'student.last_name': 1,
+                    'student.email': 1,
+                    'student.role': 1,
+                    'course._id': 1,
+                    'course.courseName': 1,
+                    'course.image': 1,
+                    'course.price': 1,
+                    'course.language': 1,
+                    'course.skillLevel': 1,
+                    'course.courseDescription': 1,
+                    'course.instructor._id': 1,
+                    'course.instructor.first_name': 1,
+                    'course.instructor.last_name': 1,
+                    'course.instructor.email': 1,
+                    'course.instructor.role': 1,
+                    'course.category': 1,
+                    'ratings': 1,
+                },
+            },
         ])
         .exec(cb);
 };

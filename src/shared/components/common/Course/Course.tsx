@@ -16,7 +16,6 @@ const Course = ({ col, course, isMyLearningRoute, enrollments, index, ratings }:
     const numberOfStudents = `${handleNumberOfStudents(course._id)} ${t('courseCard.students')}`;
     const dateCreated = isoDateToString(course?.created_at);
     const courseRatings = course.ratings || ratings;
-    console.log('course at Course', course);
 
     return (
         <div className={`col-lg-${col}`} key={index}>

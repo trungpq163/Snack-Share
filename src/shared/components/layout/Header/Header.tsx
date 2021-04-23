@@ -20,7 +20,6 @@ const Header = ({
     classMyLearning,
 }: any) => {
     const { t } = useTranslation();
-    console.log('authHeader', auth);
     return (
         <>
             <HeaderStyles>

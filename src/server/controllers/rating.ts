@@ -34,7 +34,6 @@ export const addRatingCtrl = (req: Request, res: Response) => {
         saveRatingService(newRating)
             .then((rating) => res.status(200).json(rating))
             .catch((err) => {
-                console.log(err);
                 return res.status(500).json(err);
             });
     });
@@ -44,7 +43,6 @@ export const getRatingByCourse = (req: Request, res: Response) => {
     findRatingByCourse(ratingModel, req.query.course)
         .then((rating) => res.status(200).json(rating))
         .catch((err) => {
-            console.log(err);
             res.status(400).json(err);
         });
 };

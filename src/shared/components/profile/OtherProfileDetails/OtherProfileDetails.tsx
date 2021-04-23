@@ -16,7 +16,7 @@ interface Props {
 
 const OtherProfileDetails = ({ auth, profile, name, courses, idUser, enrollments }: Props) => {
     const coursesById = courses?.filter((course: any) => course?.instructor?._id === idUser);
-    console.log('courseOtherProfileDetails', coursesById);
+
     return (
         <section className="team-details">
             <div className="container">

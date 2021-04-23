@@ -27,7 +27,6 @@ const EditCourse = () => {
     const pathName = location?.pathname || '';
     const pathNameHandle = pathName.split('/edit-course/').join('');
     const course = courses.courses?.find((x: any, _index: number) => pathName?.includes(x?._id));
-    console.log('courses', course);
 
     return (
         <>

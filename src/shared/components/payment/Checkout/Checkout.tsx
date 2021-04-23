@@ -10,7 +10,6 @@ interface Props {
 }
 
 const Checkout = ({ handleChange, handleSubmit, values, price }: Props) => {
-    console.log('price', price);
     return (
         <div className="container mt-5 pt-5 px-5">
             <div className="mb-4">

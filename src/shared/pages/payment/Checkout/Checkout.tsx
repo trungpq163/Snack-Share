@@ -35,7 +35,7 @@ const Checkout = () => {
     const courseDetails = courses?.courses?.find((x) => x?._id === idCourse);
 
     const isAuthor = courseDetails?.instructor?._id === currentUser?.users?.id;
-    console.log('courseDetails', courseDetails);
+
     return (
         <>
             {!isAuthor ? (

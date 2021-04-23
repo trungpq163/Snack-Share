@@ -28,11 +28,9 @@ export const createSessionCheckout = (
     axios(config)
         .then((res) => res.data)
         .then((data) => {
-            console.log(data.id);
             redirectWhenSuccess(data.id);
         })
         .catch((err) => {
-            console.log('errMessage', err);
             errorCb(errorResponse(err.response?.data));
         });
 };

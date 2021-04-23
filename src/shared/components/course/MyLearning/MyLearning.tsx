@@ -10,7 +10,7 @@ interface Props {
 const MyLearning = ({ courses, enrollments }: Props) => {
     const location = useLocation();
     const isMyLearningRoute = location?.pathname?.includes('/my-courses/learning/');
-    console.log('course at mylearning2', courses);
+
     return (
         <div className="block__header">
             <section className="course-one course-page">

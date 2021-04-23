@@ -29,7 +29,6 @@ const CourseDetailsCommentFormContainer = ({ user, idCourse }: Props) => {
             star: star.toString(),
             content: messageReview,
         });
-        console.log('dataReview', dataReview);
 
         if (star === 0) {
             return toastErrorNotify('Please star for course ~~');

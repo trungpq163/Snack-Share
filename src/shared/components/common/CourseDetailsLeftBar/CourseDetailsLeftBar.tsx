@@ -59,8 +59,6 @@ const CourseDetailsLeftBar = ({
     const isReviewContentClass =
         isReview === true ? 'tab-pane show active animated fadeInUp' : 'tab-pane animated fadeInUp';
 
-    console.log('hashtag', isOverview);
-
     return (
         <div className="col-lg-8">
             <div className="course-details__content">

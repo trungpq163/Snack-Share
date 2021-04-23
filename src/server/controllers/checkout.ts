@@ -7,7 +7,6 @@ import stripe from '../config/stripe';
 
 export const createCheckoutSession = async (req: Request, res: Response) => {
     const { studentId, course } = req.body;
-    console.log('course at checkout', course);
     try {
         const session = await createCheckoutSessionService(
             stripe,
@@ -30,7 +29,6 @@ export const createCheckoutSession = async (req: Request, res: Response) => {
             `${key.DOMAIN_NAME}/`,
             `${!(studentId && course) ? '' : `${studentId + '/' + course.id}`}`
         );
-        console.log('session at checkout', session);
         res.json({ id: session.id });
     } catch (err) {
         res.status(500).json(err);

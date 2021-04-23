@@ -41,7 +41,6 @@ export const addCourseCtrl = (req: Request, res: Response) => {
                     instructor: req.body.instructor,
                     category: req.body.category,
                 });
-                console.log(img);
                 saveAddCourseService(model)
                     .then((doc) => {
                         if (!doc || doc.length === 0) {

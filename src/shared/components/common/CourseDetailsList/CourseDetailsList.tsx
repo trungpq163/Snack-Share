@@ -10,7 +10,6 @@ interface Props {
 }
 
 const CourseDetailsList = ({ courses }: Props) => {
-    console.log(courses);
     return (
         <div className="course-details__list">
             <h2 className="course-details__list-title">New Courses</h2>

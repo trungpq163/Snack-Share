@@ -12,7 +12,6 @@ import './CourseOne.Styles.css';
 
 const CourseOne = ({ courses, loading, enrollments }: any) => {
     const { t } = useTranslation();
-    console.log('course at courseOneItem', courses);
     return (
         <div
             style={{

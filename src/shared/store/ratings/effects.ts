@@ -17,7 +17,6 @@ export const getAllRatingsByIDCourse = (idCourse: string) => (dispatch: Dispatch
 
     axios(config)
         .then((res) => {
-            console.log('res.data', res.data);
             dispatch(getRatings(res.data));
         })
         .catch((_err) => dispatch(getRatings({})));

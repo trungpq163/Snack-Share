@@ -1,14 +1,3 @@
-/* eslint-disable prefer-const */
-// .aggregate([
-//     {
-//         $lookup: {
-//             from: 'ratings',
-//             localField: '_id',
-//             foreignField: 'course',
-//             as: 'ratingsData',
-//         },
-//     },
-// ])
 export const addCourseService = async (category: any, reqBodyCategory: any, cb: Function) => {
     return await category.find(
         {
@@ -51,6 +40,25 @@ export const getCoursesService = async (course: any, cb: Function) => {
                 },
             },
             { $unwind: '$instructor' },
+            {
+                $project: {
+                    '_id': 1,
+                    'courseName': 1,
+                    'image': 1,
+                    'price': 1,
+                    'language': 1,
+                    'skillLevel': 1,
+                    'courseDescription': 1,
+                    'instructor._id': 1,
+                    'instructor.first_name': 1,
+                    'instructor.last_name': 1,
+                    'instructor.email': 1,
+                    'instructor.role': 1,
+                    'category._id': 1,
+                    'category.categoryName': 1,
+                    'ratings': 1,
+                },
+            },
         ])
         .exec(cb);
 };
