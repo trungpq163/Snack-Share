@@ -57,6 +57,8 @@ export const getCoursesService = async (course: any, cb: Function) => {
                     'category._id': 1,
                     'category.categoryName': 1,
                     'ratings': 1,
+                    'created_at': 1,
+                    'updatedAt': 1,
                 },
             },
         ])

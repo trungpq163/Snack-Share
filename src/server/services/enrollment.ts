@@ -59,6 +59,8 @@ export const getEnrollmentsService = async (enrollment: any, cb: Function) => {
                     'course.instructor.role': 1,
                     'course.category': 1,
                     'ratings': 1,
+                    'created_at': 1,
+                    'updatedAt': 1,
                 },
             },
         ])
