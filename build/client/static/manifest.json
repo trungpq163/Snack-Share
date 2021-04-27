@@ -1,7 +1,12 @@
 {
-  "bundle.css": "http://localhost:8501/static/bundle.css",
-  "bundle.js": "http://localhost:8501/static/bundle.js",
-  "vendor.css": "http://localhost:8501/static/vendor.css",
-  "vendor.js": "http://localhost:8501/static/vendor.7033db10.chunk.js",
-  "assets/favicon.png": "http://localhost:8501/static/assets/favicon.d2e685d3.png"
+  "bundle.css": "/static/bundle.4c85ba4e884d7fbd894b.css",
+  "bundle.js": "/static/bundle.7f98fc37.js",
+  "bundle.css.map": "/static/bundle.4c85ba4e884d7fbd894b.css.map",
+  "bundle.js.map": "/static/bundle.7f98fc37.js.map",
+  "vendor.css": "/static/1.c089f327a6a4067d3679.css",
+  "vendor.js": "/static/vendor.7da6759b.chunk.js",
+  "vendor.css.map": "/static/1.c089f327a6a4067d3679.css.map",
+  "vendor.js.map": "/static/vendor.7da6759b.chunk.js.map",
+  "assets/favicon.d2e685d3.png": "/static/assets/favicon.d2e685d3.png",
+  "vendor.7da6759b.chunk.js.LICENSE.txt": "/static/vendor.7da6759b.chunk.js.LICENSE.txt"
 }
