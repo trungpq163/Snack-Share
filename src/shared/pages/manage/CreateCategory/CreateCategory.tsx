@@ -6,6 +6,13 @@ import CreateCategoryContainer from '../../../containers/manage/CreateCategoryCo
 
 const CreateCategory = () => {
     const { t } = useTranslation();
+
+    React.useEffect(() => {
+        window.scrollTo({
+            top: 0,
+        });
+    }, []);
+
     return (
         <>
             <PageHeader title={`${t('breadcrumb.createCategory')}`} />

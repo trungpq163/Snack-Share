@@ -17,6 +17,12 @@ const CreateEnrollment = () => {
     const { t } = useTranslation();
 
     React.useEffect(() => {
+        window.scrollTo({
+            top: 0,
+        });
+    }, []);
+
+    React.useEffect(() => {
         dispatch(getAllUsers());
         dispatch(getAllCourses());
     }, [dispatch]);

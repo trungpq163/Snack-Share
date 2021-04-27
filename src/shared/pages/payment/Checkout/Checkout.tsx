@@ -21,6 +21,12 @@ const Checkout = () => {
     const courses = useSelector(getCourses);
 
     React.useEffect(() => {
+        window.scrollTo({
+            top: 0,
+        });
+    }, []);
+
+    React.useEffect(() => {
         dispatch(getAllCourses());
     }, [dispatch]);
 

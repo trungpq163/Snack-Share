@@ -32,6 +32,12 @@ const AddLecture = () => {
     const isAuthor = course?.instructor?._id === auth?.users?.id;
 
     React.useEffect(() => {
+        window.scrollTo({
+            top: 0,
+        });
+    }, []);
+
+    React.useEffect(() => {
         dispatch(getAllCourses());
         if (localStorage.jwtToken) {
             dispatch(getCurrentProfile());

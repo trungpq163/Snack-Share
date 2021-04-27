@@ -19,6 +19,12 @@ const MyLearning = () => {
     const [myCourse, setMyCourse] = React.useState([]);
 
     React.useEffect(() => {
+        window.scrollTo({
+            top: 0,
+        });
+    }, []);
+
+    React.useEffect(() => {
         if (localStorage.jwtToken) {
             const decoded = jwtDecode(localStorage.jwtToken);
             dispatch(dispatchSetCurrentUser(decoded));

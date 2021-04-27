@@ -20,6 +20,12 @@ const MyCourses = () => {
     const enrollments = useSelector(getEnrollments);
 
     React.useEffect(() => {
+        window.scrollTo({
+            top: 0,
+        });
+    }, []);
+
+    React.useEffect(() => {
         dispatch(getAllCourses());
         dispatch(getAllEnrollments());
     }, [dispatch]);

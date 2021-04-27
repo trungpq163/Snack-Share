@@ -17,6 +17,12 @@ const EditUser = () => {
     const pathNameHandle = pathName.split('/users/edit/').join('');
 
     React.useEffect(() => {
+        window.scrollTo({
+            top: 0,
+        });
+    }, []);
+
+    React.useEffect(() => {
         dispatch(getUserEff(pathNameHandle));
     }, [dispatch, pathNameHandle]);
 

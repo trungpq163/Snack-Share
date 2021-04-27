@@ -23,6 +23,12 @@ const Register = ({ match }: any) => {
         password2: '',
     });
 
+    React.useEffect(() => {
+        window.scrollTo({
+            top: 0,
+        });
+    }, []);
+
     const handleChange = (name: any) => (event: any) => {
         setValues({
             ...values,

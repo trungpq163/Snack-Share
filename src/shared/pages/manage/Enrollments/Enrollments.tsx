@@ -14,6 +14,12 @@ const Enrollments = () => {
     const { t } = useTranslation();
 
     React.useEffect(() => {
+        window.scrollTo({
+            top: 0,
+        });
+    }, []);
+
+    React.useEffect(() => {
         dispatch(getAllEnrollments());
     }, [dispatch]);
 

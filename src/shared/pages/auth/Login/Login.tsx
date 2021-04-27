@@ -18,6 +18,12 @@ const Login = () => {
         password: '',
     });
 
+    React.useEffect(() => {
+        window.scrollTo({
+            top: 0,
+        });
+    }, []);
+
     const handleChange = (name: any) => (event: any) => {
         setValues({
             ...values,

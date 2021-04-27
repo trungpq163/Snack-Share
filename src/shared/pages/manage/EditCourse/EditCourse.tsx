@@ -20,6 +20,12 @@ const EditCourse = () => {
     const { t } = useTranslation();
 
     React.useEffect(() => {
+        window.scrollTo({
+            top: 0,
+        });
+    }, []);
+
+    React.useEffect(() => {
         dispatch(getAllCourses());
         dispatch(getCategoryEff());
     }, [dispatch]);

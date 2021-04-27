@@ -21,6 +21,12 @@ const App: React.FC<any> = () => {
     const pathname = location?.pathname;
 
     React.useEffect(() => {
+        window.scrollTo({
+            top: 0,
+        });
+    }, []);
+
+    React.useEffect(() => {
         dispatch(getAllCourses());
         dispatch(getAllEnrollments());
     }, [dispatch]);

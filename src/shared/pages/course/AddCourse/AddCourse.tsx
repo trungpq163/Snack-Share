@@ -11,6 +11,13 @@ const AddCourse = () => {
     const dispatch = useDispatch();
     const { t } = useTranslation();
     const category = useSelector(getCategory);
+
+    React.useEffect(() => {
+        window.scrollTo({
+            top: 0,
+        });
+    }, []);
+
     React.useEffect(() => {
         dispatch(getCategoryEff());
     }, [dispatch]);

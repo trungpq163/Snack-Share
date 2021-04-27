@@ -33,6 +33,12 @@ const Profile = () => {
     const otherProfile = profile?.profiles?.find((x: any) => x.user?._id === idUser);
 
     React.useEffect(() => {
+        window.scrollTo({
+            top: 0,
+        });
+    }, []);
+
+    React.useEffect(() => {
         if (localStorage.jwtToken) {
             const decoded = jwtDecode(localStorage.jwtToken);
             dispatch(dispatchSetCurrentUser(decoded));
