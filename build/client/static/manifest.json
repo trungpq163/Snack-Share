@@ -1,0 +1,7 @@
+{
+  "bundle.css": "http://localhost:8501/static/bundle.css",
+  "bundle.js": "http://localhost:8501/static/bundle.js",
+  "vendor.css": "http://localhost:8501/static/vendor.css",
+  "vendor.js": "http://localhost:8501/static/vendor.7033db10.chunk.js",
+  "assets/favicon.png": "http://localhost:8501/static/assets/favicon.d2e685d3.png"
+}

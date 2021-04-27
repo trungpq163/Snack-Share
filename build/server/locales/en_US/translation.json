@@ -1,0 +1,228 @@
+{
+    "nav": {
+        "home": "Home",
+        "login": "Login",
+        "teachOnSnackDev": "Teach On SnackShare",
+        "logout": "Logout",
+        "profile": "Profile",
+        "myLearning": "My Learning",
+        "myCourses": "My Courses",
+        "addCourses": "Add Courses",
+        "addLecture": "Add Lecture",
+        "allCourses": "All Courses",
+        "dashBoard": "DashBoard",
+        "users": "Users",
+        "categories": "Categories",
+        "enrolledUsers": "Enrolled Users"
+    },
+    "login": {
+        "signin": "Signin",
+        "detail": "Don't have an account?",
+        "signupStudent": "Sign up (student)",
+        "signupInstructor": "Sign up (instructors)",
+        "signup": "Sign up"
+    },
+    "register": {
+        "signup": "Sign up",
+        "signin": "Sign in",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "email": "Email",
+        "password": "Password",
+        "repeatPassword": "Repeat Password",
+        "alReadyHaveAnAccount": "Already have an account",
+        "login": "Login"
+    },
+    "home": {
+        "titleIntro": "What do you want to learn today?",
+        "contentTitleIntro": "Learn about anything, anytime & anywhere from accredited instructors & courses",
+        "titleIntro2": "Start learning from our experts",
+        "titleIntro3": "Enhance your skills with us now",
+        "titleButton": "Learn more",
+        "trustBy": "Trusted By",
+        "titlePopularCourse": "Explore our",
+        "titlePopularCourse2": "popular courses",
+        "ourStudent": "Our student work at"
+    },
+    "courseCard": {
+        "students": "students",
+        "by": "by",
+        "seeMore": "See Preview",
+        "studyNow": "Study Now"
+    },
+    "breadcrumb": {
+        "home": "Home",
+        "myLearning": "My Learning",
+        "allCourse": "All Course",
+        "myCourses": "My Courses",
+        "dashboard": "Dashboard",
+        "userManagement": "User Management",
+        "categoryManagement": "Category Management",
+        "createCategory": "Create Category",
+        "enrollStudent": "Enrolled Student",
+        "createEnrollment": "Create Enrollment",
+        "addCourse": "Add Course",
+        "addLecture": "Add Lecture",
+        "loading": "Loading...........",
+        "loading2": "LOADING...........",
+        "editCategory": "Edit Category",
+        "editCourse": "Edit Course",
+        "editUser": "Edit User",
+        "checkout": "Checkout",
+        "addEducation": "Add Education",
+        "editProfile": "Edit Profile"
+    },
+    "manageYourStudent": {
+        "manageYourStudent": "Manage Your Student",
+        "studentEmail": "Student Email",
+        "courseTitle": "Course Title",
+        "action": "Action",
+        "delete": "Delete"
+    },
+    "dashboard": {
+        "coursesPerInstructor": "Courses Per Instructor",
+        "coursesPerCategory": "Courses Per Category",
+        "studentsPerCourse": "Students Per Course"
+    },
+    "users": {
+        "search": "Search",
+        "firstName": "First name",
+        "lastName": "Last name",
+        "email": "Email",
+        "role": "Role",
+        "createdAt": "Create at",
+        "action": "Action",
+        "edit": "Edit"
+    },
+    "editUser": {
+        "editUser": "Edit User",
+        "require": "* = Require",
+        "firstName": "* First name",
+        "lastName": "* Last name",
+        "email": "* Email",
+        "password": "* Password"
+    },
+    "categories": {
+        "addCategory": "Add Category",
+        "category": "Category",
+        "action": "Action",
+        "edit": "Edit"
+    },
+    "editCategories": {
+        "editCategory": "Edit Category",
+        "requireField": "* = required fields",
+        "category": "* Category"
+    },
+    "createCategory": {
+        "createCategory": "Create Category",
+        "requireField": "* = required fields",
+        "category": "* Category"
+    },
+    "enrolledStudent": {
+        "createEnrollment": "Create Enrollment",
+        "studentEmail": "Student Email",
+        "courseTitle": "Course Title",
+        "action": "Action",
+        "delete": "Delete"
+    },
+    "createEnrollment": {
+        "studentEmail": "Student Email",
+        "selectStudent": "Select Student",
+        "courseName": "Course",
+        "selectCourse": "Select Course"
+    },
+    "allCourses": {
+        "by": "by",
+        "editCourse": "Edit Course",
+        "manageYourStudent": "Manage Your Student",
+        "addLecture": "Add Lecture",
+        "durations": "Durations",
+        "lectures": "Lectures",
+        "skillLevel": "Skill Level",
+        "language": "Language",
+        "newCourses": "New Courses",
+        "noRatings": "No reviews yet",
+        "overview": "Overview",
+        "curriculum": "Curriculum",
+        "reviews": "Reviews",
+        "excellent": "Excellent",
+        "veryGood": "Very Good",
+        "average": "Average",
+        "poor": "Poor",
+        "terrible": "Terrible",
+        "addReview": "Add a review",
+        "rateThisCourse": "Rate this Course? ",
+        "writeMessage": "Write Message",
+        "leaveReview": "Leave a Review",
+        "coursePrice": "Course Price",
+        "buyThisCourse": "Buy This Course"
+    },
+    "profile": {
+        "editProfile": "Edit Profile",
+        "addExperience": "Add Experience",
+        "addEducation": "Add Education",
+        "education": "Education",
+        "school": "School",
+        "degree": "Degree",
+        "fieldOfStudy": "Field of study",
+        "status": "Status",
+        "from": "From",
+        "experience": "Experience",
+        "company": "Company",
+        "job": "Job",
+        "location": "Location",
+        "skills": "Skills",
+        "noProfileHere": "You're not created profile details",
+        "createNow": "create profile now"
+    },
+    "commonProfile": {
+        "title": "Fill in some information to highlight your profile",
+        "uniqueSuggestion": "* username",
+        "idealSuggestion": "Give us an idea of where you are at in your career",
+        "companySuggestion": "Could be your own company or one you work for",
+        "websiteSuggestion": "Could be your own website or a company one",
+        "locationSuggestion": "City or city & state suggested (eg. DaLat, HaNoi)",
+        "skillsSuggestion": "Please use comma separated values (eg. HTML,CSS,JavaScript,PHP)",
+        "githubSuggestion": "Your github username",
+        "bioSuggestion": "Tell us a little about yourself",
+        "twitterSuggestion": "Twitter Profile URL",
+        "facebookSuggestion": "Facebook Profile URL",
+        "linkedinSuggestion": "Linkedin Profile URL",
+        "youtubeSuggestion": "Youtube Profile URL",
+        "instagramSuggestion": "Instagram Profile URL",
+        "name": "Username",
+        "company": "Company",
+        "website": "Website",
+        "location": "Location",
+        "skills": "Skills",
+        "githubUsername": "Github Username",
+        "bio": "Bio",
+        "link": "Link",
+        "status": "Status"
+    },
+    "editCourse": {
+        "title": "Edit Course",
+        "requiredFieldsSuggestion": "* = required fields",
+        "coursePriceSuggestion": "* Course Price (USD)",
+        "languageSuggestion": "*Choose language in your course",
+        "skillLevelSuggestion": "*Choose skill level (student) to take this course",
+        "categorySuggestion": "*Choose Category",
+        "descriptionSuggestion": "Description",
+        "uploadImageSuggestion": "Upload image",
+        "course": "* Course Name",
+        "coursePrice": "usd",
+        "courseDescription": "Course Description",
+        "update": "Update"
+    },
+    "addLecture": {
+        "required": "*=required",
+        "lessonTitle": "*Lesson Title",
+        "addEmbedURL": "Add Embed Youtube Video URL",
+        "forExample": "*ex: https://www.youtube.com/embed/ahCwqrYpluM"
+    },
+    "playCourse": {
+        "lesson": "Lesson",
+        "description": "Description",
+        "watchNow": "Watch now"
+    }
+}
