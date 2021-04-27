@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
 import routes from '../../../routes';
@@ -9,6 +10,7 @@ interface Props {
 }
 
 const Enrollments = ({ enrollments, handleDelete }: Props) => {
+    const { t } = useTranslation();
     return (
         <div className="block__header">
             <div className="block-title" style={{ textAlign: 'center' }}>
@@ -17,16 +19,16 @@ const Enrollments = ({ enrollments, handleDelete }: Props) => {
                     style={{ fontSize: '1.66rem', cursor: 'pointer' }}
                     to={routes.createEnrollment}
                 >
-                    Create Enrollment
+                    {t('enrolledStudent.createEnrollment')}
                 </Link>
             </div>
             <table className="table" style={{ width: '70%' }}>
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Student Email</th>
-                        <th scope="col">Course Title</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">{t('enrolledStudent.studentEmail')}</th>
+                        <th scope="col">{t('enrolledStudent.courseTitle')}</th>
+                        <th scope="col">{t('enrolledStudent.action')}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -37,7 +39,7 @@ const Enrollments = ({ enrollments, handleDelete }: Props) => {
                             <td>{enrollment?.course?.courseName}</td>
                             <td>
                                 <button onClick={() => handleDelete(enrollment?._id)}>
-                                    delete
+                                    {t('enrolledStudent.delete')}
                                 </button>
                             </td>
                         </tr>

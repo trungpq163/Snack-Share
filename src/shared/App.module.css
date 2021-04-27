@@ -53,6 +53,10 @@
     justify-content: space-between;
 }
 
+a:hover {
+    color: #212529;
+}
+
 input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {
     -webkit-appearance: none;

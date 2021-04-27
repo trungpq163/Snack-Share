@@ -11,6 +11,7 @@ interface Props {
 
 const CreateEnrollmentContainer = ({ users, courses }: Props) => {
     const dispatch = useDispatch();
+
     const [values, setValues] = React.useState({
         userId: '',
         courseId: '',

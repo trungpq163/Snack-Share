@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { useLocation } from 'react-router';
 import jwtDecode from 'jwt-decode';
+import { useTranslation } from 'react-i18next';
 import { getProfile } from '../../../store/profile/selectors';
 import { getAuth } from '../../../store/auth/selectors';
 import { getCourses } from '../../../store/courses/selectors';
@@ -21,6 +22,7 @@ import CircleLoader from '../../../components/loader/CircleLoader/CircleLoader';
 
 const Profile = () => {
     const location = useLocation();
+    const { t } = useTranslation();
 
     const dispatch = useDispatch();
     const auth = useSelector(getAuth);
@@ -58,7 +60,7 @@ const Profile = () => {
                 <>
                     {courses?.loading || enrollments?.loading || profile.loading || auth.loading ? (
                         <>
-                            <PageHeader title="Loading..............." />
+                            <PageHeader title={t('breadcrumb.loading')} />
                             <CircleLoader />
                         </>
                     ) : (
@@ -88,7 +90,7 @@ const Profile = () => {
                 <>
                     {profile.loading || auth.loading ? (
                         <>
-                            <PageHeader title="Loading................." />
+                            <PageHeader title={t('breadcrumb.loading')} />
                             <CircleLoader />
                         </>
                     ) : (

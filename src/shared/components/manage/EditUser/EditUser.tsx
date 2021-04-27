@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { useTranslation } from 'react-i18next';
 import InputField from '../../../components/common/InputField/InputField';
 import InputDropdown from '../../../components/common/InputDropdown/InputDropdown';
 
@@ -10,6 +11,7 @@ interface Props {
 }
 
 const EditUser = ({ handleChange, handleSubmit, values }: Props) => {
+    const { t } = useTranslation();
     // eslint-disable-next-line prefer-const
     let options = [{ label: values?.role, value: values?.role }];
 
@@ -40,12 +42,12 @@ const EditUser = ({ handleChange, handleSubmit, values }: Props) => {
     return (
         <div className="block__header">
             <div className="block-title block-title__center">
-                <h3>Edit User</h3>
+                <h3>{t('breadcrumb.editUser')}</h3>
             </div>
             <form onSubmit={handleSubmit} className="wrapper" style={{ width: '70%' }}>
                 <InputField
                     name="first_name"
-                    placeholder="*First Name"
+                    placeholder={t('editUser.firstName')}
                     text="* = Require"
                     onChange={handleChange('first_name')}
                     value={values.first_name}
@@ -53,7 +55,7 @@ const EditUser = ({ handleChange, handleSubmit, values }: Props) => {
                 />
                 <InputField
                     name="last_name"
-                    placeholder="*Last Name"
+                    placeholder={t('editUser.lastName')}
                     text=""
                     onChange={handleChange('last_name')}
                     value={values.last_name}
@@ -61,7 +63,7 @@ const EditUser = ({ handleChange, handleSubmit, values }: Props) => {
                 />
                 <InputField
                     name="email"
-                    placeholder="*Email"
+                    placeholder={t('editUser.email')}
                     text=""
                     onChange={handleChange('email')}
                     value={values.email}
@@ -69,7 +71,7 @@ const EditUser = ({ handleChange, handleSubmit, values }: Props) => {
                 />
                 <InputField
                     name="password"
-                    placeholder="*Password"
+                    placeholder={t('editUser.password')}
                     text=""
                     onChange={handleChange('password')}
                     value={values.password}

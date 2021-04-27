@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 import ReactStars from 'react-stars';
 
 import TextAreaField from '../../../components/common/TextAreaField/TextAreaField';
@@ -18,11 +19,14 @@ const CourseDetailsCommentForm = ({
     star,
     handleSubmit,
 }: Props) => {
+    const { t } = useTranslation();
     return (
         <>
             <form onSubmit={handleSubmit} className="course-details__comment-form">
-                <h2 className="course-details__title">Add a review</h2>
-                <p className="course-details__comment-form-text">Rate this Course? </p>
+                <h2 className="course-details__title">{t('allCourses.addReview')}</h2>
+                <p className="course-details__comment-form-text">
+                    {t('allCourses.rateThisCourse')}
+                </p>
                 <ReactStars
                     count={5}
                     size={24}
@@ -35,13 +39,13 @@ const CourseDetailsCommentForm = ({
                     <div className="col-lg-12 mt-3">
                         <TextAreaField
                             name="messageReview"
-                            placeholder="Write Message"
+                            placeholder={t('allCourses.writeMessage')}
                             onChange={handleChangeMessageReview('messageReview')}
                             value={messageReview}
                             required={true}
                         />
                         <button type="submit" className="thm-btn course-details__comment-form-btn">
-                            Leave a Review
+                            {t('allCourses.leaveReview')}
                         </button>
                     </div>
                 </div>

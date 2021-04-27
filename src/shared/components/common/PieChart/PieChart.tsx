@@ -1,7 +1,7 @@
 import React from 'react';
 import { Pie } from 'react-chartjs-2';
 
-const PieChart = ({ data, labels }: any) => {
+const PieChart = ({ data, labels, children }: any) => {
     const dataPieChart = {
         labels: labels,
         datasets: [
@@ -33,7 +33,7 @@ const PieChart = ({ data, labels }: any) => {
         <>
             <div className="header">
                 <h1 className="title" style={{ textAlign: 'center' }}>
-                    Courses Per Instructors
+                    {children}
                 </h1>
             </div>
             <Pie data={dataPieChart} />

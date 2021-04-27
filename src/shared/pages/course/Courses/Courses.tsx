@@ -18,6 +18,12 @@ const Courses = () => {
     const id = pathName.split('/courses/').join('');
 
     React.useEffect(() => {
+        window.scrollTo({
+            top: 0,
+        });
+    }, []);
+
+    React.useEffect(() => {
         dispatch(getLecturesById(id));
         dispatch(getAllCourses());
     }, [dispatch, id]);

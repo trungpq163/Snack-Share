@@ -4,6 +4,7 @@ import { useLocation } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
+import { useTranslation } from 'react-i18next';
 import { dispatchSetCurrentUser } from '../../../store/auth/effects';
 import { getAuth } from '../../../store/auth/selectors';
 import CircleLoader from '../../../components/loader/CircleLoader/CircleLoader';
@@ -16,6 +17,7 @@ import PageHeader from '../../../components/layout/PageHeader/PageHeader';
 
 const AddLecture = () => {
     const location = useLocation();
+    const { t } = useTranslation();
 
     const dispatch = useDispatch();
     const pathName = location?.pathname || '';
@@ -49,7 +51,7 @@ const AddLecture = () => {
                 <Redirect to="/" />
             ) : (
                 <>
-                    <PageHeader title="Add Lecture" />
+                    <PageHeader title={t('nav.addLecture')} />
                     {data.loading || currentUser.loading ? (
                         <CircleLoader />
                     ) : (

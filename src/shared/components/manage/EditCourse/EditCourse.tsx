@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { useTranslation } from 'react-i18next';
 import InputField from '../../../components/common/InputField/InputField';
 import TextArea from '../../../components/common/TextAreaField/TextAreaField';
 import InputDropdown from '../../../components/common/InputDropdown/InputDropdown';
@@ -23,25 +24,26 @@ const EditCourse = ({
     values,
     handleSubmit,
 }: Props) => {
+    const { t } = useTranslation();
     return (
         <div className="block__header">
             <div className="block-title" style={{ textAlign: 'center' }}>
-                <h3>Edit Course</h3>
+                <h3>{t('editCourse.title')}</h3>
             </div>
             <form onSubmit={handleSubmit} className="wrapper" style={{ width: '70%' }}>
                 <InputField
                     name="courseName"
-                    placeholder="* Course Name"
-                    text="* = required fields"
+                    placeholder={t('editCourse.course')}
+                    text={t('editCourse.requiredFieldsSuggestion')}
                     onChange={handleChange('courseName')}
                     value={values?.courseName}
                     required={true}
                 />
                 <InputField
                     name="price"
-                    placeholder="usd"
+                    placeholder={t('editCourse.coursePrice')}
                     inputNumber="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-                    text="* Course Price (USD)"
+                    text={t('editCourse.coursePriceSuggestion')}
                     type="number"
                     onChange={handleChange('price')}
                     value={values?.price}
@@ -51,7 +53,7 @@ const EditCourse = ({
                     options={languageOptions}
                     onChange={handleChange('language')}
                     value={values?.language}
-                    info="*Choose language in your course"
+                    info={t('editCourse.languageSuggestion')}
                     name="language"
                     required={true}
                 />
@@ -59,7 +61,7 @@ const EditCourse = ({
                     options={skillLevelOptions}
                     onChange={handleChange('skillLevel')}
                     value={values?.skillLevel}
-                    info="*Choose skill level (student) to take this course"
+                    info={t('editCourse.skillLevelSuggestion')}
                     name="skillLevel"
                     required={true}
                 />
@@ -68,27 +70,27 @@ const EditCourse = ({
                     onChange={handleChange('category')}
                     value={values?.category}
                     name="category"
-                    info="*Choose Category"
+                    info={t('editCourse.categorySuggestion')}
                     required={true}
                 />
                 <TextArea
                     name="courseDescription"
-                    text="Description"
-                    placeholder="Course Description"
+                    text={t('editCourse.descriptionSuggestion')}
+                    placeholder={t('editCourse.courseDescription')}
                     onChange={handleChange('courseDescription')}
                     value={values?.courseDescription}
                     required={true}
                 />
                 <InputField
                     name="image"
-                    text="Upload Image"
+                    text={t('editCourse.uploadImageSuggestion')}
                     acceptFile="image/*"
                     type="file"
                     onChange={handleChangeFile('image')}
                     required={true}
                 />
                 <button type="submit" className="btn btn--gradient">
-                    Update
+                    {t('editCourse.update')}
                 </button>
             </form>
         </div>

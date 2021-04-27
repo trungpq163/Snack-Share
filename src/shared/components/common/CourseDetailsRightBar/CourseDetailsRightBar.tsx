@@ -40,7 +40,6 @@ const CourseDetailsRightBar = ({
                 <StudyNowCourseDetails idCourse={idCourse} />
             )}
             <CourseDetailsMeta language={language} skillLevel={skillLevel} />
-            {/* New Courses List */}
             <CourseDetailsList courses={courses} />
         </div>
     );

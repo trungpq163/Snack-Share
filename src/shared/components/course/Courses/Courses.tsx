@@ -1,10 +1,12 @@
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import CircleLoader from '../../../components/loader/CircleLoader/CircleLoader';
 
 import './Courses.Styles.css';
 
 const Courses = ({ lectures, loading, pathName }: any) => {
+    const { t } = useTranslation();
     return (
         <>
             {loading ? (
@@ -14,8 +16,8 @@ const Courses = ({ lectures, loading, pathName }: any) => {
                     <table className="table" style={{ width: '80%' }}>
                         <thead>
                             <tr>
-                                <th>Lesson</th>
-                                <th>Description</th>
+                                <th>{t('playCourse.lesson')}</th>
+                                <th>{t('playCourse.description')}</th>
                                 <th />
                             </tr>
                         </thead>
@@ -30,7 +32,7 @@ const Courses = ({ lectures, loading, pathName }: any) => {
                                             className="link-action__category"
                                             to={`${pathName}/lessons/${lecture?._id}`}
                                         >
-                                            Watch now
+                                            {t('playCourse.watchNow')}
                                         </Link>
                                     </td>
                                 </tr>

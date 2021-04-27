@@ -87,6 +87,10 @@ button {
     text-transform: uppercase;
 }
 
+.btn:hover {
+    color: white;
+}
+
 .btn--gradient {
     background-image: linear-gradient(to bottom, #ff1d75, #f8902f);
     color: white;

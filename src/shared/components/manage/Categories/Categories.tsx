@@ -1,10 +1,12 @@
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import routes from '../../../routes';
 
 import './Categories.Styles.css';
 
 const Categories = ({ category }: any) => {
+    const { t } = useTranslation();
     return (
         <div className="block__header">
             <div className="block-title" style={{ textAlign: 'center' }}>
@@ -13,15 +15,15 @@ const Categories = ({ category }: any) => {
                     style={{ fontSize: '1.66rem', cursor: 'pointer' }}
                     to={routes.createCategory}
                 >
-                    Add Category
+                    {t('categories.addCategory')}
                 </Link>
             </div>
             <table className="table" style={{ width: '70%' }}>
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Category</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">{t('categories.category')}</th>
+                        <th scope="col">{t('categories.action')}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,7 +36,7 @@ const Categories = ({ category }: any) => {
                                     className="link-action__category"
                                     to={`/categories/edit/${child?._id}`}
                                 >
-                                    Edit
+                                    {t('categories.edit')}
                                 </Link>
                             </td>
                         </tr>

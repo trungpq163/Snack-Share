@@ -3,9 +3,11 @@ import * as React from 'react';
 import '../../../components/manage/Categories/Categories.Styles.css';
 
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import SearchInput from '../../../components/common/SearchInput/SearchInput';
 
 const ShowAllUsers = ({ users, handleISODateToString, values, handleChange }: any) => {
+    const { t } = useTranslation();
     return (
         <div className="block__header">
             <SearchInput
@@ -17,12 +19,12 @@ const ShowAllUsers = ({ users, handleISODateToString, values, handleChange }: an
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">First Name</th>
-                        <th scope="col">Last Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Role</th>
-                        <th scope="col">Created at</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">{t('users.firstName')}</th>
+                        <th scope="col">{t('users.lastName')}</th>
+                        <th scope="col">{t('users.email')}</th>
+                        <th scope="col">{t('users.role')}</th>
+                        <th scope="col">{t('users.createdAt')}</th>
+                        <th scope="col">{t('users.action')}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -43,7 +45,7 @@ const ShowAllUsers = ({ users, handleISODateToString, values, handleChange }: an
                                         className="link-action__category"
                                         to={`/users/edit/${user?._id}`}
                                     >
-                                        Edit
+                                        {t('users.edit')}
                                     </Link>
                                 </td>
                             </tr>

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import InputField from '../../../components/common/InputField/InputField';
 
@@ -9,16 +10,17 @@ interface Props {
 }
 
 const EditCategory = ({ handleChange, values, handleSubmit }: Props) => {
+    const { t } = useTranslation();
     return (
         <div className="block__header">
             <div className="block-title" style={{ textAlign: 'center' }}>
-                <h3>Edit Category</h3>
+                <h3>{t('editCategories.editCategory')}</h3>
             </div>
             <form onSubmit={handleSubmit} className="wrapper" style={{ width: '70%' }}>
                 <InputField
                     name="categoryName"
-                    placeholder="* Category"
-                    text="* = required fields"
+                    placeholder={t('editCategories.category')}
+                    text={t('editCategories.requireField')}
                     onChange={handleChange('categoryName')}
                     value={values?.categoryName}
                     required={true}

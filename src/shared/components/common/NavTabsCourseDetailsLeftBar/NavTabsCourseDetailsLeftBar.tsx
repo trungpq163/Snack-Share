@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
     isOverviewNavTabsClass: string;
@@ -11,11 +12,12 @@ const NavTabsCourseDetailsLeftBar = ({
     isOverviewNavTabsClass,
     isReviewNavTabsClass,
 }: Props) => {
+    const { t } = useTranslation();
     return (
         <ul className="course-details__tab-navs list-unstyled nav nav-tabs">
             <li>
                 <a className={isOverviewNavTabsClass} role="tab" data-toggle="tab" href="#overview">
-                    Overview
+                    {t('allCourses.overview')}
                 </a>
             </li>
             <li>
@@ -25,12 +27,12 @@ const NavTabsCourseDetailsLeftBar = ({
                     data-toggle="tab"
                     href="#curriculum"
                 >
-                    Curriculum
+                    {t('allCourses.curriculum')}
                 </a>
             </li>
             <li>
                 <a className={isReviewNavTabsClass} role="tab" data-toggle="tab" href="#review">
-                    Reviews
+                    {t('allCourses.reviews')}
                 </a>
             </li>
         </ul>

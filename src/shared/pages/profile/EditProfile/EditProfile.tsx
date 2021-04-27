@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import jwtDecode from 'jwt-decode';
+import { useTranslation } from 'react-i18next';
 import EditProfileContainer from '../../../containers/profile/EditProfileContainer/EditProfileContainer';
 import { getAuth } from '../../../store/auth/selectors';
 
@@ -14,6 +15,7 @@ const EditProfile = () => {
     const dispatch = useDispatch();
     const profile = useSelector(getProfile);
     const auth = useSelector(getAuth);
+    const { t } = useTranslation();
 
     React.useEffect(() => {
         if (localStorage.jwtToken) {
@@ -31,7 +33,7 @@ const EditProfile = () => {
 
     return (
         <>
-            <PageHeader title="Edit Profile" />
+            <PageHeader title={t('breadcrumb.editProfile')} />
             {profile?.loading ? (
                 <CircleLoader />
             ) : (

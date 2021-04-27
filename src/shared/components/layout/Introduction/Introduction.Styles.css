@@ -1,8 +1,8 @@
 .about-two {
-    font-family: 'Poppins', sans-serif;
-    padding: 120px 0;
     border-bottom: 1px solid #eee;
+    font-family: 'Poppins', sans-serif;
     font-weight: 100 !important;
+    padding: 120px 0;
 }
 
 .about-two .block-title {
@@ -22,7 +22,7 @@
 
 .about-two .thm-btn:hover {
     background-color: #012237;
-    color: #fff;
+    color: #fff !important;
 }
 
 .about-two__single {
@@ -95,7 +95,7 @@
     width: 100%;
 }
 
-.about-two__image>img {
+.about-two__image > img {
     border-radius: 50%;
     position: relative;
     z-index: 10;

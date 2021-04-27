@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import Course from '../../../components/common/Course/Course';
 
@@ -11,6 +12,7 @@ interface Props {
 }
 
 const MyCourses = ({ idInstructor, courses, enrollments }: Props) => {
+    const { t } = useTranslation();
     return (
         <div className="block__header">
             <div className="block-title" style={{ textAlign: 'center' }}>
@@ -19,7 +21,7 @@ const MyCourses = ({ idInstructor, courses, enrollments }: Props) => {
                     style={{ fontSize: '1.66rem', cursor: 'pointer' }}
                     to={`/addcourse/${idInstructor}`}
                 >
-                    Add Course
+                    {t('breadcrumb.addCourse')}
                 </Link>
             </div>
             <section

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import InputDropdown from '../../../components/common/InputDropdown/InputDropdown';
 
@@ -12,14 +13,15 @@ interface Props {
 }
 
 const CreateEnrollment = ({ values, handleChange, options, handleSubmit }: Props) => {
+    const { t } = useTranslation();
     return (
         <div className="block__header">
             <div className="block-title block-title__center">
-                <h3>Create Enrollment</h3>
+                <h3>{t('enrolledStudent.createEnrollment')}</h3>
             </div>
             <form className="wrapper" style={{ width: '70%' }} onSubmit={handleSubmit}>
                 <InputDropdown
-                    info="Student Email"
+                    info={t('createEnrollment.studentEmail')}
                     options={options?.users}
                     value={values?.userId}
                     name="userId"
@@ -27,7 +29,7 @@ const CreateEnrollment = ({ values, handleChange, options, handleSubmit }: Props
                     required
                 />
                 <InputDropdown
-                    info="Course Name"
+                    info={t('createEnrollment.courseName')}
                     options={options?.courses}
                     value={values?.courseId}
                     name="courseId"

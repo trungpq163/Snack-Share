@@ -3,6 +3,7 @@ import * as React from 'react';
 import { useLocation } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import jwtDecode from 'jwt-decode';
+import { useTranslation } from 'react-i18next';
 import { dispatchSetCurrentUser } from '../../../store/auth/effects';
 import CircleLoader from '../../../components/loader/CircleLoader/CircleLoader';
 import { getCourses } from '../../../store/courses/selectors';
@@ -20,6 +21,7 @@ import PageHeader from '../../../components/layout/PageHeader/PageHeader';
 
 const CourseDetail = () => {
     const location = useLocation();
+    const { t } = useTranslation();
 
     const dispatch = useDispatch();
     const pathName = location?.pathname || '';
@@ -30,6 +32,12 @@ const CourseDetail = () => {
     const enrollments = useSelector(getEnrollments);
     const ratings = useSelector(getRatingsByIDCourse);
     const auth = useSelector(getAuth);
+
+    React.useEffect(() => {
+        window.scrollTo({
+            top: 0,
+        });
+    }, []);
 
     React.useEffect(() => {
         dispatch(getAllCourses());
@@ -74,7 +82,7 @@ const CourseDetail = () => {
             ratings.loading ||
             auth.loading ? (
                 <>
-                    <PageHeader title="Loading............." />
+                    <PageHeader title={t('breadcrumb.loading')} />
                     <CircleLoader />
                 </>
             ) : (

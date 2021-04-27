@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { useTranslation } from 'react-i18next';
 import InputField from '../../common/InputField/InputField';
 import InputDropdown from '../../common/InputDropdown/InputDropdown';
 import TextArea from '../../common/TextAreaField/TextAreaField';
@@ -12,103 +13,104 @@ interface Props {
 }
 
 const FormEditProfile = ({ handleSubmit, values, handleChange, options }: Props) => {
+    const { t } = useTranslation();
     return (
         <div className="block__header">
             <div className="block-title" style={{ textAlign: 'center' }}>
-                <h3>Lets get some information to make your profile stand out</h3>
+                <h3>{t('commonProfile.title')}</h3>
             </div>
             <form onSubmit={handleSubmit} className="wrapper" style={{ width: '70%' }}>
                 <InputField
                     name="handle"
-                    placeholder="Name"
-                    text="*A unique handle for your profile URL. Your full name, company name, nickname"
+                    placeholder={t('commonProfile.name')}
+                    text={t('commonProfile.uniqueSuggestion')}
                     onChange={handleChange('handle')}
                     value={values.handle}
                     required
                 />
                 <InputDropdown
                     options={options}
-                    info="Give us an idea of where you are at in your career"
+                    info={t('commonProfile.idealSuggestion')}
                     onChange={handleChange('status')}
                     value={values.status}
                     name="status"
-                    placeholder="Status"
+                    placeholder={t('commonProfile.status')}
                     required
                 />
                 <InputField
                     name="company"
-                    placeholder="Company"
-                    text="Could be your own company or one you work for"
+                    placeholder={t('commonProfile.company')}
+                    text={t('commonProfile.companySuggestion')}
                     onChange={handleChange('company')}
                     value={values.company}
                 />
                 <InputField
                     name="website"
-                    placeholder="Website"
-                    text="Could be your own website or a company one"
+                    placeholder={t('commonProfile.website')}
+                    text={t('commonProfile.websiteSuggestion')}
                     onChange={handleChange('website')}
                     value={values.website}
                 />
                 <InputField
                     name="location"
-                    placeholder="Location"
-                    text="City or city & state suggested (eg. DaLat, HaNoi)"
+                    placeholder={t('commonProfile.location')}
+                    text={t('commonProfile.locationSuggestion')}
                     onChange={handleChange('location')}
                     value={values.location}
                 />
                 <InputField
                     name="skills"
-                    placeholder="Skills"
-                    text="Please use comma separated values (eg. HTML,CSS,JavaScript,PHP)"
+                    placeholder={t('commonProfile.skills')}
+                    text={t('commonProfile.skillsSuggestion')}
                     onChange={handleChange('skills')}
                     value={values.skills}
                 />
                 <InputField
                     name="githubusername"
-                    placeholder="Github Username"
-                    text="If you want your latest repos and a Github link, include your username"
+                    placeholder={t('commonProfile.githubUsername')}
+                    text={t('commonProfile.githubSuggestion')}
                     onChange={handleChange('githubusername')}
                     value={values.githubusername}
                 />
                 <TextArea
                     name="bio"
-                    placeholder="Bio"
-                    text="Tell us a little about yourself"
+                    placeholder={t('commonProfile.bio')}
+                    text={t('commonProfile.bioSuggestion')}
                     onChange={handleChange('bio')}
                     value={values.bio}
                 />
                 <InputField
                     name="twitter"
-                    placeholder="link"
-                    text="Twitter Profile URL"
+                    placeholder={t('commonProfile.link')}
+                    text={t('commonProfile.twitterSuggestion')}
                     onChange={handleChange('twitter')}
                     value={values.twitter}
                 />
                 <InputField
                     name="facebook"
-                    placeholder="link"
-                    text="Facebook Profile URL"
+                    placeholder={t('commonProfile.link')}
+                    text={t('commonProfile.facebookSuggestion')}
                     onChange={handleChange('facebook')}
                     value={values.facebook}
                 />
                 <InputField
                     name="linkedin"
-                    placeholder="link"
-                    text="Linkedin Profile URL"
+                    placeholder={t('commonProfile.link')}
+                    text={t('commonProfile.linkedinSuggestion')}
                     onChange={handleChange('linkedin')}
                     value={values.linkedin}
                 />
                 <InputField
                     name="youtube"
-                    placeholder="link"
-                    text="Youtube Profile URL"
+                    placeholder={t('commonProfile.link')}
+                    text={t('commonProfile.youtubeSuggestion')}
                     onChange={handleChange('youtube')}
                     value={values.youtube}
                 />
                 <InputField
                     name="instagram"
-                    placeholder="link"
-                    text="Instagram Profile URL"
+                    placeholder={t('commonProfile.link')}
+                    text={t('commonProfile.instagramSuggestion')}
                     onChange={handleChange('instagram')}
                     value={values.instagram}
                 />

@@ -28,7 +28,7 @@ const PageHeader = ({ title, loading }: Props) => {
                         </h2>
                     </>
                 ) : (
-                    <h2 className="inner-banner__title">LOADING...........</h2>
+                    <h2 className="inner-banner__title">{t('breadcrumb.loading2')}</h2>
                 )}
             </div>
         </section>

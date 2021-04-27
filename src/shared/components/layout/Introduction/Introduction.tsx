@@ -22,17 +22,12 @@ const Introduction = () => {
                     <div className="col-xl-6">
                         <div className="about-two__content">
                             <div className="block-title text-left">
-                                <h2 className="block-title__title">
-                                    {/* Welcome to online <br />
-                                    learning center */}
-                                    {t('home.titleIntro')}
-                                </h2>
+                                <h2 className="block-title__title">{t('home.titleIntro')}</h2>
                             </div>
                             <p className="about-two__text">
                                 There are many variations of passages of lorem ipsum available but
                                 the majority have suffered alteration in some form by injected
                                 humour or randomised words which dont look.
-                                {/* {t('home.contentTitleIntro')} */}
                             </p>
                             <div className="about-two__single-wrap">
                                 <div className="about-two__single">

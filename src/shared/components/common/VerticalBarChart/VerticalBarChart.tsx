@@ -1,7 +1,7 @@
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
 
-const VerticalBarChart = ({ data, labels }: any) => {
+const VerticalBarChart = ({ data, labels, children }: any) => {
     const dataVerticalBarChart = {
         labels: labels,
         datasets: [
@@ -45,7 +45,7 @@ const VerticalBarChart = ({ data, labels }: any) => {
         <>
             <div className="header">
                 <h1 className="title" style={{ textAlign: 'center' }}>
-                    Students Per Course
+                    {children}
                 </h1>
             </div>
             <Bar data={dataVerticalBarChart} options={options} />

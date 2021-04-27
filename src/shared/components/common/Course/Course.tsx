@@ -54,7 +54,9 @@ const Course = ({ col, course, isMyLearningRoute, enrollments, index, ratings }:
                         )}
                     </h2>
                     {Number(countRating(courseRatings)) === 0 ? (
-                        <p style={{ color: '#81868a', fontSize: '0.8rem' }}>Chưa có đánh giá</p>
+                        <p style={{ color: '#81868a', fontSize: '0.8rem' }}>
+                            {t('allCourses.noRatings')}
+                        </p>
                     ) : (
                         <div className="course-one__stars">
                             <span className="course-one__stars-wrap">
