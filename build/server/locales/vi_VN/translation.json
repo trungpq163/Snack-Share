@@ -1,0 +1,252 @@
+{
+    "nav": {
+        "home": "Trang Chủ",
+        "login": "Đăng Nhập",
+        "teachOnSnackDev": "Đăng Kí Dạy Trên SnackShare",
+        "logout": "Đăng Xuất",
+        "profile": "Hồ Sơ",
+        "myLearning": "Việc Học Của Tôi",
+        "myCourses": "Khoá Học Của Tôi",
+        "addCourses": "Thêm Khoá Học",
+        "addLecture": "Thêm Bài Giảng",
+        "allCourses": "Tất Cả Khoá Học",
+        "dashBoard": "Bảng Điều Khiển",
+        "users": "Người Dùng",
+        "categories": "Các Danh Mục",
+        "enrolledUsers": "Học sinh Đã Ghi Danh"
+    },
+    "login": {
+        "signin": "Đăng nhập",
+        "detail": "Chưa có tài khoản?",
+        "signupStudent": "Đăng kí (học sinh)",
+        "signupInstructor": "Đăng kí (người hướng dẫn)",
+        "signup": "Đăng kí"
+    },
+    "register": {
+        "signup": "Đăng kí",
+        "signin": "Đăng nhập",
+        "firstName": "Họ",
+        "lastName": "Tên",
+        "email": "Email",
+        "password": "Mật khẩu",
+        "repeatPassword": "Nhập lại mật khẩu",
+        "alReadyHaveAnAccount": "Đã có tài khoản",
+        "login": "Đăng nhập"
+    },
+    "home": {
+        "titleIntro": "Bạn muốn học gì hôm nay?",
+        "contentTitleIntro": "Tìm hiểu về mọi thứ, mọi lúc và mọi nơi từ các giảng viên và khóa học được công nhận",
+        "titleIntro2": "Bắt đầu học hỏi từ các chuyên gia của chúng tôi",
+        "titleIntro3": "Nâng cao kỹ năng của bạn ngay bây giờ",
+        "titleButton": "Xem thêm",
+        "trustBy": "Được tin cậy",
+        "titlePopularCourse": "Khám phá khoá học",
+        "titlePopularCourse2": "phổ biến của chúng tôi",
+        "ourStudent": "Học sinh chúng tôi làm việc tại"
+    },
+    "courseCard": {
+        "students": "học sinh",
+        "by": "bởi",
+        "seeMore": "Xem thêm",
+        "studyNow": "Học ngay"
+    },
+    "breadcrumb": {
+        "home": "Trang chủ",
+        "myLearning": "Việc học của tôi",
+        "allCourse": "Tất cả khoá học",
+        "myCourses": "Khoá học của tôi",
+        "dashboard": "Bảng điều khiển",
+        "userManagement": "Quản lý người dùng",
+        "categoryManagement": "Quản lý danh mục",
+        "createCategory": "Tạo danh mục",
+        "enrollStudent": "Học sinh ghi danh",
+        "createEnrollment": "Tạo ghi danh",
+        "addCourse": "Thêm khoá học",
+        "addLecture": "Add bài giảng",
+        "loading": "Đang tải...........",
+        "loading2": "ĐANG TẢI...........",
+        "editCategory": "Chỉnh sửa danh mục",
+        "editCourse": "Chỉnh sửa khoá học",
+        "editUser": "Chỉnh sửa thông tin người dùng",
+        "checkout": "Thanh toán",
+        "addEducation": "Thêm học vấn",
+        "editProfile": "Chỉnh sửa hồ sơ"
+    },
+    "manageYourStudent": {
+        "manageYourStudent": "Quản lý học sinh đăng kí",
+        "studentEmail": "Email học sinh",
+        "courseTitle": "Tên khoá học",
+        "action": "Hành động",
+        "delete": "Xoá"
+    },
+    "editUser": {
+        "editUser": "Chỉnh sửa thông tin người dùng",
+        "require": "* = Bắt buộc",
+        "firstName": "* Họ",
+        "lastName": "* Tên",
+        "email": "* Email",
+        "password": "* Mật khẩu"
+    },
+    "dashboard": {
+        "coursesPerInstructor": "Khoá học cho từng người hướng dẫn",
+        "coursesPerCategory": "Khoá học cho mỗi thể loại",
+        "studentsPerCourse": "Số sinh viên đăng kí cho từng khoá học"
+    },
+    "users": {
+        "search": "Tìm kiếm",
+        "firstName": "Họ",
+        "lastName": "Tên",
+        "email": "Email",
+        "role": "Vai trò",
+        "createdAt": "Ngày tạo",
+        "action": "Hành động",
+        "edit": "Chỉnh sửa"
+    },
+    "categories": {
+        "addCategory": "Thêm danh mục",
+        "category": "Danh mục",
+        "action": "Hành động",
+        "edit": "Chỉnh sửa"
+    },
+    "editCategories": {
+        "editCategory": "Chỉnh sửa danh mục",
+        "requireField": "* = trường bắt buộc",
+        "category": "* Danh mục"
+    },
+    "createCategory": {
+        "createCategory": "Tạo danh mục",
+        "requireField": "* = trường bắt buộc",
+        "category": "* Danh mục"
+    },
+    "enrolledStudent": {
+        "createEnrollment": "Tạo ghi danh",
+        "studentEmail": "Email học sinh",
+        "courseTitle": "Khoá học",
+        "action": "Hành động",
+        "delete": "Xoá"
+    },
+    "createEnrollment": {
+        "studentEmail": "Email học sinh",
+        "selectStudent": "Chọn học sinh",
+        "courseName": "Khoá học",
+        "selectCourse": "Chọn khoá học"
+    },
+    "allCourses": {
+        "by": "bởi",
+        "editCourse": "Chỉnh sửa khoá học",
+        "manageYourStudent": "Quản lý học sinh đăng kí khoá học",
+        "addLecture": "Thêm bài giảng",
+        "durations": "Thời lượng",
+        "lectures": "Bài giảng",
+        "skillLevel": "Mức độ",
+        "language": "Ngôn ngữ",
+        "newCourses": "Khoá học mới",
+        "noRatings": "Chưa có đánh giá",
+        "overview": "Tổng quát",
+        "curriculum": "Chương trình",
+        "reviews": "Đánh giá",
+        "excellent": "Xuất sắc",
+        "veryGood": "Tốt",
+        "average": "Bình thường",
+        "poor": "Hơi tệ",
+        "terrible": "Tệ",
+        "addReview": "Thêm đánh giá",
+        "rateThisCourse": "Đánh giá khoá học này? ",
+        "writeMessage": "Viết đánh giá",
+        "leaveReview": "Đánh giá",
+        "coursePrice": "Giá",
+        "buyThisCourse": "Mua khoá học này"
+    },
+    "profile": {
+        "editProfile": "Chỉnh sữa hồ sơ",
+        "addExperience": "Thêm kinh nghiệm",
+        "addEducation": "Thêm học vấn",
+        "education": "Học vấn",
+        "school": "Trường học",
+        "degree": "Trình độ",
+        "fieldOfStudy": "Chuyên ngành",
+        "status": "Status",
+        "from": "Từ",
+        "experience": "Kinh nghiệm",
+        "company": "Công ty",
+        "job": "Công việc",
+        "location": "Vị trí",
+        "skills": "Kĩ năng",
+        "noProfileHere": "Bạn chưa thêm thông tin hồ sơ",
+        "createNow": "Tạo ngay"
+    },
+    "commonProfile": {
+        "title": "Điền một số thông tin để làm nổi bật hồ sơ của bạn",
+        "uniqueSuggestion": "* username",
+        "idealSuggestion": "Bạn đang ở mức độ nào trong sự nghiệp của mình",
+        "companySuggestion": "Công ty mà bạn đang làm",
+        "websiteSuggestion": "Trang web của bạn hoặc của công ty",
+        "locationSuggestion": "Thành phố bạn đang sống (vd. Đà Lạt, Hà Nội)",
+        "skillsSuggestion": "Vui lòng sử dụng các giá trị được phân tách bằng dấu phẩy (ví dụ: HTML, CSS, JavaScript, PHP)",
+        "githubSuggestion": "Username github của bạn",
+        "bioSuggestion": "Giới thiệu bản thân",
+        "twitterSuggestion": "Trang cá nhân twitter của bạn",
+        "facebookSuggestion": "Trang cá nhân facebook của bạn",
+        "linkedinSuggestion": "Trang cá nhân linkedin của bạn",
+        "youtubeSuggestion": "Trang cá nhân youtube của bạn",
+        "instagramSuggestion": "Trang cá nhân instagram của bạn",
+        "name": "Username",
+        "company": "Công ty",
+        "website": "Trang web",
+        "location": "Thành phố",
+        "skills": "Kĩ năng",
+        "githubUsername": "Github Username",
+        "bio": "Giới thiệu",
+        "link": "Đường dẫn",
+        "status": "Status"
+    },
+    "editCourse": {
+        "title": "Chỉnh sửa khoá học",
+        "requiredFieldsSuggestion": "* = trường bắt buộc",
+        "coursePriceSuggestion": "* Giá (USD)",
+        "languageSuggestion": "* Chọn ngôn ngữ trong khoá học của bạn",
+        "skillLevelSuggestion": "* Chọn trình độ để có thể học khoá học của bạn",
+        "categorySuggestion": "* Chọn danh mục",
+        "descriptionSuggestion": "Mô tả",
+        "uploadImageSuggestion": "Tải hình ảnh",
+        "course": "* Tên khoá học",
+        "coursePrice": "usd",
+        "courseDescription": "Mô tả",
+        "update": "Cập nhật"
+    },
+    "addLecture": {
+        "required": "*= bắt buộc",
+        "lessonTitle": "* Tiêu đề bài giảng",
+        "addEmbedURL": "Nhúng link video url",
+        "forExample": "*ví dụ: https://www.youtube.com/embed/ahCwqrYpluM"
+    },
+    "playCourse": {
+        "lesson": "Bài giảng",
+        "description": "Mô tả",
+        "watchNow": "Xem ngay"
+    },
+    "addExperience": {
+        "title": "Thêm công việc hoặc vị trí nào mà bạn đã có trong quá khứ hoặc hiện tại",
+        "requiredFields": "* = trường bắt buộc",
+        "company": "* Công ty",
+        "jobTitle": "* Chức danh",
+        "location": "Vị trí",
+        "fromDate": "Từ ngày",
+        "toDate": "Tới ngày",
+        "currentJob": "Công việc hiện tại",
+        "about": "Nói thêm về vị trí của bạn",
+        "jobDescription": "Mô tả công việc"
+    },
+    "addEducation": {
+        "title": "Thêm trường học, hay khoá học online mà bạn đã theo học",
+        "requiredFields": "* = trường bắt buộc",
+        "school": "* Trường",
+        "degreeOfCertification": "* Bằng cấp chứng nhận",
+        "fieldOfStudy": "* Chuyên ngành",
+        "fromDate": "Từ ngày",
+        "toDate": "đến ngày",
+        "currentJob": "Đang học",
+        "about": "Hãy cho chúng tôi biết bạn đang học gì",
+        "jobDescription": "Mô tả"
+    }
+}
