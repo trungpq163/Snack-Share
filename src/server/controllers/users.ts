@@ -12,6 +12,7 @@ import {
     findUserByEmailService,
     saveUserService,
     findAllUsersService,
+    findAllStudentsService,
     findUserByQueryIdService,
     findUserAndUpdateByIdService,
     findAndRemoveUserById,
@@ -122,6 +123,17 @@ export const returnCurrentUserFromTokenCtrl = (req: Request, res: Response) => {
 
 export const getUsersCtrl = (_req: Request, res: Response) => {
     findAllUsersService(userModel)
+        .then((doc) => {
+            res.setHeader('Content-Range', 'users 0-5/5');
+            res.json(doc);
+        })
+        .catch((err) => {
+            res.status(500).json(err);
+        });
+};
+
+export const getStudentsCtrl = (_req: Request, res: Response) => {
+    findAllStudentsService(userModel)
         .then((doc) => {
             res.setHeader('Content-Range', 'users 0-5/5');
             res.json(doc);

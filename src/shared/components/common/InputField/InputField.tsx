@@ -10,6 +10,7 @@ const InputField = ({
     type,
     acceptFile,
     inputNumber,
+    displayNone,
     disabled,
     required,
 }: any) => {
@@ -37,6 +38,7 @@ const InputField = ({
                 placeholder={placeholder}
                 disabled={disabled}
                 required={required || false}
+                style={{ display: `${displayNone ? 'none' : 'block'}` }}
             />
         </>
     );

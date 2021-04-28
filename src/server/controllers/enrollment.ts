@@ -1,15 +1,12 @@
 import { Request, Response, NextFunction } from 'express';
 
 import enrollmentModel from '../models/Enrollment';
-// import courseModel from '../models/Course';
-// import userModel from '../models/User';
 
 import {
     getEnrollmentsService,
     getEnrollmentByStudentService,
     getCheckEnrollmentService,
-    // findUserByEmailService,
-    // findCourseByNameService,
+    findEnrollmentByCourseAndUser,
     saveEnrollmentService,
     deleteEnrollmentService,
     updateEnrollmentByIdService,
@@ -52,31 +49,26 @@ export const addEnrollmentCtrl = (req: Request, res: Response) => {
         return res.status(400).send('Request body is missing');
     }
 
-    // findUserByEmailService(userModel, req.body.student, (error: any, cat: any) => {
-    //     if (!error && cat) {
-    //         console.log(cat);
-    //         req.body.student = cat[0]._id;
-    //     }
-    // });
-
-    // findCourseByNameService(courseModel, req.body.course, (error: any, cat: any) => {
-    //     if (!error && cat) {
-    //         console.log(cat);
-    //         req.body.course = cat[0]._id;
-    //     }
-    // });
-
-    const model = new enrollmentModel(req.body);
-    saveEnrollmentService(model)
-        .then((doc) => {
-            if (!doc || doc.length === 0) {
-                return res.status(500).send(doc);
+    findEnrollmentByCourseAndUser(enrollmentModel, req.body.course, req.body.student).then(
+        (enrollment) => {
+            if (JSON.stringify(enrollment) !== '[]') {
+                return res
+                    .status(400)
+                    .json({ content: 'User had enrolled this course, please choose other course' });
             }
-            res.status(200).send(doc);
-        })
-        .catch((err) => {
-            res.status(500).json(err);
-        });
+            const model = new enrollmentModel(req.body);
+            saveEnrollmentService(model)
+                .then((doc) => {
+                    if (!doc || doc.length === 0) {
+                        return res.status(500).send(doc);
+                    }
+                    res.status(200).send(doc);
+                })
+                .catch((err) => {
+                    res.status(500).json(err);
+                });
+        }
+    );
 };
 
 export const addEnrollmentByStudentCtrl = (req: Request, res: Response) => {

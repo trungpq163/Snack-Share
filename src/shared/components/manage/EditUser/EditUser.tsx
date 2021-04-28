@@ -75,6 +75,7 @@ const EditUser = ({ handleChange, handleSubmit, values }: Props) => {
                     text=""
                     onChange={handleChange('password')}
                     value={values.password}
+                    displayNone={true}
                     required
                 />
                 <InputDropdown

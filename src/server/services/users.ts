@@ -12,6 +12,10 @@ export const findAllUsersService = async (user: any) => {
     return await user.find();
 };
 
+export const findAllStudentsService = async (user: any) => {
+    return await user.find({ role: 'student' });
+};
+
 export const findUserByQueryIdService = async (user: any, reqQueryId: string) => {
     return await user.findOne({
         _id: reqQueryId,

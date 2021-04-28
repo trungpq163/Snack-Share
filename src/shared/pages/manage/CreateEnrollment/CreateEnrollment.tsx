@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { getUsers } from '../../../store/users/selectors';
 import { getCourses } from '../../../store/courses/selectors';
-import { getAllUsers } from '../../../store/users/effects';
+import { getAllStudents } from '../../../store/users/effects';
 import { getAllCourses } from '../../../store/courses/effects';
 import CreateEnrollmentContainer from '../../../containers/manage/CreateEnrollmentContainer/CreateEnrollmentContainer';
 import PageHeader from '../../../components/layout/PageHeader/PageHeader';
@@ -23,7 +23,7 @@ const CreateEnrollment = () => {
     }, []);
 
     React.useEffect(() => {
-        dispatch(getAllUsers());
+        dispatch(getAllStudents());
         dispatch(getAllCourses());
     }, [dispatch]);
 

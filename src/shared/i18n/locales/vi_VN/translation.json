@@ -69,7 +69,7 @@
         "editCourse": "Chỉnh sửa khoá học",
         "editUser": "Chỉnh sửa thông tin người dùng",
         "checkout": "Thanh toán",
-        "addEducation": "Thêm nơi bạn học",
+        "addEducation": "Thêm học vấn",
         "editProfile": "Chỉnh sửa hồ sơ"
     },
     "manageYourStudent": {
@@ -224,5 +224,29 @@
         "lesson": "Bài giảng",
         "description": "Mô tả",
         "watchNow": "Xem ngay"
+    },
+    "addExperience": {
+        "title": "Thêm công việc hoặc vị trí nào mà bạn đã có trong quá khứ hoặc hiện tại",
+        "requiredFields": "* = trường bắt buộc",
+        "company": "* Công ty",
+        "jobTitle": "* Chức danh",
+        "location": "Vị trí",
+        "fromDate": "Từ ngày",
+        "toDate": "Tới ngày",
+        "currentJob": "Công việc hiện tại",
+        "about": "Nói thêm về vị trí của bạn",
+        "jobDescription": "Mô tả công việc"
+    },
+    "addEducation": {
+        "title": "Thêm trường học, hay khoá học online mà bạn đã theo học",
+        "requiredFields": "* = trường bắt buộc",
+        "school": "* Trường",
+        "degreeOfCertification": "* Bằng cấp chứng nhận",
+        "fieldOfStudy": "* Chuyên ngành",
+        "fromDate": "Từ ngày",
+        "toDate": "đến ngày",
+        "currentJob": "Đang học",
+        "about": "Hãy cho chúng tôi biết bạn đang học gì",
+        "jobDescription": "Mô tả"
     }
 }

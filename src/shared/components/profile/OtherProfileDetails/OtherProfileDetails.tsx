@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 import Course from '../../../components/common/Course/Course';
 
 import { Auth } from '../../../store/auth/types';
@@ -15,6 +16,7 @@ interface Props {
 }
 
 const OtherProfileDetails = ({ auth, profile, name, courses, idUser, enrollments }: Props) => {
+    const { t } = useTranslation();
     const coursesById = courses?.filter((course: any) => course?.instructor?._id === idUser);
 
     return (
@@ -29,26 +31,27 @@ const OtherProfileDetails = ({ auth, profile, name, courses, idUser, enrollments
                                 className="team-details__subtitle"
                                 style={{ marginBottom: '0.5rem' }}
                             >
-                                Education
+                                {t('profile.education')}
                             </h1>
-                            School: {profile?.education[0]?.school || ''} <br />
-                            Degree: {profile?.education[0]?.degree || ''} <br />
-                            Field of Study: {profile?.education[0]?.fieldofstudy || ''} <br />
-                            Status: {profile?.education[0]?.current || ''} <br />
-                            From: {profile?.education[0]?.from || ''} <br />
+                            {t('profile.school')}: {profile?.education[0]?.school || ''} <br />
+                            {t('profile.degree')}: {profile?.education[0]?.degree || ''} <br />
+                            {t('profile.fieldOfStudy')}: {profile?.education[0]?.fieldofstudy || ''}{' '}
+                            <br />
+                            {t('profile.status')}: {profile?.education[0]?.current || ''} <br />
+                            {t('profile.from')}: {profile?.education[0]?.from || ''} <br />
                             <h1
                                 className="team-details__subtitle"
                                 style={{ marginBottom: '0.5rem' }}
                             >
-                                Experience
+                                {t('profile.experience')}
                             </h1>
-                            Company: {profile?.experience[0]?.company || ''} <br />
-                            Job: {profile?.experience[0]?.title || ''} <br />
-                            Status:
-                            {profile?.experience[0]?.current ? 'Working' : ''} <br />
-                            From: {profile?.experience[0]?.from || ''} <br />
-                            Location: {profile?.experience[0]?.location || ''} <br />
-                            <h1 className="team-details__subtitle">Skills</h1>
+                            {t('profile.company')}: {profile?.experience[0]?.company || ''} <br />
+                            {t('profile.job')}: {profile?.experience[0]?.title || ''} <br />
+                            {t('profile.status')}:{profile?.experience[0]?.current ? 'Working' : ''}{' '}
+                            <br />
+                            {t('profile.from')}: {profile?.experience[0]?.from || ''} <br />
+                            {t('profile.location')}: {profile?.experience[0]?.location || ''} <br />
+                            <h1 className="team-details__subtitle">{t('profile.skills')}</h1>
                             <div className="progress-one__wrap">
                                 {profile?.skills?.map((skill: any, index: any) => (
                                     <div className="progress-one__single" key={index}>
@@ -101,7 +104,7 @@ const OtherProfileDetails = ({ auth, profile, name, courses, idUser, enrollments
                     </div>
                 </div>
                 <div className="row justify-content-between mt-5 pt-5">
-                    <h2 className="team-details__title">My courses</h2>
+                    <h2 className="team-details__title">{t('breadcrumb.myCourses')}</h2>
                     {coursesById.length > 0
                         ? coursesById.map((course: any, index: number | string) =>
                               coursesById.length === 1 ? (

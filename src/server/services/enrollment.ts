@@ -108,6 +108,14 @@ export const findCourseByNameService = async (course: any, reqBodyCourse: string
     );
 };
 
+export const findEnrollmentByCourseAndUser = async (
+    enrollment: any,
+    reqBodyCourse: string,
+    reqBodyUser: string
+) => {
+    return await enrollment.find({ course: reqBodyCourse, student: reqBodyUser });
+};
+
 export const updateEnrollmentByIdService = async (
     enrollment: any,
     reqQueryId: string,

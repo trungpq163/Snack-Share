@@ -19,3 +19,14 @@ export const getAllUsers = () => (dispatch: Dispatch<Action>) => {
         .then((res) => dispatch(getUsers(res.data)))
         .catch((_err) => dispatch(getUsers({})));
 };
+
+export const getAllStudents = () => (dispatch: Dispatch<Action>) => {
+    dispatch(setUsersLoading());
+    const config: AxiosRequestConfig = {
+        method: 'get',
+        url: '/api/students',
+    };
+    axios(config)
+        .then((res) => dispatch(getUsers(res.data)))
+        .catch((_err) => dispatch(getUsers({})));
+};

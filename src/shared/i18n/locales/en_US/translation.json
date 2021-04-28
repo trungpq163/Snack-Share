@@ -217,12 +217,36 @@
     "addLecture": {
         "required": "*=required",
         "lessonTitle": "*Lesson Title",
-        "addEmbedURL": "Add Embed Youtube Video URL",
+        "addEmbedURL": "Add Embed Video URL",
         "forExample": "*ex: https://www.youtube.com/embed/ahCwqrYpluM"
     },
     "playCourse": {
         "lesson": "Lesson",
         "description": "Description",
         "watchNow": "Watch now"
+    },
+    "addExperience": {
+        "title": "Add any job or position that you have had in the past or current",
+        "requiredFields": "* = required fields",
+        "company": "* Company",
+        "jobTitle": "* Job title",
+        "location": "Location",
+        "fromDate": "From date",
+        "toDate": "To date",
+        "currentJob": "Current job",
+        "about": "Tell us about the position",
+        "jobDescription": "Job description"
+    },
+    "addEducation": {
+        "title": "Add any school, bootcamp, etc that you have attended",
+        "requiredFields": "* = required fields",
+        "school": "* School",
+        "degreeOfCertification": "* Degree of certification",
+        "fieldOfStudy": "* Field of study",
+        "fromDate": "From date",
+        "toDate": "To date",
+        "currentJob": "Currently learn",
+        "about": "Tell us about what are you learning",
+        "jobDescription": "description"
     }
 }

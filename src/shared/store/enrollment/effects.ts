@@ -4,7 +4,7 @@ import { Action } from './types';
 import { getEnrollments, setEnrollmentsLoading } from './action';
 
 export const errorResponse = (errData: any): string | undefined => {
-    const errRes = errData?.message;
+    const errRes = errData?.response?.data?.content || errData?.message;
     return errRes;
 };
 
@@ -43,6 +43,7 @@ export const addEnrollmentsByAdmin = (
             setData();
         })
         .catch((err) => {
+            console.log('err with love', err.response);
             errorCb(errorResponse(err));
         });
 };

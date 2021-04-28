@@ -43,7 +43,7 @@ const Login = ({ clickSubmit, handleChange, values }: Props) => {
                             type="email"
                             id="email"
                             className="form-input"
-                            placeholder="Ex: johndoe@email.com"
+                            placeholder="Ex: trungphan@gmail.com"
                             value={values.email}
                             onChange={handleChange('email')}
                             required

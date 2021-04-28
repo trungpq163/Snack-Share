@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import jwtDecode from 'jwt-decode';
 
+import { useTranslation } from 'react-i18next';
 import { getProfile } from '../../../store/profile/selectors';
 import { getCurrentProfile } from '../../../store/profile/effects';
 import { getAuth } from '../../../store/auth/selectors';
@@ -14,6 +15,7 @@ const AddEducation = () => {
     const dispatch = useDispatch();
     const profile = useSelector(getProfile);
     const auth = useSelector(getAuth);
+    const { t } = useTranslation();
 
     React.useEffect(() => {
         window.scrollTo({
@@ -37,7 +39,7 @@ const AddEducation = () => {
 
     return (
         <>
-            <PageHeader title="Add Education" />
+            <PageHeader title={t('breadcrumb.addEducation')} />
             {profile?.loading ? (
                 <CircleLoader />
             ) : (

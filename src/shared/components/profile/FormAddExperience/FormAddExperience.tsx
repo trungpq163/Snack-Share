@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import InputField from '../../../components/common/InputField/InputField';
 import TextArea from '../../../components/common/TextAreaField/TextAreaField';
@@ -11,23 +12,24 @@ interface Props {
 }
 
 const FormAddExperience = ({ handleSubmit, values, handleChange, handleCheck }: Props) => {
+    const { t } = useTranslation();
     return (
         <div className="block__header">
             <div className="block-title" style={{ textAlign: 'center' }}>
-                <h3>Add any job or position that you have had in the past or current</h3>
+                <h3>{t('addExperience.title')}</h3>
             </div>
             <form onSubmit={handleSubmit} className="wrapper" style={{ width: '70%' }}>
                 <InputField
                     name="company"
-                    placeholder="* Company"
-                    text="* = required fields"
+                    placeholder={t('addExperience.company')}
+                    text={t('addExperience.requiredFields')}
                     onChange={handleChange('company')}
                     value={values?.company}
                     required
                 />
                 <InputField
                     name="title"
-                    placeholder="* Job Title"
+                    placeholder={t('addExperience.jobTitle')}
                     text=""
                     onChange={handleChange('title')}
                     value={values?.title}
@@ -35,7 +37,7 @@ const FormAddExperience = ({ handleSubmit, values, handleChange, handleCheck }: 
                 />
                 <InputField
                     name="location"
-                    placeholder="Location"
+                    placeholder={t('addExperience.location')}
                     text=""
                     onChange={handleChange('location')}
                     value={values?.location}
@@ -43,14 +45,14 @@ const FormAddExperience = ({ handleSubmit, values, handleChange, handleCheck }: 
                 <InputField
                     name="from"
                     type="date"
-                    text="From Date"
+                    text={t('addExperience.fromDate')}
                     onChange={handleChange('from')}
                     value={values?.from}
                 />
                 <InputField
                     name="to"
                     type="date"
-                    text="To Date"
+                    text={t('addExperience.toDate')}
                     onChange={handleChange('to')}
                     value={values?.to}
                     disabled={values?.disabled ? 'disabled' : ''}
@@ -75,13 +77,13 @@ const FormAddExperience = ({ handleSubmit, values, handleChange, handleCheck }: 
                         }}
                         htmlFor="current"
                     >
-                        Current Job
+                        {t('addExperience.currentJob')}
                     </label>
                 </div>
                 <TextArea
                     name="description"
-                    text="Tell us about the the position"
-                    placeholder="Job Description"
+                    text={t('addExperience.about')}
+                    placeholder={t('addExperience.jobDescription')}
                     onChange={handleChange('description')}
                     value={values?.description}
                 />

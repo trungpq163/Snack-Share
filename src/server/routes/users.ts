@@ -5,6 +5,7 @@ import {
     deleteUserByIdCtrl,
     getUserCtrl,
     getUsersCtrl,
+    getStudentsCtrl,
     loginUsersCtrl,
     postUserCtrl,
     registerUsersCtrl,
@@ -43,6 +44,13 @@ router
  * @access Private Admin
  */
 router.route('/users').get(passport.authenticate('admin', { session: false }), getUsersCtrl);
+
+/**
+ * @route GET api/students
+ * @desc Return all students in mongoDB
+ * @access Private Admin
+ */
+router.route('/students').get(passport.authenticate('admin', { session: false }), getStudentsCtrl);
 
 /**
  * @route GET POST PUT DELETE api/user

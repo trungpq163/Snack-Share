@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import InputField from '../../../components/common/InputField/InputField';
 import TextArea from '../../../components/common/TextAreaField/TextAreaField';
@@ -11,23 +12,24 @@ interface Props {
 }
 
 const FormAddEducation = ({ handleChange, handleCheck, handleSubmit, values }: Props) => {
+    const { t } = useTranslation();
     return (
         <div className="block__header">
             <div className="block-title" style={{ textAlign: 'center' }}>
-                <h3>Add any school, bootcamp, etc that you have attended</h3>
+                <h3>{t('addEducation.title')}</h3>
             </div>
             <form onSubmit={handleSubmit} className="wrapper" style={{ width: '70%' }}>
                 <InputField
                     name="school"
                     placeholder="* School"
-                    text="* = required fields"
+                    text={t('addEducation.requiredFields')}
                     onChange={handleChange('school')}
                     value={values?.school}
                     required={true}
                 />
                 <InputField
                     name="degree"
-                    placeholder="* Degree of Certification"
+                    placeholder={t('addEducation.degreeOfCertification')}
                     text=""
                     onChange={handleChange('degree')}
                     value={values?.degree}
@@ -35,7 +37,7 @@ const FormAddEducation = ({ handleChange, handleCheck, handleSubmit, values }: P
                 />
                 <InputField
                     name="fieldofstudy"
-                    placeholder="* Field of Study"
+                    placeholder={t('addEducation.fieldOfStudy')}
                     text=""
                     onChange={handleChange('fieldofstudy')}
                     value={values?.fieldofstudy}
@@ -44,14 +46,14 @@ const FormAddEducation = ({ handleChange, handleCheck, handleSubmit, values }: P
                 <InputField
                     name="from"
                     type="date"
-                    text="From Date"
+                    text={t('addEducation.fromDate')}
                     onChange={handleChange('from')}
                     value={values?.from}
                 />
                 <InputField
                     name="to"
                     type="date"
-                    text="To Date"
+                    text={t('addEducation.toDate')}
                     onChange={handleChange('to')}
                     value={values?.to}
                     disabled={values?.disabled ? 'disabled' : ''}
@@ -76,13 +78,13 @@ const FormAddEducation = ({ handleChange, handleCheck, handleSubmit, values }: P
                         }}
                         htmlFor="current"
                     >
-                        Current Job
+                        {t('addEducation.currentJob')}
                     </label>
                 </div>
                 <TextArea
                     name="description"
-                    text="Tell us about the the position"
-                    placeholder="Job Description"
+                    text={t('addEducation.about')}
+                    placeholder={t('addEducation.jobDescription')}
                     onChange={handleChange('description')}
                     value={values?.description}
                 />
