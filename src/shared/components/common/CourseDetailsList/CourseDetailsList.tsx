@@ -18,16 +18,18 @@ const CourseDetailsList = ({ courses }: Props) => {
             {courses.slice(0, 3).map((course: any, index: number) => (
                 <div className="course-details__list-item" key={index}>
                     <div className="course-details__list-img">
-                        <img
-                            style={{
-                                objectFit: 'cover',
-                                objectPosition: '30% 80%',
-                            }}
-                            width={66}
-                            height={66}
-                            src={course?.image}
-                            alt=""
-                        />
+                        <Link to={`/course-details/${course?._id}`}>
+                            <img
+                                style={{
+                                    objectFit: 'cover',
+                                    objectPosition: '30% 80%',
+                                }}
+                                width={66}
+                                height={66}
+                                src={course?.image}
+                                alt=""
+                            />
+                        </Link>
                     </div>
                     <div className="course-details__list-content">
                         <Link
@@ -39,7 +41,7 @@ const CourseDetailsList = ({ courses }: Props) => {
                         </Link>
 
                         <h3>
-                            <a href="#none">{course?.courseName}</a>
+                            <Link to={`/course-details/${course?._id}`}>{course?.courseName}</Link>
                         </h3>
                         {Number(countRating(course.ratings)) === 0 ? (
                             <p>{t('allCourses.noRatings')}</p>
