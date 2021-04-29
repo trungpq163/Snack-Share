@@ -26,6 +26,8 @@ const EditUserContainer = ({ pathName, user }: Props) => {
         role: '',
     });
 
+    const [loading, setLoading] = React.useState(false);
+
     React.useEffect(() => {
         if (localStorage.jwtToken) {
             setDecoded(jwtDecode(localStorage.getItem('jwtToken') as string));
@@ -55,6 +57,7 @@ const EditUserContainer = ({ pathName, user }: Props) => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        setLoading(true);
         const userData = {
             // eslint-disable-next-line camelcase
             first_name: values.first_name,
@@ -71,7 +74,7 @@ const EditUserContainer = ({ pathName, user }: Props) => {
                 userData,
                 (err: any) => toastErrorNotify(err),
                 (mess: string) => toastSuccessNotify(mess),
-                () =>
+                () => {
                     setValues({
                         // eslint-disable-next-line camelcase
                         first_name: '',
@@ -80,7 +83,9 @@ const EditUserContainer = ({ pathName, user }: Props) => {
                         email: '',
                         password: '',
                         role: '',
-                    }),
+                    });
+                    setLoading(false);
+                },
                 () => {
                     setData(dispatch, decoded);
                     dispatch(getUserEff(pathName));
@@ -94,7 +99,12 @@ const EditUserContainer = ({ pathName, user }: Props) => {
             {user.loading ? (
                 <CircleLoader />
             ) : (
-                <EditUser handleSubmit={handleSubmit} handleChange={handleChange} values={values} />
+                <EditUser
+                    handleSubmit={handleSubmit}
+                    loading={loading}
+                    handleChange={handleChange}
+                    values={values}
+                />
             )}
         </>
     );

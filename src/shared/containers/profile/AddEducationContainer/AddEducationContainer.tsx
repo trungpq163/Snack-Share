@@ -32,6 +32,8 @@ const AddEducationContainer = ({ profile, loading, auth }: Props) => {
         disabled: false,
     });
 
+    const [loader, setLoader] = React.useState(false);
+
     React.useEffect(() => {
         if (localStorage.jwtToken) {
             setDecoded(jwtDecode(localStorage.getItem('jwtToken') as string));
@@ -70,6 +72,7 @@ const AddEducationContainer = ({ profile, loading, auth }: Props) => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        setLoader(true);
 
         const eduData = {
             school: values.school,
@@ -86,7 +89,7 @@ const AddEducationContainer = ({ profile, loading, auth }: Props) => {
                 eduData,
                 (err: any) => toastErrorNotify(err),
                 (mess: string) => toastSuccessNotify(mess),
-                () =>
+                () => {
                     setValues({
                         school: '',
                         degree: '',
@@ -96,7 +99,9 @@ const AddEducationContainer = ({ profile, loading, auth }: Props) => {
                         current: false,
                         description: '',
                         disabled: false,
-                    }),
+                    });
+                    setLoader(false);
+                },
                 () => setData(dispatch, decoded),
                 () => history.push(`/user/${auth?.users?.id}`)
             )
@@ -110,6 +115,7 @@ const AddEducationContainer = ({ profile, loading, auth }: Props) => {
             ) : (
                 <FormAddEducation
                     handleSubmit={handleSubmit}
+                    loader={loader}
                     values={values}
                     handleChange={handleChange}
                     handleCheck={handleCheck}

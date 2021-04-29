@@ -31,6 +31,8 @@ const AddExperienceContainer = ({ profile, loading, auth }: Props) => {
         disabled: false,
     });
 
+    const [loader, setLoader] = React.useState(false);
+
     React.useEffect(() => {
         setDecoded(jwtDecode(localStorage.getItem('jwtToken') as string));
     }, []);
@@ -67,6 +69,7 @@ const AddExperienceContainer = ({ profile, loading, auth }: Props) => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        setLoader(true);
 
         const expData = {
             company: values.company,
@@ -83,7 +86,7 @@ const AddExperienceContainer = ({ profile, loading, auth }: Props) => {
                 expData,
                 (err: any) => toastErrorNotify(err),
                 (mess: string) => toastSuccessNotify(mess),
-                () =>
+                () => {
                     setValues({
                         company: '',
                         title: '',
@@ -93,7 +96,9 @@ const AddExperienceContainer = ({ profile, loading, auth }: Props) => {
                         current: false,
                         description: '',
                         disabled: false,
-                    }),
+                    });
+                    setLoader(false);
+                },
                 () => setData(dispatch, decoded),
                 () => history.push(`/user/${auth?.users?.id}`)
             )
@@ -108,6 +113,7 @@ const AddExperienceContainer = ({ profile, loading, auth }: Props) => {
                 <FormAddExperience
                     handleSubmit={handleSubmit}
                     values={values}
+                    loader={loader}
                     handleChange={handleChange}
                     handleCheck={handleCheck}
                 />

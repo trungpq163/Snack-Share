@@ -4,9 +4,11 @@ import { useTranslation } from 'react-i18next';
 import InputField from '../../../components/common/InputField/InputField';
 import TextArea from '../../../components/common/TextAreaField/TextAreaField';
 import InputDropdown from '../../../components/common/InputDropdown/InputDropdown';
+import CircleDashedLoader from '../../loader/CircleDashedLoader/CircleDashedLoader';
 
 interface Props {
     values: any;
+    loading: boolean;
     handleChange: any;
     handleChangeFile: any;
     options: any;
@@ -17,6 +19,7 @@ interface Props {
 
 const EditCourse = ({
     handleChange,
+    loading,
     handleChangeFile,
     languageOptions,
     options,
@@ -90,7 +93,7 @@ const EditCourse = ({
                     required={true}
                 />
                 <button type="submit" className="btn btn--gradient">
-                    {t('editCourse.update')}
+                    {loading === true ? <CircleDashedLoader /> : t('editCourse.update')}
                 </button>
             </form>
         </div>

@@ -5,16 +5,18 @@ import { useTranslation } from 'react-i18next';
 import CloudinaryImage from '../../common/CloudinaryImage/CloudinaryImage';
 import { User } from '../../../types';
 import { LinkCustom, LinkCustomActive } from '../../../styles/LinkCustom.Styles';
+import CircleDashedLoader from '../../loader/CircleDashedLoader/CircleDashedLoader';
 
 import '../../../styles/Form.Styles.css';
 
 interface Props {
     clickSubmit: (e: FormEvent) => void;
     handleChange: (name: any) => (event: any) => void;
+    loading: boolean;
     values: User;
 }
 
-const Login = ({ clickSubmit, handleChange, values }: Props) => {
+const Login = ({ clickSubmit, handleChange, values, loading }: Props) => {
     const { t } = useTranslation();
     return (
         <div className="signup-signin">
@@ -76,7 +78,7 @@ const Login = ({ clickSubmit, handleChange, values }: Props) => {
                         </Link>
                     </div>
                     <button type="submit" className="btn btn--gradient">
-                        {t('login.signin')}
+                        {loading === true ? <CircleDashedLoader /> : t('login.signin')}
                     </button>
                 </form>
             </div>

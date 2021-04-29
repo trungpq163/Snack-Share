@@ -33,6 +33,8 @@ const AddCourseContainer = ({ category, loading }: Props) => {
         category: '',
     });
 
+    const [loader, setLoader] = React.useState(false);
+
     const options = category?.map((x) => ({
         label: x?.categoryName || '',
         value: x?._id || '',
@@ -94,6 +96,7 @@ const AddCourseContainer = ({ category, loading }: Props) => {
 
     const handleSubmit = (e: React.FormEvent<HTMLButtonElement>) => {
         e.preventDefault();
+        setLoader(true);
         if (values.category === '') {
             toastEmojiNotify('You not choose category of course', '❗');
         }
@@ -133,7 +136,7 @@ const AddCourseContainer = ({ category, loading }: Props) => {
                         courseData,
                         (err: any) => toastErrorNotify(err),
                         (mess: string) => toastSuccessNotify(mess),
-                        () =>
+                        () => {
                             setValues({
                                 courseName: '',
                                 price: '',
@@ -142,7 +145,9 @@ const AddCourseContainer = ({ category, loading }: Props) => {
                                 courseDescription: '',
                                 image: '',
                                 category: '',
-                            }),
+                            });
+                            setLoader(false);
+                        },
                         () => history.push('/my-courses')
                     )
                 );
@@ -163,6 +168,7 @@ const AddCourseContainer = ({ category, loading }: Props) => {
                     options={options}
                     skillLevelOptions={skillLevelOptions}
                     languageOptions={languageOptions}
+                    loader={loader}
                 />
             )}
         </>

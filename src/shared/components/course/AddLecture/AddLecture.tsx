@@ -2,8 +2,15 @@ import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import InputField from '../../../components/common/InputField/InputField';
+import CircleDashedLoader from '../../loader/CircleDashedLoader/CircleDashedLoader';
 
-const AddLecture = ({ handleSubmit, handleChange, values, course /*currentUser*/ }: any) => {
+const AddLecture = ({
+    handleSubmit,
+    handleChange,
+    values,
+    course,
+    loading /*currentUser*/,
+}: any) => {
     const { t } = useTranslation();
     return (
         <div className="block__header">
@@ -28,7 +35,7 @@ const AddLecture = ({ handleSubmit, handleChange, values, course /*currentUser*/
                     required
                 />
                 <button type="submit" className="btn btn--gradient">
-                    Submit
+                    {loading === true ? <CircleDashedLoader /> : 'Submit'}
                 </button>
             </form>
         </div>

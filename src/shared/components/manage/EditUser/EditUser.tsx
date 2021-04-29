@@ -3,14 +3,16 @@ import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import InputField from '../../../components/common/InputField/InputField';
 import InputDropdown from '../../../components/common/InputDropdown/InputDropdown';
+import CircleDashedLoader from '../../loader/CircleDashedLoader/CircleDashedLoader';
 
 interface Props {
     handleSubmit?: (e: React.FormEvent) => void;
     handleChange?: any;
+    loading: boolean;
     values?: any;
 }
 
-const EditUser = ({ handleChange, handleSubmit, values }: Props) => {
+const EditUser = ({ handleChange, handleSubmit, values, loading }: Props) => {
     const { t } = useTranslation();
     // eslint-disable-next-line prefer-const
     let options = [{ label: values?.role, value: values?.role }];
@@ -87,7 +89,7 @@ const EditUser = ({ handleChange, handleSubmit, values }: Props) => {
                     required
                 />
                 <button type="submit" className="btn btn--gradient">
-                    Submit
+                    {loading === true ? <CircleDashedLoader /> : 'Submit'}
                 </button>
             </form>
         </div>

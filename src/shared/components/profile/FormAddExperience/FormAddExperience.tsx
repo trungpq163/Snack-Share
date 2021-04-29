@@ -3,15 +3,17 @@ import { useTranslation } from 'react-i18next';
 
 import InputField from '../../../components/common/InputField/InputField';
 import TextArea from '../../../components/common/TextAreaField/TextAreaField';
+import CircleDashedLoader from '../../loader/CircleDashedLoader/CircleDashedLoader';
 
 interface Props {
     handleSubmit: (e: React.FormEvent) => void;
+    loader: boolean;
     values: any;
     handleCheck: (_e: any) => void;
     handleChange: (name: any) => (event: any) => void;
 }
 
-const FormAddExperience = ({ handleSubmit, values, handleChange, handleCheck }: Props) => {
+const FormAddExperience = ({ handleSubmit, values, handleChange, handleCheck, loader }: Props) => {
     const { t } = useTranslation();
     return (
         <div className="block__header">
@@ -88,7 +90,7 @@ const FormAddExperience = ({ handleSubmit, values, handleChange, handleCheck }: 
                     value={values?.description}
                 />
                 <button type="submit" className="btn btn--gradient">
-                    Submit
+                    {loader === true ? <CircleDashedLoader /> : 'Submit'}
                 </button>
             </form>
         </div>

@@ -23,6 +23,8 @@ const Register = ({ match }: any) => {
         password2: '',
     });
 
+    const [loading, setLoading] = useState(false);
+
     React.useEffect(() => {
         window.scrollTo({
             top: 0,
@@ -38,6 +40,7 @@ const Register = ({ match }: any) => {
 
     const clickSubmit = (e: FormEvent) => {
         e.preventDefault();
+        setLoading(true);
 
         const user: User = {
             first_name: values.first_name || '',
@@ -53,14 +56,16 @@ const Register = ({ match }: any) => {
                 JSON.stringify(user),
                 (message: string) => toastSuccessNotify(message),
                 (err: any) => toastErrorNotify(err),
-                () =>
+                () => {
                     setValues({
                         first_name: '',
                         last_name: '',
                         email: '',
                         password: '',
                         password2: '',
-                    }),
+                    });
+                    setLoading(false);
+                },
                 () => history.push('/login')
             )
         );
@@ -71,6 +76,7 @@ const Register = ({ match }: any) => {
             <RegisterDumb
                 roleParams={roleParams}
                 capitalizeFirstLetter={capitalizeFirstLetter}
+                loading={loading}
                 clickSubmit={clickSubmit}
                 handleChange={handleChange}
                 values={values}

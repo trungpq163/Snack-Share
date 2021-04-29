@@ -91,9 +91,17 @@ button {
     color: white;
 }
 
+.btn:focus {
+    outline: none !important;
+}
+
 .btn--gradient {
+    align-items: center;
     background-image: linear-gradient(to bottom, #ff1d75, #f8902f);
     color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     width: 100%;
 }
 

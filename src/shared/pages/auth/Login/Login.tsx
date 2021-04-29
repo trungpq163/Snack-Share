@@ -18,6 +18,8 @@ const Login = () => {
         password: '',
     });
 
+    const [loading, setLoading] = useState(false);
+
     React.useEffect(() => {
         window.scrollTo({
             top: 0,
@@ -33,6 +35,7 @@ const Login = () => {
 
     const clickSubmit = (e: FormEvent) => {
         e.preventDefault();
+        setLoading(true);
 
         const user: User = {
             email: values.email,
@@ -44,11 +47,13 @@ const Login = () => {
                 user,
                 (err: any) => toastErrorNotify(err),
                 (mess: string) => toastSuccessNotify(mess),
-                () =>
+                () => {
                     setValues({
                         email: '',
                         password: '',
-                    }),
+                    });
+                    setLoading(false);
+                },
                 () => history.push('/')
             )
         );
@@ -56,7 +61,12 @@ const Login = () => {
 
     return (
         <CenterComponent>
-            <LoginDumb clickSubmit={clickSubmit} handleChange={handleChange} values={values} />
+            <LoginDumb
+                clickSubmit={clickSubmit}
+                handleChange={handleChange}
+                values={values}
+                loading={loading}
+            />
         </CenterComponent>
     );
 };

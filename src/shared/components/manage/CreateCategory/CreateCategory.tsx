@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import InputField from '../../../components/common/InputField/InputField';
+import CircleDashedLoader from '../../loader/CircleDashedLoader/CircleDashedLoader';
 
 interface Values {
     categoryName?: string;
@@ -11,10 +12,11 @@ interface Values {
 interface Props {
     values: Values;
     handleSubmit: (e: React.FormEvent) => void;
+    loading: boolean;
     handleChange: any;
 }
 
-const CreateCategory = ({ values, handleChange, handleSubmit }: Props) => {
+const CreateCategory = ({ values, handleChange, handleSubmit, loading }: Props) => {
     const { t } = useTranslation();
     return (
         <div className="block__header">
@@ -31,7 +33,7 @@ const CreateCategory = ({ values, handleChange, handleSubmit }: Props) => {
                     required={true}
                 />
                 <button type="submit" className="btn btn--gradient">
-                    Submit
+                    {loading === true ? <CircleDashedLoader /> : 'Submit'}
                 </button>
             </form>
         </div>

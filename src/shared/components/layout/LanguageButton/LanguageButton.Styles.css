@@ -4,7 +4,3 @@
     height: 50px;
     width: 50px;
 }
-
-button:focus {
-    outline: none !important;
-}

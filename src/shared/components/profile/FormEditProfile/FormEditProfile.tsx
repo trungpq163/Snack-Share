@@ -4,15 +4,17 @@ import { useTranslation } from 'react-i18next';
 import InputField from '../../common/InputField/InputField';
 import InputDropdown from '../../common/InputDropdown/InputDropdown';
 import TextArea from '../../common/TextAreaField/TextAreaField';
+import CircleDashedLoader from '../../loader/CircleDashedLoader/CircleDashedLoader';
 
 interface Props {
     handleSubmit?: (e: React.FormEvent) => void;
     handleChange?: any;
+    loader: boolean;
     options: any[];
     values: any;
 }
 
-const FormEditProfile = ({ handleSubmit, values, handleChange, options }: Props) => {
+const FormEditProfile = ({ handleSubmit, values, handleChange, options, loader }: Props) => {
     const { t } = useTranslation();
     return (
         <div className="block__header">
@@ -115,7 +117,7 @@ const FormEditProfile = ({ handleSubmit, values, handleChange, options }: Props)
                     value={values.instagram}
                 />
                 <button type="submit" className="btn btn--gradient">
-                    Submit
+                    {loader === true ? <CircleDashedLoader /> : 'Submit'}
                 </button>
             </form>
         </div>

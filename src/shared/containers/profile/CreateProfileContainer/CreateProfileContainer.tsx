@@ -33,6 +33,8 @@ const CreateProfileContainer = ({ auth }: any) => {
         instagram: '',
     });
 
+    const [loading, setLoading] = React.useState(false);
+
     // Select options for status
     const options = [
         { label: '* Select Professional Status', value: 0 },
@@ -55,6 +57,7 @@ const CreateProfileContainer = ({ auth }: any) => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        setLoading(true);
 
         const profileData = {
             handle: values.handle,
@@ -77,7 +80,7 @@ const CreateProfileContainer = ({ auth }: any) => {
                 profileData,
                 (err: any) => toastErrorNotify(err),
                 (mess: string) => toastSuccessNotify(mess),
-                () =>
+                () => {
                     setValues({
                         handle: '',
                         company: '',
@@ -92,7 +95,9 @@ const CreateProfileContainer = ({ auth }: any) => {
                         linkedin: '',
                         youtube: '',
                         instagram: '',
-                    }),
+                    });
+                    setLoading(false);
+                },
                 () => setData(dispatch, decoded),
                 () => history.push(`/user/${auth?.users?.id}`)
             )
@@ -102,6 +107,7 @@ const CreateProfileContainer = ({ auth }: any) => {
     return (
         <FormCreateProfile
             handleSubmit={handleSubmit}
+            loading={loading}
             values={values}
             handleChange={handleChange}
             options={options}

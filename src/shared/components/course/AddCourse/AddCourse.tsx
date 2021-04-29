@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import InputField from '../../../components/common/InputField/InputField';
 import TextArea from '../../../components/common/TextAreaField/TextAreaField';
 import InputDropdown from '../../../components/common/InputDropdown/InputDropdown';
+import CircleDashedLoader from '../../loader/CircleDashedLoader/CircleDashedLoader';
 
 interface Props {
     handleSubmit?: any;
@@ -13,6 +14,7 @@ interface Props {
     handleChangeFile?: any;
     skillLevelOptions?: any;
     languageOptions?: any;
+    loader: boolean;
 }
 
 const AddCourse = ({
@@ -23,6 +25,7 @@ const AddCourse = ({
     handleChangeFile,
     languageOptions,
     skillLevelOptions,
+    loader,
 }: Props) => {
     const { t } = useTranslation();
     return (
@@ -90,7 +93,7 @@ const AddCourse = ({
                     required={true}
                 />
                 <button type="submit" className="btn btn--gradient">
-                    Submit
+                    {loader === true ? <CircleDashedLoader /> : 'Submit'}
                 </button>
             </form>
         </div>

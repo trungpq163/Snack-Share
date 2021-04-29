@@ -2,17 +2,19 @@ import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import InputDropdown from '../../../components/common/InputDropdown/InputDropdown';
+import CircleDashedLoader from '../../loader/CircleDashedLoader/CircleDashedLoader';
 
 interface Props {
     values?: any;
     users?: any;
     courses?: any[];
+    loading: boolean;
     handleChange: (name: any) => (event: any) => void;
     options: any;
     handleSubmit: any;
 }
 
-const CreateEnrollment = ({ values, handleChange, options, handleSubmit }: Props) => {
+const CreateEnrollment = ({ values, handleChange, options, handleSubmit, loading }: Props) => {
     const { t } = useTranslation();
     return (
         <div className="block__header">
@@ -37,7 +39,7 @@ const CreateEnrollment = ({ values, handleChange, options, handleSubmit }: Props
                     required
                 />
                 <button type="submit" className="btn btn--gradient">
-                    Submit
+                    {loading === true ? <CircleDashedLoader /> : 'Submit'}
                 </button>
             </form>
         </div>

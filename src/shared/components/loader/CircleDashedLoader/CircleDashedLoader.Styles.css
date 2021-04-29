@@ -1,0 +1,47 @@
+:root {
+    --white: #f8f8f8;
+}
+
+button {
+    cursor: pointer;
+}
+
+.dashed-loading {
+    height: 20px;
+    position: relative;
+}
+
+.dashed-loading:after,
+.dashed-loading:before {
+    border-radius: 50%;
+    content: '';
+    height: 20px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 20px;
+}
+
+.dashed-loading:before {
+    -webkit-animation: dashed 1s linear infinite;
+    animation: dashed 1s linear infinite;
+    border: 3px dashed var(--white);
+    border-bottom: 3px solid transparent;
+    border-left: 3px solid transparent;
+    z-index: 5;
+}
+
+.dashed-loading:after {
+    -webkit-animation: dashed 1s ease infinite;
+    animation: dashed 1s ease infinite;
+    border: 3px solid var(--white);
+    border-bottom: 3px solid transparent;
+    border-left: 3px solid transparent;
+    z-index: 10;
+}
+
+@keyframes dashed {
+    to {
+        transform: rotate(360deg);
+    }
+}

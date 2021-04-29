@@ -17,6 +17,8 @@ const CreateEnrollmentContainer = ({ users, courses }: Props) => {
         courseId: '',
     });
 
+    const [loading, setLoading] = React.useState(false);
+
     const [options, setOptions] = React.useState({
         users: [],
         courses: [],
@@ -62,6 +64,7 @@ const CreateEnrollmentContainer = ({ users, courses }: Props) => {
 
     const handleSubmit = (e: React.FormEvent<any>) => {
         e.preventDefault();
+        setLoading(true);
 
         const dataEnrollment = {
             student: values.userId,
@@ -73,17 +76,27 @@ const CreateEnrollmentContainer = ({ users, courses }: Props) => {
                 dataEnrollment,
                 (err: any) => toastErrorNotify(err),
                 (mess: string) => toastSuccessNotify(mess),
-                () =>
+                () => {
                     setValues({
                         userId: '',
                         courseId: '',
-                    }),
+                    });
+                    setLoading(false);
+                },
                 () => dispatch(getAllEnrollments())
             )
         );
     };
 
-    const propsCreateEnrollAdmin = { users, courses, values, handleChange, options, handleSubmit };
+    const propsCreateEnrollAdmin = {
+        users,
+        courses,
+        values,
+        handleChange,
+        options,
+        handleSubmit,
+        loading,
+    };
     return <CreateEnrollment {...propsCreateEnrollAdmin} />;
 };
 

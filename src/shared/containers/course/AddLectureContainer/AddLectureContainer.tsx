@@ -20,6 +20,8 @@ const AddLectureContainer = ({ course, currentUser /*isAuthor*/ }: Props) => {
         videoLink: '',
     });
 
+    const [loading, setLoading] = React.useState(false);
+
     const handleChange = (name: any) => (event: any) => {
         setValues({
             ...values,
@@ -29,6 +31,7 @@ const AddLectureContainer = ({ course, currentUser /*isAuthor*/ }: Props) => {
 
     const handleSubmit = (e: React.FormEvent<any>) => {
         e.preventDefault();
+        setLoading(true);
 
         const data = {
             title: values.title,
@@ -41,11 +44,13 @@ const AddLectureContainer = ({ course, currentUser /*isAuthor*/ }: Props) => {
                 data,
                 (err: any) => toastErrorNotify(err),
                 (mess: string) => toastSuccessNotify(mess),
-                () =>
+                () => {
                     setValues({
                         title: '',
                         videoLink: '',
-                    }),
+                    });
+                    setLoading(false);
+                },
                 () => dispatch(getLecturesById(course?._id))
             )
         );
@@ -58,6 +63,7 @@ const AddLectureContainer = ({ course, currentUser /*isAuthor*/ }: Props) => {
             handleChange={handleChange}
             course={course}
             currentUser={currentUser}
+            loading={loading}
         />
     );
 };

@@ -23,6 +23,8 @@ const EditCategoryContainer = ({ loading, category, pathName }: Props) => {
         no: 1,
     });
 
+    const [loader, setLoader] = React.useState(false);
+
     React.useEffect(() => {
         setDecoded(jwtDecode(localStorage.getItem('jwtToken') as string));
     }, []);
@@ -44,6 +46,7 @@ const EditCategoryContainer = ({ loading, category, pathName }: Props) => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        setLoader(true);
 
         const categoryData = {
             categoryName: values.categoryName,
@@ -56,7 +59,10 @@ const EditCategoryContainer = ({ loading, category, pathName }: Props) => {
                 pathName,
                 (err: any) => toastErrorNotify(err),
                 (mess: string) => toastSuccessNotify(mess),
-                () => setData(dispatch, decoded)
+                () => {
+                    setData(dispatch, decoded);
+                    setLoader(false);
+                }
             )
         );
     };
@@ -69,6 +75,7 @@ const EditCategoryContainer = ({ loading, category, pathName }: Props) => {
                 <EditCategory
                     handleSubmit={handleSubmit}
                     values={values}
+                    loader={loader}
                     handleChange={handleChange}
                 />
             )}

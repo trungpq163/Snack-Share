@@ -15,6 +15,8 @@ const CreateCategoryContainer = () => {
         no: 1,
     });
 
+    const [loading, setLoading] = React.useState(false);
+
     React.useEffect(() => {
         setDecoded(jwtDecode(localStorage.getItem('jwtToken') as string));
     }, []);
@@ -28,6 +30,7 @@ const CreateCategoryContainer = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        setLoading(true);
 
         const categoryData = {
             no: values.no,
@@ -39,18 +42,25 @@ const CreateCategoryContainer = () => {
                 categoryData,
                 (err: string) => toastErrorNotify(err),
                 (mess: string) => toastSuccessNotify(mess),
-                () =>
+                () => {
                     setValues({
                         categoryName: '',
                         no: 1,
-                    }),
+                    });
+                    setLoading(false);
+                },
                 () => setData(dispatch, decoded)
             )
         );
     };
 
     return (
-        <CreateCategory handleSubmit={handleSubmit} values={values} handleChange={handleChange} />
+        <CreateCategory
+            handleSubmit={handleSubmit}
+            values={values}
+            handleChange={handleChange}
+            loading={loading}
+        />
     );
 };
 

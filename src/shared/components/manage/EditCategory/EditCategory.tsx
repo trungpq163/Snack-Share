@@ -2,14 +2,16 @@ import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import InputField from '../../../components/common/InputField/InputField';
+import CircleDashedLoader from '../../loader/CircleDashedLoader/CircleDashedLoader';
 
 interface Props {
     handleSubmit: (e: React.FormEvent) => void;
     values: any;
+    loader: boolean;
     handleChange: (name: any) => (event: any) => void;
 }
 
-const EditCategory = ({ handleChange, values, handleSubmit }: Props) => {
+const EditCategory = ({ handleChange, values, handleSubmit, loader }: Props) => {
     const { t } = useTranslation();
     return (
         <div className="block__header">
@@ -26,7 +28,7 @@ const EditCategory = ({ handleChange, values, handleSubmit }: Props) => {
                     required={true}
                 />
                 <button type="submit" className="btn btn--gradient">
-                    Submit
+                    {loader === true ? <CircleDashedLoader /> : 'Submit'}
                 </button>
             </form>
         </div>

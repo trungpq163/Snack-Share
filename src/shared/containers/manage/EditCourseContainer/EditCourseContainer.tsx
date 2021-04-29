@@ -32,6 +32,8 @@ const EditCourseContainer = ({ course, pathname, category }: Props) => {
         category: '',
     });
 
+    const [loading, setLoading] = React.useState(false);
+
     React.useEffect(() => {
         if (localStorage.jwtToken) {
             setDecoded(jwtDecode(localStorage.getItem('jwtToken') as string));
@@ -140,6 +142,8 @@ const EditCourseContainer = ({ course, pathname, category }: Props) => {
 
     const handleSubmit = (e: React.FormEvent<HTMLButtonElement>) => {
         e.preventDefault();
+        setLoading(true);
+
         if (values.category === '') {
             toastEmojiNotify('You not choose category of course', '❗');
         }
@@ -180,7 +184,7 @@ const EditCourseContainer = ({ course, pathname, category }: Props) => {
                         courseData,
                         (err: any) => toastErrorNotify(err),
                         (mess: string) => toastSuccessNotify(mess),
-                        () =>
+                        () => {
                             setValues({
                                 courseName: '',
                                 price: '',
@@ -189,7 +193,9 @@ const EditCourseContainer = ({ course, pathname, category }: Props) => {
                                 courseDescription: '',
                                 image: '',
                                 category: '',
-                            }),
+                            });
+                            setLoading(false);
+                        },
                         () => history.push('/my-courses'),
                         () => setData(dispatch, decoded)
                     )
@@ -201,6 +207,7 @@ const EditCourseContainer = ({ course, pathname, category }: Props) => {
     return (
         <EditCourse
             values={values}
+            loading={loading}
             handleChange={handleChange}
             handleChangeFile={handleChangeFile}
             options={options}

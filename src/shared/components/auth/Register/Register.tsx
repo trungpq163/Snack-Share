@@ -6,12 +6,15 @@ import { LinkCustom, LinkCustomActive } from '../../../styles/LinkCustom.Styles'
 
 import { User } from '../../../types';
 import { introLogin as bg } from '../../../utils/imageURL';
+import CircleDashedLoader from '../../loader/CircleDashedLoader/CircleDashedLoader';
+
 import '../../../styles/Form.Styles.css';
 
 interface Props {
     roleParams: string;
     capitalizeFirstLetter: (str: string) => string;
     clickSubmit: (e: any) => void;
+    loading: boolean;
     handleChange: (name: any) => (event: any) => void;
     values: User;
 }
@@ -21,6 +24,7 @@ const Register = ({
     capitalizeFirstLetter,
     clickSubmit,
     handleChange,
+    loading,
     values,
 }: Props) => {
     const { t, i18n } = useTranslation();
@@ -138,7 +142,7 @@ const Register = ({
                         </Link>
                     </div>
                     <button type="submit" className="btn btn--gradient">
-                        {t('register.signup')}
+                        {loading === true ? <CircleDashedLoader /> : t('register.signup')}
                     </button>
                 </form>
             </div>

@@ -33,6 +33,8 @@ const EditProfileContainer = ({ profile, loading, auth }: any) => {
         instagram: '',
     });
 
+    const [loader, setLoader] = React.useState(false);
+
     React.useEffect(() => {
         if (localStorage.jwtToken) {
             setDecoded(jwtDecode(localStorage.getItem('jwtToken') as string));
@@ -97,6 +99,7 @@ const EditProfileContainer = ({ profile, loading, auth }: any) => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        setLoader(true);
 
         const profileData = {
             handle: values.handle,
@@ -119,7 +122,7 @@ const EditProfileContainer = ({ profile, loading, auth }: any) => {
                 profileData,
                 (err: any) => toastErrorNotify(err),
                 (mess: string) => toastSuccessNotify(mess),
-                () =>
+                () => {
                     setValues({
                         handle: '',
                         company: '',
@@ -134,7 +137,9 @@ const EditProfileContainer = ({ profile, loading, auth }: any) => {
                         linkedin: '',
                         youtube: '',
                         instagram: '',
-                    }),
+                    });
+                    setLoader(false);
+                },
                 () => setData(dispatch, decoded),
                 () => history.push(`/user/${auth?.users?.id}`)
             )
@@ -148,6 +153,7 @@ const EditProfileContainer = ({ profile, loading, auth }: any) => {
             ) : (
                 <FormEditProfile
                     handleSubmit={handleSubmit}
+                    loader={loader}
                     values={values}
                     handleChange={handleChange}
                     options={options}
