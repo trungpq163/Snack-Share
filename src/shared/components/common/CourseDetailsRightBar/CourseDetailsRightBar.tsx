@@ -14,6 +14,8 @@ interface Props {
     skillLevel: string;
     courses: any;
     redirectToSessionCheckout: any;
+    handleClickBuyFreeCourse: any;
+    loading: boolean;
 }
 
 const CourseDetailsRightBar = ({
@@ -25,6 +27,8 @@ const CourseDetailsRightBar = ({
     skillLevel,
     courses,
     redirectToSessionCheckout,
+    handleClickBuyFreeCourse,
+    loading,
 }: Props) => {
     return (
         <div className="col-lg-4">
@@ -35,6 +39,8 @@ const CourseDetailsRightBar = ({
                     // idCourse={idCourse}
                     price={price || 0}
                     redirectToSessionCheckout={redirectToSessionCheckout}
+                    handleClickBuyFreeCourse={handleClickBuyFreeCourse}
+                    loading={loading}
                 />
             ) : (
                 <StudyNowCourseDetails idCourse={idCourse} />

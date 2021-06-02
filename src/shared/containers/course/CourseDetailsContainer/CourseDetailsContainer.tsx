@@ -2,11 +2,13 @@ import * as React from 'react';
 
 import { useHistory } from 'react-router-dom';
 
-import { toastErrorNotify } from '../../../utils/toast';
+import { useDispatch } from 'react-redux';
+import { toastErrorNotify, toastSuccessNotify } from '../../../utils/toast';
 import CourseDetails from '../../../components/course/CourseDetails/CourseDetails';
 import capitalizeFirstLetter from '../../../utils/capitalizeFirstLetter';
 import stripePromise from '../../../utils/stripePromise';
 import { createSessionCheckout } from '../../../store/checkout/effect';
+import { addEnrollments, getAllEnrollments } from '../../../store/enrollment/effects';
 
 interface Props {
     idCourse: string;
@@ -32,6 +34,10 @@ const CourseDetailsContainer = ({
     user,
 }: Props) => {
     const history = useHistory();
+    const dispatch = useDispatch();
+
+    const [loading, setLoading] = React.useState(false);
+
     const dataCourse = {
         id: courseDetails?._id,
         courseName: courseDetails?.courseName,
@@ -56,7 +62,10 @@ const CourseDetailsContainer = ({
     };
 
     const redirectToSessionCheckout = async (_event: React.FormEvent<HTMLInputElement>) => {
+        setLoading(true);
+
         if (isNotAuth === true) {
+            setLoading(false);
             await history.push('/login');
         } else {
             const stripe = await stripePromise;
@@ -66,10 +75,39 @@ const CourseDetailsContainer = ({
                 studentId,
                 dataCourseForCheckout,
                 (err: string) => toastErrorNotify(err),
-                (sessionId: string) =>
-                    stripe?.redirectToCheckout({
+                (sessionId: string) => {
+                    setLoading(false);
+                    return stripe?.redirectToCheckout({
                         sessionId: sessionId,
-                    })
+                    });
+                }
+            );
+        }
+    };
+
+    const handleClickBuyFreeCourse = () => {
+        setLoading(true);
+
+        const dataEnrollment = {
+            student: studentId,
+            course: courseDetails?._id,
+        };
+
+        if (isNotAuth === true) {
+            setLoading(false);
+            history.push('/login');
+        } else {
+            dispatch(
+                addEnrollments(
+                    dataEnrollment,
+                    (err: any) => toastErrorNotify(err),
+                    (mess: string) => toastSuccessNotify(mess),
+                    () => {
+                        setLoading(false);
+                        history.push('/my-courses/learning/');
+                    },
+                    () => dispatch(getAllEnrollments)
+                )
             );
         }
     };
@@ -82,6 +120,8 @@ const CourseDetailsContainer = ({
             enrolled={enrolled}
             courses={courses}
             redirectToSessionCheckout={redirectToSessionCheckout}
+            handleClickBuyFreeCourse={handleClickBuyFreeCourse}
+            loading={loading}
             ratings={ratings}
             user={user}
         />

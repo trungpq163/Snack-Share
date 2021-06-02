@@ -95,7 +95,7 @@ export const loginUsersCtrl = (req: Request, res: Response) => {
 
                 // Sign token
                 jwt.sign(payload, keys.SECRET_ORKEY, { expiresIn: 7200 }, (_err, token) => {
-                    res.json({
+                    res.status(200).json({
                         success: true,
                         token: 'Bearer ' + token,
                         first_name: user.first_name,

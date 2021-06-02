@@ -22,6 +22,8 @@ const CourseDetails = ({
     ratings,
     user,
     courseDetailRatings,
+    handleClickBuyFreeCourse,
+    loading,
 }: any) => {
     console.log('courseDetailRatings', courseDetailRatings);
     return (
@@ -50,7 +52,9 @@ const CourseDetails = ({
                         enrolled={enrolled}
                         language={language}
                         skillLevel={skillLevel}
+                        loading={loading}
                         redirectToSessionCheckout={redirectToSessionCheckout}
+                        handleClickBuyFreeCourse={handleClickBuyFreeCourse}
                     />
                 </div>
             </div>
