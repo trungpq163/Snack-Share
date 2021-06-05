@@ -3,6 +3,9 @@ declare namespace NodeJS {
         NODE_ENV: 'development' | 'production' | 'test';
         PUBLIC_URL: string;
         SOURCE_LANGUAGE: 'string';
+        MONGODB_URI: 'string';
+        CLOUDINARY_API_SECRET: 'string';
+        STRIPE_SECRET_KEY: 'string';
     }
 }
 

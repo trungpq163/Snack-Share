@@ -1,15 +1,14 @@
-// quoctrung163
+require('dotenv').config();
+
 export default {
-    MONGODB_URI:
-        'mongodb+srv://quoctrung163:qtrung12345678@cluster0.k00qa.mongodb.net/snackdev?retryWrites=true&w=majority',
+    MONGODB_URI: process.env.MONGODB_URI,
     SECRET_ORKEY: 'secret',
-    CLOUDINARY_API_SECRET: 'JeOrJ7L52t-yH2Ue7JJoPRxqZAc',
+    CLOUDINARY_API_SECRET: process.env.CLOUDINARY_API_SECRET,
     CLOUDINARY_API_KEY: '432447374361434',
     CLOUDINARY_CLOUD_NAME: 'snack-dev',
     STRIPE_PUBLISHABLE_KEY:
         'pk_test_51IR24mCdh8kNNNyZWuH8RHqQw6qzs0xshxGO90SCpBcdScRzi7GAvAcwsoWzFQU1P9fmqdjgHw2CCLZGbeCvSTbI00Dcw3z8Xx',
-    STRIPE_SECRET_KEY:
-        'sk_test_51IR24mCdh8kNNNyZihB4K9CyUZCWlKMwa4aiQecl92mgj8zgfpx5Hzr2l4xputI7MFl3IMh8HdntSZ2vCdj2pQd800684XvBsf',
+    STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
     DOMAIN_NAME:
         process.env.NODE_ENV === 'production'
             ? 'https://snack-share.herokuapp.com'
