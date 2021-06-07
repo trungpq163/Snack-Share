@@ -1,4 +1,4 @@
-## Snack Share
+# Snack Share
 
 ### Creates a new build, optimized for production
 ``` 
