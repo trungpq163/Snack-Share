@@ -1,5 +1,8 @@
 # Snack Share
 
+## Demo
+[![SnackShare - Learn Anything, On Your Schedule #Felicity祺](https://yt-embed.herokuapp.com/embed?v=-qbaY1hWJdI)](https://youtu.be/-qbaY1hWJdI "SnackShare - Learn Anything, On Your Schedule")
+
 ### Creates a new build, optimized for production
 ``` 
 yarn build
